@@ -5,20 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Linkedin, Twitter } from "lucide-react";
 
-const educators = [
-  {
-    name: "Mrigesh Deshpande",
-    role: "Sr. Full Stack Developer",
-    specialization: "Backend & Systems Design",
-    image: "/images/team/Mrigesh-Deshpande.jpg",
-  },
-  {
-    name: "Chakresh Chakshu",
-    role: "Jr. Full Stack Developer",
-    specialization: "Next.js & Frontend Architecture",
-    image: "/images/team/Chakresh-Chakshu.webp",
-  },
-];
+import { bcaEducators as educators } from "@/data/teamData";
 
 export const BCAEducators = () => {
   return (
@@ -73,13 +60,16 @@ export const BCAEducators = () => {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                 />
                 <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-3 md:gap-4 backdrop-blur-xs">
-                  <motion.button
+                  <motion.a
+                    href={edu?.socials?.linkedin || "#"}
+                    target={edu?.socials?.linkedin ? "_blank" : "_self"}
+                    rel={edu?.socials?.linkedin ? "noopener noreferrer" : ""}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     className="w-10 h-10 md:w-12 md:h-12 bg-background text-primary rounded-full flex items-center justify-center shadow-xl hover:bg-primary hover:text-primary-foreground transition-colors"
                   >
                     <Linkedin size={18} />
-                  </motion.button>
+                  </motion.a>
                 </div>
               </div>
 
