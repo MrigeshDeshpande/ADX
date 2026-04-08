@@ -7,17 +7,17 @@ import { CometCard } from "@/components/ui/comet-card";
 export const Benefits = () => {
   const benefits = [
     {
-      image: "/images/benefits/career-growth-flat.png",
+      image: "/images/benefits/career-growth-flat.webp",
       title: "Career Growth",
       description: "Our graduates see an average salary increase of 40% within the first year of completion."
     },
     {
-      image: "/images/benefits/industry-certified-flat.png",
+      image: "/images/benefits/industry-certified-flat.webp",
       title: "Industry Certified",
       description: "Curriculum designed and certified by top industry leaders and global business schools."
     },
     {
-      image: "/images/benefits/fast-track-flat.png",
+      image: "/images/benefits/fast-track-flat.webp",
       title: "Fast-Track Learning",
       description: "Intensive modules designed to get you job-ready in record time without compromising quality."
     }
