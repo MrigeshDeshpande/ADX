@@ -13,6 +13,7 @@ import { FSDPlacementOutcomes } from "./PlacementOutcomes";
 import { FSDAdmissionProcess } from "./AdmissionProcess";
 import { FSDFAQ } from "./FAQ";
 import { FSDFinalCTA } from "./FinalCTA";
+import { FSDEducators } from "./Educators";
 import PartnersSlider from "@/components/common/PartnersSlider";
 
 export function FSDLandingPage({ faqs }) {
@@ -24,6 +25,7 @@ export function FSDLandingPage({ faqs }) {
       <FSDOJTExplained />
       <FSDCurriculum />
       <FSDTechStack />
+      <FSDEducators />
       <FSDPortfolioProjects />
       <FSDWhoIsThisFor />
       <FSDComparisonTable />

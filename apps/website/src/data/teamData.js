@@ -30,7 +30,7 @@ export const TEAM_MEMBERS = {
         role: "Sr. Full Stack Developer",
         bio: "Full Stack Engineer focused on backend scalability, system design, and building robust real-world production systems.",
         specialization: "Backend & Systems Design",
-        image: "/images/team/Mrigesh-Deshpande.jpg",
+        image: "/images/team/Mrigesh-Deshpande.webp",
         imageClassName: "object-center scale-[1.25] group-hover:scale-[1.35] md:group-hover:scale-[1.35]",
         badge: "Core",
         socials: {
@@ -55,7 +55,7 @@ export const TEAM_MEMBERS = {
         role: "SEO & PPC Specialist",
         bio: "An SEO & PPC Specialist known for data analysis and strategic execution.",
         specialization: "Digital Marketing Strategy",
-        image: "/images/team/Neeraj.png",
+        image: "/images/team/Neeraj.webp",
         socials: {
             linkedin: "https://www.linkedin.com/in/neeraj-dang-70350824a",
         },
@@ -67,7 +67,7 @@ export const TEAM_MEMBERS = {
         name: "Kaushal Parihar",
         role: "Field Sales Executive",
         bio: "Sales on the move, results on target. Drives physical outreach and builds enterprise partnerships.",
-        image: "/images/team/KaushalSIr.png",
+        image: "/images/team/KaushalSIr.webp",
         badge: "Ops",
         socials: {
             linkedin: "https://linkedin.com",
@@ -78,7 +78,7 @@ export const TEAM_MEMBERS = {
         name: "Khushali Gupta",
         role: "Business Development Executive",
         bio: "Where words meet results. Spearheads outbound campaigns and deepens community engagement pipelines.",
-        image: "/images/team/khushali.jpeg",
+        image: "/images/team/khushali.webp",
         socials: {
             linkedin: "https://linkedin.com",
         },
@@ -88,7 +88,7 @@ export const TEAM_MEMBERS = {
         name: "Bhanu Sharma",
         role: "Administrative Head",
         bio: "Behind the scenes leader: orchestrating systems, managing people, and laying the groundwork for success.",
-        image: "/images/team/Bhanu.jpg",
+        image: "/images/team/Bhanu.webp",
         socials: {
             linkedin: "https://linkedin.com",
         },
@@ -126,7 +126,7 @@ export const TEAM_MEMBERS = {
     },
     narendraSingh: {
         id: "narendra-singh",
-        name: "Narendra",
+        name: "Narendra Singh",
         role: "Digital Marketing Program Director",
         bio: "Leading the Digital Marketing Program with years of industry experience to guide students toward success.",
         image: "/images/team/Narendra-Singh.webp",
@@ -202,4 +202,9 @@ export const dgmEducators = [
     TEAM_MEMBERS.narendraSingh,
     TEAM_MEMBERS.neerajDang,
     TEAM_MEMBERS.ashiChabra,
+];
+
+export const fsdEducators = [
+    TEAM_MEMBERS.mrigeshDeshpande,
+    TEAM_MEMBERS.chakreshChakshu,
 ];
