@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Linkedin, Twitter, Globe, ArrowUpRight } from "lucide-react";
 
-export default function TeamMemberCard({ name, role, bio, image, badge, socials = {}, priority = false }) {
+export default function TeamMemberCard({ name, role, bio, image, imageClassName, badge, socials = {}, priority = false }) {
     return (
         <div className="group flex flex-col gap-4 w-full">
             {/* Image Container */}
@@ -14,7 +14,7 @@ export default function TeamMemberCard({ name, role, bio, image, badge, socials 
                     alt={name}
                     fill
                     priority={priority}
-                    className="object-cover object-top transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] md:group-hover:scale-105"
+                    className={`object-cover transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] md:group-hover:scale-105 ${imageClassName || "object-top"}`}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
 

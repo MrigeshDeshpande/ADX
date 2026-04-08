@@ -5,13 +5,13 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Linkedin, Twitter, ExternalLink } from "lucide-react";
 
-import { bbaEducators as educators } from "@/data/teamData";
+import { dgmEducators as educators } from "@/data/teamData";
 
-export const Educators = () => {
+export const DGMEducators = () => {
   return (
-    <section className="py-[10vh] md:py-[15vh] relative overflow-hidden">
+    <section className="py-[10vh] md:py-[15vh] bg-linear-to-b from-background to-background/50 dark:from-neutral-950 dark:to-neutral-900 relative overflow-hidden">
       {/* Subtle background glow */}
-      <div className="absolute bottom-0 left-0 w-87.5 md:w-125 h-87.5 md:h-125  dark:bg-secondary/15 rounded-full blur-[80px] md:blur-[100px] -z-10 -translate-x-1/2 translate-y-1/2" />
+      <div className="absolute bottom-0 left-0 w-87.5 md:w-125 h-87.5 md:h-125 bg-secondary/5 dark:bg-secondary/15 rounded-full blur-[80px] md:blur-[100px] -z-10 -translate-x-1/2 translate-y-1/2" />
 
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 md:mb-16 max-w-3xl mx-auto">
@@ -38,7 +38,7 @@ export const Educators = () => {
             transition={{ delay: 0.1 }}
             className="text-muted-foreground dark:text-neutral-400 text-sm md:text-base lg:text-lg leading-relaxed"
           >
-            Our educators aren&apos;t just academics; they are industry leaders, founders, and experts who have shaped the modern business landscape.
+            Our educators aren&apos;t just academics; they are industry leaders, founders, and experts who have shaped the digital marketing landscape.
           </motion.p>
         </div>
 
@@ -58,7 +58,7 @@ export const Educators = () => {
                   alt={edu.name}
                   fill
                   className={`object-cover group-hover:scale-110 transition-transform duration-700 ${edu.imageClassName || "object-top"}`}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-primary/20 dark:bg-primary/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-3 md:gap-4 backdrop-blur-xs">
                   <motion.a
@@ -82,7 +82,7 @@ export const Educators = () => {
                   {edu.role}
                 </div>
                 <p className="text-muted-foreground dark:text-neutral-400 text-xs md:text-sm font-medium leading-relaxed italic">
-                  {edu.specialization}
+                  {edu.specialization || "Marketing Expert"}
                 </p>
               </div>
             </motion.div>

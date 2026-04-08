@@ -111,26 +111,63 @@ export const TEAM_MEMBERS = {
             linkedin: "https://linkedin.com",
         },
     },
+    ashiChabra: {
+        id: "ashi-chabra",
+        name: "Ashi Chhabra",
+        role: "Digital Marketer",
+        bio: "Digital Marketer driving growth, managing campaigns and ensuring brand success.",
+        image: "/images/team/Ashi-Chabra.webp",
+        specialization: "Digital Marketing",
+        socials: {
+            linkedin: "https://linkedin.com",
+        },
+    },
+    narendraSingh: {
+        id: "narendra-singh",
+        name: "Narendra",
+        role: "Digital Marketing Program Director",
+        bio: "Leading the Digital Marketing Program with years of industry experience to guide students toward success.",
+        image: "/images/team/Narendra-Singh.webp",
+        imageClassName: "object-center scale-[1.2]",
+        specialization: "Program Direction & Strategy",
+        socials: {
+            linkedin: "https://linkedin.com",
+        },
+    },
+    kanikaParashar: {
+        id: "kanika-parashar",
+        name: "Kanika Parashar",
+        role: "Business Development Associate",
+        bio: "Passionate about forming valuable connections and driving business growth through strategic outreach.",
+        image: "/images/team/Kanika-Parashar.webp",
+        socials: {
+            linkedin: "https://linkedin.com",
+        },
+    },
 };
 
 // General team page groupings
 export const leadershipTeam = [
     TEAM_MEMBERS.rahulSingh,
     TEAM_MEMBERS.suryanshUpadhyay,
+    
 ];
 
 export const engineeringTeam = [
     TEAM_MEMBERS.mrigeshDeshpande,
     TEAM_MEMBERS.chakreshChakshu,
     TEAM_MEMBERS.neerajDang,
+    TEAM_MEMBERS.ashiChabra,
+    TEAM_MEMBERS.narendraSingh,
 ];
 
 export const operationsTeam = [
     TEAM_MEMBERS.kaushalParihar,
+    TEAM_MEMBERS.bhanuSharma,
     TEAM_MEMBERS.karanSinghTomar,
     TEAM_MEMBERS.saurabhVerma,
     TEAM_MEMBERS.khushaliGupta,
-    TEAM_MEMBERS.bhanuSharma,
+    TEAM_MEMBERS.kanikaParashar,
 ];
 
 // Carousel / Other Team selection
@@ -142,7 +179,9 @@ export const carouselTeam = [
     TEAM_MEMBERS.bhanuSharma,
     TEAM_MEMBERS.karanSinghTomar,
     TEAM_MEMBERS.saurabhVerma,
+    TEAM_MEMBERS.narendraSingh,
     TEAM_MEMBERS.chakreshChakshu,
+    
 ];
 
 // Course specific educators
@@ -152,5 +191,13 @@ export const bcaEducators = [
 ];
 
 export const bbaEducators = [
+    TEAM_MEMBERS.narendraSingh,
     TEAM_MEMBERS.neerajDang,
+    TEAM_MEMBERS.ashiChabra,
+];
+
+export const dgmEducators = [
+    TEAM_MEMBERS.narendraSingh,
+    TEAM_MEMBERS.neerajDang,
+    TEAM_MEMBERS.ashiChabra,
 ];

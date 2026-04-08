@@ -333,7 +333,7 @@ const TeamCarousel = ({
                     src={member.image || member.avatar || ""}
                     alt={member.name}
                     fill
-                    className="object-cover"
+                    className={`object-cover ${member.imageClassName || "object-top"}`}
                   />
 
                   {/* Overlay Info */}

@@ -59,5 +59,13 @@ export async function getRandomActiveQuestions(db, topics, maxCount = 30) {
   });
 
   const shuffled = [...allMatches].sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, maxCount);
+  const selectedQuestions = shuffled.slice(0, maxCount);
+
+  return selectedQuestions.map((q) => {
+    const randomizedOptions = [...q.options].sort(() => 0.5 - Math.random());
+    return {
+      ...q,
+      options: randomizedOptions,
+    };
+  });
 }
