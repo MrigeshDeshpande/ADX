@@ -31,7 +31,7 @@ export const TEAM_MEMBERS = {
         bio: "Full Stack Engineer focused on backend scalability, system design, and building robust real-world production systems.",
         specialization: "Backend & Systems Design",
         image: "/images/team/Mrigesh-Deshpande.jpg",
-        imageClassName: "object-center scale-[1.2]",
+        imageClassName: "object-center scale-[1.25] group-hover:scale-[1.35] md:group-hover:scale-[1.35]",
         badge: "Core",
         socials: {
             linkedin: "https://linkedin.com/in/mrigeshdeshpande",
@@ -44,7 +44,7 @@ export const TEAM_MEMBERS = {
         bio: "React & Next.js developer obsessed with high performance, fluid motion animations, and delivering clean UX.",
         specialization: "Next.js & Frontend Architecture",
         image: "/images/team/Chakresh-Chakshu.webp",
-        imageClassName: "object-center scale-[1.1]",
+        imageClassName: "object-center scale-[1.1] group-hover:scale-[1.2] md:group-hover:scale-[1.2]",
         socials: {
             linkedin: "https://linkedin.com/in/chakreshchakshu",
         },
@@ -130,7 +130,7 @@ export const TEAM_MEMBERS = {
         role: "Digital Marketing Program Director",
         bio: "Leading the Digital Marketing Program with years of industry experience to guide students toward success.",
         image: "/images/team/Narendra-Singh.webp",
-        imageClassName: "object-center scale-[1.2]",
+        imageClassName: "object-center scale-[1.2] group-hover:scale-[1.3] md:group-hover:scale-[1.3]",
         specialization: "Program Direction & Strategy",
         socials: {
             linkedin: "https://linkedin.com",

@@ -56,7 +56,7 @@ export const BCAEducators = () => {
                   src={edu.image}
                   alt={edu.name}
                   fill
-                  className="object-cover object-top group-hover:scale-110 transition-transform duration-700"
+                  className={`object-cover group-hover:scale-110 transition-transform duration-700 ${edu.imageClassName || "object-top"}`}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                 />
                 <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-3 md:gap-4 backdrop-blur-xs">
