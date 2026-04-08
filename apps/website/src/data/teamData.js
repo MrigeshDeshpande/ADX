@@ -31,6 +31,7 @@ export const TEAM_MEMBERS = {
         bio: "Full Stack Engineer focused on backend scalability, system design, and building robust real-world production systems.",
         specialization: "Backend & Systems Design",
         image: "/images/team/Mrigesh-Deshpande.jpg",
+        imageClassName: "object-center scale-[1.2]",
         badge: "Core",
         socials: {
             linkedin: "https://linkedin.com/in/mrigeshdeshpande",
@@ -43,6 +44,7 @@ export const TEAM_MEMBERS = {
         bio: "React & Next.js developer obsessed with high performance, fluid motion animations, and delivering clean UX.",
         specialization: "Next.js & Frontend Architecture",
         image: "/images/team/Chakresh-Chakshu.webp",
+        imageClassName: "object-center scale-[1.1]",
         socials: {
             linkedin: "https://linkedin.com/in/chakreshchakshu",
         },
