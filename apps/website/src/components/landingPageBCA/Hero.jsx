@@ -6,6 +6,7 @@ import Image from "next/image";
 import { LampContainer } from "../ui/lamp";
 import { Button } from "@/components/ui/button";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import Link from "next/link";
 
 export const BCAHero = () => {
   return (
@@ -39,20 +40,14 @@ export const BCAHero = () => {
 
               {/* CTA Group */}
               <div className="mt-5 md:mt-8 flex flex-row gap-2.5 sm:gap-3 md:gap-4 w-full sm:w-auto">
-                <Button
-                  size="lg"
-                  className="rounded-full bg-primary text-primary-foreground px-4 sm:px-6 md:px-8 py-3 sm:py-5 md:py-6 text-xs sm:text-sm md:text-base font-extrabold hover:bg-primary/90 hover:scale-105 shadow-xl shadow-primary/20 transition-all flex-1 sm:flex-initial"
-                >
-                  Apply Now <ArrowRight size={18} className="ml-2 shrink-0" />
-                </Button>
-
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="rounded-full border-2 border-border bg-foreground/5 text-foreground px-4 sm:px-6 md:px-8 py-3 sm:py-5 md:py-6 text-xs sm:text-sm md:text-base font-bold hover:bg-foreground/10 hover:scale-105 transition-all flex-1 sm:flex-initial"
-                >
-                  <Play size={18} className="mr-2 fill-current shrink-0" /> Watch Demo
-                </Button>
+                <Link href="/contact" className="flex-1 sm:flex-initial">
+                  <Button
+                    size="lg"
+                    className="w-full rounded-full bg-primary text-primary-foreground px-4 sm:px-6 md:px-8 py-3 sm:py-5 md:py-6 text-xs sm:text-sm md:text-base font-extrabold hover:bg-primary/90 hover:scale-105 shadow-xl shadow-primary/20 transition-all"
+                  >
+                    Apply Now <ArrowRight size={18} className="ml-2 shrink-0" />
+                  </Button>
+                </Link>
               </div>
             </div>
 

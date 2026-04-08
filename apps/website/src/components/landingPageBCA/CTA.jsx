@@ -3,6 +3,7 @@
 import React from "react";
 import { Sparkles, ArrowRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const highlights = [
   "Placement Guaranteed",
@@ -40,20 +41,24 @@ export const BCA_CTA = () => {
 
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center mb-8 md:mb-10">
-              <Button
-                size="lg"
-                className="w-full sm:w-auto rounded-full bg-primary-foreground text-primary px-8 md:px-12 py-5 md:py-6 text-sm md:text-base font-extrabold hover:bg-secondary hover:text-secondary-foreground transition-all shadow-lg shadow-black/10"
-              >
-                Enroll Now <ArrowRight size={18} className="ml-2" />
-              </Button>
+              <Link href="/contact" className="w-full sm:w-auto">
+                <Button
+                  size="lg"
+                  className="w-full rounded-full bg-primary-foreground text-primary px-8 md:px-12 py-5 md:py-6 text-sm md:text-base font-extrabold hover:bg-secondary hover:text-secondary-foreground transition-all shadow-lg shadow-black/10"
+                >
+                  Enroll Now <ArrowRight size={18} className="ml-2" />
+                </Button>
+              </Link>
 
-              <Button
-                size="lg"
-                variant="outline"
-                className="w-full sm:w-auto rounded-full border-2 border-primary-foreground/30 bg-transparent text-primary-foreground px-8 md:px-12 py-5 md:py-6 text-sm md:text-base font-bold hover:bg-primary-foreground/10 transition-all"
-              >
-                Talk to Advisor
-              </Button>
+              <a href={`https://wa.me/${process.env.NEXT_PUBLIC_PHONE?.replace(/\D/g, "") || "917060100561"}`} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="w-full rounded-full border-2 border-primary-foreground/30 bg-transparent text-primary-foreground px-8 md:px-12 py-5 md:py-6 text-sm md:text-base font-bold hover:bg-primary-foreground/10 transition-all"
+                >
+                  Chat on WhatsApp
+                </Button>
+              </a>
             </div>
 
             {/* Highlights */}

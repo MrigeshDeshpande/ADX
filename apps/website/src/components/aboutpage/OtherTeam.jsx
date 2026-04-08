@@ -7,66 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 
-const TEAM_MEMBERS = [
-   {
-    id: "1",
-    name: "Mrigesh Deshpande",
-    role: "Sr. Full Stack Developer",
-    image: "/images/team/Mrigesh-Deshpande.jpg",
-    bio: "Full Stack Engineer focused on backend scalability, system design, and real-world production systems.  "
-  },
- 
-  {
-    id: "3",
-    name: "Neeraj Dang",
-    role: "SEO & Marketing specialist",
-    image: "/images/team/Neeraj.png",
-    bio: "Specialist in SEO & Marketing .",
-  },
-  {
-    id: "4",
-    name: "Kaushal Parihar",
-    role: "Field Sales Executive",
-    image: "/images/team/KaushalSIr.png",
-    bio: "Sales on the move, results on target.",
-  },
-  {
-    id: "5",
-    name: "Khushali Gupta",
-    role: "Business Developmet Executive",
-    image: "/images/team/khushali.jpeg",
-    bio: "Where words meet results.",
-  },
-  {
-    id: "6",
-    name: "Bhanu Sharma",
-    role: "Administrative Head",
-    image: "/images/team/Bhanu.jpg",
-    bio: "Behind the scenes leader : systems, people, success.",
-  },
-  {
-    id: "8",
-    name: "Karan Singh Tomar",
-    role: "Business Development Associate",
-    image: "/images/team/Karan.webp",
-    bio: "Crafts stories that drives sales.",
-  },
-  {
-    id: "9",
-    name: "Saurabh Verma",
-    role: "Business Development Associate",
-    image: "/images/team/Saurav.webp",
-    bio: "Selling solutions not just products.",
-  },
-   {
-    id: "2",
-    name: "Chakresh Chakshu",
-    role: "Jr. Full Stack Developer",
-    image: "/images/team/Chakresh-Chakshu.webp",
-    bio: "React & Next.js developer obsessed with performance, motion, and clean UX.",
-  },
-  
-];
+import { carouselTeam as TEAM_MEMBERS } from "@/data/teamData";
 
 const TeamCarousel = ({
   members = [],
@@ -392,7 +333,7 @@ const TeamCarousel = ({
                     src={member.image || member.avatar || ""}
                     alt={member.name}
                     fill
-                    className="object-cover"
+                    className={`object-cover ${member.imageClassName || "object-top"}`}
                   />
 
                   {/* Overlay Info */}

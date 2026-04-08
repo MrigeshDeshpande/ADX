@@ -9,6 +9,7 @@ import { DGMToolsAndCerts } from "./ToolsAndCerts";
 import { DGMPortfolioResults } from "./PortfolioResults";
 import { DGMCareerPaths } from "./CareerPaths";
 import { DGMWhoIsThisFor } from "./WhoIsThisFor";
+import { DGMEducators } from "./Educators";
 import { DGMComparisonTable } from "./ComparisonTable";
 import { DGMDayInTheLife } from "./DayInTheLife";
 import { DGMPlacementOutcomes } from "./PlacementOutcomes";
@@ -28,6 +29,7 @@ export function DGMLandingPage({faqs}) {
       <DGMToolsAndCerts />
       <DGMPortfolioResults />
       <DGMCareerPaths />
+      <DGMEducators />
       <DGMWhoIsThisFor />
       <DGMComparisonTable />
       <DGMDayInTheLife />
