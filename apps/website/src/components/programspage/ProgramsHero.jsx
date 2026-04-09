@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 
 export default function ProgramsHero() {
   return (
-    <section className="relative w-full overflow-hidden bg-background h-[80vh] py-20 md:py-28 lg:py-36 border-b-2  ">
+    <section className="relative w-full overflow-hidden bg-background h-[80vh] py-20 md:py-28 desk:py-36 border-b-2  ">
       {/* Background Image & Glow */}
       <div className="pointer-events-none absolute inset-0 z-0">
         <Image
@@ -38,7 +38,7 @@ export default function ProgramsHero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.1 }}
-          className="font-serif text-4xl font-extrabold leading-[1.1] tracking-tight text-background dark:text-foreground sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-md dark:drop-shadow-none"
+          className="font-serif text-4xl font-extrabold leading-[1.1] tracking-tight text-background dark:text-foreground sm:text-5xl md:text-6xl desk:text-7xl drop-shadow-md dark:drop-shadow-none"
         >
           Turn Your Potential Into a{" "}
           <span className="italic text-secondary dark:text-primary">Paying Career.</span>

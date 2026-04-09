@@ -5,7 +5,7 @@ import { AlertTriangle, GraduationCap, Briefcase, Zap } from "lucide-react";
 export default function ProblemSection() {
     return (
         <section className="relative py-16 md:py-20 overflow-hidden bg-background text-foreground">
-            <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
+            <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col md:flex-row gap-10 md:gap-16 items-center">
                 
                 {/* Left Side: The Headline */}
                 <div className="flex-1 space-y-6 w-full">
@@ -14,7 +14,7 @@ export default function ProblemSection() {
                         <span>The Reality Check</span>
                     </div>
                     
-                    <h2 className="text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold tracking-tight leading-[1.1]">
+                    <h2 className="text-4xl md:text-5xl xl:text-6xl font-bold tracking-tight leading-[1.1]">
                         Degrees Are Not <br className="hidden md:block" />
                         Enough Anymore. <br className="hidden xl:block"/>
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent relative inline-block mt-2 xl:mt-0">

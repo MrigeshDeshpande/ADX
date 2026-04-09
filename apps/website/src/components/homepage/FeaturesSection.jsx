@@ -44,20 +44,20 @@ export default function FeaturesSection() {
             {/* Background Decor */}
             <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/3 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
 
-            <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8 items-center">
+            <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8 items-center">
 
                     {/* Left: Text Content */}
-                    <div className="flex flex-col justify-center space-y-8 text-center lg:text-left">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 w-fit mx-auto lg:mx-0">
+                    <div className="flex flex-col justify-center space-y-8 text-center md:text-left">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 w-fit mx-auto md:mx-0">
                             <span className="text-sm font-semibold text-primary tracking-wide">Why Choose Us</span>
                         </div>
 
-                        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground leading-[1.1]">
+                        <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-foreground leading-[1.1]">
                             The <span className="text-primary italic pr-2">SkillYards</span> Advantage
                         </h2>
 
-                        <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-xl mx-auto lg:mx-0">
+                        <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-xl mx-auto md:mx-0">
                             We focus on bridging the gap between education and industry by offering intensive programs that prepare you for real IT jobs. Stop learning theory and start building reality.
                         </p>
 
@@ -65,7 +65,7 @@ export default function FeaturesSection() {
                     </div>
 
                     {/* Right: BounceCards Visual */}
-                    <div className="relative w-full flex justify-center lg:justify-end items-center min-h-[400px]">
+                    <div className="relative w-full flex justify-center md:justify-end items-center min-h-[400px]">
                         <div className="relative w-full max-w-[500px] h-[300px] sm:h-[400px] flex items-center justify-center perspective-1000">
                             <BounceCards
                                 className="custom-bounceCards scale-90 sm:scale-100"

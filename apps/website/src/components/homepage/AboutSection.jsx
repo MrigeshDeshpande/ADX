@@ -12,8 +12,8 @@ export default function AboutSection() {
             {/* Background Decorative Elements */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 blur-[100px] rounded-full -mr-48 -mt-24 pointer-events-none" />
 
-            <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
                     {/* Left Column: Image */}
                     <LazyMotion features={domAnimation}>
@@ -22,7 +22,7 @@ export default function AboutSection() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="relative w-full aspect-square max-h-[420px] max-w-[420px] mx-auto lg:ml-0 rounded-[2rem] overflow-hidden group shadow-2xl"
+                        className="relative w-full aspect-square max-h-[420px] max-w-[420px] mx-auto md:ml-0 rounded-[2rem] overflow-hidden group shadow-2xl"
                     >
                         <Image
                             src="/images/home-about.png"
@@ -54,7 +54,7 @@ export default function AboutSection() {
                         </m.div>
                         </LazyMotion>
 
-                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground tracking-tight leading-tight">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-foreground tracking-tight leading-tight">
                             Elevate Your <span className="text-primary italic">Career</span> With Industry Experts
                         </h2>
 

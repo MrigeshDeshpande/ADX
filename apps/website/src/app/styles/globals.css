@@ -2,10 +2,8 @@
 @plugin "tailwindcss-animate";
 @plugin "@tailwindcss/typography";
 
-
 @custom-variant dark (&:where(.dark, .dark *));
-
-
+@custom-variant desk (@media (min-width: 980px));
 /* === Global Styles for SkillYards === */
 
 
