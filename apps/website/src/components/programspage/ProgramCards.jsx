@@ -83,8 +83,8 @@ const programs = [
 
 export default function ProgramCards() {
   return (
-    <section className="bg-background py-20 overflow-x-hidden w-full">
-      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6">
+    <section className="bg-background py-20 overflow-hidden w-full max-w-[100vw]">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8">
         {/* Section header */}
         <div className="mb-12 text-center">
           <motion.div
@@ -114,10 +114,9 @@ export default function ProgramCards() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="h-full"
+              className="h-full w-full min-w-0"
             >
-              {/* === MOBILE & TABLET (Flat, safe, perfectly responsive) === */}
-              <div className="flex lg:hidden flex-col rounded-3xl border-2 border-border/60 hover:border-primary/50 bg-white dark:bg-zinc-950 p-5 md:p-8 shadow-md transition-all duration-300 hover:shadow-2xl w-full h-full !bg-opacity-100">
+              <div className="flex lg:hidden flex-col rounded-3xl border-2 border-border/60 hover:border-primary/50 bg-white dark:bg-zinc-950 p-5 md:p-6 shadow-md transition-all duration-300 hover:shadow-2xl w-full h-full !bg-opacity-100 overflow-hidden relative wrap-break-word">
                 <div className="mb-5 flex flex-col md:flex-row items-start justify-between gap-4 w-full">
                   <div>
                     <span className={`mb-3 inline-block rounded-full px-3 py-1 text-xs font-bold ${prog.badgeBg}`}>{prog.badge}</span>
@@ -146,8 +145,8 @@ export default function ProgramCards() {
                     <span className="transition-transform group-open/accordion:rotate-180">▼</span>
                   </summary>
                   <div className="mt-3 flex flex-col md:grid md:grid-cols-2 gap-3.5 rounded-2xl bg-slate-50 dark:bg-zinc-900 border border-border/50 p-4 md:p-5 text-sm w-full">
-                    <div className="flex items-center gap-2.5 text-accent-foreground"><Clock size={15} className="shrink-0 text-accent-foreground" /><span><strong>Duration:</strong> {prog.duration}</span></div>
-                    <div className="flex items-center gap-2.5 text-accent-foreground"><Monitor size={15} className="text-foreground shrink-0" /><span><strong>Mode:</strong> {prog.mode}</span></div>
+                    <div className="flex items-start gap-2.5 text-accent-foreground"><Clock size={15} className="shrink-0 text-accent-foreground mt-0.5" /><span><strong>Duration:</strong> {prog.duration}</span></div>
+                    <div className="flex items-start gap-2.5 text-accent-foreground"><Monitor size={15} className="text-foreground shrink-0 mt-0.5" /><span><strong>Mode:</strong> {prog.mode}</span></div>
                     <div className="flex items-start gap-2.5 md:col-span-2 text-accent-foreground"><GraduationCap size={15} className="text-foreground shrink-0 mt-0.5" /><span><strong>Eligibility:</strong> {prog.eligibility}</span></div>
                     <div className="flex items-start gap-2.5 md:col-span-2 text-accent-foreground"><Briefcase size={15} className="text-foreground shrink-0 mt-0.5" /><span><strong>Certification:</strong> {prog.certification}</span></div>
                     <div className="flex items-start gap-2.5 md:col-span-2 text-accent-foreground"><TrendingUp size={15} className="text-foreground shrink-0 mt-0.5" /><span><strong>Avg. Salary:</strong> {prog.avgSalary}</span></div>

@@ -90,13 +90,14 @@ export default function AboutHero() {
             <div className="absolute inset-0 bg-secondary/10 rounded-2xl sm:rounded-[3rem] rotate-2 scale-105 -z-10 pointer-events-none hidden sm:block" />
 
             {/* Main Slanted Container - Subtle 2deg rotation */}
-            <div className="relative w-full aspect-video lg:aspect-[5/4] xl:aspect-[4/3] sm:rotate-2 rounded-2xl sm:rounded-[3rem] overflow-hidden shadow-xl sm:shadow-2xl border-2 sm:border-4 border-background/50 max-w-sm sm:max-w-none mx-auto sm:mx-0">
+            <div className="relative w-full aspect-video lg:aspect-5/4 xl:aspect-4/3 sm:rotate-2 rounded-2xl sm:rounded-[3rem] overflow-hidden shadow-xl sm:shadow-2xl border-2 sm:border-4 border-background/50 max-w-sm sm:max-w-none mx-auto sm:mx-0">
               <div className="absolute inset-0 sm:-rotate-2 sm:scale-110">
                 <Image
                   src={data.image}
                   alt="SkillYards Career Training"
                   fill
                   priority
+                  fetchPriority="high"
                   className="object-cover"
                 />
                 {/* Visual Overlays */}
