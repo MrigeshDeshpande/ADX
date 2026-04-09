@@ -64,20 +64,39 @@ export default function FeaturesSection() {
                       
                     </div>
 
-                    {/* Right: BounceCards Visual */}
-                    <div className="relative w-full flex justify-center md:justify-end items-center min-h-[400px]">
-                        <div className="relative w-full max-w-[500px] h-[300px] sm:h-[400px] flex items-center justify-center perspective-1000">
-                            <BounceCards
-                                className="custom-bounceCards scale-90 sm:scale-100"
-                                cards={cardsData}
-                                containerWidth={500}
-                                containerHeight={340}
-                                animationDelay={0.5}
-                                animationStagger={0.08}
-                                easeType="elastic.out(1, 0.5)"
-                                transformStyles={transformStyles}
-                                enableHover={true}
-                            />
+                    {/* Right: Visual Content */}
+                    <div className="relative w-full mt-8 md:mt-0">
+                        {/* Desktop/Tablet: BounceCards Visual */}
+                        <div className="hidden md:flex justify-end items-center min-h-[400px]">
+                            <div className="relative w-full max-w-[500px] h-[300px] sm:h-[400px] flex items-center justify-center perspective-1000">
+                                <BounceCards
+                                    className="custom-bounceCards scale-90 sm:scale-100"
+                                    cards={cardsData}
+                                    containerWidth={500}
+                                    containerHeight={340}
+                                    animationDelay={0.5}
+                                    animationStagger={0.08}
+                                    easeType="elastic.out(1, 0.5)"
+                                    transformStyles={transformStyles}
+                                    enableHover={true}
+                                />
+                            </div>
+                        </div>
+
+                        {/* Mobile: Feature Cards List */}
+                        <div className="flex md:hidden flex-col gap-2 w-full">
+                            {cardsData.map((card, idx) => (
+                                <div key={idx} className="flex flex-col bg-card/50 backdrop-blur-lg border border-border/60 p-4 rounded-[2rem] shadow-md relative overflow-hidden group hover:border-primary/50 transition-colors">
+                                    <div className="absolute -top-4 -right-4 p-6 opacity-[0.03] group-hover:opacity-10 transition-opacity transform scale-[2] pointer-events-none">
+                                        {card.icon}
+                                    </div>
+                                    <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 text-primary shrink-0 border border-primary/20 shadow-inner">
+                                        {card.icon}
+                                    </div>
+                                    <h3 className="text-xl font-extrabold text-foreground mb-2.5 tracking-tight">{card.title}</h3>
+                                    <p className="text-[15px] text-muted-foreground leading-relaxed font-medium">{card.description}</p>
+                                </div>
+                            ))}
                         </div>
                     </div>
 
