@@ -3,42 +3,46 @@
 import { useEffect, useRef, useState } from "react";
 
 function Counter({ value, suffix = "+" }) {
-    const [count, setCount] = useState(0);
-    const ref = useRef(null);
+    const textRef = useRef(null);
+    const containerRef = useRef(null);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (!entry.isIntersecting) return;
 
-                let start = 0;
                 const duration = 1200;
-                const step = Math.ceil(value / (duration / 16));
+                const startTime = performance.now();
 
-                const timer = setInterval(() => {
-                    start += step;
-                    if (start >= value) {
-                        setCount(value);
-                        clearInterval(timer);
+                const updateCounter = (currentTime) => {
+                    const elapsedTime = currentTime - startTime;
+                    if (elapsedTime < duration) {
+                        const currentVal = Math.ceil((elapsedTime / duration) * value);
+                        if (textRef.current) {
+                            textRef.current.textContent = currentVal + suffix;
+                        }
+                        requestAnimationFrame(updateCounter);
                     } else {
-                        setCount(start);
+                        if (textRef.current) {
+                            textRef.current.textContent = value + suffix;
+                        }
                     }
-                }, 16);
+                };
 
+                requestAnimationFrame(updateCounter);
                 observer.disconnect();
             },
             { threshold: 0.3 }
         );
 
-        observer.observe(ref.current);
+        if (containerRef.current) observer.observe(containerRef.current);
         return () => observer.disconnect();
-    }, [value]);
+    }, [value, suffix]);
 
     return (
-        <span ref={ref} className="text-4xl font-extrabold">
-      {count}
-            {suffix}
-    </span>
+        <span ref={containerRef} className="text-4xl font-extrabold">
+            <span ref={textRef}>0{suffix}</span>
+        </span>
     );
 }
 

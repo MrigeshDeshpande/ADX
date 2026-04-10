@@ -37,12 +37,12 @@ export default function Header() {
                 </div>
 
                 {/* Desktop Nav Items */}
-                <div className="hidden lg:flex flex-1 items-center justify-between ml-8">
+                <div className="hidden desk:flex flex-1 items-center justify-between ml-8">
                     <DesktopNav theme={theme} toggleTheme={toggleTheme} isSticky={isSticky} />
                 </div>
 
                 {/* Mobile buttons */}
-                <div className="flex items-center gap-1 lg:hidden pl-2">
+                <div className="flex items-center gap-1 desk:hidden pl-2">
                     <ThemeButton theme={theme} toggleTheme={toggleTheme} />
 
                     <button

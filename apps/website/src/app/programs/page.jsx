@@ -1,5 +1,5 @@
 import ProgramsHero from "@/components/programspage/ProgramsHero";
-import TrustBar from "@/components/programspage/TrustBar";
+// import TrustBar from "@/components/programspage/TrustBar";
 import ProgramCards from "@/components/programspage/ProgramCards";
 import ComparisonTable from "@/components/programspage/ComparisonTable";
 import CurriculumHighlights from "@/components/programspage/CurriculumHighlights";
@@ -48,7 +48,6 @@ export default function ProgramsPage() {
     <main>
       <JsonLd data={combinedSchema} id="programs-schema" />
       <ProgramsHero />
-      <TrustBar />
       <ProgramCards />
       <ComparisonTable />
       <CurriculumHighlights />

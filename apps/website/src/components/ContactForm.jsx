@@ -9,7 +9,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { User, Mail, Phone, MessageSquare, Send, Lightbulb } from "lucide-react";
 
-function ContactForm() {
+import ReCaptchaProvider from "@/components/providers/ReCaptchaProvider";
+
+function ContactFormContent() {
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState("");
     const [error, setError] = useState("");
@@ -201,4 +203,10 @@ function ContactForm() {
     );
 }
 
-export default ContactForm;
+export default function ContactForm() {
+    return (
+        <ReCaptchaProvider>
+            <ContactFormContent />
+        </ReCaptchaProvider>
+    );
+}

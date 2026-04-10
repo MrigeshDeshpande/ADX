@@ -22,14 +22,14 @@ export default function RahulHero() {
             <div className="relative group shrink-0 w-52 h-52 md:w-64 md:h-64 mt-6 md:mt-10">
                 {/* Glow ring */}
                 <div className="absolute -inset-3 rounded-full bg-linear-to-br from-secondary/30 via-primary/20 to-transparent blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-700" />
-                
+
                 {/* Strict Circle Frame */}
                 <div className="relative w-full h-full rounded-full overflow-hidden ring-4 ring-secondary/20 shadow-2xl bg-secondary/10">
                     <Image
-                        src="/images/team/rahul-singh.png"
+                        src="/images/team/rahul-singh.webp"
                         alt="Rahul Singh"
                         fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-700"
+                        className="object-cover object-top scale-[1.15] group-hover:scale-[1.25] transition-transform duration-700"
                     />
                 </div>
             </div>

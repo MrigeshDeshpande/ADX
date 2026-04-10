@@ -83,7 +83,7 @@ export default function HeroCarousel() {
                             <div className="relative h-full w-full">
                                 {/* Content */}
                                 <div className="relative z-10 flex h-full items-center justify-center text-center">
-                                    <div className="mx-auto w-full max-w-7xl px-6 sm:px-12 md:px-16 lg:px-24">
+                                    <div className="mx-auto w-full max-w-7xl px-6 sm:px-12 md:px-24">
                                         <div className="max-w-3xl mx-auto flex flex-col items-center">
                                                 <m.p
                                                     initial={{ opacity: 0, y: 10 }}
@@ -98,7 +98,7 @@ export default function HeroCarousel() {
                                                     initial={{ opacity: 0, y: 10 }}
                                                     animate={{ opacity: 1, y: 0 }}
                                                     transition={{ delay: 0.3, duration: 0.5 }}
-                                                    className={`text-3xl font-extrabold tracking-tight sm:text-5xl md:text-4xl lg:text-5xl text-foreground pointer-events-auto leading-tight`}
+                                                    className={`text-3xl font-extrabold tracking-tight sm:text-5xl md:text-5xl text-foreground pointer-events-auto leading-tight`}
                                                 >
                                                     {slide.title}
                                                 </m.h1>

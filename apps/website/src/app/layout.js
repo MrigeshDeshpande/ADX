@@ -9,8 +9,6 @@ import Footer from "@/components/Footer";
 import { GoogleTagManager } from "@next/third-parties/google";
 import RegisterSW from "@/components/RegisterSW";
 import { organizationSchema, websiteSchema } from "@/lib/seo/schema/global";
-import ReCaptchaProvider from "@/components/providers/ReCaptchaProvider";
-
 const playfair = Playfair_Display({
     subsets: ["latin"],
     weight: ["500", "600", "700"],
@@ -50,26 +48,24 @@ export default function RootLayout({ children }) {
                 text-primary-foreground
                 transition-colors duration-500 ease-in-out`}
             >
-                <ReCaptchaProvider>
-                    <RegisterSW />
+                <RegisterSW />
 
-                    <ThemeProvider
-                        attribute="class"
-                        defaultTheme="system"
-                        enableSystem
-                    >
-                        <div className="min-h-screen bg-background transition-colors duration-500">
-                            <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER} />
+                <ThemeProvider
+                    attribute="class"
+                    defaultTheme="system"
+                    enableSystem
+                >
+                    <div className="min-h-screen bg-background transition-colors duration-500">
+                        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER} />
 
-                            <Header />
+                        <Header />
 
-                            <main className="relative z-10">{children}</main>
+                        <main className="relative z-10">{children}</main>
 
-                            <Footer />
-                            <BackToTop />
-                        </div>
-                    </ThemeProvider>
-                </ReCaptchaProvider>
+                        <Footer />
+                        <BackToTop />
+                    </div>
+                </ThemeProvider>
             </body>
         </html>
     );

@@ -12,14 +12,14 @@ export default function AboutHero() {
   if (!data) return null;
 
   return (
-    <section className="relative overflow-hidden bg-background text-foreground py-12 pt-6 sm:py-24 lg:py-28">
+    <section className="relative overflow-hidden bg-background text-foreground py-12 pt-6 sm:py-24 desk:py-28">
       
       {/* Dynamic Background Elements */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/4 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary/5 blur-[100px] rounded-full translate-y-1/4 -translate-x-1/4 pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-20 items-center">
+        <div className="grid desk:grid-cols-2 gap-8 desk:gap-20 items-center">
           
           {/* Left Side: Content */}
           <motion.div
@@ -27,14 +27,14 @@ export default function AboutHero() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="flex flex-col space-y-6 lg:space-y-8 text-center lg:text-left z-10 pt-4"
+            className="flex flex-col space-y-6 desk:space-y-8 text-center desk:text-left z-10 pt-4"
           >
-            <div className="inline-block mx-auto lg:mx-0">
+            <div className="inline-block mx-auto desk:mx-0">
               <Breadcrumbs />
             </div>
 
-            <div className="space-y-3 lg:space-y-4">
-              <h1 className="text-3xl sm:text-5xl lg:text-7xl font-black tracking-tight leading-[1.1] sm:leading-[1.05] text-foreground">
+            <div className="space-y-3 desk:space-y-4">
+              <h1 className="text-3xl sm:text-5xl desk:text-7xl font-black tracking-tight leading-[1.1] sm:leading-[1.05] text-foreground">
                 {data.title}{" "}
                 <span className="relative inline-block text-primary italic">
                   {data.highlight}
@@ -48,13 +48,13 @@ export default function AboutHero() {
               </p>
             </div>
 
-            <div className="space-y-4 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto lg:mx-0 font-medium">
+            <div className="space-y-4 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto desk:mx-0 font-medium">
               <p>{data.description1}</p>
               <p>{data.description2}</p>
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start pt-4 sm:pt-6">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center desk:justify-start pt-4 sm:pt-6">
               <a
                 href={data.primaryCTA.link}
                 className="group relative inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-2xl
@@ -83,20 +83,21 @@ export default function AboutHero() {
             whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="relative w-full flex items-center justify-center pt-8 sm:pt-12 lg:pt-0"
+            className="relative w-full flex items-center justify-center pt-8 sm:pt-12 desk:pt-0"
           >
             {/* Decorative Frames - Slightly slanted */}
             <div className="absolute inset-0 border-2 border-primary/10 rounded-2xl sm:rounded-[3rem] -rotate-3 scale-95 pointer-events-none hidden sm:block" />
             <div className="absolute inset-0 bg-secondary/10 rounded-2xl sm:rounded-[3rem] rotate-2 scale-105 -z-10 pointer-events-none hidden sm:block" />
 
             {/* Main Slanted Container - Subtle 2deg rotation */}
-            <div className="relative w-full aspect-video lg:aspect-[5/4] xl:aspect-[4/3] sm:rotate-2 rounded-2xl sm:rounded-[3rem] overflow-hidden shadow-xl sm:shadow-2xl border-2 sm:border-4 border-background/50 max-w-sm sm:max-w-none mx-auto sm:mx-0">
+            <div className="relative w-full aspect-video desk:aspect-5/4 xl:aspect-4/3 sm:rotate-2 rounded-2xl sm:rounded-[3rem] overflow-hidden shadow-xl sm:shadow-2xl border-2 sm:border-4 border-background/50 max-w-sm sm:max-w-none mx-auto sm:mx-0">
               <div className="absolute inset-0 sm:-rotate-2 sm:scale-110">
                 <Image
                   src={data.image}
                   alt="SkillYards Career Training"
                   fill
                   priority
+                  fetchPriority="high"
                   className="object-cover"
                 />
                 {/* Visual Overlays */}

@@ -54,14 +54,14 @@ const ProgramsShowcase = () => {
     return (
         <section className="relative bg-background">
             <div className="mx-auto py-16 px-8 max-w-7xl">
-                <div className="flex flex-col lg:flex-row gap-20 justify-around items-center">
+                <div className="flex flex-col md:flex-row gap-20 justify-around items-center">
                     {/* Header */}
-                    <div className="w-full lg:w-[20%] xl:w-[10%] text-center lg:text-left mb-8 md:mb-0 mr-2">
+                    <div className="w-full md:w-[20%] xl:w-[10%] text-center md:text-left mb-8 md:mb-0 mr-2">
                         <h2 className="text-3xl md:text-5xl font-bold mb-4 text-primary-background">
                             LEARN.
-                            <br className="hidden lg:block" />
+                            <br className="hidden md:block" />
                             GROW.
-                            <br className="hidden lg:block" />
+                            <br className="hidden md:block" />
                             ACHIEVE.
                         </h2>
                         <p className="text-lg md:text-xl text-primary">

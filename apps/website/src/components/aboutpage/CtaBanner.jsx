@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function CtaBanner() {
     return (
@@ -15,11 +16,15 @@ export default function CtaBanner() {
                 </p>
 
                 <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center ">
-                    <Button size="lg" variant="secondary" className="shadow-lg shadow-primary">
-                        Explore Programs
+                    <Button asChild size="lg" variant="secondary" className="shadow-lg shadow-primary">
+                        <Link href="/programs">
+                            Explore Programs
+                        </Link>
                     </Button>
-                    <Button size="lg" variant="outline" className="border-foreground text-foreground bg-primary-foreground shadow-lg shadow-primary">
-                        Talk to Counselor
+                    <Button asChild size="lg" variant="outline" className="border-foreground text-foreground bg-primary-foreground shadow-lg shadow-primary">
+                        <Link href="/contact">
+                            Talk to Counselor
+                        </Link>
                     </Button>
                 </div>
             </div>

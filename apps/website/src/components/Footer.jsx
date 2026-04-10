@@ -68,9 +68,9 @@ export default function Footer() {
     return (
         <footer className="border-t border-border bg-background/90 backdrop-blur-md pt-8">
             {/* Top */}
-            <div className="mx-auto grid max-w-[90rem] grid-cols-1 gap-12 lg:gap-8 px-6 lg:px-12 py-20 sm:grid-cols-2 lg:grid-cols-7">
+            <div className="mx-auto grid max-w-[90rem] grid-cols-1 gap-12 desk:gap-6 lg:gap-8 px-6 desk:px-8 lg:px-12 py-20 sm:grid-cols-2 desk:grid-cols-8 lg:grid-cols-7">
                 {/* Brand & Address */}
-                <div className="flex flex-col sm:col-span-2 lg:col-span-2 relative z-20 pr-0 lg:pr-8">
+                <div className="flex flex-col sm:col-span-2 desk:col-span-3 lg:col-span-2 relative z-20 pr-0 desk:pr-8">
                     <Link href="/" className="mb-6 flex items-center gap-2">
                         <Logo />
                     </Link>
@@ -134,11 +134,11 @@ export default function Footer() {
                 </div>
 
                 {/* Map column (Visible on all devices) */}
-                <div className="block sm:col-span-2 lg:col-span-2 lg:pl-4">
+                <div className="block sm:col-span-2 desk:col-span-2 desk:pl-4">
                     <h3 className="mb-4 text-lg font-semibold text-muted-foreground">
                         Our Location
                     </h3>
-                    <div className="w-full h-56 lg:h-full min-h-[16rem] relative rounded-[1.5rem] overflow-hidden shadow-lg border border-border group">
+                    <div className="w-full h-56 desk:h-full min-h-[16rem] relative rounded-[1.5rem] overflow-hidden shadow-lg border border-border group">
                         <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-black/5 dark:ring-white/10 rounded-[1.5rem] z-10" />
                         <iframe
                             title="SkillYards Location"
