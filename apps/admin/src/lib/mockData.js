@@ -36,3 +36,46 @@ export const mockFeeData = {
     },
   ],
 };
+
+export const mockStudentsLedger = [
+  {
+    id: "1",
+    name: "Mrigesh Deshpande",
+    course: "Full Stack Development",
+    total: 15000,
+    paid: 8000,
+    balance: 7000,
+    status: "Partially Paid",
+    lastPayment: "2026-04-10",
+  },
+  {
+    id: "101",
+    name: "Rahul Sharma",
+    course: "Digital Marketing",
+    total: 25000,
+    paid: 25000,
+    balance: 0,
+    status: "Full Paid",
+    lastPayment: "2026-04-05",
+  },
+  {
+    id: "202",
+    name: "Alice Smith",
+    course: "Data Science",
+    total: 50000,
+    paid: 10000,
+    balance: 40000,
+    status: "Partially Paid",
+    lastPayment: "2026-04-08",
+  },
+  {
+    id: "303",
+    name: "Jane Doe",
+    course: "BCA",
+    total: 40000,
+    paid: 0,
+    balance: 40000,
+    status: "Pending",
+    lastPayment: "-",
+  },
+];
