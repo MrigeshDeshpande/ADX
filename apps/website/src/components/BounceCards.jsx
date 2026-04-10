@@ -54,7 +54,7 @@ export default function BounceCards({
 
   const cardVariants = {
     initial: { scale: 0 },
-    animate: { 
+    animate: {
       scale: 1,
       transition: {
         type: 'spring',

@@ -11,7 +11,6 @@ const iconMap = {
     award: Award,
 };
 
-
 import BounceCards from "@/components/BounceCards";
 
 const images = [
@@ -61,7 +60,7 @@ export default function FeaturesSection() {
                             We focus on bridging the gap between education and industry by offering intensive programs that prepare you for real IT jobs. Stop learning theory and start building reality.
                         </p>
 
-                      
+
                     </div>
 
                     {/* Right: Visual Content */}
