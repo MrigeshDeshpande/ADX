@@ -5,7 +5,8 @@ export const TEAM_MEMBERS = {
         name: "Rahul Singh",
         role: "COO",
         bio: "Visionary behind SkillYards, dedicated to delivering industry-relevant learning and empowering tech professionals to bridge the gap between theory and reality.",
-        image: "/images/team/rahul-singh.png",
+        image: "/images/team/rahul-singh.webp",
+        imageClassName: "object-top scale-[1.15] group-hover:scale-[1.25] md:group-hover:scale-[1.25]",
         badge: "Leadership",
         socials: {
             linkedin: "https://linkedin.com",
@@ -150,9 +151,9 @@ export const TEAM_MEMBERS = {
 
 // General team page groupings
 export const leadershipTeam = [
-    TEAM_MEMBERS.rahulSingh,
     TEAM_MEMBERS.suryanshUpadhyay,
-    
+    TEAM_MEMBERS.rahulSingh,
+
 ];
 
 export const engineeringTeam = [
@@ -183,7 +184,7 @@ export const carouselTeam = [
     TEAM_MEMBERS.saurabhVerma,
     TEAM_MEMBERS.narendraSingh,
     TEAM_MEMBERS.chakreshChakshu,
-    
+
 ];
 
 // Course specific educators
