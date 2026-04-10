@@ -1,4 +1,5 @@
 "use client";
+import { toast } from "sonner";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -36,7 +37,18 @@ export default function FeeForm() {
     });
 
     const mockFeeId = Math.floor(Math.random() * 1000) + 1;
-    router.push(`/fees/${mockFeeId}?${params.toString()}`);
+
+    toast.promise(
+      new Promise((resolve) => setTimeout(resolve, 800)),
+      {
+        loading: "Creating fee record...",
+        success: () => {
+          router.push(`/fees/${mockFeeId}?${params.toString()}`);
+          return `Ledger initialized for ${formData.studentName}`;
+        },
+        error: "Failed to create record",
+      }
+    );
   };
 
   return (
