@@ -24,7 +24,7 @@ export const mockFeeData = {
       paymentMode: "upi",
       referenceId: "UPI123",
       paidAt: "2026-04-09T10:00:00Z",
-      receiptNumber: "SKY-2026-0001",
+      receiptNumber: "SY-2026-0001",
     },
     {
       id: "txn2",
@@ -32,7 +32,7 @@ export const mockFeeData = {
       paymentMode: "cash",
       referenceId: "",
       paidAt: "2026-04-10T12:00:00Z",
-      receiptNumber: "SKY-2026-0002",
+      receiptNumber: "SY-2026-0002",
     },
   ],
 };
