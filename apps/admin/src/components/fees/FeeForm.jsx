@@ -2,11 +2,19 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
+const PROGRAMS = [
+  "Full Stack Development",
+  "Digital Marketing",
+  "BCA",
+  "BBA",
+  "Data Science",
+];
+
 export default function FeeForm() {
   const router = useRouter();
   const [formData, setFormData] = useState({
     studentName: "",
-    courseName: "",
+    courseName: "", 
     baseFee: "",
     scholarship: "0",
   });
@@ -32,13 +40,12 @@ export default function FeeForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-
+    <form onSubmit={handleSubmit} className="space-y-5">
       <Field label="Student name">
         <input
           required
           type="text"
-          placeholder="Rahul Sharma"
+          placeholder="e.g. Rahul Sharma"
           className="input"
           value={formData.studentName}
           onChange={(e) =>
@@ -48,30 +55,33 @@ export default function FeeForm() {
       </Field>
 
       <Field label="Course / program">
-        <input
+        <select
           required
-          type="text"
-          placeholder="Full Stack Development"
-          className="input"
+          className="input appearance-none bg-white cursor-pointer"
           value={formData.courseName}
           onChange={(e) =>
             setFormData({ ...formData, courseName: e.target.value })
           }
-        />
+        >
+          <option value="" disabled>Select a program</option>
+          {PROGRAMS.map((program) => (
+            <option key={program} value={program}>
+              {program}
+            </option>
+          ))}
+        </select>
       </Field>
 
       <div className="grid grid-cols-2 gap-4">
-        <Field label="Base fee">
+        <Field label="Base fee (₹)">
           <div className="relative">
-            <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm select-none">
-              ₹
-            </span>
+            <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm select-none">₹</span>
             <input
               required
               type="number"
               min="0"
               placeholder="0"
-              className="input pl-8"
+              className="input pl-8 font-medium"
               value={formData.baseFee}
               onChange={(e) =>
                 setFormData({ ...formData, baseFee: e.target.value })
@@ -81,21 +91,17 @@ export default function FeeForm() {
         </Field>
 
         <Field
-          label="Scholarship"
+          label="Scholarship (₹)"
           error={scholarshipExceedsBase ? "Exceeds base fee" : null}
         >
           <div className="relative">
-            <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm select-none">
-              ₹
-            </span>
+            <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm select-none">₹</span>
             <input
               type="number"
               min="0"
               placeholder="0"
-              className={`input pl-8 ${
-                scholarshipExceedsBase
-                  ? "border-amber-400 focus:border-amber-400 focus:ring-amber-500/20"
-                  : ""
+              className={`input pl-8 font-medium ${
+                scholarshipExceedsBase ? "border-amber-400 ring-amber-500/20" : ""
               }`}
               value={formData.scholarship}
               onChange={(e) =>
@@ -106,22 +112,17 @@ export default function FeeForm() {
         </Field>
       </div>
 
-      {/* Net payable */}
-      <div className="bg-slate-50 border border-slate-200 rounded-lg px-5 py-4 flex items-center justify-between">
-        <span className="text-sm text-slate-500">Net payable</span>
-        <span className="text-2xl font-semibold text-slate-900 tabular-nums">
+      <div className="bg-slate-50 border border-slate-200 rounded-lg px-5 py-3.5 flex items-center justify-between">
+        <span className="text-sm text-slate-500 font-medium">Net payable</span>
+        <span className="text-xl font-bold text-slate-900 tabular-nums">
           ₹{netAmount.toLocaleString("en-IN")}
         </span>
       </div>
 
       <button
         type="submit"
-        disabled={
-          !formData.studentName ||
-          !formData.baseFee ||
-          scholarshipExceedsBase
-        }
-        className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-40 disabled:cursor-not-allowed text-white text-sm font-medium rounded-lg transition-colors"
+        disabled={!formData.studentName || !formData.courseName || !formData.baseFee || scholarshipExceedsBase}
+        className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-200 disabled:text-slate-400 disabled:cursor-not-allowed text-white text-sm font-semibold rounded-lg transition-all shadow-sm active:scale-[0.98]"
       >
         Create record
       </button>
@@ -132,12 +133,10 @@ export default function FeeForm() {
 
 function Field({ label, error, children }) {
   return (
-    <div className="space-y-2">
-      <label className="text-sm font-medium text-slate-700">{label}</label>
+    <div className="space-y-1.5 text-left">
+      <label className="text-[13px] font-semibold text-slate-600 uppercase tracking-wide">{label}</label>
       {children}
-      {error && (
-        <p className="text-xs text-amber-600">{error}</p>
-      )}
+      {error && <p className="text-xs text-amber-600 font-medium italic">{error}</p>}
     </div>
   );
 }
