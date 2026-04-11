@@ -1,17 +1,8 @@
+"use client";
 import Link from "next/link";
-import { getAllFees } from "@/lib/fees.api";
+import { mockStudentsLedger } from "@/lib/mockData";
 
-export default async function FeesDashboard() {
-  let records = [];
-  try {
-    const res = await getAllFees();
-    if (res.status === "success" && res.data) {
-      records = res.data;
-    }
-  } catch (e) {
-    console.error("Failed to load dashboard fees", e);
-  }
-
+export default function FeesDashboard() {
   return (
     <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center sm:justify-between">
@@ -62,7 +53,7 @@ export default async function FeesDashboard() {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-200 bg-white italic-none">
-                  {records.map((record) => (
+                  {mockStudentsLedger.map((record) => (
                     <tr key={record.id} className="hover:bg-slate-50/50 transition-colors">
                       <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-semibold text-slate-900 sm:pl-6">
                         {record.name}
@@ -86,7 +77,7 @@ export default async function FeesDashboard() {
                       </td>
                       <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                         <Link
-                          href={`/fees/${record.id}`}
+                          href={`/fees/${record.id}?name=${encodeURIComponent(record.name)}&course=${encodeURIComponent(record.course)}&base=${record.total}&scholarship=0`}
                           className="text-indigo-600 hover:text-indigo-900 font-bold"
                         >
                           View Ledger<span className="sr-only">, {record.name}</span>
