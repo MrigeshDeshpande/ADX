@@ -2,6 +2,7 @@
 import { toast } from "sonner";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { onboardStudent } from "@/lib/fees.api";
 
 const PROGRAMS = [
   "Full Stack Development",
@@ -29,24 +30,21 @@ export default function FeeForm() {
     e.preventDefault();
     if (scholarshipExceedsBase) return;
 
-    const params = new URLSearchParams({
-      name: formData.studentName,
-      course: formData.courseName,
-      base: formData.baseFee,
-      scholarship: formData.scholarship,
-    });
-
-    const mockFeeId = Math.floor(Math.random() * 1000) + 1;
-
     toast.promise(
-      new Promise((resolve) => setTimeout(resolve, 800)),
+      onboardStudent({
+        studentId: formData.studentName,
+        courseId: formData.courseName,
+        basePrice: Number(formData.baseFee),
+        scholarship: Number(formData.scholarship),
+      }),
       {
         loading: "Creating fee record...",
         success: () => {
-          router.push(`/fees/${mockFeeId}?${params.toString()}`);
+          // Navigating using the studentName which we are using as the studentId for now
+          router.push(`/fees/${formData.studentName}`);
           return `Ledger initialized for ${formData.studentName}`;
         },
-        error: "Failed to create record",
+        error: (err) => err.message || "Failed to create record",
       }
     );
   };
