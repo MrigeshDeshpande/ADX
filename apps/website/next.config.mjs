@@ -38,7 +38,7 @@ const nextConfig = {
 
                         // API calls 
                         "connect-src 'self' https://api.github.com https://www.google.com https://www.gstatic.com https://skillyards-backend.vercel.app https://www.googletagmanager.com; " +
-                        
+
                         // Images
                         "img-src 'self' data: blob: https://picsum.photos https://images.unsplash.com https://cdn.sanity.io https://cdn.simpleicons.org https://img.youtube.com; " +
 
@@ -86,6 +86,18 @@ const nextConfig = {
 
     async redirects() {
         return [
+            {
+                source: "/:path*",
+                has: [
+                    {
+                        type: "host",
+                        value: "skillyards.in",
+                    },
+                ],
+                destination: "https://www.skillyards.in/:path*",
+                permanent: true,
+            },
+
             { source: "/about-us", destination: "/about", permanent: true },
             { source: "/contact-us", destination: "/contact", permanent: true },
             { source: "/courses", destination: "/programs", permanent: true },
