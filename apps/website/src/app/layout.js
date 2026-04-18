@@ -7,7 +7,6 @@ import JsonLd from "@/components/JsonLd";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { GoogleTagManager } from "@next/third-parties/google";
-import RegisterSW from "@/components/RegisterSW";
 import { organizationSchema, websiteSchema } from "@/lib/seo/schema/global";
 const playfair = Playfair_Display({
     subsets: ["latin"],
@@ -48,8 +47,6 @@ export default function RootLayout({ children }) {
                 text-primary-foreground
                 transition-colors duration-500 ease-in-out`}
             >
-                <RegisterSW />
-
                 <ThemeProvider
                     attribute="class"
                     defaultTheme="system"
