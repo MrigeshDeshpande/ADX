@@ -15,9 +15,11 @@ const __dirname = path.dirname(__filename);
 const ASSETS_DIR = path.join(__dirname, "assets");
 const STAMP_PATH = path.join(ASSETS_DIR, "stamp.png");
 const LOGO_PATH = path.join(ASSETS_DIR, "logo.png");
+const FONT_PATH = path.join(ASSETS_DIR, "NotoSans-Regular.ttf");
 
 let stampBase64 = "";
 let logoBase64 = "";
+let notoSansBase64 = "";
 
 try {
   if (fs.existsSync(STAMP_PATH)) {
@@ -27,6 +29,10 @@ try {
   if (fs.existsSync(LOGO_PATH)) {
     const logoBuffer = fs.readFileSync(LOGO_PATH);
     logoBase64 = `data:image/png;base64,${logoBuffer.toString("base64")}`;
+  }
+  if (fs.existsSync(FONT_PATH)) {
+    const fontBuffer = fs.readFileSync(FONT_PATH);
+    notoSansBase64 = fontBuffer.toString("base64");
   }
 } catch (error) {
   console.error("Error loading receipt assets:", error);
@@ -151,6 +157,14 @@ export function generateReceiptHTML(receiptData) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Receipt_${paymentId.slice(-8).toUpperCase()}</title>
         <style>
+          ${notoSansBase64 ? `@font-face {
+            font-family: 'Noto Sans';
+            src: url('data:font/truetype;base64,${notoSansBase64}') format('truetype');
+            font-weight: 100 900;
+            font-style: normal;
+            unicode-range: U+20B9;
+          }` : ''}
+
           :root {
             --blue-900: #1e3a8a;
             --blue-700: #1d4ed8;
