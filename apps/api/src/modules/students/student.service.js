@@ -2,14 +2,14 @@ import * as studentRepo from "./student.repository.js";
 import * as paymentRepo from "../payments/payment.repository.js";
 import { getStudentLedger } from "../payments/ledger.service.js";
 import { getPlanWithInstallments } from "../plans/plan.service.js";
+import { getPaymentsWithAllocations } from "../payments/payment.service.js";
 
 export async function getStudentDetail(db, studentId) {
     const start = performance.now();
-    
-    // Parallelize EVERYTHING
+
     const [student, payments, ledger, plan] = await Promise.all([
         studentRepo.getStudentById(db, studentId),
-        paymentRepo.getPaymentsByStudentId(db, studentId),
+        getPaymentsWithAllocations(db, studentId),
         getStudentLedger(db, studentId),
         getPlanWithInstallments(db, studentId)
     ]);
