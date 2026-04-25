@@ -154,10 +154,16 @@ export async function getAllocationsByPaymentId(db, paymentId) {
     .where(eq(paymentAllocations.paymentId, paymentId));
 }
 
-export async function claimPaymentForGeneration(db, paymentId) {
+export async function claimPaymentForGeneration(db, paymentId, jobId) {
+  console.log("[DB][CLAIM]", { paymentId, jobId });
+  
   const result = await db
     .update(payments)
-    .set({ receiptStatus: "generating" })
+    .set({ 
+      receiptStatus: "generating", 
+      receiptJobId: jobId,
+      receiptRequestedAt: new Date()
+    })
     .where(
       and(
         eq(payments.id, paymentId),
@@ -169,18 +175,35 @@ export async function claimPaymentForGeneration(db, paymentId) {
   return result[0];
 }
 
-export async function resetStaleLocks(db, olderThanMinutes = 30) {
-  const cutoff = new Date(Date.now() - olderThanMinutes * 60 * 1000);
+export async function resetStaleLock(db, paymentId) {
+  console.log("[DB][RESET_STALE]", { paymentId });
   
   return db
     .update(payments)
     .set({ receiptStatus: "failed" })
+    .where(eq(payments.id, paymentId))
+    .returning();
+}
+
+export async function completePaymentGeneration(db, paymentId, jobId, data) {
+  console.log("[DB][COMPLETE]", { paymentId, jobId, status: data.receiptStatus });
+
+  const result = await db
+    .update(payments)
+    .set(data)
     .where(
       and(
-        eq(payments.receiptStatus, "generating"),
-        sql`${payments.createdAt} < ${cutoff}` // simplified for now
+        eq(payments.id, paymentId),
+        eq(payments.receiptJobId, jobId) // Ownership validation
       )
-    );
+    )
+    .returning();
+
+  if (result.length === 0) {
+    console.warn("[DB][COMPLETE][IGNORE] Stale or invalid jobId", { paymentId, jobId });
+  }
+
+  return result[0];
 }
 
 export async function updatePayment(db, paymentId, data) {

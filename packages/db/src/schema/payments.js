@@ -22,6 +22,8 @@ export const payments = pgTable(
     receiptKey: text("receipt_key"), // stores R2 object key (receipts/v1/{paymentId}.pdf)
     receiptStatus: text("receipt_status").default("pending"), // pending, generating, ready, failed
     receiptVersion: integer("receipt_version").default(1),
+    receiptRequestedAt: timestamp("receipt_requested_at"), // tracking for stale jobs
+    receiptJobId: text("receipt_job_id"), // ownership ID to prevent callback races
 
     receiptNumber: text("receipt_number"), // SY-2026-0001 format
 

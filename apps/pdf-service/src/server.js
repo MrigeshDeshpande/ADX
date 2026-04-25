@@ -19,108 +19,98 @@ function authMiddleware(req, res, next) {
   next();
 }
 
-let activeJobs = 0;
-const MAX_CONCURRENT = 5;
+const activeJobs = new Map();
+
+// SECURE CALLBACK HELPER
+async function notifyAPI(paymentId, jobId, result) {
+  const CALLBACK_URL = `${process.env.API_URL || "https://api.skillyards.in"}/api/internal/receipt/complete`;
+  
+  for (let i = 0; i < 3; i++) {
+    try {
+      console.log(`[CALLBACK][ATTEMPT_${i+1}]`, { paymentId, jobId });
+      const res = await fetch(CALLBACK_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Internal-Key": process.env.INTERNAL_API_KEY,
+        },
+        body: JSON.stringify({
+          paymentId,
+          jobId,
+          status: result.status, // 'ready' or 'failed'
+          key: result.key,
+          error: result.error,
+        }),
+      });
+
+      if (res.ok) {
+        console.log("[CALLBACK][SUCCESS]", { paymentId, jobId });
+        return;
+      }
+      throw new Error(`Status ${res.status}`);
+    } catch (err) {
+      console.warn(`[CALLBACK][FAILED] Attempt ${i+1}:`, err.message);
+      if (i < 2) await new Promise(r => setTimeout(r, 2000 * (i + 1))); // Linear backoff
+    }
+  }
+  console.error("[CALLBACK][FINAL_FAILURE] Could not notify API", { paymentId, jobId });
+}
 
 app.post("/generate", authMiddleware, async (req, res) => {
-  const { html, key } = req.body;
+  const { html, key, jobId } = req.body;
 
-  console.log("[PDF_REQUEST]", {
-    key,
-    htmlLength: html?.length,
-    timestamp: new Date().toISOString(),
-  });
+  // 1. EXTRACT PAYMENT ID FROM KEY (e.g., receipts/v1/paymentId.pdf)
+  const paymentId = key?.split("/").pop().split(".")[0];
 
-  console.log("ENV CHECK:", {
-    bucket: process.env.R2_BUCKET,
-    endpoint: process.env.R2_ENDPOINT,
-  });
+  console.log("[PDF_REQUEST]", { paymentId, jobId, key });
 
-  // RATE LIMIT
-  if (activeJobs >= MAX_CONCURRENT) {
-    return res.status(429).json({
-      error: "Too many PDF requests",
-      activeJobs,
-      max: MAX_CONCURRENT,
-    });
+  // 2. BASIC VALIDATION
+  if (!html || !key || !jobId) {
+    return res.status(400).json({ error: "Missing required fields" });
   }
 
-  // VALIDATION (single clean flow)
-  if (!html || typeof html !== "string") {
-    return res.status(400).json({ error: "Invalid HTML input" });
+  // 3. DEDUPE (IN-MEMORY)
+  if (activeJobs.has(paymentId)) {
+    console.log("[DEDUPE_HIT]", paymentId);
+    return res.status(202).json({ message: "Job already in progress", jobId });
   }
 
-  if (!key || typeof key !== "string") {
-    return res.status(400).json({ error: "Key is required" });
-  }
+  // 4. RETURN 202 IMMEDIATELY (ACKNOWLEDGE HANDSHAKE)
+  res.status(202).json({ message: "Generation started", jobId });
 
-  if (!key.endsWith(".pdf") || !key.startsWith("receipts/")) {
-    return res.status(400).json({ error: "Invalid key format" });
-  }
-
-  activeJobs++;
-
-  try {
-    // IDEMPOTENCY CHECK
-    const exists = await checkReceiptExists(key);
-    if (exists) {
-      console.log("[CACHE_HIT]", key);
-      return res.json({
-        success: true,
-        url: `${process.env.R2_ENDPOINT}/${process.env.R2_BUCKET}/${key}`,
-        cached: true,
-      });
-    }
-
-    // GENERATE PDF
-    const pdfBuffer = await generatePdfFromHtml(html);
-
-    console.log("UPLOAD INPUT:", {
-      bucket: process.env.R2_BUCKET,
-      key,
-      size: pdfBuffer.length,
-    });
-
-    // UPLOAD
+  // 5. BACKGROUND WORKER
+  (async () => {
+    activeJobs.set(paymentId, jobId);
     try {
-      const url = await uploadToR2({
-        key,
-        buffer: pdfBuffer,
-      });
+      // IDEMPOTENCY CHECK
+      const exists = await checkReceiptExists(key);
+      if (exists) {
+        console.log("[CACHE_HIT]", key);
+        await notifyAPI(paymentId, jobId, { status: "ready", key });
+        return;
+      }
 
-      console.log("[SUCCESS]", {
-        key,
-        url,
-        size: pdfBuffer.length,
-        timestamp: new Date().toISOString(),
-      });
+      // GENERATE
+      const pdfBuffer = await generatePdfFromHtml(html);
+      
+      // UPLOAD
+      await uploadToR2({ key, buffer: pdfBuffer });
 
-      return res.json({ url });
-    } catch (uploadErr) {
-      console.error("[UPLOAD_ERROR]", uploadErr);
-      return res.status(500).json({ error: "Upload failed" });
+      console.log("[JOB_SUCCESS]", { paymentId, jobId });
+      await notifyAPI(paymentId, jobId, { status: "ready", key });
+
+    } catch (err) {
+      console.error("[JOB_FAILED]", { paymentId, jobId, error: err.message });
+      await notifyAPI(paymentId, jobId, { status: "failed", error: err.message });
+    } finally {
+      activeJobs.delete(paymentId);
     }
-
-  } catch (err) {
-    console.error("[PDF_ERROR]", err);
-    return res.status(500).json({ error: "PDF generation failed" });
-  } finally {
-    activeJobs = Math.max(0, activeJobs - 1);
-  }
+  })();
 });
 
 // HEALTH CHECK
 app.get("/health", (req, res) => {
   res.json({ status: "ok" });
-});
-
-// PREVENT SILENT CRASHES
-process.on("uncaughtException", (err) => {
-  console.error("[UNCAUGHT_EXCEPTION]", err);
-});
-
-process.on("unhandledRejection", (err) => {
-  console.error("[UNHANDLED_REJECTION]", err);
 });
 
 const PORT = process.env.PORT || 3001;
