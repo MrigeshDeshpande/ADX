@@ -70,7 +70,7 @@ function QuizContent() {
         }
     };
 
-    // 🚀 START TEST (SECURE FLOW)
+    // Start test
     useEffect(() => {
         if (!leadId) {
             router.push("/10-minutes-test");
@@ -155,7 +155,7 @@ function QuizContent() {
     };
 
 
-  // ── Loading ──
+  // Loading status
   if (loading) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-muted/20">
@@ -165,7 +165,7 @@ function QuizContent() {
     );
   }
  
-  // ── Error ──
+  // Error status
   if (error) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-muted/20 p-6">
@@ -177,7 +177,7 @@ function QuizContent() {
     );
   }
  
-  // ── Submitting ──
+  // Submitting status
   if (submitting) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-muted/20 gap-3">
@@ -214,7 +214,7 @@ function QuizContent() {
     <div className="min-h-screen bg-muted/30 dark:bg-background/95 flex flex-col items-center justify-center p-4 py-10 transition-colors duration-300">
       <div className="w-full max-w-3xl bg-background border border-border/80 dark:border-border/40 rounded-3xl shadow-lg dark:shadow-2xl overflow-hidden">
  
-        {/* ── Header ── */}
+
         <div className="flex items-center justify-between px-6 sm:px-8 py-5 border-b border-border/60 dark:border-border/40 bg-card">
           <h1 className="text-base sm:text-lg font-bold tracking-tight text-foreground/90">Skill Assessment</h1>
           <div
@@ -225,7 +225,7 @@ function QuizContent() {
           </div>
         </div>
  
-        {/* ── Progress bar ── */}
+
         <div className="h-1 bg-muted dark:bg-muted/40 w-full relative">
           <div
             className="h-full bg-emerald-500 dark:bg-emerald-400 transition-all duration-500 ease-out"
@@ -235,7 +235,7 @@ function QuizContent() {
  
         <div className="px-6 sm:px-8 py-8 bg-card">
  
-          {/* ── Question dot nav ── */}
+
           <div className="flex flex-wrap gap-2 mb-8">
             {questions.map((q, i) => (
               <button
@@ -252,7 +252,7 @@ function QuizContent() {
             ))}
           </div>
  
-          {/* ── Question label + text ── */}
+
           <p className="text-xs sm:text-sm font-bold text-muted-foreground uppercase tracking-[0.2em] mb-3">
             Question {currentIndex + 1} <span className="text-muted-foreground/50">of {totalQuestions}</span>
           </p>
@@ -260,7 +260,7 @@ function QuizContent() {
             {currentQuestion.question}
           </h2>
  
-          {/* ── Options ── */}
+
           <div className="flex flex-col gap-3.5 mb-10">
             {currentQuestion.options.map((opt, idx) => {
               const selected = answers[currentQuestion.id] === opt;
@@ -289,7 +289,7 @@ function QuizContent() {
             })}
           </div>
  
-          {/* ── Navigation ── */}
+
           <div className="flex items-center justify-between pt-4 border-t border-border/50 dark:border-border/30">
             <button
               onClick={() => setCurrentIndex((p) => Math.max(0, p - 1))}

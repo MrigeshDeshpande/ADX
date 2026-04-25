@@ -35,7 +35,7 @@ export async function POST(req) {
     );
 
   } catch (err) {
-    console.error("❌ SUBMIT TEST ERROR:", err);
+    console.error("SUBMIT TEST ERROR:", err);
 
     return NextResponse.json(
       { error: err.message || "Server error during submission." },

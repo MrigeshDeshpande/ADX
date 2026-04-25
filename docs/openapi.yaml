@@ -1,0 +1,328 @@
+openapi: 3.0.0
+info:
+  title: SkillYards API
+  description: API for Student Management, Fee Ledgers, and Testing Sessions.
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:3000
+    description: Development Server
+
+paths:
+  /api/health:
+    get:
+      tags: [System]
+      summary: Health Check
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status: { type: string, example: "ok" }
+  
+  /api/students:
+    get:
+      tags: [Students]
+      summary: List all students
+      responses:
+        '200':
+          description: A list of students with payment summaries.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StudentSummary'
+    post:
+      tags: [Students]
+      summary: Enroll a new student
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateStudent'
+      responses:
+        '201':
+          description: Student created
+        '400':
+          description: Validation error
+
+  /api/students/{id}:
+    get:
+      tags: [Students]
+      summary: Get student details
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Detailed student information including financials and transactions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StudentDetail'
+
+  /api/students/{id}/ledger:
+    get:
+      tags: [Accounting]
+      summary: Get student fee ledger
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Summary of fees due, paid, pending, and credits.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseWrapper'
+
+  /api/students/{id}/payments:
+    get:
+      tags: [Accounting]
+      summary: List student payments
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: List of transactions for the student.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseWrapper'
+    post:
+      tags: [Accounting]
+      summary: Record a new payment
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePayment'
+      responses:
+        '201':
+          description: Payment recorded
+
+  /api/students/{id}/plan:
+    get:
+      tags: [Accounting]
+      summary: Get active fee plan
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Active plan details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseWrapper'
+    post:
+      tags: [Accounting]
+      summary: Assign a new fee plan
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePlan'
+      responses:
+        '201':
+          description: Plan assigned
+
+  /api/payments/{id}/receipt:
+    get:
+      tags: [Accounting]
+      summary: Generate payment receipt
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: format
+          in: query
+          schema:
+            type: string
+            enum: [html, pdf]
+            default: html
+        - name: download
+          in: query
+          schema:
+            type: boolean
+            default: false
+      responses:
+        '200':
+          description: Receipt in requested format (HTML string or PDF binary).
+
+  /api/enquiries:
+    get:
+      tags: [Marketing]
+      summary: List all enquiries
+      responses:
+        '200':
+          description: List of enquiries
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseWrapper'
+    post:
+      tags: [Marketing]
+      summary: Submit a new enquiry (Lead)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateEnquiry'
+      responses:
+        '201':
+          description: Enquiry submitted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseWrapper'
+
+  /api/test/register:
+    post:
+      tags: [Examination]
+      summary: Register for a test session
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterTest'
+      responses:
+        '200':
+          description: Registration successful
+
+components:
+  schemas:
+    ApiResponseWrapper:
+      type: object
+      properties:
+        success: { type: boolean }
+        data: { type: object }
+        message: { type: string }
+
+    StudentSummary:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        name: { type: string }
+        email: { type: string }
+        phone: { type: string }
+        courseName: { type: string }
+        finalFee: { type: integer }
+        totalPaid: { type: integer }
+        balance: { type: integer }
+
+    CreateStudent:
+      type: object
+      required: [name, totalFee, finalFee]
+      properties:
+        name: { type: string }
+        email: { type: string }
+        phone: { type: string, example: "9988776655" }
+        courseName: { type: string }
+        totalFee: { type: integer }
+        finalFee: { type: integer }
+
+    StudentDetail:
+      type: object
+      properties:
+        student: { $ref: '#/components/schemas/StudentSummary' }
+        financials:
+          type: object
+          properties:
+            totalPaid: { type: integer }
+            balance: { type: integer }
+        transactions: { type: array, items: { type: object } }
+
+    LedgerResponse:
+      type: object
+      properties:
+        studentName: { type: string }
+        courseName: { type: string }
+        totalDue: { type: integer }
+        totalPaid: { type: integer }
+        pending: { type: integer }
+        credit: { type: integer }
+
+    CreatePayment:
+      type: object
+      required: [amount]
+      properties:
+        amount: { type: integer }
+        method: { type: string, enum: [cash, upi, bank], default: cash }
+        note: { type: string }
+
+    CreatePlan:
+      type: object
+      required: [type, totalAmount]
+      properties:
+        type: { type: string, enum: [full, emi, custom, flexible] }
+        totalAmount: { type: integer }
+        installments:
+          type: array
+          items:
+            type: object
+            properties:
+              amount: { type: integer }
+              dueDate: { type: string, format: date-time }
+
+    CreateEnquiry:
+      type: object
+      required: [firstName, email, message, captchaToken]
+      properties:
+        firstName: { type: string }
+        lastName: { type: string }
+        email: { type: string }
+        phone: { type: string }
+        message: { type: string }
+        captchaToken: { type: string }
+
+    RegisterTest:
+      type: object
+      required: [name, email, phone]
+      properties:
+        name: { type: string }
+        email: { type: string }
+        phone: { type: string }

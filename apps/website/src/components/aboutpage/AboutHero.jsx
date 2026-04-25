@@ -85,9 +85,6 @@ export default function AboutHero() {
             viewport={{ once: true }}
             className="relative w-full flex items-center justify-center pt-8 sm:pt-12 desk:pt-0"
           >
-            {/* Decorative Frames - Slightly slanted */}
-            <div className="absolute inset-0 border-2 border-primary/10 rounded-2xl sm:rounded-[3rem] -rotate-3 scale-95 pointer-events-none hidden sm:block" />
-            <div className="absolute inset-0 bg-secondary/10 rounded-2xl sm:rounded-[3rem] rotate-2 scale-105 -z-10 pointer-events-none hidden sm:block" />
 
             {/* Main Slanted Container - Subtle 2deg rotation */}
             <div className="relative w-full aspect-video desk:aspect-5/4 xl:aspect-4/3 sm:rotate-2 rounded-2xl sm:rounded-[3rem] overflow-hidden shadow-xl sm:shadow-2xl border-2 sm:border-4 border-background/50 max-w-sm sm:max-w-none mx-auto sm:mx-0">
@@ -98,7 +95,7 @@ export default function AboutHero() {
                   fill
                   priority
                   fetchPriority="high"
-                  className="object-cover"
+                  className="object-cover mt-5 scale-[1.05] rounded-2xl sm:rounded-[3rem] rotate-[-0.90deg] group-hover:rotate-0 transition-transform duration-700"
                 />
                 {/* Visual Overlays */}
                 <div className="absolute inset-0 bg-linear-to-t from-primary/20 to-transparent mix-blend-overlay" />

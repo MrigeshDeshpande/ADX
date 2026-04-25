@@ -130,11 +130,11 @@ export const TEAM_MEMBERS = {
         name: "Narendra Singh",
         role: "Digital Marketing Program Director",
         bio: "Leading the Digital Marketing Program with years of industry experience to guide students toward success.",
-        image: "/images/team/Narendra-Singh.webp",
+        image: "/images/team/Narendra-Singh.jpeg",
         imageClassName: "object-center scale-[1.2] group-hover:scale-[1.3] md:group-hover:scale-[1.3]",
         specialization: "Program Direction & Strategy",
         socials: {
-            linkedin: "https://linkedin.com",
+            linkedin: "https://www.linkedin.com/in/narendra-s-singh-51522725",
         },
     },
     kanikaParashar: {

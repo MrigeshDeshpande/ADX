@@ -15,7 +15,7 @@ export async function GET(req) {
   const { searchParams } = new URL(req.url);
   const leadId = searchParams.get("leadId");
 
-  console.log("🔍 VALIDATE API HIT:", leadId);
+  console.log("VALIDATE API HIT:", leadId);
 
   if (!leadId) {
     return NextResponse.json(
@@ -31,7 +31,7 @@ export async function GET(req) {
       .where(eq(testLeads.id, leadId))
       .limit(1);
 
-    console.log("📦 DB RESULT:", result);
+    console.log("DB RESULT:", result);
 
     if (!result.length) {
       return NextResponse.json(
@@ -46,7 +46,7 @@ export async function GET(req) {
     );
 
   } catch (err) {
-    console.error("❌ VALIDATE ERROR:", err);
+    console.error("VALIDATE ERROR:", err);
 
     return NextResponse.json(
       { error: "Server error" },

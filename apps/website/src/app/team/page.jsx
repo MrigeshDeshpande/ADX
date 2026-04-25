@@ -16,12 +16,10 @@ export const metadata = buildSEO({
     ],
 });
 
-// ─────────────────────────────────────────────────────────────────────────────
-// DATA SOURCES
-// ─────────────────────────────────────────────────────────────────────────────
+
 import { leadershipTeam, engineeringTeam, operationsTeam } from "@/data/teamData";
 
-// ─────────────────────────────────────────────────────────────────────────────
+
 
 export default function TeamPage() {
     return (

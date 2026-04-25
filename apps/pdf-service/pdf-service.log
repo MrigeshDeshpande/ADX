@@ -1,0 +1,35 @@
+
+> pdf-service@1.0.0 dev
+> node src/server.js
+
+PDF service running on port 3001
+ENV CHECK: {
+  bucket: 'skillyards-documents',
+  endpoint: 'https://7e9608c1d37a93528e73d91965769e2e.r2.cloudflarestorage.com'
+}
+CREDS DEBUG: { accessKey: 'a5147a35b5d8bf88617b17406871207d', secretLength: 64 }
+UPLOAD INPUT: {
+  bucket: 'skillyards-documents',
+  key: 'receipts/4aed7c50-8f5a-497d-a030-21f6f81a0f53.pdf',
+  size: 1420717
+}
+ENV CHECK: {
+  bucket: 'skillyards-documents',
+  endpoint: 'https://7e9608c1d37a93528e73d91965769e2e.r2.cloudflarestorage.com'
+}
+CREDS DEBUG: { accessKey: 'a5147a35b5d8bf88617b17406871207d', secretLength: 64 }
+UPLOAD INPUT: {
+  bucket: 'skillyards-documents',
+  key: 'receipts/addf7359-61fa-4524-aee2-4007032a0d3f.pdf',
+  size: 1419273
+}
+ENV CHECK: {
+  bucket: 'skillyards-documents',
+  endpoint: 'https://7e9608c1d37a93528e73d91965769e2e.r2.cloudflarestorage.com'
+}
+CREDS DEBUG: { accessKey: 'a5147a35b5d8bf88617b17406871207d', secretLength: 64 }
+UPLOAD INPUT: {
+  bucket: 'skillyards-documents',
+  key: 'receipts/187d7e00-2669-4648-81d4-bb6bfcac1db6.pdf',
+  size: 1421101
+}

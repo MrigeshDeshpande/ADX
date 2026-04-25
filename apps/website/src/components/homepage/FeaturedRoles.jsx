@@ -2,18 +2,6 @@ import Link from "next/link";
 import { ArrowRight, MapPin, Briefcase } from "lucide-react";
 
 async function getFeaturedRoles() {
-    // TODO: Re-enable when API is ready
-    // try {
-    //     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/featured-jobs`, {
-    //         next: { revalidate: 60 }
-    //     });
-    //     if (!res.ok) return [];
-    //     const data = await res.json();
-    //     return data?.data || [];
-    // } catch (error) {
-    //     console.error("Failed to fetch featured jobs:", error);
-    //     return [];
-    // }
     return [];
 }
 

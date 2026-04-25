@@ -222,7 +222,7 @@ export default memo(function DomeGallery({
       autoRotateRAF.current = requestAnimationFrame(rotate);
     };
 
-    // 🔥 ALWAYS restart loop cleanly
+    // ALWAYS restart loop cleanly
     if (autoRotateRAF.current) {
       cancelAnimationFrame(autoRotateRAF.current);
     }

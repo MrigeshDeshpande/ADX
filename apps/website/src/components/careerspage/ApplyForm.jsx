@@ -68,27 +68,6 @@ export default function ApplyForm({ job }) {
             const formData = new FormData(form);
             formData.append("job_role_id", job.id);
             formData.append("g-recaptcha-response", token);
-
-            // TODO: Re-enable when API is ready
-            // const res = await fetch(
-            //     `${process.env.NEXT_PUBLIC_API_URL}/careers/apply`,
-            //     {
-            //         method: "POST",
-            //         body: formData,
-            //     }
-            // );
-            // if (res.status === 422) {
-            //     const data = await res.json();
-            //     setErrors(data.errors || {});
-            //     setLoading(false);
-            //     recaptchaRef.current?.reset();
-            //     return;
-            // }
-            // if (!res.ok) {
-            //     throw new Error("Submission failed");
-            // }
-
-            // Demo mode: show success
             setSuccess(true);
             form.reset();
         } catch (error) {
@@ -242,7 +221,7 @@ export default function ApplyForm({ job }) {
                 <div className="flex flex-col items-center justify-center py-16 text-center animate-in fade-in zoom-in duration-500">
                     <CheckCircle className="mb-4 h-12 w-12 text-green-500" />
                     <h3 className="text-2xl font-semibold">
-                        Application Received 🎉
+                        Application Received
                     </h3>
                     <p className="mt-3 text-sm text-neutral-500 max-w-md">
                         Thank you for applying to SkillYards.

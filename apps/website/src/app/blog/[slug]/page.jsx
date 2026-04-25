@@ -297,7 +297,6 @@ export default async function BlogPostPage({ params }) {
                         )}
 
                         <div className="shrink-0 rounded-4xl border border-border bg-muted/30 p-8 text-center transition-colors duration-300 flex flex-col items-center justify-center min-h-[200px]">
-                            <p className="text-4xl mb-4">🚀</p>
                             <p className="font-serif text-xl font-bold text-foreground mb-2">Upgrade Your Skills</p>
                             <p className="text-sm text-muted-foreground mb-6">Join SkillYards programs and get job-ready faster.</p>
                             <a

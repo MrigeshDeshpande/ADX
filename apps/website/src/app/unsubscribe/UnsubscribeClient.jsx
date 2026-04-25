@@ -19,24 +19,6 @@ export default function UnsubscribeClient() {
         setLoading(true);
         setStatus("loading");
 
-        // TODO: Re-enable when API is ready
-        // try {
-        //     const res = await fetch(
-        //         `${process.env.NEXT_PUBLIC_API_URL}/unsubscribe/${token}`,
-        //         { method: "POST" }
-        //     );
-        //     const data = await res.json();
-        //     if (!res.ok) {
-        //         throw new Error(data.message || "Unsubscribe failed");
-        //     }
-        //     setStatus("success");
-        //     setMessage(data.message || "You have been unsubscribed.");
-        // } catch (err) {
-        //     setStatus("error");
-        //     setMessage("Unsubscribe failed. Please try again.");
-        // } finally {
-        //     setLoading(false);
-        // }
 
         // Demo mode
         setStatus("success");
@@ -85,7 +67,7 @@ export default function UnsubscribeClient() {
                 {status === "success" && (
                     <>
                         <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-3">
-                            You’ve been unsubscribed 💔
+                            You’ve been unsubscribed
                         </h2>
 
                         <p className="text-sm text-gray-600 dark:text-gray-400">
@@ -93,7 +75,7 @@ export default function UnsubscribeClient() {
                         </p>
 
                         <p className="mt-4 text-xs text-gray-500">
-                            You’re always welcome back 💙
+                            You’re always welcome back
                         </p>
                     </>
                 )}

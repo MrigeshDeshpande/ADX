@@ -87,7 +87,7 @@ export default function FeedbackContent() {
     if (submitted)
         return (
             <div className="text-center py-16">
-                <h2 className="text-2xl font-bold">✅ Thank you / धन्यवाद!</h2>
+                <h2 className="text-2xl font-bold">Thank you / धन्यवाद!</h2>
                 <p className="text-gray-600 mt-2">
                     Your feedback has been successfully submitted / आपकी प्रतिक्रिया सफलतापूर्वक जमा हो गई है।
                 </p>
@@ -109,7 +109,7 @@ export default function FeedbackContent() {
             {/* HERO SECTION */}
             <section className="bg-indigo-600 text-white py-14">
                 <div className="max-w-4xl mx-auto px-6 text-center">
-                    <h1 className="text-3xl md:text-4xl font-bold mb-3">Help Us Improve / हमें सुधारने में मदद करें 🚀</h1>
+                    <h1 className="text-3xl md:text-4xl font-bold mb-3">Help Us Improve / हमें सुधारने में मदद करें</h1>
                     <p className="text-indigo-100">
                         Your feedback helps SkillYards deliver a better learning experience / आपकी प्रतिक्रिया SkillYards को बेहतर सीखने का अनुभव प्रदान करने में मदद करती है।
                     </p>

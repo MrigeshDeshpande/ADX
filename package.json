@@ -8,8 +8,9 @@
   "scripts": {
     "dev": "concurrently \"npm run dev -w apps/api\" \"npm run dev -w apps/erp\" \"npm run dev -w apps/website\"",
     "dev:api": "npm run dev -w apps/api",
-    "dev:erp": "npm run dev -w apps/erp",
+    "dev:admin": "npm run dev -w apps/admin",
     "dev:web": "npm run dev -w apps/website",
+    "dev:pdf": "npm run dev -w apps/pdf-service",
     "db:generate": "drizzle-kit generate",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio"

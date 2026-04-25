@@ -8,7 +8,7 @@ export default function NotFoundPage() {
             <h1 className="text-7xl font-extrabold mb-4 text-red-600 dark:text-red-500">404</h1>
             <h2 className="text-3xl font-semibold mb-4">Oops! Page Not Found</h2>
             <p className="text-center max-w-md mb-6 text-gray-700 dark:text-gray-400">
-                We can&#39;t find the page you&#39;re looking for. Maybe it got lost in the cloud ☁️.
+                We can&#39;t find the page you&#39;re looking for. Maybe it got lost in the cloud.
             </p>
             <Link href="/" className="px-6 py-3 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-medium rounded-lg transition">
                 Go Back Home

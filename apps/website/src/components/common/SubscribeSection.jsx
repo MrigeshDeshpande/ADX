@@ -30,25 +30,6 @@ export default function NewsletterSection() {
         }
 
         try {
-            // TODO: Re-enable when API is ready
-            // const res = await fetch(
-            //     `${process.env.NEXT_PUBLIC_API_URL}/subscribe`,
-            //     {
-            //         method: "POST",
-            //         headers: {
-            //             "Content-Type": "application/json",
-            //             Accept: "application/json",
-            //         },
-            //         body: JSON.stringify({
-            //             email,
-            //             "g-recaptcha-response": token,
-            //         }),
-            //     }
-            // );
-            // const data = await res.json();
-            // if (!res.ok) throw new Error(data.message || "Subscription failed.");
-            // setSuccess(data.message);
-
             setSuccess("You have been subscribed! (Demo mode)");
             setEmail("");
         } catch (err) {

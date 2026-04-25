@@ -63,15 +63,15 @@ export async function generateAndSendCertificate(data) {
     });
 
     // Generate PDF via PDFShift
-    console.log("📄 Generating PDF for", data.name);
+    console.log("Generating PDF for", data.name);
     const pdfBuffer = await generatePdfBuffer(html);
-    console.log("✅ PDF generated, size:", pdfBuffer.length, "bytes");
+    console.log("PDF generated, size:", pdfBuffer.length, "bytes");
 
     // Send email with PDF attachment
     const result = await resend.emails.send({
       from: process.env.EMAIL_FROM || "SkillYards <certificates@skillyards.in>",
       to: [data.email],
-      subject: `🏆 Your SkillYards Certificate — ${percentage}% Score`,
+      subject: `Your SkillYards Certificate — ${percentage}% Score`,
       html: certificateEmailTemplate({
         name: data.name,
         percentage,
@@ -86,9 +86,9 @@ export async function generateAndSendCertificate(data) {
       ],
     });
 
-    console.log(`✅ Certificate sent to ${data.email} (${percentage}%)`, result);
+    console.log(`Certificate sent to ${data.email} (${percentage}%)`, result);
   } catch (err) {
-    console.error("❌ CERTIFICATE FLOW FAILED:", err);
+    console.error("CERTIFICATE FLOW FAILED:", err);
     throw err;
   }
 }

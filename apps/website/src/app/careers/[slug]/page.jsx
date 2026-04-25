@@ -4,26 +4,9 @@ import Image from "next/image";
 import {withPageSEO} from "@/lib/seo";
 import { getJobPostingSchema } from "@/lib/seo/schema/jobPostingSchema";
 
-/**
- * Important: Careers job pages must be rendered at runtime
- */
-// export const dynamic = "force-dynamic";
 
-/* ----------------------------------------
-   Fetch single job by slug
------------------------------------------ */
 async function getJob(slug) {
-    // TODO: Re-enable when API is ready
-    // try {
-    //     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/jobs/${slug}`, { cache: "no-store" });
-    //     if (!res.ok) return null;
-    //     return res.json();
-    // } catch (error) {
-    //     console.error("Job fetch failed:", error);
-    //     return null;
-    // }
-
-    // Demo mode: return placeholder job
+  
     return {
         id: 1,
         title: "Sample Job Position",
@@ -83,7 +66,7 @@ export async function generateMetadata({ params }) {
             'IT jobs India',
         ].filter(Boolean),
 
-        // ✅ Separate OG images if you want
+        // Separate OG images if you want
         ogImage: '/images/opengraph/skillyards-careers-og.webp',
     });
 }
@@ -141,7 +124,7 @@ async function CareerJobPage({ params }) {
                 <section className="bg-red-50 dark:bg-red-950/30 border-y border-red-200 dark:border-red-900 py-10">
                     <div className="mx-auto max-w-3xl px-6 text-center">
                         <h2 className="text-2xl font-bold text-red-700 dark:text-red-400">
-                            🚫 Applications Closed
+                            Applications Closed
                         </h2>
                         <p className="mt-3 text-red-600 dark:text-red-400">
                             The application deadline for this role has passed.

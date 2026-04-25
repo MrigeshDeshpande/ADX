@@ -1,0 +1,29 @@
+[phases.setup]
+nixPkgs = [
+  "google-chrome",
+  "glib",
+  "nss",
+  "nspr",
+  "atk",
+  "at-spi2-atk",
+  "libdrm",
+  "expat",
+  "libxcb",
+  "libxshmfence",
+  "libX11",
+  "libXcomposite",
+  "libXdamage",
+  "libXext",
+  "libXfixes",
+  "libXrandr",
+  "mesa",
+  "pango",
+  "cairo",
+  "alsa-lib"
+]
+
+[phases.build]
+cmds = ["npm install"]
+
+[start]
+cmd = "npm start"
