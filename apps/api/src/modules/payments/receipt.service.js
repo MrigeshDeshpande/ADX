@@ -151,8 +151,6 @@ export function generateReceiptHTML(receiptData) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Receipt_${paymentId.slice(-8).toUpperCase()}</title>
         <style>
-          @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
           :root {
             --blue-900: #1e3a8a;
             --blue-700: #1d4ed8;
@@ -172,7 +170,7 @@ export function generateReceiptHTML(receiptData) {
           * { box-sizing: border-box; margin: 0; padding: 0; }
 
           body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-family: 'Noto Sans', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             background-color: var(--bg-canvas);
             color: var(--text-primary);
             padding: 40px 20px;
