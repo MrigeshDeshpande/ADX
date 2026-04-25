@@ -122,7 +122,7 @@ export function generateReceiptHTML(receiptData) {
     receiptNumber,
   } = receiptData;
 
-  const formatCurrency = (amount) => `₹${amount.toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  const formatCurrency = (amount) => `&#8377;${amount.toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
   const formatDate = (dateString) => new Date(dateString).toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" });
 
   const isFullyPaid = ledgerSnapshot.pending === 0;
@@ -151,7 +151,7 @@ export function generateReceiptHTML(receiptData) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Receipt_${paymentId.slice(-8).toUpperCase()}</title>
         <style>
-          @import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap');
+          @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
           :root {
             --blue-900: #1e3a8a;
@@ -172,7 +172,7 @@ export function generateReceiptHTML(receiptData) {
           * { box-sizing: border-box; margin: 0; padding: 0; }
 
           body {
-            font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             background-color: var(--bg-canvas);
             color: var(--text-primary);
             padding: 40px 20px;

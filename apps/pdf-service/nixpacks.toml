@@ -1,5 +1,5 @@
 [phases.setup]
-nixPkgs = ["...", "nodejs-20_x", "google-chrome", "atk", "at-spi2-atk", "cups", "libdrm", "libxkbcommon", "mesa", "pango"]
+nixPkgs = ["...", "nodejs-20_x", "google-chrome", "noto-fonts", "atk", "at-spi2-atk", "cups", "libdrm", "libxkbcommon", "mesa", "pango"]
 
 [phases.build]
 cmds = ["npm install"]
