@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { API } from "@/lib/api";
 import { StudentTable } from "@/components/students/StudentTable";
 
