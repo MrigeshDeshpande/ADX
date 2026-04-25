@@ -8,18 +8,21 @@ import {
 import { enqueuePdfGeneration, readyCache } from "@/integrations/pdf/pdf.worker";
 import { updatePayment, claimPaymentForGeneration, getPaymentById } from "@/modules/payments/payment.repository";
 import { logPdfFailure } from "@/modules/payments/pdfFailure.repository";
+import { corsHeaders } from "@/utils/cors";
+
 
 const CURRENT_VERSION = 1;
 const wait = (ms) => new Promise((res) => setTimeout(res, ms));
 
 export async function GET(req, context) {
   const { id: paymentId } = await context.params;
+  const headers = corsHeaders(req);
 
   try {
     if (!paymentId) {
       return new Response(
         JSON.stringify({ success: false, message: "Invalid payment ID" }),
-        { status: 400 }
+        { status: 400, headers }
       );
     }
 
@@ -35,7 +38,7 @@ export async function GET(req, context) {
     if (!paymentRecord) {
       return new Response(
         JSON.stringify({ success: false, message: "Payment not found" }),
-        { status: 404 }
+        { status: 404, headers }
       );
     }
 
@@ -44,14 +47,14 @@ export async function GET(req, context) {
       const receiptData = await getPaymentReceipt(db, paymentId);
       const receiptHTML = generateReceiptHTML(receiptData);
       return new Response(receiptHTML, {
-        headers: { "Content-Type": "text/html" },
+        headers: { ...headers, "Content-Type": "text/html" },
       });
     }
 
     if (format !== "pdf") {
       return new Response(
         JSON.stringify({ success: false, message: "Invalid format" }),
-        { status: 400 }
+        { status: 400, headers }
       );
     }
 
@@ -64,6 +67,7 @@ export async function GET(req, context) {
       const stream = await getReceiptStream(cached.key);
       return new Response(stream, {
         headers: {
+          ...headers,
           "Content-Type": "application/pdf",
           "Content-Disposition": `${download ? "attachment" : "inline"}; filename=receipt-${paymentId}.pdf`,
           "X-Receipt-Cache": "L1",
@@ -87,6 +91,7 @@ export async function GET(req, context) {
         
         return new Response(stream, {
           headers: {
+            ...headers,
             "Content-Type": "application/pdf",
             "Content-Disposition": `${download ? "attachment" : "inline"}; filename=receipt-${paymentId}.pdf`,
             "X-Receipt-Cache": "DB",
@@ -107,7 +112,7 @@ export async function GET(req, context) {
         }),
         { 
           status: 202, 
-          headers: { "Content-Type": "application/json", "Retry-After": "3" } 
+          headers: { ...headers, "Content-Type": "application/json", "Retry-After": "3" } 
         }
       );
     }
@@ -129,7 +134,7 @@ export async function GET(req, context) {
       }),
       { 
         status: 202, 
-        headers: { "Content-Type": "application/json", "Retry-After": "5" } 
+        headers: { ...headers, "Content-Type": "application/json", "Retry-After": "5" } 
       }
     );
 
@@ -140,7 +145,11 @@ export async function GET(req, context) {
         success: false,
         message: "Failed to process receipt request. Please try again later.",
       }),
-      { status: 500 }
+      { status: 500, headers }
     );
   }
+}
+
+export async function OPTIONS(req) {
+  return new Response(null, { headers: corsHeaders(req) });
 }
