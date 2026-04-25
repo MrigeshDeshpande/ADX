@@ -4,6 +4,8 @@ export function corsHeaders(request) {
   const allowedOrigins = [
     "https://skillyards.in",
     "https://www.skillyards.in",
+    "https://admin.skillyards.in",
+    "https://skillyards-admin.vercel.app",
     "https://skillyards-website.vercel.app",
     "http://localhost:3001",
     "http://localhost:3000",
