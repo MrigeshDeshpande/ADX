@@ -13,6 +13,8 @@ export async function encrypt(payload) {
 }
 
 export async function decrypt(session) {
+  if (!session) return null;
+
   try {
     const { payload } = await jwtVerify(session, encodedKey, {
       algorithms: ["HS256"],
@@ -40,7 +42,7 @@ export async function updateSession() {
   const parsed = await decrypt(session);
   parsed.expires = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
   const res = await encrypt(parsed);
-  
+
   cookieStore.set("session", res, {
     httpOnly: true,
     secure: true,

@@ -9,13 +9,13 @@ export function StudentTable({ students }) {
 
   const filtered = query.trim()
     ? students.filter((s) => {
-        const q = query.toLowerCase();
-        return (
-          s.name?.toLowerCase().includes(q) ||
-          s.email?.toLowerCase().includes(q) ||
-          s.phone?.includes(q)
-        );
-      })
+      const q = query.toLowerCase();
+      return (
+        s.name?.toLowerCase().includes(q) ||
+        s.email?.toLowerCase().includes(q) ||
+        s.phone?.includes(q)
+      );
+    })
     : students;
 
   if (!students || students.length === 0) {
@@ -47,54 +47,59 @@ export function StudentTable({ students }) {
         </div>
       </div>
 
-    <div className="overflow-x-auto">
-      <table className="w-full text-sm text-left min-w-[520px]">
-        <thead className="bg-muted/50 text-muted-foreground border-b border-border text-xs uppercase tracking-wider">
-          <tr>
-            <th className="px-4 sm:px-6 py-4 font-semibold">Name</th>
-            <th className="px-4 sm:px-6 py-4 font-semibold">Email</th>
-            <th className="px-4 sm:px-6 py-4 font-semibold text-right">Net Payable</th>
-            <th className="px-4 sm:px-6 py-4 font-semibold text-right">Balance</th>
-            <th className="px-4 sm:px-6 py-4 font-semibold text-center">Actions</th>
-          </tr>
-        </thead>
-        <tbody className="divide-y divide-border">
-          {filtered.length === 0 && (
+      <div className="overflow-x-auto">
+        <table className="w-full text-sm text-left min-w-[520px]">
+          <thead className="bg-muted/50 text-muted-foreground border-b border-border text-xs uppercase tracking-wider">
             <tr>
-              <td colSpan={5} className="px-6 py-12 text-center text-sm text-muted-foreground">
-                No students match &quot;{query}&quot;
-              </td>
+              <th className="px-4 sm:px-6 py-4 font-semibold">Name</th>
+              <th className="px-4 sm:px-6 py-4 font-semibold">Email</th>
+              <th className="px-4 sm:px-6 py-4 font-semibold text-right">Net Payable</th>
+              <th className="px-4 sm:px-6 py-4 font-semibold text-right">Balance</th>
+              <th className="px-4 sm:px-6 py-4 font-semibold text-center">Actions</th>
             </tr>
-          )}
-          {filtered.map((student) => (
-            <tr key={student.id} className="hover:bg-muted/30 transition-colors group relative cursor-pointer">
-              <td className="px-4 sm:px-6 py-4 sm:py-5 font-semibold text-foreground group-hover:text-primary transition-colors">
-                {/* Invisible full-row hyperlink wrapper */}
-                <Link 
-                  href={`/students/${student.id}`} 
-                  className="absolute inset-0 z-10" 
-                  aria-label={`View ${student.name}`}
-                  prefetch={false}
-                />
-                {student.name}
-              </td>
-              <td className="px-4 sm:px-6 py-4 sm:py-5 text-muted-foreground font-medium">{student.email || student.phone || "-"}</td>
-              <td className="px-4 sm:px-6 py-4 sm:py-5 text-right font-medium text-foreground">₹{(student.finalFee || 0).toLocaleString()}</td>
-              <td className="px-4 sm:px-6 py-4 sm:py-5 text-right">
-                <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold ${student.balance > 0 ? 'bg-amber-100 text-amber-700' : 'bg-emerald-100 text-emerald-700'}`}>
-                  ₹{(student.balance || 0).toLocaleString()}
-                </span>
-              </td>
-              <td className="px-4 sm:px-6 py-4 sm:py-5 text-center relative z-20">
-                <button className="p-2 text-muted-foreground hover:text-foreground hover:bg-muted rounded-md transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100 outline-none">
-                  <MoreHorizontal className="w-5 h-5" />
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody className="divide-y divide-border">
+            {filtered.length === 0 && (
+              <tr>
+                <td colSpan={5} className="px-6 py-12 text-center text-sm text-muted-foreground">
+                  No students match &quot;{query}&quot;
+                </td>
+              </tr>
+            )}
+            {Array.isArray(filtered) && filtered.map((student) => (
+              <tr key={student.id} className="hover:bg-muted/30 transition-colors group relative cursor-pointer">
+                <td className="px-4 sm:px-6 py-4 sm:py-5 font-semibold text-foreground group-hover:text-primary transition-colors">
+                  {/* Invisible full-row hyperlink wrapper */}
+                  <Link
+                    href={`/students/${student.id}`}
+                    className="absolute inset-0 z-10"
+                    aria-label={`View ${student.name}`}
+                    prefetch={false}
+                  />
+                  {student.name}
+                </td>
+                <td className="px-4 sm:px-6 py-4 sm:py-5 text-muted-foreground font-medium">{student.email || student.phone || "-"}</td>
+                <td className="px-4 sm:px-6 py-4 sm:py-5 text-right font-medium text-foreground" suppressHydrationWarning>
+                  ₹{(student.finalFee || 0).toLocaleString()}
+                </td>
+                <td className="px-4 sm:px-6 py-4 sm:py-5 text-right">
+                  <span
+                    className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold ${Number(student.balance) > 0 ? 'bg-amber-100 text-amber-700' : 'bg-emerald-100 text-emerald-700'}`}
+                    suppressHydrationWarning
+                  >
+                    ₹{(Number(student.balance) || 0).toLocaleString()}
+                  </span>
+                </td>
+                <td className="px-4 sm:px-6 py-4 sm:py-5 text-center relative z-20">
+                  <button className="p-2 text-muted-foreground hover:text-foreground hover:bg-muted rounded-md transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100 outline-none">
+                    <MoreHorizontal className="w-5 h-5" />
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

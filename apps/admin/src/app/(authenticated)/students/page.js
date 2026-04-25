@@ -2,14 +2,24 @@ import { API } from "@/lib/api";
 import { StudentTable } from "@/components/students/StudentTable";
 
 async function getStudents(limit = 50, offset = 0) {
-  const res = await fetch(`${API}/api/students?limit=${limit}&offset=${offset}`, { 
-    next: { 
-      revalidate: 300, 
-      tags: ['students'] 
-    } 
-  });
-  if (!res.ok) return [];
-  return res.json();
+  try {
+    const res = await fetch(`${API}/api/students?limit=${limit}&offset=${offset}`, {
+      next: {
+        revalidate: 300,
+        tags: ['students']
+      }
+    });
+
+    if (!res.ok) {
+      console.error(`[ADMIN][ERROR] Failed to fetch students: ${res.status} ${res.statusText}`);
+      return [];
+    }
+
+    return await res.json();
+  } catch (err) {
+    console.error("[ADMIN][ERROR] Network error fetching students:", err.message);
+    return [];
+  }
 }
 
 export default async function StudentsListPage({ searchParams }) {
@@ -25,6 +35,12 @@ export default async function StudentsListPage({ searchParams }) {
             Manage your student records and track financial ledger.
           </p>
         </div>
+        <Link
+          href="/students/enroll"
+          className="inline-flex items-center gap-1.5 px-4 py-2.5 text-sm font-bold bg-primary text-primary-foreground hover:opacity-90 rounded-lg transition-opacity shrink-0"
+        >
+          <span className="text-lg leading-none">+</span> Add Student
+        </Link>
       </div>
 
       <div className="card overflow-hidden">
