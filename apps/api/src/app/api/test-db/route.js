@@ -1,15 +1,21 @@
-// import { db, users, enquiries } from "@skillyards/db";
 import { getAllEnquiries } from "@/modules/enquiries/enquiry.repository";
 import { success, error } from "@/utils/response";
+import { createProtectedRoute } from "@/lib/middleware";
+import { canAccessEnquiry } from "@/lib/permissions";
 
-
-export async function GET() {
-
+/**
+ * SECURED DB TEST HANDLER (Internal)
+ */
+async function getHandler() {
   try {
     const data = await getAllEnquiries();
-    return success(data, "Enquiries fetched successfully");
+    return Response.json(success(data, "Enquiries fetched successfully"));
   } catch (err) {
-    return error("Failed to fetch enquiries", { error: err.message });
+    return Response.json(error("Failed to fetch enquiries", { error: err.message }), { status: 400 });
   }
-
 }
+
+// ── STRUCTURAL ENFORCEMENT ──
+export const GET = createProtectedRoute(getHandler, {
+  policy: canAccessEnquiry
+});

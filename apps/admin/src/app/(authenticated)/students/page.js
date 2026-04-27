@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { API } from "@/lib/api";
+import { getAuthHeaders } from "@/lib/auth";
 import { StudentTable } from "@/components/students/StudentTable";
 
 async function getStudents(limit = 50, offset = 0) {
   try {
     const res = await fetch(`${API}/api/students?limit=${limit}&offset=${offset}`, {
+      headers: await getAuthHeaders(),
       next: {
         revalidate: 300,
         tags: ['students']

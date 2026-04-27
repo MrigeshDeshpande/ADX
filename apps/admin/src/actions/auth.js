@@ -59,6 +59,7 @@ export async function login(prevState, formData) {
       expires,
       sameSite: "lax",
       path: "/",
+      domain: process.env.NODE_ENV === "production" ? ".skillyards.in" : undefined,
     });
 
     return { success: true };

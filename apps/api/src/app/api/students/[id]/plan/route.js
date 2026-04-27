@@ -1,62 +1,45 @@
-import { createPlanWithInstallments } from "@/modules/plans/plan.service";
-import { NextResponse } from "next/server";
 import { db } from "@repo/db";
-import { getPlanWithInstallments } from "@/modules/plans/plan.service";
+import { createPlanWithInstallments, getPlanWithInstallments } from "@/modules/plans/plan.service";
+import { getStudentById } from "@/modules/students/student.repository";
+import { createProtectedRoute } from "@/lib/middleware";
+import { canAccessStudent } from "@/lib/permissions";
 
-export async function POST(req, { params }) {
+/**
+ * SECURED STUDENT PLAN LIST HANDLER
+ */
+async function getHandler(req, { context, ctx, resource: student }) {
+  const { id: studentId } = await context.params;
+  const data = await getPlanWithInstallments(db, studentId);
 
-    try {
-        const { id: studentId } = await params;
-         console.log("studentId:", studentId);
-
-        const body = await req.json();
-        console.log("body:", body);
-
-        const plan = await createPlanWithInstallments(
-            db,
-            studentId,
-            body
-        );
-
-        console.log("plan created:", plan);
-
-        return NextResponse.json(
-            {
-                success: true,
-                data: plan,
-            },
-            { status: 201 }
-        );
-    } catch (error) {
-        console.error("Create plan error:", error);
-
-        return NextResponse.json(
-            {
-                success: false,
-                message: error.message || "Something went wrong",
-            },
-            { status: 400 }
-        );
-    }
+  return Response.json({
+    success: true,
+    data,
+  });
 }
 
-export async function GET(req, { params }) {
-  try {
-    const { id: studentId } = await params;
+/**
+ * SECURED STUDENT PLAN CREATE HANDLER
+ */
+async function postHandler(req, { context, ctx, resource: student }) {
+  const { id: studentId } = await context.params;
+  const body = await req.json();
 
-    const data = await getPlanWithInstallments(db, studentId);
+  const plan = await createPlanWithInstallments(db, studentId, body);
 
-    return NextResponse.json({
-      success: true,
-      data,
-    });
-  } catch (error) {
-    return NextResponse.json(
-      {
-        success: false,
-        message: error.message,
-      },
-      { status: 400 }
-    );
-  }
+  ctx.log("PLAN_CREATED", { studentId, planId: plan.id });
+  return Response.json({
+    success: true,
+    data: plan,
+  }, { status: 201 });
 }
+
+// ── STRUCTURAL ENFORCEMENT ──
+export const GET = createProtectedRoute(getHandler, {
+  policy: canAccessStudent,
+  resourceLoader: (id) => getStudentById(db, id)
+});
+
+export const POST = createProtectedRoute(postHandler, {
+  policy: canAccessStudent,
+  resourceLoader: (id) => getStudentById(db, id)
+});

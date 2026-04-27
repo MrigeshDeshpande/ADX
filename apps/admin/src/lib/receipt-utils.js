@@ -24,7 +24,7 @@ export async function waitForReceiptReady(paymentId, apiUrl, options = {}) {
       const url = `${apiUrl}/api/payments/${paymentId}/receipt?format=pdf`;
       console.log(`[RECEIPT_POLL] Fetching: ${url}`);
       
-      const res = await fetch(url);
+      const res = await fetch(url, { credentials: 'include' });
       console.log(`[RECEIPT_POLL] Status: ${res.status} (${res.headers.get("content-type")})`);
       
       // If ready, it returns the PDF stream (content-type: application/pdf)

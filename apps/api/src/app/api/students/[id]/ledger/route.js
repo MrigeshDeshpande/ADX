@@ -1,24 +1,24 @@
-import { NextResponse } from "next/server";
 import { db } from "@repo/db";
 import { getStudentLedger } from "@/modules/payments/ledger.service";
+import { getStudentById } from "@/modules/students/student.repository";
+import { createProtectedRoute } from "@/lib/middleware";
+import { canAccessStudent } from "@/lib/permissions";
 
-export async function GET(req, { params }) {
-  try {
-    const { id: studentId } = await params;
+/**
+ * SECURED STUDENT LEDGER HANDLER
+ */
+async function getHandler(req, { context, ctx, resource: student }) {
+  const { id: studentId } = await context.params;
+  const ledger = await getStudentLedger(db, studentId);
 
-    const ledger = await getStudentLedger(db, studentId);
-
-    return NextResponse.json({
-      success: true,
-      data: ledger,
-    });
-  } catch (error) {
-    return NextResponse.json(
-      {
-        success: false,
-        message: error.message,
-      },
-      { status: 400 }
-    );
-  }
+  return Response.json({
+    success: true,
+    data: ledger,
+  });
 }
+
+// ── STRUCTURAL ENFORCEMENT ──
+export const GET = createProtectedRoute(getHandler, {
+  policy: canAccessStudent,
+  resourceLoader: (id) => getStudentById(db, id)
+});

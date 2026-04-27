@@ -1,45 +1,32 @@
-import { NextResponse } from "next/server";
 import { db } from "@repo/db";
 import { submitTest } from "@/modules/test/test.service";
-import { corsHeaders } from "@/utils/cors";
+import { createProtectedRoute } from "@/lib/middleware";
+import { publicAllow } from "@/lib/permissions";
 
-export async function OPTIONS(request) {
-  return new Response(null, {
-    status: 204,
-    headers: corsHeaders(request),
+/**
+ * PUBLIC ASSESSMENT SUBMISSION HANDLER
+ */
+async function postHandler(req, { ctx }) {
+  const body = await req.json();
+  const { sessionId, answers } = body;
+
+  if (!sessionId || !Array.isArray(answers)) {
+    return Response.json({ error: "Invalid payload format." }, { status: 400 });
+  }
+
+  const result = await submitTest({ db, sessionId, answers });
+  ctx.log("ASSESSMENT_SUBMITTED", { sessionId, score: result.score });
+
+  return Response.json({
+    success: true,
+    score: result.score,
+    total: result.total,
+    wrongAnswers: result.wrongAnswers,
   });
 }
 
-export async function POST(req) {
-  try {
-    const body = await req.json();
-    const { sessionId, answers } = body;
-
-    if (!sessionId || !Array.isArray(answers)) {
-      return NextResponse.json(
-        { error: "Invalid payload format." },
-        { status: 400, headers: corsHeaders(req) }
-      );
-    }
-
-    const result = await submitTest({ db, sessionId, answers });
-
-    return NextResponse.json(
-      {
-        success: true,
-        score: result.score,
-        total: result.total,
-        wrongAnswers: result.wrongAnswers,
-      },
-      { headers: corsHeaders(req) }
-    );
-
-  } catch (err) {
-    console.error("SUBMIT TEST ERROR:", err);
-
-    return NextResponse.json(
-      { error: err.message || "Server error during submission." },
-      { status: 500, headers: corsHeaders(req) }
-    );
-  }
-}
+// ── STRUCTURAL ENFORCEMENT ──
+export const POST = createProtectedRoute(postHandler, {
+  policy: publicAllow,
+  isPublic: true
+});

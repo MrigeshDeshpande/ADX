@@ -3,11 +3,13 @@
 import { revalidatePath, revalidateTag } from "next/cache";
 
 import { API } from "@/lib/api";
+import { getAuthHeaders } from "@/lib/auth";
+
 
 export async function createStudent(studentData) {
   const res = await fetch(`${API}/api/students`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: await getAuthHeaders(),
     body: JSON.stringify(studentData),
   });
 
@@ -28,7 +30,7 @@ export async function createStudent(studentData) {
 export async function createStudentPlan(studentId, planData) {
   const res = await fetch(`${API}/api/students/${studentId}/plan`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: await getAuthHeaders(),
     body: JSON.stringify(planData),
   });
 
@@ -39,7 +41,10 @@ export async function createStudentPlan(studentId, planData) {
   }
 
   // Fetch the real plan with actual installment IDs from the DB
-  const planRes = await fetch(`${API}/api/students/${studentId}/plan`, { cache: "no-store" });
+  const planRes = await fetch(`${API}/api/students/${studentId}/plan`, { 
+    cache: "no-store",
+    headers: await getAuthHeaders(),
+  });
   const planJson = await planRes.json();
 
   revalidateTag(`student-${studentId}`);
@@ -51,7 +56,7 @@ export async function createStudentPlan(studentId, planData) {
 export async function addFlexibleInstallment(studentId, installmentData) {
   const res = await fetch(`${API}/api/students/${studentId}/plan/installments`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: await getAuthHeaders(),
     body: JSON.stringify(installmentData),
   });
 
@@ -68,7 +73,7 @@ export async function addFlexibleInstallment(studentId, installmentData) {
 export async function addStudentPayment(studentId, paymentData) {
   const res = await fetch(`${API}/api/students/${studentId}/payments`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: await getAuthHeaders(),
     body: JSON.stringify(paymentData),
   });
 

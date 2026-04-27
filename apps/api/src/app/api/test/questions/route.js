@@ -1,33 +1,22 @@
-import { NextResponse } from "next/server";
 import { db } from "@repo/db";
 import { getRandomActiveQuestions } from "@/modules/test/test.repository";
-import { corsHeaders } from "@/utils/cors";
+import { createProtectedRoute } from "@/lib/middleware";
+import { canAccessAssessment } from "@/lib/permissions";
 
-export async function OPTIONS(request) {
-  return new Response(null, {
-    status: 204,
-    headers: corsHeaders(request),
-  });
+/**
+ * SECURED ASSESSMENT QUESTIONS HANDLER
+ */
+async function getHandler(req, { ctx }) {
+  const { searchParams } = new URL(req.url);
+  const topicsParam = searchParams.get("topics");
+  const topics = topicsParam ? topicsParam.split(",") : [];
+
+  const questions = await getRandomActiveQuestions(db, topics);
+
+  return Response.json({ success: true, questions });
 }
 
-export async function GET(req) {
-  try {
-    const { searchParams } = new URL(req.url);
-    const topicsParam = searchParams.get("topics");
-    const topics = topicsParam ? topicsParam.split(",") : [];
-
-    const questions = await getRandomActiveQuestions(db, topics);
-
-    return NextResponse.json(
-      { success: true, questions },
-      { headers: corsHeaders(req) }
-    );
-  } catch (err) {
-    console.error("QUESTIONS API ERROR:", err);
-
-    return NextResponse.json(
-      { error: "Failed to fetch questions" },
-      { status: 500, headers: corsHeaders(req) }
-    );
-  }
-}
+// ── STRUCTURAL ENFORCEMENT ──
+export const GET = createProtectedRoute(getHandler, {
+  policy: canAccessAssessment
+});

@@ -2,47 +2,50 @@ import { db } from "@repo/db";
 import { students } from "@repo/db"; 
 import { validateCreateStudent } from "@/modules/students/student.schema";
 import { getStudentList } from "@/modules/students/student.service";
+import { createProtectedRoute } from "@/lib/middleware";
+import { canAccessStudent } from "@/lib/permissions";
 
-export async function POST(req) {
-    try {
-        const body = await req.json();
+/**
+ * SECURED STUDENT LIST HANDLER
+ */
+async function getHandler(req) {
+  const { searchParams } = new URL(req.url);
+  const limit = parseInt(searchParams.get("limit") || "100");
+  const offset = parseInt(searchParams.get("offset") || "0");
 
-        const result = validateCreateStudent(body);
-        console.log(result);
-
-        if (!result.success) {
-            return Response.json(
-                { error: result.error.flatten() },
-                { status: 400 }
-            );
-        }
-
-        const created = await db
-            .insert(students)
-            .values(result.data)
-            .returning();
-
-        return Response.json(created[0], { status: 201 });
-    } catch (err) {
-        return Response.json(
-            { error: err.message },
-            { status: 400 }
-        );
-    }
+  const data = await getStudentList(db, limit, offset);
+  return Response.json(data);
 }
 
-export async function GET(req) {
-  try {
-    const { searchParams } = new URL(req.url);
-    const limit = parseInt(searchParams.get("limit") || "100");
-    const offset = parseInt(searchParams.get("offset") || "0");
+/**
+ * SECURED STUDENT CREATE HANDLER
+ */
+async function postHandler(req, { ctx }) {
+  const body = await req.json();
+  const result = validateCreateStudent(body);
 
-    const data = await getStudentList(db, limit, offset);
-    return Response.json(data);
-  } catch (err) {
+  if (!result.success) {
+    ctx.warn("VALIDATION_FAILURE", { errors: result.error.flatten() });
     return Response.json(
-      { error: err.message },
+      { error: result.error.flatten() },
       { status: 400 }
     );
   }
+
+  const created = await db
+    .insert(students)
+    .values(result.data)
+    .returning();
+
+  ctx.log("STUDENT_CREATED", { studentId: created[0].id });
+  return Response.json(created[0], { status: 201 });
 }
+
+// ── STRUCTURAL ENFORCEMENT ──
+export const GET = createProtectedRoute(getHandler, {
+  policy: canAccessStudent
+});
+
+export const POST = createProtectedRoute(postHandler, {
+  policy: canAccessStudent
+});

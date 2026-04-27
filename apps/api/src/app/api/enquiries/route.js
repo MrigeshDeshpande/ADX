@@ -1,56 +1,51 @@
-import { NextResponse } from "next/server";
 import { validateEnquiry } from "@/modules/enquiries/enquiry.schema";
-import {
-  createEnquiryService,
-  getAllEnquiriesService
-} from "@/modules/enquiries/enquiry.service";
+import { createEnquiryService, getAllEnquiriesService } from "@/modules/enquiries/enquiry.service";
 import { success, error } from "@/utils/response";
-import { corsHeaders } from "@/utils/cors";
+import { createProtectedRoute } from "@/lib/middleware";
+import { publicAllow, canAccessEnquiry } from "@/lib/permissions";
 
-export async function OPTIONS(request) {
-  return NextResponse.json({}, { headers: corsHeaders(request) });
+/**
+ * SECURED ENQUIRY LIST HANDLER (Admin/Manager)
+ */
+async function getHandler(req, { ctx }) {
+  const data = await getAllEnquiriesService();
+  return Response.json(success(data, "Enquiries fetched successfully"));
 }
 
-export async function POST(request) {
-  try {
-    const body = await request.json();
-    const validation = validateEnquiry(body);
+/**
+ * PUBLIC ENQUIRY SUBMISSION HANDLER (Website)
+ */
+async function postHandler(req, { ctx }) {
+  const body = await req.json();
+  const validation = validateEnquiry(body);
 
-    if (!validation.success) {
-      return NextResponse.json(
-        error("Validation failed", validation.error.flatten()),
-        { status: 400, headers: corsHeaders(request) }
-      );
-    }
-
-    const enquiry = await createEnquiryService(validation.data);
-
-    return NextResponse.json(
-      success(enquiry, "Enquiry submitted successfully"),
-      { status: 201, headers: corsHeaders(request) }
-    );
-
-  } catch (err) {
-    return NextResponse.json(
-      error("Failed to submit enquiry", err.message),
-      { status: 500, headers: corsHeaders(request) }
+  if (!validation.success) {
+    ctx.warn("ENQUIRY_VALIDATION_FAILURE", { errors: validation.error.flatten() });
+    return Response.json(
+      error("Validation failed", validation.error.flatten()),
+      { status: 400 }
     );
   }
+
+  const enquiry = await createEnquiryService(validation.data);
+  ctx.log("ENQUIRY_SUBMITTED", { enquiryId: enquiry.id });
+
+  return Response.json(
+    success(enquiry, "Enquiry submitted successfully"),
+    { status: 201 }
+  );
 }
 
-export async function GET(request) {
-  try {
-    const data = await getAllEnquiriesService();
+// ── STRUCTURAL ENFORCEMENT ──
 
-    return NextResponse.json(
-      success(data, "Enquiries fetched successfully"),
-      { status: 200, headers: corsHeaders(request) }
-    );
+// GET: Strictly protected for staff/admins
+export const GET = createProtectedRoute(getHandler, {
+  policy: canAccessEnquiry
+});
 
-  } catch (err) {
-    return NextResponse.json(
-      error("Failed to fetch enquiries", err.message),
-      { status: 500, headers: corsHeaders(request) }
-    );
-  }
-}
+// POST: Publicly accessible but still through the structural wrapper
+// This allows us to have requestId, logging, and rate limiting on the website form!
+export const POST = createProtectedRoute(postHandler, {
+  policy: publicAllow,
+  isPublic: true
+});

@@ -1,19 +1,24 @@
-import { NextResponse } from "next/server";
 import { db } from "@repo/db";
 import { addFlexibleInstallment } from "@/modules/plans/plan.service";
+import { getStudentById } from "@/modules/students/student.repository";
+import { createProtectedRoute } from "@/lib/middleware";
+import { canAccessStudent } from "@/lib/permissions";
 
-export async function POST(req, { params }) {
-  try {
-    const { id: studentId } = await params;
-    const body = await req.json();
+/**
+ * SECURED STUDENT INSTALLMENT CREATE HANDLER
+ */
+async function postHandler(req, { context, ctx, resource: student }) {
+  const { id: studentId } = await context.params;
+  const body = await req.json();
 
-    const installment = await addFlexibleInstallment(db, studentId, body);
+  const installment = await addFlexibleInstallment(db, studentId, body);
 
-    return NextResponse.json({ success: true, data: installment }, { status: 201 });
-  } catch (error) {
-    return NextResponse.json(
-      { success: false, message: error.message || "Something went wrong" },
-      { status: 400 }
-    );
-  }
+  ctx.log("INSTALLMENT_ADDED", { studentId, installmentId: installment.id });
+  return Response.json({ success: true, data: installment }, { status: 201 });
 }
+
+// ── STRUCTURAL ENFORCEMENT ──
+export const POST = createProtectedRoute(postHandler, {
+  policy: canAccessStudent,
+  resourceLoader: (id) => getStudentById(db, id)
+});

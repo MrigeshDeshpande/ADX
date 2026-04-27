@@ -1,22 +1,20 @@
-import { NextResponse } from "next/server";
 import { sendTestEmail } from "@/modules/notifications/email.service";
+import { createProtectedRoute } from "@/lib/middleware";
+import { canAccessEnquiry } from "@/lib/permissions";
 
-export async function GET() {
-  try {
+/**
+ * SECURED EMAIL TEST HANDLER (Internal)
+ */
+async function getHandler() {
+  const result = await sendTestEmail();
 
-    const result = await sendTestEmail();
-
-    return NextResponse.json({
-      success: true,
-      data: result
-    });
-
-  } catch (err) {
-
-    return NextResponse.json({
-      success: false,
-      message: err.message
-    });
-
-  }
+  return Response.json({
+    success: true,
+    data: result
+  });
 }
+
+// ── STRUCTURAL ENFORCEMENT ──
+export const GET = createProtectedRoute(getHandler, {
+  policy: canAccessEnquiry
+});

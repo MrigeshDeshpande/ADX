@@ -1,49 +1,33 @@
-import { NextResponse } from "next/server";
 import { db } from "@repo/db";
 import { registerTestSchema } from "@/modules/test/test.schema";
 import { registerTestLead } from "@/modules/test/test.service";
-import { corsHeaders } from "@/utils/cors";
+import { createProtectedRoute } from "@/lib/middleware";
+import { publicAllow } from "@/lib/permissions";
 
-export async function OPTIONS(request) {
-  return new Response(null, {
-    status: 204,
-    headers: corsHeaders(request),
+/**
+ * PUBLIC ASSESSMENT REGISTRATION HANDLER (Lead Generation)
+ */
+async function postHandler(req, { ctx }) {
+  const body = await req.json();
+  const parsed = registerTestSchema.safeParse(body);
+
+  if (!parsed.success) {
+    ctx.warn("ASSESSMENT_REG_VALIDATION_FAILURE", { errors: parsed.error.flatten() });
+    return Response.json({ error: "Invalid input" }, { status: 400 });
+  }
+
+  const result = await registerTestLead({ db, data: parsed.data });
+  ctx.log("ASSESSMENT_LEAD_REGISTERED", { leadId: result.lead.id, alreadyExists: result.alreadyExists });
+
+  return Response.json({
+    success: true,
+    leadId: result.lead.id,
+    alreadyExists: result.alreadyExists,
   });
 }
 
-export async function POST(req) {
-  try {
-    const body = await req.json();
-
-    const parsed = registerTestSchema.safeParse(body);
-
-    if (!parsed.success) {
-      return NextResponse.json(
-        { error: "Invalid input" },
-        { status: 400, headers: corsHeaders(req) }
-      );
-    }
-
-    const result = await registerTestLead({
-      db,
-      data: parsed.data,
-    });
-
-    return NextResponse.json(
-      {
-        success: true,
-        leadId: result.lead.id,
-        alreadyExists: result.alreadyExists,
-      },
-      { headers: corsHeaders(req) }
-    );
-
-  } catch (err) {
-    console.error(err);
-
-    return NextResponse.json(
-      { error: "Server error" },
-      { status: 500, headers: corsHeaders(req) }
-    );
-  }
-}
+// ── STRUCTURAL ENFORCEMENT ──
+export const POST = createProtectedRoute(postHandler, {
+  policy: publicAllow,
+  isPublic: true
+});

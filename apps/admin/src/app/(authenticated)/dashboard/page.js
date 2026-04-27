@@ -5,11 +5,13 @@ import { RecentTransactionsTable } from "@/components/dashboard/RecentTransactio
 export const dynamic = "force-dynamic";
 
 import { API } from "@/lib/api";
+import { getAuthHeaders } from "@/lib/auth";
 
 async function getDashboardData() {
+  const headers = await getAuthHeaders();
   const [statsRes, outstandingRes] = await Promise.all([
-    fetch(`${API}/api/students/stats`, { next: { revalidate: 600, tags: ['students'] } }),
-    fetch(`${API}/api/students?limit=5`, { next: { revalidate: 600, tags: ['students'] } })
+    fetch(`${API}/api/students/stats`, { headers, next: { revalidate: 600, tags: ['students'] } }),
+    fetch(`${API}/api/students?limit=5`, { headers, next: { revalidate: 600, tags: ['students'] } })
   ]);
   
   const stats = statsRes.ok ? await statsRes.json() : { totalStudents: 0, totalCollected: 0, totalPending: 0 };

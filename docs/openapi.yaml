@@ -8,11 +8,15 @@ servers:
   - url: http://localhost:3000
     description: Development Server
 
+security:
+  - CookieAuth: []
+
 paths:
   /api/health:
     get:
       tags: [System]
       summary: Health Check
+      security: [] # Public endpoint
       responses:
         '200':
           description: OK
@@ -205,6 +209,7 @@ paths:
     post:
       tags: [Marketing]
       summary: Submit a new enquiry (Lead)
+      security: [] # Public lead generation
       requestBody:
         required: true
         content:
@@ -223,6 +228,7 @@ paths:
     post:
       tags: [Examination]
       summary: Register for a test session
+      security: [] # Public registration
       requestBody:
         required: true
         content:
@@ -233,7 +239,132 @@ paths:
         '200':
           description: Registration successful
 
+  /api/test/validate:
+    get:
+      tags: [Examination]
+      summary: Validate lead for test
+      security: [] # Public validation
+      parameters:
+        - name: leadId
+          in: query
+          required: true
+          schema: { type: string, format: uuid }
+      responses:
+        '200':
+          description: Lead is valid
+
+  /api/test/start:
+    post:
+      tags: [Examination]
+      summary: Start a test session
+      security: [] # Public session start
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                leadId: { type: string, format: uuid }
+      responses:
+        '200':
+          description: Session started
+
+  /api/test/submit:
+    post:
+      tags: [Examination]
+      summary: Submit test answers
+      security: [] # Public submission
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sessionId: { type: string, format: uuid }
+                answers: { type: array, items: { type: object } }
+      responses:
+        '200':
+          description: Test submitted and scored
+
+  /api/test/result:
+    get:
+      tags: [Examination]
+      summary: Get test result
+      security: [] # Public result view
+      parameters:
+        - name: sessionId
+          in: query
+          required: true
+          schema: { type: string, format: uuid }
+      responses:
+        '200':
+          description: View test scores
+
+  /api/internal/receipt/complete:
+    post:
+      tags: [Internal]
+      summary: Internal Receipt Callback
+      description: Triggered by PDF Service (Railway) after processing.
+      security:
+        - InternalKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                paymentId: { type: string, format: uuid }
+                jobId: { type: string }
+                status: { type: string, enum: [ready, failed] }
+                key: { type: string }
+      responses:
+        '200':
+          description: Success
+        '403':
+          $ref: '#/components/responses/Forbidden'
+
+  /api/test-db:
+    get:
+      tags: [Debug]
+      summary: Test DB Integrity
+      responses:
+        '200':
+          description: Success
+        '403':
+          $ref: '#/components/responses/Forbidden'
+
+  /api/test-email:
+    get:
+      tags: [Debug]
+      summary: Test Email System
+      responses:
+        '200':
+          description: Success
+        '403':
+          $ref: '#/components/responses/Forbidden'
+
 components:
+  securitySchemes:
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+    InternalKeyAuth:
+      type: apiKey
+      in: header
+      name: x-internal-key
+
+  responses:
+    Unauthorized:
+      description: Missing or invalid session cookie
+    Forbidden:
+      description: Authenticated but insufficient permissions
+    TooManyRequests:
+      description: Rate limit exceeded
+
   schemas:
     ApiResponseWrapper:
       type: object
@@ -241,6 +372,7 @@ components:
         success: { type: boolean }
         data: { type: object }
         message: { type: string }
+        requestId: { type: string, format: uuid }
 
     StudentSummary:
       type: object

@@ -8,9 +8,11 @@ import { LedgerSkeleton, DetailsSkeleton } from "./sections/Skeletons";
 export const dynamic = "force-dynamic";
 
 import { API } from "@/lib/api";
+import { getAuthHeaders } from "@/lib/auth";
 
 async function getMegaData(id) {
   const res = await fetch(`${API}/api/students/${id}`, { 
+    headers: await getAuthHeaders(),
     next: { 
       revalidate: 60, 
       tags: [`student-${id}`] 

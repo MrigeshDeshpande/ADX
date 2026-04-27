@@ -33,6 +33,11 @@ export async function getSession() {
   return await decrypt(session);
 }
 
+export async function getRawToken() {
+  const cookieStore = await cookies();
+  return cookieStore.get("session")?.value;
+}
+
 export async function updateSession() {
   const cookieStore = await cookies();
   const session = cookieStore.get("session")?.value;
@@ -45,9 +50,22 @@ export async function updateSession() {
 
   cookieStore.set("session", res, {
     httpOnly: true,
-    secure: true,
+    secure: process.env.NODE_ENV === "production",
     expires: parsed.expires,
     sameSite: "lax",
     path: "/",
+    domain: process.env.NODE_ENV === "production" ? ".skillyards.in" : undefined,
   });
+}
+
+/**
+ * Standardized headers for server-to-api fetches.
+ * Forwards the session cookie to satisfy createProtectedRoute requirements.
+ */
+export async function getAuthHeaders() {
+  const token = await getRawToken();
+  return {
+    "Content-Type": "application/json",
+    ...(token ? { "Cookie": `session=${token}` } : {}),
+  };
 }
