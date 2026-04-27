@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { MoreHorizontal, Users, Search } from "lucide-react";
+import { Users, Search } from "lucide-react";
 
 export function StudentTable({ students }) {
   const [query, setQuery] = useState("");
@@ -48,20 +48,19 @@ export function StudentTable({ students }) {
       </div>
 
       <div className="overflow-x-auto">
-        <table className="w-full text-sm text-left min-w-[520px]">
+        <table className="w-full text-sm text-left min-w-[480px]">
           <thead className="bg-muted/50 text-muted-foreground border-b border-border text-xs uppercase tracking-wider">
             <tr>
               <th className="px-4 sm:px-6 py-4 font-semibold">Name</th>
               <th className="px-4 sm:px-6 py-4 font-semibold">Email</th>
               <th className="px-4 sm:px-6 py-4 font-semibold text-right">Net Payable</th>
               <th className="px-4 sm:px-6 py-4 font-semibold text-right">Balance</th>
-              <th className="px-4 sm:px-6 py-4 font-semibold text-center">Actions</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-border">
             {filtered.length === 0 && (
               <tr>
-                <td colSpan={5} className="px-6 py-12 text-center text-sm text-muted-foreground">
+                <td colSpan={4} className="px-6 py-12 text-center text-sm text-muted-foreground">
                   No students match &quot;{query}&quot;
                 </td>
               </tr>
@@ -69,7 +68,6 @@ export function StudentTable({ students }) {
             {Array.isArray(filtered) && filtered.map((student) => (
               <tr key={student.id} className="hover:bg-muted/30 transition-colors group relative cursor-pointer">
                 <td className="px-4 sm:px-6 py-4 sm:py-5 font-semibold text-foreground group-hover:text-primary transition-colors">
-                  {/* Invisible full-row hyperlink wrapper */}
                   <Link
                     href={`/students/${student.id}`}
                     className="absolute inset-0 z-10"
@@ -89,11 +87,6 @@ export function StudentTable({ students }) {
                   >
                     ₹{(Number(student.balance) || 0).toLocaleString()}
                   </span>
-                </td>
-                <td className="px-4 sm:px-6 py-4 sm:py-5 text-center relative z-20">
-                  <button className="p-2 text-muted-foreground hover:text-foreground hover:bg-muted rounded-md transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100 outline-none">
-                    <MoreHorizontal className="w-5 h-5" />
-                  </button>
                 </td>
               </tr>
             ))}

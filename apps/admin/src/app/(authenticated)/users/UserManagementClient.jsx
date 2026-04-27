@@ -1,60 +1,48 @@
 "use client";
 
 import { useActionState, useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { createUser, deleteUser } from "@/actions/users";
 import { toast } from "sonner";
-import { 
-  Users, 
-  UserPlus, 
-  Mail, 
-  Lock, 
-  Shield, 
-  Trash2, 
+import {
+  Users,
+  UserPlus,
+  Mail,
+  Lock,
+  Shield,
+  Trash2,
   Loader2,
   Search,
-  MoreVertical
 } from "lucide-react";
 import { format } from "date-fns";
 
 export function UserManagementClient({ initialUsers }) {
   const [users, setUsers] = useState(initialUsers);
   const [searchTerm, setSearchTerm] = useState("");
-  const [isAddingUser, setIsAddingUser] = useState(false);
-  
   const [state, action, isPending] = useActionState(createUser, undefined);
 
   useEffect(() => {
     if (state?.success) {
       toast.success("User created successfully");
-      setIsAddingUser(false);
-      // In a real app, revalidatePath would handle this, 
-      // but for immediate UI feedback we can refresh or wait for server components
-      window.location.reload(); 
+      router.refresh();
     } else if (state?.error) {
       toast.error(state.error);
     }
-  }, [state]);
+  }, [state, router]);
 
   const handleDelete = async (id) => {
-    console.log("Delete button clicked for ID:", id);
-    if (!confirm("Are you sure you want to delete this user?")) {
-      console.log("Delete cancelled by user");
-      return;
-    }
-    
-    console.log("Proceeding with deletion...");
+    if (!confirm("Are you sure you want to delete this user?")) return;
+
     try {
       const res = await deleteUser(id);
-      console.log("Delete response:", res);
       if (res.success) {
         toast.success("User deleted");
         setUsers(users.filter(u => u.id !== id));
       } else {
         toast.error(res.error || "Failed to delete user");
       }
-    } catch (err) {
-      console.error("Client-side delete error:", err);
-      toast.error("Network error during deletion");
+    } catch(err) {
+      toast.error(err?.message || "Failed to load receipt");
     }
   };
 

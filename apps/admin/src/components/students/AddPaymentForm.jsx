@@ -6,16 +6,12 @@ import { CreditCard, Loader2, X } from "lucide-react";
 export function AddPaymentForm({
   open,
   onClose,
-  installments = [],
   isSubmitting,
   paymentForm,
   setPaymentForm,
   onSubmit,
+  installmentContext,
 }) {
-  const remainingInstallments = installments.filter(
-    (i) => i.paid < i.amount
-  );
-
   useEffect(() => {
     if (!open) return;
     const onKey = (e) => { if (e.key === "Escape") onClose?.(); };
@@ -34,7 +30,7 @@ export function AddPaymentForm({
       <div className="absolute inset-0 bg-foreground/20 backdrop-blur-sm" />
 
       {/* Panel */}
-      <div className="relative w-full max-w-2xl card p-8 sm:p-10 min-h-[520px] flex flex-col justify-between">
+      <div className="relative w-full max-w-2xl card p-8 sm:p-10">
 
         {/* Header */}
         <div className="flex items-center justify-between mb-5">
@@ -51,6 +47,14 @@ export function AddPaymentForm({
         </div>
 
         <form onSubmit={onSubmit} className="space-y-4">
+
+          {/* Installment context */}
+          {installmentContext && (
+            <div className="rounded-lg bg-muted/50 border border-border px-4 py-3 flex items-center justify-between">
+              <span className="text-xs font-semibold text-muted-foreground uppercase">{installmentContext.label}</span>
+              <span className="text-sm font-bold text-foreground">₹{installmentContext.remaining.toLocaleString()} due</span>
+            </div>
+          )}
 
           {/* Amount */}
           <div>
@@ -85,33 +89,6 @@ export function AddPaymentForm({
               <option value="cash">Cash</option>
               <option value="upi">UPI</option>
               <option value="bank">Bank Transfer</option>
-            </select>
-          </div>
-
-          {/* Allocation */}
-          <div>
-            <label className="block text-xs font-semibold text-muted-foreground mb-1.5">
-              Allocate To
-            </label>
-            <select
-              className="input"
-              value={paymentForm.installmentId || ""}
-              onChange={(e) =>
-                setPaymentForm({
-                  ...paymentForm,
-                  installmentId: e.target.value,
-                })
-              }
-            >
-              <option value="">Auto (oldest first)</option>
-              {remainingInstallments.map((inst) => {
-                const num = installments.findIndex((i) => i.id === inst.id) + 1;
-                return (
-                  <option key={inst.id} value={inst.id}>
-                    Installment {num} — ₹{(inst.amount - inst.paid).toLocaleString()} due
-                  </option>
-                );
-              })}
             </select>
           </div>
 

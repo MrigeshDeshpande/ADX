@@ -17,27 +17,20 @@ function addMonths(dateStr, n) {
 }
 
 function generateStandardRows(config, net) {
-  const { count, frequency, startDate, downPayment } = config;
+  const { count, frequency, startDate } = config;
   const n = Number(count);
-  const dp = Number(downPayment) || 0;
   if (!n || !startDate) return [];
 
-  const rows = [];
   const step = frequency === "quarterly" ? 3 : 1;
-  const remaining = net - dp;
-  const perInstallment = Math.floor(remaining / n);
-  const lastExtra = remaining - perInstallment * n;
+  const perInstallment = Math.floor(net / n);
+  const lastExtra = net - perInstallment * n;
 
-  if (dp > 0) {
-    rows.push({ id: "dp", date: startDate, amount: dp, label: "Down Payment" });
-  }
-
-  for (let i = 0; i < n; i++) {
-    const date = addMonths(startDate, (i + 1) * step);
-    const amount = i === n - 1 ? perInstallment + lastExtra : perInstallment;
-    rows.push({ id: `inst_${i + 1}`, date, amount, label: `Installment ${i + 1}` });
-  }
-  return rows;
+  return Array.from({ length: n }, (_, i) => ({
+    id: `inst_${i + 1}`,
+    date: addMonths(startDate, (i + 1) * step),
+    amount: i === n - 1 ? perInstallment + lastExtra : perInstallment,
+    label: `Installment ${i + 1}`,
+  }));
 }
 
 
@@ -190,20 +183,6 @@ function StepStandardEMI({ config, setConfig, net, onNext, onBack }) {
           className="input"
           value={config.startDate}
           onChange={e => setConfig({ ...config, startDate: e.target.value })}
-        />
-      </div>
-
-      <div>
-        <label className="block text-xs font-semibold text-muted-foreground mb-1.5">
-          Down Payment (₹) — Optional
-        </label>
-        <input
-          type="number"
-          min="0"
-          className="input"
-          placeholder="0"
-          value={config.downPayment}
-          onChange={e => setConfig({ ...config, downPayment: e.target.value })}
         />
       </div>
 
@@ -416,7 +395,7 @@ export function AssignPlanWizard({ open, onClose, student, studentId, onPlanCrea
 
   const [planType, setPlanType] = useState("");
   const [standardConfig, setStandardConfig] = useState({
-    count: "", frequency: "monthly", startDate: "", downPayment: "",
+    count: "", frequency: "monthly", startDate: "",
   });
   const [firstInstallment, setFirstInstallment] = useState({ date: "", amount: "" });
   const [fullPayDate, setFullPayDate] = useState("");

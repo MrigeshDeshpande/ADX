@@ -5,7 +5,9 @@ import { CheckCircle, Clock, AlertCircle, Plus } from "lucide-react";
 export function InstallmentsTable({ installments = [], onPay, onAddInstallment, unscheduled }) {
   const getStatus = (inst) => {
     if (inst.paid >= inst.amount) return "paid";
-    if (new Date(inst.dueDate) < new Date()) return "overdue";
+    const due = new Date(inst.dueDate);
+    due.setHours(23, 59, 59, 999);
+    if (due < new Date()) return "overdue";
     return "pending";
   };
 
@@ -42,8 +44,7 @@ export function InstallmentsTable({ installments = [], onPay, onAddInstallment, 
 
   return (
     <div className="card overflow-hidden">
-      
-      {/* Header */}
+
       <div className="px-5 py-4 border-b border-border flex items-center justify-between">
         <div className="flex items-center gap-2">
           <h3 className="text-sm font-semibold text-foreground">Installments</h3>
@@ -63,9 +64,8 @@ export function InstallmentsTable({ installments = [], onPay, onAddInstallment, 
         )}
       </div>
 
-      {/* Table */}
       <div className="overflow-x-auto">
-        <table className="w-full text-sm min-w-[700px]">
+        <table className="w-full text-sm min-w-[600px]">
           <thead className="bg-muted/50 text-muted-foreground text-xs uppercase tracking-wider border-b border-border">
             <tr>
               <th className="px-5 py-3 text-left">Due Date</th>
@@ -83,60 +83,29 @@ export function InstallmentsTable({ installments = [], onPay, onAddInstallment, 
 
               return (
                 <tr key={inst.id} className="hover:bg-muted/30 transition-colors">
-                  
-                  {/* Due Date */}
-                  <td className="px-5 py-4 text-muted-foreground">
-                    {inst.dueDate}
-                  </td>
-
-                  {/* Amount */}
+                  <td className="px-5 py-4 text-muted-foreground">{inst.dueDate}</td>
                   <td className="px-5 py-4 font-semibold text-foreground">
                     ₹{inst.amount.toLocaleString()}
                   </td>
-
-                  {/* Paid */}
                   <td className="px-5 py-4 text-foreground">
                     ₹{inst.paid.toLocaleString()}
                   </td>
-
-                  {/* Status */}
                   <td className="px-5 py-4">
                     <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-semibold ${ui.className}`}>
                       {ui.icon}
                       {ui.label}
                     </span>
                   </td>
-
-                  {/* Actions */}
                   <td className="px-5 py-4 text-right">
-                    <div className="flex justify-end gap-2">
-
-                      {status !== "paid" && (
-                        <button
-                          onClick={() => onPay?.(inst.id)}
-                          className="px-3 py-1.5 text-xs font-semibold bg-primary text-primary-foreground rounded-md hover:opacity-90"
-                        >
-                          Pay
-                        </button>
-                      )}
-
+                    {status !== "paid" && (
                       <button
-                        disabled
-                        className="px-3 py-1.5 text-xs font-semibold border border-border rounded-md opacity-40 cursor-not-allowed"
+                        onClick={() => onPay?.(inst.id)}
+                        className="px-3 py-1.5 text-xs font-semibold bg-primary text-primary-foreground rounded-md hover:opacity-90"
                       >
-                        Waive
+                        Pay
                       </button>
-
-                      <button
-                        disabled
-                        className="px-3 py-1.5 text-xs font-semibold border border-border rounded-md opacity-40 cursor-not-allowed"
-                      >
-                        Write-off
-                      </button>
-
-                    </div>
+                    )}
                   </td>
-
                 </tr>
               );
             })}

@@ -14,6 +14,7 @@ export default function LoginPage() {
   useEffect(() => {
     if (state?.success) {
       toast.success("Login successful");
+      router.refresh();
       router.push("/students");
     } else if (state?.error) {
       toast.error(state.error);

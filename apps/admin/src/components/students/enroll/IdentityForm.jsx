@@ -40,7 +40,6 @@ export function IdentityForm({ formData, setFormData }) {
               <option key={c} value={c}>{c}</option>
             ))}
           </select>
-          <p className="text-xs text-muted-foreground mt-1.5">Course selection is not saved yet — pending backend support.</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

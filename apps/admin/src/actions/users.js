@@ -15,7 +15,7 @@ export async function getUsers() {
     }).from(users).orderBy(desc(users.createdAt));
 }
 
-export async function createUser(prevState, formData) {
+export async function createUser(_prevState, formData) {
     const name = formData.get("name");
     const email = formData.get("email");
     const password = formData.get("password");
@@ -48,10 +48,8 @@ export async function createUser(prevState, formData) {
 }
 
 export async function deleteUser(id) {
-    console.log("Attempting to delete user:", id);
     try {
-        const result = await db.delete(users).where(eq(users.id, id));
-        console.log("Delete result:", result);
+        await db.delete(users).where(eq(users.id, id));
         revalidatePath("/users");
         return { success: true };
     } catch (err) {

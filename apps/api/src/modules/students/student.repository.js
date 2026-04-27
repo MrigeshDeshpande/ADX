@@ -33,7 +33,7 @@ export async function getStudentsWithPayments(db, limit = 100, offset = 0) {
 export async function getStudentStats(db) {
   const result = await db
     .select({
-      totalCount: sql`COUNT(${students.id})`,
+      totalCount: sql`COUNT(DISTINCT ${students.id})`,
       totalCollected: sql`COALESCE(SUM(${payments.amount}), 0)`,
     })
     .from(students)

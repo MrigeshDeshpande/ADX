@@ -30,12 +30,21 @@ export function StudentDetailClient({ student, initialTransactions, initialPlan,
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isAddingInstallment, setIsAddingInstallment] = useState(false);
 
-  const [paymentForm, setPaymentForm] = useState({
-    amount: "", mode: "upi", reference: "", installmentId: "",
-  });
+  const [paymentForm, setPaymentForm] = useState({ amount: "", mode: "upi", reference: "" });
+  const [installmentContext, setInstallmentContext] = useState(null);
 
   const openPaymentModal = (installmentId = "") => {
-    setPaymentForm({ amount: "", mode: "upi", reference: "", installmentId });
+    if (installmentId) {
+      const instIdx = installments.findIndex((i) => i.id === installmentId);
+      const inst = installments[instIdx];
+      if (!inst) return;
+      const remaining = inst.amount - inst.paid;
+      setInstallmentContext({ label: `Installment ${instIdx + 1}`, remaining });
+      setPaymentForm({ amount: String(remaining), mode: "upi", reference: "", installmentId });
+    } else {
+      setInstallmentContext(null);
+      setPaymentForm({ amount: "", mode: "upi", reference: "", installmentId: "" });
+    }
     setModalOpen(true);
   };
 
@@ -81,16 +90,6 @@ export function StudentDetailClient({ student, initialTransactions, initialPlan,
     }
   };
 
-  const handleWriteOff = (installmentId) => {
-    if (!confirm("Write off this installment? This cannot be undone.")) return;
-    setInstallments(prev => prev.map(i => i.id === installmentId ? { ...i, paid: i.amount } : i));
-    toast.success("Installment written off");
-  };
-
-  const handlePdfAction = (_txnId, actionType) => {
-    toast.success(actionType === "send" ? "Receipt sent successfully" : "Opening receipt PDF...");
-  };
-
   const handleAddInstallment = async ({ amount, dueDate }) => {
     setIsAddingInstallment(true);
     try {
@@ -117,7 +116,6 @@ export function StudentDetailClient({ student, initialTransactions, initialPlan,
   return (
     <div className="space-y-6">
 
-      {/* Add Payment button */}
       <div className="flex justify-end">
         <button
           onClick={() => openPaymentModal()}
@@ -129,22 +127,17 @@ export function StudentDetailClient({ student, initialTransactions, initialPlan,
         </button>
       </div>
 
-      {/* Plan */}
       <PlanSection plan={plan} onAssignPlan={() => setWizardOpen(true)} />
 
-      {/* Installments */}
       <InstallmentsTable
         installments={installments}
         onPay={openPaymentModal}
-        onWriteOff={handleWriteOff}
         onAddInstallment={plan?.type === "Flexible" ? () => setInstallmentModalOpen(true) : undefined}
         unscheduled={plan?.type === "Flexible" ? flexibleRemaining : 0}
       />
 
-      {/* Transactions */}
-      <TransactionsTable transactions={transactions} onPdfAction={handlePdfAction} />
+      <TransactionsTable transactions={transactions} />
 
-      {/* Assign Plan Wizard */}
       <AssignPlanWizard
         open={wizardOpen}
         onClose={() => setWizardOpen(false)}
@@ -153,7 +146,6 @@ export function StudentDetailClient({ student, initialTransactions, initialPlan,
         onPlanCreated={handlePlanCreated}
       />
 
-      {/* Add Installment Modal */}
       <AddInstallmentForm
         open={installmentModalOpen}
         onClose={() => setInstallmentModalOpen(false)}
@@ -162,11 +154,10 @@ export function StudentDetailClient({ student, initialTransactions, initialPlan,
         isSubmitting={isAddingInstallment}
       />
 
-      {/* Payment Modal */}
       <AddPaymentForm
         open={modalOpen}
         onClose={() => setModalOpen(false)}
-        installments={installments}
+        installmentContext={installmentContext}
         isSubmitting={isSubmitting}
         paymentForm={paymentForm}
         setPaymentForm={setPaymentForm}
