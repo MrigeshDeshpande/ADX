@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { FileText, Download, Loader2 } from "lucide-react";
+import { FileText, Download, Loader2, Clock } from "lucide-react";
 import { toast } from "sonner";
 import { API } from "@/lib/api";
 import { waitForReceiptReady } from "@/lib/receipt-utils";
@@ -71,8 +71,14 @@ export function TransactionsTable({ transactions = [] }) {
 
   return (
     <div className="card overflow-hidden">
-      <div className="px-5 py-4 border-b border-border">
+      <div className="px-5 py-4 border-b border-border space-y-2">
         <h3 className="text-sm font-semibold text-foreground">Transactions</h3>
+        <div className="flex items-start gap-2 rounded-md bg-amber-50 border border-amber-200 px-3 py-2 dark:bg-amber-950/30 dark:border-amber-800">
+          <Clock className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400 mt-0.5 shrink-0" />
+          <p className="text-sm text-amber-700 dark:text-amber-400 leading-snug">
+            Receipts are generated in the background. Allow up to <span className="font-semibold">1 minute</span> after recording a payment before <span className="font-semibold">Viewing</span> or <span className="font-semibold">Downloading</span>
+          </p>
+        </div>
       </div>
 
       <div className="overflow-x-auto">

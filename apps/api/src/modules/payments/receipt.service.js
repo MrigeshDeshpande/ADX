@@ -83,11 +83,15 @@ export async function getPaymentReceipt(db, paymentId) {
 
   const installmentMap = new Map(installmentRecords.map((i) => [i.id, i]));
 
-  const allocationDetails = allocationRecords.map((allocation) => ({
+  const allocationDetails = allocationRecords.map((allocation) => {
+    const inst = installmentMap.get(allocation.installmentId);
+    return {
       installmentId: allocation.installmentId,
       allocatedAmount: allocation.amount,
-      installmentDueDate: installmentMap.get(allocation.installmentId)?.dueDate || null,
-  }));
+      installmentDueDate: inst?.dueDate || null,
+      installmentAmountDue: inst?.amountDue || null,
+    };
+  });
 
   const totalAllocated = allocationRecords.reduce((sum, a) => sum + a.amount, 0);
   const unallocatedAmount = paymentRecord.amount - totalAllocated;
@@ -137,16 +141,17 @@ export function generateReceiptHTML(receiptData) {
   const statusBg = isFullyPaid ? "#ecfdf5" : "#fffbeb";
 
   const allocationRows = allocationBreakdown
-    .map(
-      (alloc) => `
+    .map((alloc) => {
+      const isInstallment = !!alloc.installmentDueDate;
+      return `
         <tr class="table-row">
           <td>
-            <p class="item-title">${alloc.installmentDueDate ? 'Scheduled Installment' : 'General Course Fees'}</p>
-            <p class="item-desc">${alloc.installmentDueDate ? `Due: ${formatDate(alloc.installmentDueDate)}` : 'Tuition & Lab Access'}</p>
+            <p class="item-title">${isInstallment ? 'Scheduled Installment' : 'General Course Fees'}</p>
+            <p class="item-desc">${isInstallment ? `Due: ${formatDate(alloc.installmentDueDate)}` : 'Tuition &amp; Lab Access'}</p>
           </td>
-          <td class="text-right item-value">${formatCurrency(alloc.allocatedAmount)}</td>
-        </tr>`
-    )
+          <td class="text-right item-value">${formatCurrency(isInstallment && alloc.installmentAmountDue ? alloc.installmentAmountDue : alloc.allocatedAmount)}</td>
+        </tr>`;
+    })
     .join("");
 
   return `
@@ -601,19 +606,23 @@ export function generateReceiptHTML(receiptData) {
             <!-- Summary -->
             <div class="summary-wrapper">
               <div class="summary-block">
-                <div class="summary-row">
-                  <span>Total Allocated</span>
-                  <span>${formatCurrency(receiptData.totalAllocated)}</span>
-                </div>
-                ${receiptData.unallocatedAmount > 0 ? `
-                <div class="summary-row">
-                  <span>Unallocated</span>
-                  <span>${formatCurrency(receiptData.unallocatedAmount)}</span>
-                </div>` : ''}
-                <div class="summary-row total-row">
-                  <span>Amount Paid</span>
-                  <span>${formatCurrency(receiptData.paymentAmount)}</span>
-                </div>
+                ${(() => {
+                  const installmentTotal = allocationBreakdown.reduce((sum, a) => sum + (a.installmentAmountDue || a.allocatedAmount), 0);
+                  const showInstallmentTotal = installmentTotal !== receiptData.paymentAmount;
+                  return `
+                  ${showInstallmentTotal ? `<div class="summary-row">
+                    <span>Installment Total</span>
+                    <span>${formatCurrency(installmentTotal)}</span>
+                  </div>` : ''}
+                  ${receiptData.unallocatedAmount > 0 ? `<div class="summary-row">
+                    <span>Unallocated</span>
+                    <span>${formatCurrency(receiptData.unallocatedAmount)}</span>
+                  </div>` : ''}
+                  <div class="summary-row total-row">
+                    <span>Amount Paid</span>
+                    <span>${formatCurrency(receiptData.paymentAmount)}</span>
+                  </div>`;
+                })()}
               </div>
             </div>
 
