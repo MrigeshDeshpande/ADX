@@ -17,6 +17,7 @@ import {
 import { format } from "date-fns";
 
 export function UserManagementClient({ initialUsers }) {
+  const router = useRouter();
   const [users, setUsers] = useState(initialUsers);
   const [searchTerm, setSearchTerm] = useState("");
   const [state, action, isPending] = useActionState(createUser, undefined);
