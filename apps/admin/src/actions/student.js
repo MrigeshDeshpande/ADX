@@ -40,17 +40,10 @@ export async function createStudentPlan(studentId, planData) {
     throw new Error(data.message || "Failed to create plan");
   }
 
-  // Fetch the real plan with actual installment IDs from the DB
-  const planRes = await fetch(`${API}/api/students/${studentId}/plan`, { 
-    cache: "no-store",
-    headers: await getAuthHeaders(),
-  });
-  const planJson = await planRes.json();
-
   revalidateTag(`student-${studentId}`);
   revalidateTag("students");
   revalidatePath(`/students/${studentId}`);
-  return planJson.data ?? data;
+  return data;
 }
 
 export async function addFlexibleInstallment(studentId, installmentData) {

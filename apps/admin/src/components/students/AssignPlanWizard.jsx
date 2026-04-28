@@ -17,17 +17,16 @@ function addMonths(dateStr, n) {
 }
 
 function generateStandardRows(config, net) {
-  const { count, frequency, startDate } = config;
+  const { count, startDate } = config;
   const n = Number(count);
   if (!n || !startDate) return [];
 
-  const step = frequency === "quarterly" ? 3 : 1;
   const perInstallment = Math.floor(net / n);
   const lastExtra = net - perInstallment * n;
 
   return Array.from({ length: n }, (_, i) => ({
     id: `inst_${i + 1}`,
-    date: addMonths(startDate, (i + 1) * step),
+    date: addMonths(startDate, i + 1),
     amount: i === n - 1 ? perInstallment + lastExtra : perInstallment,
     label: `Installment ${i + 1}`,
   }));
@@ -166,10 +165,9 @@ function StepStandardEMI({ config, setConfig, net, onNext, onBack }) {
           <select
             className="input"
             value={config.frequency}
-            onChange={e => setConfig({ ...config, frequency: e.target.value })}
+            disabled
           >
             <option value="monthly">Monthly</option>
-            <option value="quarterly">Quarterly</option>
           </select>
         </div>
       </div>
@@ -444,27 +442,7 @@ export function AssignPlanWizard({ open, onClose, student, studentId, onPlanCrea
 
       const result = await createStudentPlan(studentId, payload);
 
-      const plan = {
-        type: planType === "full_pay" ? "Full Pay"
-            : planType === "standard_emi" ? "EMI"
-            : "Flexible",
-        total: net,
-        installments: result?.installments?.length ?? rows.length,
-        startDate: result?.installments?.[0]?.dueDate || rows[0]?.date || "",
-      };
-
-      const sortedInst = [...(result?.installments || [])].sort(
-        (a, b) => new Date(a.dueDate) - new Date(b.dueDate)
-      );
-
-      const installments = sortedInst.map((inst) => ({
-        id: inst.id,
-        dueDate: formatDate(inst.dueDate),
-        amount: inst.amountDue,
-        paid: 0,
-      }));
-
-      onPlanCreated(plan, installments);
+      onPlanCreated();
       onClose();
     } catch (err) {
       const { toast } = await import("sonner");

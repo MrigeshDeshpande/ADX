@@ -11,12 +11,9 @@ import { API } from "@/lib/api";
 import { getAuthHeaders } from "@/lib/auth";
 
 async function getMegaData(id) {
-  const res = await fetch(`${API}/api/students/${id}`, { 
+  const res = await fetch(`${API}/api/students/${id}`, {
     headers: await getAuthHeaders(),
-    next: { 
-      revalidate: 60, 
-      tags: [`student-${id}`] 
-    } 
+    cache: "no-store",
   });
   if (!res.ok) return null;
   return res.json();

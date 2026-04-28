@@ -21,6 +21,7 @@ export function StudentDetailClient({ student, initialTransactions, initialPlan,
   const [installments, setInstallments] = useState(initialInstallments ?? []);
   const [transactions, setTransactions] = useState(initialTransactions);
 
+  useEffect(() => { setPlan(initialPlan ?? null); }, [initialPlan]);
   useEffect(() => { setInstallments(initialInstallments ?? []); }, [initialInstallments]);
   useEffect(() => { setTransactions(initialTransactions ?? []); }, [initialTransactions]);
 
@@ -48,9 +49,7 @@ export function StudentDetailClient({ student, initialTransactions, initialPlan,
     setModalOpen(true);
   };
 
-  const handlePlanCreated = (newPlan, newInstallments) => {
-    setPlan(newPlan);
-    setInstallments(newInstallments);
+  const handlePlanCreated = () => {
     router.refresh();
     toast.success("Fee plan assigned");
   };

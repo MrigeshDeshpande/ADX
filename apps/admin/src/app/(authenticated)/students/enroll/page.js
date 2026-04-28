@@ -38,7 +38,7 @@ export default function EnrollStudentPage() {
     setIsSubmitting(true);
 
     try {
-      await createStudent({
+      const student = await createStudent({
         name: formData.fullName.trim(),
         phone: formData.phone.trim() || undefined,
         email: formData.email.trim() || undefined,
@@ -48,7 +48,7 @@ export default function EnrollStudentPage() {
       });
 
       toast.success("Student enrolled successfully.");
-      router.push("/students");
+      router.push(`/students/${student.id}`);
     } catch (error) {
       toast.error(error.message || "Failed to enroll student.");
     } finally {
