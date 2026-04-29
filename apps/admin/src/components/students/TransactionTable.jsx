@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { FileText, Download, Loader2, Clock } from "lucide-react";
+import { FileText, Download, Send, Loader2, Clock } from "lucide-react";
 import { toast } from "sonner";
 import { API } from "@/lib/api";
 import { waitForReceiptReady } from "@/lib/receipt-utils";
@@ -56,6 +56,29 @@ export function TransactionsTable({ transactions = [] }) {
       setTimeout(() => URL.revokeObjectURL(blobUrl), 5000);
     } catch (err) {
       toast.error(err?.message || "Download failed");
+    } finally {
+      clearRowLoading(txn.id);
+    }
+  };
+
+  const handleSend = async (txn) => {
+    setRowLoading(txn.id, "send");
+    try {
+      const res = await fetch(`${API}/api/payments/${txn.id}/receipt`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        toast.success(data.message || "Receipt sent successfully");
+      } else {
+        toast.error(data.message || "Failed to send receipt");
+      }
+    } catch (err) {
+      toast.error("Failed to connect to email service");
     } finally {
       clearRowLoading(txn.id);
     }
@@ -140,6 +163,19 @@ export function TransactionsTable({ transactions = [] }) {
                           <Download className="w-3.5 h-3.5" />
                         )}
                         {loading === "download" ? "Downloading..." : "Download"}
+                      </button>
+
+                      <button
+                        onClick={() => handleSend(txn)}
+                        disabled={!!loading}
+                        className="px-3 py-1.5 text-xs font-semibold bg-primary/10 text-primary border border-primary/20 rounded-md flex items-center gap-1.5 hover:bg-primary/20 disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        {loading === "send" ? (
+                          <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                        ) : (
+                          <Send className="w-3.5 h-3.5" />
+                        )}
+                        {loading === "send" ? "Sending..." : "Send"}
                       </button>
                     </div>
                   </td>

@@ -11,7 +11,7 @@ if (process.env.NODE_ENV !== "production") global.rateTracker = rateTracker;
 
 const MAX_RATE_KEYS = 5000;
 const WINDOW_MS = 15000; 
-const BURST_LIMIT = 3;
+const BURST_LIMIT = 10;
 
 /**
  * Checks if a request is within the rate limit (Sliding Window).

@@ -1,5 +1,6 @@
 import { db } from "@repo/db";
 import { getPaymentReceipt, generateReceiptHTML, getReceiptStream } from "@/modules/payments/receipt.service";
+import { sendReceiptEmail } from "@/modules/notifications/email.service";
 import { generatePdf } from "@/integrations/pdf/pdf.client";
 import { claimPaymentForGeneration, getPaymentById, resetStaleLock } from "@/modules/payments/payment.repository";
 import { corsHeaders } from "@/utils/cors";
@@ -93,8 +94,66 @@ async function getHandler(req, { context, ctx, resource: paymentRecord }) {
   );
 }
 
+async function postHandler(req, { context, ctx, resource: paymentRecord }) {
+  const { id: paymentId } = await context.params;
+  const headers = corsHeaders(req);
+
+  // 1. Check if READY
+  if (paymentRecord.receiptStatus !== "ready" || !paymentRecord.receiptKey) {
+    return new Response(
+      JSON.stringify({ success: false, message: "Receipt is not ready yet. Please wait for generation to complete." }),
+      { status: 400, headers: { ...headers, "Content-Type": "application/json" } }
+    );
+  }
+
+  try {
+    const stream = await getReceiptStream(paymentRecord.receiptKey);
+    
+    // Convert stream to buffer
+    const chunks = [];
+    for await (const chunk of stream) {
+      chunks.push(chunk);
+    }
+    const buffer = Buffer.concat(chunks);
+
+    const receiptData = await getPaymentReceipt(db, paymentId);
+    
+    if (!receiptData.studentDetails?.studentEmail) {
+        return new Response(
+            JSON.stringify({ success: false, message: "Student email not found." }),
+            { status: 400, headers: { ...headers, "Content-Type": "application/json" } }
+        );
+    }
+
+    await sendReceiptEmail({
+      to: receiptData.studentDetails.studentEmail,
+      studentName: receiptData.studentDetails.studentName,
+      receiptNumber: receiptData.receiptNumber,
+      pdfBuffer: buffer,
+    });
+
+    return new Response(
+      JSON.stringify({ success: true, message: "Receipt sent successfully to " + receiptData.studentDetails.studentEmail }),
+      { status: 200, headers: { ...headers, "Content-Type": "application/json" } }
+    );
+  } catch (err) {
+    ctx.error("SEND_RECEIPT_EMAIL_FAILURE", { error: err.message, paymentId });
+    return new Response(
+      JSON.stringify({ success: false, message: "Failed to send receipt email: " + err.message }),
+      { status: 500, headers: { ...headers, "Content-Type": "application/json" } }
+    );
+  }
+}
+
 // ── STRUCTURAL ENFORCEMENT ──
 export const GET = createProtectedRoute(getHandler, {
   policy: canAccessReceipt,
   resourceLoader: (id) => getPaymentById(db, id)
 });
+
+export const POST = createProtectedRoute(postHandler, {
+    policy: canAccessReceipt,
+    resourceLoader: (id) => getPaymentById(db, id)
+});
+
+export const OPTIONS = createProtectedRoute(() => {}, { isPublic: true });

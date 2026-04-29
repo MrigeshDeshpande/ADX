@@ -1,7 +1,8 @@
 import { resend } from "./resend.client";
 import {
   adminEnquiryTemplate,
-  userConfirmationTemplate
+  userConfirmationTemplate,
+  receiptEmailTemplate
 } from "./email.template";
 
 /**
@@ -43,4 +44,42 @@ export async function sendTestEmail() {
       <p>Time: ${new Date().toISOString()}</p>
     `
   });
+}
+
+/**
+ * Send receipt email with PDF attachment
+ */
+export async function sendReceiptEmail({ to, studentName, receiptNumber, pdfBuffer }) {
+  const from = process.env.EMAIL_FROM || "Skillyards <admin@skillyards.in>";
+  const subject = `Payment Receipt: ${receiptNumber || "Skillyards"}`;
+  const attachments = [
+    {
+      filename: `receipt-${receiptNumber || "payment"}.pdf`,
+      content: pdfBuffer,
+    },
+  ];
+
+  // 1. Send to Student
+  const studentEmailPromise = resend.emails.send({
+    from,
+    to: [to],
+    subject,
+    html: receiptEmailTemplate({ studentName, receiptNumber, isAdmin: false }),
+    attachments,
+  });
+
+  // 2. Send to Admin (if configured)
+  if (process.env.ADMIN_EMAIL) {
+    const adminEmailPromise = resend.emails.send({
+      from,
+      to: [process.env.ADMIN_EMAIL],
+      subject: `[Admin Copy] ${subject}`,
+      html: receiptEmailTemplate({ studentName, receiptNumber, isAdmin: true }),
+      attachments,
+    });
+
+    return Promise.all([studentEmailPromise, adminEmailPromise]);
+  }
+
+  return studentEmailPromise;
 }

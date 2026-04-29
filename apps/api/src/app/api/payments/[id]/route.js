@@ -39,3 +39,5 @@ export const POST = createProtectedRoute(postHandler, {
   policy: canAccessStudent,
   resourceLoader: (id) => getStudentById(db, id)
 });
+
+export const OPTIONS = createProtectedRoute(() => {}, { isPublic: true });

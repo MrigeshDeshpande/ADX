@@ -18,6 +18,11 @@ export function createProtectedRoute(handler, { policy, resourceLoader, isPublic
     const ctx = await getRequestContext(req);
     const headers = corsHeaders(req);
 
+    // ── CORS PREFLIGHT ──
+    if (req.method === "OPTIONS") {
+      return new Response(null, { status: 204, headers });
+    }
+
     try {
       // 0. ── INTERNAL SERVICE ENFORCEMENT ──
       // This is a dedicated boundary for service-to-service calls

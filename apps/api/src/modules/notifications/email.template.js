@@ -48,6 +48,46 @@ export function adminEnquiryTemplate(enquiry) {
   `;
 }
 
+export function receiptEmailTemplate({ studentName, receiptNumber, isAdmin = false }) {
+  const year = new Date().getFullYear();
+
+  const title = isAdmin ? "Receipt Copy (Admin)" : "Payment Receipt";
+  const greeting = isAdmin ? "Hi Admin," : `Hi ${studentName},`;
+  const body = isAdmin 
+    ? `This is a copy of the payment receipt <b>${receiptNumber || ""}</b> sent to <b>${studentName}</b>.`
+    : `Please find attached your payment receipt <b>${receiptNumber || ""}</b>. Thank you for your payment!`;
+
+  return `
+  <div style="background:#f1f5f9;padding:2rem;font-family:Arial,sans-serif;">
+    <div style="max-width:560px;margin:auto;background:#ffffff;border-radius:16px;overflow:hidden;border:1px solid #e2e8f0;">
+      <div style="background:#0f172a;padding:24px;text-align:center;">
+        <img src="${LOGO_URL}" style="max-width:180px; height:auto; display:block; margin:auto;" alt="Skillyards" />
+      </div>
+
+      <div style="padding:28px 28px 24px;">
+        <h1 style="font-size:20px;color:#1e293b;margin:0 0 12px;">${title}</h1>
+        <p style="color:#64748b;font-size:14px;line-height:1.6;margin:0 0 24px;">
+          ${greeting}<br><br>
+          ${body}
+        </p>
+        
+        ${!isAdmin ? `
+        <div style="background:#f8fafc;border-radius:10px;padding:16px 18px;border-left:3px solid #635ee7;margin-bottom:28px;">
+          <p style="font-size:13px;color:#1e293b;line-height:1.6;margin:0;">
+            If you have any questions regarding this receipt, please contact us at <a href="mailto:support@skillyards.in" style="color:#635ee7;text-decoration:none;">support@skillyards.in</a>.
+          </p>
+        </div>
+        ` : ""}
+      </div>
+
+      <div style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:24px 28px;text-align:center;">
+        <p style="font-size:11px;color:#94a3b8;margin:0;">© ${year} Skillyards. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+  `;
+}
+
 export function userConfirmationTemplate(enquiry) {
   const year = new Date().getFullYear();
   const uniqueId = Date.now();
