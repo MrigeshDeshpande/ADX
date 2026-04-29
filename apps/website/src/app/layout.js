@@ -36,6 +36,7 @@ export default function RootLayout({ children }) {
         <html lang="en" suppressHydrationWarning className={`${inter.variable} ${sourceSans.variable} ${playfair.variable}`}>
             <head>
                 <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+                <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER} />
 
                 <JsonLd data={organizationSchema} id="organization-schema" />
                 <JsonLd data={websiteSchema} id="website-schema" />
@@ -47,7 +48,6 @@ export default function RootLayout({ children }) {
                 text-primary-foreground
                 transition-colors duration-500 ease-in-out`}
             >
-                <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER} />
                 <noscript>
                     <iframe
                         src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER}`}
