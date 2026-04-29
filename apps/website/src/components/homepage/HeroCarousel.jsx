@@ -23,7 +23,16 @@ export default function HeroCarousel() {
     const [api, setApi] = React.useState(null);
     const [current, setCurrent] = React.useState(0);
     const [progressKey, setProgressKey] = React.useState(0);
+    const [isDesktop, setIsDesktop] = React.useState(false);
     const { theme } = useTheme();
+
+    React.useEffect(() => {
+        const mq = window.matchMedia("(min-width: 768px)");
+        setIsDesktop(mq.matches);
+        const handler = (e) => setIsDesktop(e.matches);
+        mq.addEventListener("change", handler);
+        return () => mq.removeEventListener("change", handler);
+    }, []);
 
 
     const particleColor = theme === "light" ? "#14248a" : "#d4c2fc";
@@ -53,23 +62,40 @@ export default function HeroCarousel() {
     return (
         <LazyMotion features={domAnimation}>
         <section className={`relative w-full h-80vh overflow-hidden ${bgColor} transition-colors duration-500`}>
-            {/* Background Particles layer */}
-            <div className="absolute inset-0 z-2">
-                <Particles
-                    particleColors={[particleColor]}
-                    particleCount={200}
-                    particleSpread={10}
-                    speed={0.1}
-                    particleBaseSize={100}
-                    moveParticlesOnHover
-                    alphaParticles={false}
-                    disableRotation={false}
-                    pixelRatio={1}
+
+            {/* Mobile mesh background — pure CSS, no JS, no images */}
+            <div className="absolute inset-0 z-0 md:hidden overflow-hidden pointer-events-none">
+                <div className="absolute -top-24 -left-20 w-[70vw] h-[70vw] rounded-full bg-violet-500/30 dark:bg-violet-500/40 blur-3xl" />
+                <div className="absolute -bottom-32 -right-16 w-[65vw] h-[65vw] rounded-full bg-blue-500/25 dark:bg-blue-500/35 blur-3xl" />
+                <div className="absolute top-1/3 -right-32 w-[55vw] h-[55vw] rounded-full bg-pink-500/15 dark:bg-fuchsia-500/25 blur-3xl" />
+                <div
+                    className="absolute inset-0 text-foreground opacity-[0.06] dark:opacity-[0.1]"
+                    style={{
+                        backgroundImage: "radial-gradient(circle, currentColor 1px, transparent 1px)",
+                        backgroundSize: "22px 22px",
+                    }}
                 />
             </div>
 
+            {/* Background Particles layer — desktop only */}
+            {isDesktop && (
+                <div className="absolute inset-0 z-2">
+                    <Particles
+                        particleColors={[particleColor]}
+                        particleCount={80}
+                        particleSpread={10}
+                        speed={0.1}
+                        particleBaseSize={100}
+                        moveParticlesOnHover
+                        alphaParticles={false}
+                        disableRotation={false}
+                        pixelRatio={1}
+                    />
+                </div>
+            )}
 
-            <div className={`absolute inset-0 z-0 bg-linear-to-r from-background/50 to-transparent pointer-events-none`} />
+
+            <div className={`absolute inset-0 z-0 hidden md:block bg-linear-to-r from-background/50 to-transparent pointer-events-none`} />
 
             <Carousel
                 setApi={setApi}
@@ -77,9 +103,9 @@ export default function HeroCarousel() {
                 opts={{ loop: true }}
                 className="relative z-10 h-full w-full pointer-events-none"
             >
-                <CarouselContent className="h-full ml-0 pt-8">
+                <CarouselContent className="h-full ml-0 pt-4 md:pt-8">
                     {slides.map((slide, index) => (
-                        <CarouselItem key={index} className="pl-0 h-[70vh] min-h-[520px]">
+                        <CarouselItem key={index} className="pl-0 h-[70vh] min-h-[440px] md:min-h-[520px]">
                             <div className="relative h-full w-full">
                                 {/* Content */}
                                 <div className="relative z-10 flex h-full items-center justify-center text-center">
@@ -97,7 +123,7 @@ export default function HeroCarousel() {
                                                 <m.h1
                                                     initial={{ opacity: 0, y: 10 }}
                                                     animate={{ opacity: 1, y: 0 }}
-                                                    transition={{ delay: 0.3, duration: 0.5 }}
+                                                    transition={{ duration: 0.4 }}
                                                     className={`text-3xl font-extrabold tracking-tight sm:text-5xl md:text-5xl text-foreground pointer-events-auto leading-tight`}
                                                 >
                                                     {slide.title}
@@ -107,7 +133,7 @@ export default function HeroCarousel() {
                                                     initial={{ opacity: 0, y: 10 }}
                                                     animate={{ opacity: 1, y: 0 }}
                                                     transition={{ delay: 0.4, duration: 0.5 }}
-                                                    className={`mt-4 sm:mt-6 text-lg sm:text-md md:text-lg text-muted-foreground pointer-events-auto font-medium max-w-2xl leading-relaxed px-2 sm:px-0`}
+                                                    className={`mt-3 sm:mt-6 text-base md:text-lg text-muted-foreground pointer-events-auto font-medium max-w-2xl leading-relaxed px-2 sm:px-0`}
                                                 >
                                                     {slide.description}
                                                 </m.p>
@@ -116,7 +142,7 @@ export default function HeroCarousel() {
                                                     initial={{ opacity: 0, y: 10 }}
                                                     animate={{ opacity: 1, y: 0 }}
                                                     transition={{ delay: 0.5, duration: 0.5 }}
-                                                    className="mt-8 sm:mt-10 flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 pointer-events-auto w-full sm:w-auto px-4 sm:px-0"
+                                                    className="mt-6 sm:mt-10 flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 pointer-events-auto w-full sm:w-auto px-4 sm:px-0"
                                                 >
                                                     <div className="relative p-0.5 rounded-full bg-linear-to-r from-violet-500 via-primary to-blue-500 transition-transform duration-300 hover:scale-105 w-full sm:w-auto">
                                                         <Link
@@ -131,7 +157,7 @@ export default function HeroCarousel() {
                                                         asChild
                                                         size="lg"
                                                         variant="outline"
-                                                        className={`rounded-full backdrop-blur border-border/50 bg-background/50 px-8 sm:px-10 py-5 sm:py-6 text-base sm:text-lg font-semibold text-foreground hover:bg-muted transition-transform hover:scale-105 w-full sm:w-auto`}
+                                                        className={`rounded-full backdrop-blur border-border/50 bg-background/50 px-8 sm:px-10 py-3 sm:py-6 text-base sm:text-lg font-semibold text-foreground hover:bg-muted transition-transform hover:scale-105 w-full sm:w-auto`}
                                                     >
                                                         <Link href="/contact">Book Free Career Counselling</Link>
                                                     </Button>

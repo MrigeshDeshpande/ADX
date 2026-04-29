@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 import { Button } from "@/components/ui/button";
@@ -16,6 +17,7 @@ function ContactFormContent() {
     const [success, setSuccess] = useState("");
     const [error, setError] = useState("");
 
+    const router = useRouter();
     const { executeRecaptcha } = useGoogleReCaptcha();
 
     async function handleSubmit(e) {
@@ -72,6 +74,7 @@ function ContactFormContent() {
 
             setSuccess(data.message);
             form.reset();
+            router.push("/thank-you");
 
         } catch (err) {
             setError(err.message);

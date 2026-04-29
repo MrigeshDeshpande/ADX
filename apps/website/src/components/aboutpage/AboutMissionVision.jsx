@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import { Lightbulb, Eye } from "lucide-react";
 import missionVisionData from "@/data/aboutpage/missionvision.json";
 
@@ -28,6 +28,7 @@ const card = {
 
 export default function AboutMissionVision() {
   return (
+    <LazyMotion features={domAnimation}>
     <section className="relative py-16 bg-background overflow-hidden">
 
       {/* background glow */}
@@ -37,7 +38,7 @@ export default function AboutMissionVision() {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
 
         {/* Heading */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -51,10 +52,10 @@ export default function AboutMissionVision() {
             Everything we build at SkillYards is driven by a clear mission and
             vision — preparing students for real-world careers.
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Cards */}
-        <motion.div
+        <m.div
           variants={container}
           initial="hidden"
           whileInView="visible"
@@ -65,7 +66,7 @@ export default function AboutMissionVision() {
             const Icon = iconMap[item.icon];
 
             return (
-              <motion.div
+              <m.div
                 key={index}
                 variants={card}
                 whileHover={{ y: -8 }}
@@ -95,11 +96,12 @@ export default function AboutMissionVision() {
 
                 {/* subtle decoration */}
                 <div className="absolute bottom-0 right-0 w-40 h-40 bg-primary/10 blur-[100px] rounded-full opacity-30" />
-              </motion.div>
+              </m.div>
             );
           })}
-        </motion.div>
+        </m.div>
       </div>
     </section>
+    </LazyMotion>
   );
 }

@@ -27,10 +27,6 @@ export default function CTASection() {
                         Explore Programs
                     </Link>
                 </div>
-
-                <p className="mt-6 text-sm text-primary-foreground/80">
-                    Already enrolled? <Link href="/login" className="underline font-medium">Login here</Link>
-                </p>
             </div>
         </section>
     );

@@ -48,19 +48,18 @@ export default function DesktopNav({ theme, toggleTheme }) {
             <div className="flex items-center gap-3">
                 <span className="text-border select-none hidden lg:block">·</span>
 
-                <Link href="/contact" className="hidden lg:flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground text-[13px] font-semibold px-5 py-2 rounded-full shadow-[0_4px_0_0_hsl(var(--primary))] hover:shadow-[0_6px_0_0_hsl(var(--primary))] hover:-translate-y-0.5 active:shadow-[0_0px_0_0_hsl(var(--primary))] active:translate-y-1 transition-all duration-150">
+                <Link href="/contact" className="hidden lg:flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground text-[13px] font-semibold px-5 py-2 rounded-full shadow-md hover:shadow-xl hover:-translate-y-0.5 active:translate-y-1 transition-all duration-150">
                     <Phone className="w-4 h-4" />
-                    Request a Callback
-                </Link>
+                    Claim Free Counselling                </Link>
 
                 {/* Icons */}
-                <div className="flex items-center gap-1.5 ml-1">
+                <div className="flex items-center gap-1.5 ml-1 ">
 
                     {/* Theme Toggle */}
                     <button
                         onClick={toggleTheme}
                         aria-label="Toggle theme"
-                        className="flex items-center justify-center rounded-full p-2 text-muted-foreground hover:text-foreground bg-background hover:bg-accent transition border border-border/60 shadow-sm"
+                        className="flex items-center justify-center rounded-full p-2 text-muted-foreground hover:text-foreground bg-background hover:bg-accent transition border border-border/60 shadow-sm "
                     >
                         {theme === "light" ? (
                             <Moon className="h-4 w-4" />

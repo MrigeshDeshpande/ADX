@@ -2,25 +2,21 @@
   {
     "title": "Hands-on Training",
     "description": "Gain practical experience with real-world projects under expert mentorship.",
-    "icon": "laptop",
-    "color": "bg-blue-100 text-blue-600 dark:bg-blue-900/40 dark:text-blue-400"
+    "icon": "laptop"
   },
   {
     "title": "Experienced Mentors",
     "description": "Learn from industry professionals with years of practical experience.",
-    "icon": "users",
-    "color": "bg-green-100 text-green-600 dark:bg-green-900/40 dark:text-green-400"
+    "icon": "users"
   },
   {
-    "title": "Flexible Schedule",
-    "description": "Learn at your own pace while continuing your work or studies.",
-    "icon": "clock",
-    "color": "bg-yellow-100 text-yellow-600 dark:bg-yellow-900/40 dark:text-yellow-400"
-  },
-  {
-    "title": "Career Support",
+    "title": "Career-focused Mentorship",
     "description": "Get guidance on placements, resume building, and interview preparation.",
-    "icon": "award",
-    "color": "bg-purple-100 text-purple-600 dark:bg-purple-900/40 dark:text-purple-400"
+    "icon": "award"
+  },
+  {
+    "title": "Club Facilitation",
+    "description": "Skillyards ensures engaging, well-structured sessions that build skills, encourage collaboration, and create a thriving learning community.",
+    "icon": "clock"
   }
 ]

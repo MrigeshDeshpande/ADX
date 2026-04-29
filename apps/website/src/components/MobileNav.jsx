@@ -54,6 +54,16 @@ export default function MobileNav({ onClose, theme, toggleTheme }) {
                     <MobileLink href="/contact" onClick={onClose}>Contact</MobileLink>
 
                     <div className="border-t border-border/60 mt-2 pt-3">
+                        <Link
+                            href={`tel:${process.env.NEXT_PUBLIC_PHONE}`}
+                            onClick={onClose}
+                            className="flex items-center justify-center w-[200px] text-sm font-bold text-primary-foreground bg-primary hover:bg-primary/90 transition py-2.5 px-4 mx-auto rounded-xl mb-2"
+                        >
+                            Claim Free Counselling
+                        </Link>
+                    </div>
+
+                    <div className="border-t border-border/60 mt-2 pt-3">
                         <button
                             onClick={toggleTheme}
                             className="flex items-center justify-between w-full text-sm font-medium text-foreground hover:bg-accent/80 transition py-2.5 px-4 rounded-xl"

@@ -107,6 +107,10 @@ const Particles = ({
     const container = containerRef.current;
     if (!container) return;
 
+    const testCanvas = document.createElement('canvas');
+    const testGL = testCanvas.getContext('webgl') || testCanvas.getContext('experimental-webgl');
+    if (!testGL) return;
+
     const renderer = new Renderer({
       dpr: pixelRatio,
       depth: false,

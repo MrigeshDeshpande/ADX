@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { ArrowRight, Star, Play, CheckCircle } from "lucide-react";
+import { ArrowRight, Star } from "lucide-react";
 import Image from "next/image";
 import { LampContainer } from "../ui/lamp";
 import { Button } from "@/components/ui/button";
@@ -64,8 +64,8 @@ export const BBAHero = () => {
               className="relative w-full aspect-16/10 sm:aspect-video lg:aspect-4/3 rounded-xl sm:rounded-2xl md:rounded-3xl overflow-hidden border-2 sm:border-4 md:border-6 border-foreground/5 dark:border-neutral-800 shadow-2xl group mt-4 sm:mt-6 lg:mt-0"
             >
               <Image
-                src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=1200"
-                alt="Digital Marketing Presentation"
+                src="/images/BBA-PAGE.webp"
+                alt="BBA Program"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-1000"
                 priority

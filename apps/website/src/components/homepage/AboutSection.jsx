@@ -22,10 +22,10 @@ export default function AboutSection() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="relative w-full aspect-square max-h-[420px] max-w-[420px] mx-auto md:ml-0 rounded-[2rem] overflow-hidden group shadow-2xl"
+                        className="relative w-full aspect-square max-h-[420px] max-w-[420px] md:max-h-560px md:max-w-none mx-auto md:ml-0 rounded-[2rem] overflow-hidden group shadow-2xl"
                     >
                         <Image
-                            src="/images/home-about.png"
+                            src="/images/Home-about.webp"
                             alt="SkillYards Training Environment"
                             fill
                             className="object-cover transition-transform duration-700 group-hover:scale-105"

@@ -54,7 +54,7 @@ export const BCA_CTA = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="w-full rounded-full border-2 border-primary-foreground/30 bg-transparent text-primary-foreground px-8 md:px-12 py-5 md:py-6 text-sm md:text-base font-bold hover:bg-primary-foreground/10 transition-all"
+                  className="w-full rounded-full border-2 border-primary-foreground/30 bg-transparent text-background px-8 md:px-12 py-5 md:py-6 text-sm md:text-base font-bold  transition-all"
                 >
                   Chat on WhatsApp
                 </Button>

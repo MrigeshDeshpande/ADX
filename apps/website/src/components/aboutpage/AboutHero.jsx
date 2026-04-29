@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import heroData from "@/data/aboutpage/hero.json";
 
@@ -12,19 +12,20 @@ export default function AboutHero() {
   if (!data) return null;
 
   return (
+    <LazyMotion features={domAnimation}>
     <section className="relative overflow-hidden bg-background text-foreground py-12 pt-6 sm:py-24 desk:py-28">
-      
+
       {/* Dynamic Background Elements */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/4 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary/5 blur-[100px] rounded-full translate-y-1/4 -translate-x-1/4 pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid desk:grid-cols-2 gap-8 desk:gap-20 items-center">
-          
-          {/* Left Side: Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+
+          {/* Left Side: Content — no opacity:0 so h1 is LCP-visible immediately */}
+          <m.div
+            initial={{ x: -30 }}
+            whileInView={{ x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
             className="flex flex-col space-y-6 desk:space-y-8 text-center desk:text-left z-10 pt-4"
@@ -75,36 +76,32 @@ export default function AboutHero() {
                 {data.secondaryCTA.text}
               </a>
             </div>
-          </motion.div>
+          </m.div>
 
-          {/* Right Side: Slanted Image Design */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, rotate: 1.5 }}
-            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+          {/* Right Side: Image */}
+          <m.div
+            initial={{ scale: 0.9, rotate: 1.5 }}
+            whileInView={{ scale: 1, rotate: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
             viewport={{ once: true }}
             className="relative w-full flex items-center justify-center pt-8 sm:pt-12 desk:pt-0"
           >
-
-            {/* Main Slanted Container - Subtle 2deg rotation */}
-            <div className="relative w-full aspect-video desk:aspect-5/4 xl:aspect-4/3 sm:rotate-2 rounded-2xl sm:rounded-[3rem] overflow-hidden shadow-xl sm:shadow-2xl border-2 sm:border-4 border-background/50 max-w-sm sm:max-w-none mx-auto sm:mx-0">
-              <div className="absolute inset-0 sm:-rotate-2 sm:scale-110">
-                <Image
-                  src={data.image}
-                  alt="SkillYards Career Training"
-                  fill
-                  priority
-                  fetchPriority="high"
-                  className="object-cover mt-5 scale-[1.05] rounded-2xl sm:rounded-[3rem] rotate-[-0.90deg] group-hover:rotate-0 transition-transform duration-700"
-                />
-                {/* Visual Overlays */}
-                <div className="absolute inset-0 bg-linear-to-t from-primary/20 to-transparent mix-blend-overlay" />
-              </div>
+            <div className="relative w-[80%] sm:w-[60%] desk:w-full aspect-square sm:rotate-2 rounded-2xl sm:rounded-[3rem] overflow-hidden shadow-xl sm:shadow-2xl border-2 sm:border-4 border-background/50 mx-auto">
+              <Image
+                src={data.image}
+                alt="SkillYards Career Training"
+                fill
+                priority
+                fetchPriority="high"
+                className="object-cover object-top"
+              />
+              <div className="absolute inset-0 bg-linear-to-t from-primary/20 to-transparent mix-blend-overlay" />
             </div>
-          </motion.div>
+          </m.div>
 
         </div>
       </div>
     </section>
+    </LazyMotion>
   );
 }

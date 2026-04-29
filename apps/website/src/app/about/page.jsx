@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 
 import JsonLd from "@/components/JsonLd";
 import AboutHero from "@/components/aboutpage/AboutHero";
-import AboutMissionVision from "@/components/aboutpage/AboutMissionVision";
+const AboutMissionVision = dynamic(() => import("@/components/aboutpage/AboutMissionVision"));
 
 const AboutWhyChoose = dynamic(() => import("@/components/aboutpage/AboutWhyChoose"));
 const TestimonialsByInterns = dynamic(() => import("@/components/aboutpage/TestimonialsByInterns"));
