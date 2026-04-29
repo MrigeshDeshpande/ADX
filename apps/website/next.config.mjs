@@ -34,7 +34,7 @@ const nextConfig = {
                         "script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://utteranc.es https://www.google.com https://www.gstatic.com https://www.googletagmanager.com; " +
 
                         // Frames
-                        "frame-src https://utteranc.es https://www.google.com https://www.gstatic.com https://www.youtube.com; " +
+                        "frame-src https://utteranc.es https://www.google.com https://www.gstatic.com https://www.youtube.com https://www.googletagmanager.com; " +
 
                         // API calls 
                         "connect-src 'self' https://api.github.com https://www.google.com https://www.gstatic.com https://skillyards-backend.vercel.app https://www.googletagmanager.com; " +

@@ -113,7 +113,7 @@ export const commonMetadata = {
         {
             httpEquiv: 'Content-Security-Policy',
             content:
-                "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://apis.google.com https://cdn.jsdelivr.net https://pagead2.googlesyndication.com https://www.googletagmanager.com https://vercel.live https://play.google.com; connect-src 'self' https://api.skillyards.in https://pagead2.googlesyndication.com https://www.googletagmanager.com https://www.google-analytics.com https://vercel.live https://play.google.com; referrer origin-when-cross-origin;",
+                "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://apis.google.com https://cdn.jsdelivr.net https://pagead2.googlesyndication.com https://www.googletagmanager.com https://vercel.live https://play.google.com; connect-src 'self' https://api.skillyards.in https://pagead2.googlesyndication.com https://www.googletagmanager.com https://www.google-analytics.com https://vercel.live https://play.google.com; frame-src 'self' https://www.googletagmanager.com; referrer origin-when-cross-origin;",
         },
         { name: 'referrer', content: 'origin-when-cross-origin' },
         { name: 'copyright', content: 'SkillYards.in' },
