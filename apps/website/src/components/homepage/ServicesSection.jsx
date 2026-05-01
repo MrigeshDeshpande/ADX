@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -106,11 +107,11 @@ const cardVariants = {
     },
 };
 
-function BentoCard({ service }) {
+function BentoCard({ service, className = "" }) {
     const Icon = service.icon;
 
     return (
-        <div className={service.grid}>
+        <div className={`${service.grid} ${className}`}>
         <m.div
             variants={cardVariants}
             className="group relative overflow-hidden rounded-2xl border border-white/10 dark:border-white/5 shadow-md w-full h-full"
@@ -162,6 +163,8 @@ function BentoCard({ service }) {
 }
 
 export default function ServicesSection() {
+    const [showAllMobileCards, setShowAllMobileCards] = useState(false);
+
     return (
         <LazyMotion features={domAnimation}>
         <section className="py-16 lg:py-20 relative overflow-hidden">
@@ -209,10 +212,26 @@ export default function ServicesSection() {
                     className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:grid-rows-3 gap-3"
                     style={{ gridTemplateRows: "repeat(3, clamp(160px, 20vh, 210px))" }}
                 >
-                    {services.map((service) => (
-                        <BentoCard key={service.title} service={service} />
+                    {services.map((service, index) => (
+                        <BentoCard
+                            key={service.title}
+                            service={service}
+                            className={index < 3 || showAllMobileCards ? "block" : "hidden sm:block"}
+                        />
                     ))}
                 </m.div>
+
+                {!showAllMobileCards && (
+                    <div className="mt-6 flex justify-center sm:hidden">
+                        <button
+                            type="button"
+                            onClick={() => setShowAllMobileCards(true)}
+                            className="inline-flex items-center justify-center rounded-2xl border border-border bg-background px-6 py-3 text-sm font-semibold text-foreground shadow-sm transition hover:bg-accent"
+                        >
+                            Load More Services
+                        </button>
+                    </div>
+                )}
 
                 {/* CTA */}
                 <m.div

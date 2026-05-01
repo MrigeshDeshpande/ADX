@@ -1,5 +1,6 @@
+import dynamic from "next/dynamic";
 import { buildSEO } from "@/lib/seo/buildSEO";
-import { BCALandingPage } from "@/components/landingPageBCA/LandingPage";
+const BCALandingPage = dynamic(() => import("@/components/landingPageBCA/LandingPage").then(m => m.BCALandingPage));
 import JsonLd from "@/components/JsonLd";
 import { getCourseSchema } from "@/lib/seo/schema/courseSchema";
 import { courses } from "@/data/courses";

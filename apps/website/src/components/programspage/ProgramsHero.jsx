@@ -15,6 +15,7 @@ export default function ProgramsHero() {
           src="/images/ProgramBG.webp"
           alt="Program Background"
           fill
+          sizes="100vw"
           priority
           className="object-cover opacity-100"
         />

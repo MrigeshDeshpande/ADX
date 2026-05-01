@@ -2,6 +2,7 @@
 
 import { useMemo } from "react";
 import Link from "next/link";
+import { GoogleMapEmbed } from "@/components/ui/GoogleMapEmbed";
 import {
     Facebook,
     Twitter,
@@ -68,9 +69,9 @@ export default function Footer() {
     return (
         <footer className="border-t border-border bg-background/90 backdrop-blur-md pt-8">
             {/* Top */}
-            <div className="mx-auto grid max-w-[90rem] grid-cols-1 gap-12 desk:gap-6 lg:gap-8 px-6 desk:px-8 lg:px-12 py-20 sm:grid-cols-2 desk:grid-cols-8 lg:grid-cols-7">
+            <div className="mx-auto grid max-w-[90rem] grid-cols-1 gap-12 desk:gap-x-10 desk:gap-y-6 lg:gap-x-12 lg:gap-y-8 px-6 desk:px-8 lg:px-12 py-10 sm:py-20 sm:grid-cols-2 desk:grid-cols-8 lg:grid-cols-7">
                 {/* Brand & Address */}
-                <div className="flex flex-col sm:col-span-2 desk:col-span-3 lg:col-span-2 relative z-20 pr-0 desk:pr-8">
+                <div className="flex flex-col sm:col-span-2 desk:col-span-3 lg:col-span-2 relative z-20 pr-0 desk:pr-4 lg:pr-2">
                     <Link href="/" className="mb-6 flex items-center gap-2">
                         <Logo />
                     </Link>
@@ -140,13 +141,7 @@ export default function Footer() {
                     </h3>
                     <div className="w-full h-56 desk:h-full min-h-[16rem] relative rounded-[1.5rem] overflow-hidden shadow-lg border border-border group">
                         <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-black/5 dark:ring-white/10 rounded-[1.5rem] z-10" />
-                        <iframe
-                            title="SkillYards Location"
-                            className="absolute inset-0 w-full h-full border-0 filter dark:brightness-90 dark:contrast-125 dark:saturate-50" 
-                            loading="lazy"
-                            referrerPolicy="no-referrer-when-downgrade"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3548.2462724676166!2d78.00276847614923!3d27.211416747188895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3974776a3f3b61d9%3A0xc26cc82e5a39a7fc!2sSkillyards%20Versatility%20Pvt.!5e0!3m2!1sen!2sin!4v1774862128520!5m2!1sen!2sin"
-                        />
+                        <GoogleMapEmbed />
                     </div>
                 </div>
             </div>

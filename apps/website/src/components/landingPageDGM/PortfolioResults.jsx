@@ -40,55 +40,55 @@ const results = [
 
 export function DGMPortfolioResults() {
   return (
-    <section className="bg-background py-20">
-      <div className="mx-auto max-w-5xl px-6">
-        <div className="mb-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-3 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary"
-          >
-            <FolderOpen size={13} />
-            Your Portfolio
-          </motion.div>
-          <h2 className="font-serif text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-            You Graduate with Numbers.{" "}
-            <span className="italic text-primary">Not Just a Certificate.</span>
-          </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
-            These are representative outcomes from real campaigns students run during training.
-            Specific. Measurable. The kind of portfolio that gets interviews.
-          </p>
-        </div>
+        <section className="bg-background py-20">
+          <div className="mx-auto max-w-5xl px-6">
+            <div className="mb-10 text-center">
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="mb-3 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary"
+              >
+                <FolderOpen size={13} />
+                Your Portfolio
+              </motion.div>
+              <h2 className="font-serif text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+                You Graduate with Numbers.{" "}
+                <span className="italic text-primary">Not Just a Certificate.</span>
+              </h2>
+              <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
+                These are representative outcomes from real campaigns students run during training.
+                Specific. Measurable. The kind of portfolio that gets interviews.
+              </p>
+            </div>
 
-        <div className="grid gap-5 sm:grid-cols-2">
-          {results.map((r, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className={`rounded-3xl border p-6 shadow-sm transition-all hover:shadow-md ${r.color}`}
-            >
-              <div className="mb-3 flex items-center gap-2">
-                <span className={`h-2.5 w-2.5 rounded-full ${r.dot}`} />
-                <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">{r.type}</span>
-              </div>
-              <h3 className="mb-2 font-serif text-xl font-extrabold text-foreground">{r.headline}</h3>
-              <p className="mb-4 text-sm leading-relaxed text-muted-foreground">{r.detail}</p>
-              <div className="flex flex-wrap gap-2">
-                {r.metrics.map((m) => (
-                  <span key={m} className="flex items-center gap-1 rounded-full bg-background/70 px-3 py-1 text-xs font-semibold text-foreground">
-                    <TrendingUp size={11} className="text-primary" /> {m}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
+            <div className="grid gap-5 sm:grid-cols-2">
+              {results.map((r, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className={`rounded-3xl border p-6 shadow-sm transition-all hover:shadow-md ${r.color}`}
+                >
+                  <div className="mb-3 flex items-center gap-2">
+                    <span className={`h-2.5 w-2.5 rounded-full ${r.dot}`} />
+                    <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">{r.type}</span>
+                  </div>
+                  <h3 className="mb-2 font-serif text-xl font-extrabold text-foreground">{r.headline}</h3>
+                  <p className="mb-4 text-sm leading-relaxed text-muted-foreground">{r.detail}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {r.metrics.map((m) => (
+                      <span key={m} className="flex items-center gap-1 rounded-full bg-background/70 px-3 py-1 text-xs font-semibold text-foreground">
+                        <TrendingUp size={11} className="text-primary" /> {m}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
   );
 }

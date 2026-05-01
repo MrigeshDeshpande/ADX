@@ -1,7 +1,10 @@
+import dynamic from "next/dynamic";
 import JsonLd from "@/components/JsonLd";
 import ContactForm from "@/components/ContactForm";
-import ContactPageInfoCard from "@/components/ContactPageInfoCard";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { GoogleMapEmbed } from "@/components/ui/GoogleMapEmbed";
+
+const ContactPageInfoCard = dynamic(() => import("@/components/ContactPageInfoCard"));
 
 import { buildSEO } from "@/lib/seo/buildSEO";
 
@@ -84,22 +87,30 @@ export default function ContactPage() {
           </div>
         </section>
 
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 pb-20 md:pb-28">
-           <div className="w-full h-[300px] sm:h-[400px] md:h-[500px] relative rounded-3xl md:rounded-[2.5rem] overflow-hidden shadow-2xl border border-neutral-200/60 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900 group">
-             <div className="absolute inset-0 ring-1 ring-inset ring-black/5 dark:ring-white/10 rounded-3xl md:rounded-[2.5rem] pointer-events-none z-10 shadow-[inner_0_2px_20px_rgba(0,0,0,0.05)]" />
-             
-             <iframe
-                title="SkillYards Location"
-                className="absolute inset-0 w-full h-full border-0 filter  dark:brightness-90 dark:contrast-125 dark:saturate-50 transition-all duration-700" 
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3548.2462724676166!2d78.00276847614923!3d27.211416747188895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3974776a3f3b61d9%3A0xc26cc82e5a39a7fc!2sSkillyards%20Versatility%20Pvt.%20Ltd.!5e0!3m2!1sen!2sin!4v1774862128520!5m2!1sen!2sin"
-                 width="600" 
-                 height="450" 
-                aria-label="SkillYards Versatilitty Pvt. Ltd."
-             />
-           </div>
+        <section className="hidden md:block max-w-7xl mx-auto px-6 pb-20 lg:pb-24 relative z-20">
+          <div className="overflow-hidden rounded-[2rem] border border-neutral-200/70 dark:border-neutral-800 bg-white/70 dark:bg-neutral-900/70 backdrop-blur-xl shadow-2xl shadow-neutral-200/40 dark:shadow-black/50">
+            <div className="flex items-center justify-between px-8 pt-8 pb-5">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">
+                  Find Us
+                </p>
+                <h2 className="mt-2 text-3xl font-playfair font-bold text-neutral-900 dark:text-white">
+                  Visit SkillYards in Agra
+                </h2>
+              </div>
+            </div>
+
+            <div className="px-8 pb-8">
+              <div className="relative h-[360px] lg:h-[420px] overflow-hidden rounded-[1.5rem] border border-neutral-200 dark:border-neutral-800 shadow-lg">
+                <GoogleMapEmbed
+                  previewImageSrc="/images/DesktopMap.png"
+                  previewImageAlt="SkillYards Agra location preview"
+                />
+              </div>
+            </div>
+          </div>
         </section>
+
       </div>
 
       <JsonLd

@@ -6,7 +6,7 @@ import BackToTop from "@/components/BackToTop";
 import JsonLd from "@/components/JsonLd";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { GoogleTagManager } from "@next/third-parties/google";
+import Script from "next/script";
 import { organizationSchema, websiteSchema } from "@/lib/seo/schema/global";
 const playfair = Playfair_Display({
     subsets: ["latin"],
@@ -36,17 +36,13 @@ export default function RootLayout({ children }) {
         <html lang="en" suppressHydrationWarning className={`${inter.variable} ${sourceSans.variable} ${playfair.variable}`}>
             <head>
                 <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-                <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER} />
 
                 <JsonLd data={organizationSchema} id="organization-schema" />
                 <JsonLd data={websiteSchema} id="website-schema" />
             </head>
 
             <body
-                className={`antialiased
-                bg-foreground
-                text-primary-foreground
-                transition-colors duration-500 ease-in-out`}
+                className={`antialiased bg-foreground text-primary-foreground`}
             >
                 <noscript>
                     <iframe
@@ -54,14 +50,21 @@ export default function RootLayout({ children }) {
                         height="0"
                         width="0"
                         style={{ display: "none", visibility: "hidden" }}
-                    ></iframe>
+                    />
                 </noscript>
+                <Script
+                    id="gtm"
+                    strategy="lazyOnload"
+                    dangerouslySetInnerHTML={{
+                        __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER}');`,
+                    }}
+                />
                 <ThemeProvider
                     attribute="class"
                     defaultTheme="system"
                     enableSystem
                 >
-                    <div className="min-h-screen bg-background transition-colors duration-500">
+                    <div className="min-h-screen bg-background">
                         <Header />
 
                         <main className="relative z-10">{children}</main>

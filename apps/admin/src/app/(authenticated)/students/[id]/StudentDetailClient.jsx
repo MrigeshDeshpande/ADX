@@ -112,13 +112,21 @@ export function StudentDetailClient({ student, initialTransactions, initialPlan,
   const scheduledTotal = installments.reduce((s, i) => s + i.amount, 0);
   const flexibleRemaining = plan ? (plan.total - scheduledTotal) : 0;
 
+  const totalPaid = installments.reduce((s, i) => s + (i.paid ?? 0), 0);
+  const isFullyPaid = !!plan && totalPaid >= plan.total;
+  const isFlexibleNoExtraInstallments = plan?.type === "Flexible" && (
+    installments.length === 0 ||
+    (totalPaid >= scheduledTotal && flexibleRemaining > 0)
+  );
+  const addPaymentDisabled = !plan || isFullyPaid || isFlexibleNoExtraInstallments;
+
   return (
     <div className="space-y-6">
 
       <div className="flex justify-end">
         <button
           onClick={() => openPaymentModal()}
-          disabled={!plan}
+          disabled={addPaymentDisabled}
           className="flex items-center gap-1.5 px-4 py-2 bg-primary text-primary-foreground text-sm font-semibold rounded-lg hover:opacity-90 shrink-0 disabled:opacity-40 disabled:cursor-not-allowed"
         >
           <Plus className="w-4 h-4" />
@@ -131,7 +139,7 @@ export function StudentDetailClient({ student, initialTransactions, initialPlan,
       <InstallmentsTable
         installments={installments}
         onPay={openPaymentModal}
-        onAddInstallment={plan?.type === "Flexible" ? () => setInstallmentModalOpen(true) : undefined}
+        onAddInstallment={plan?.type === "Flexible" && flexibleRemaining > 0 ? () => setInstallmentModalOpen(true) : undefined}
         unscheduled={plan?.type === "Flexible" ? flexibleRemaining : 0}
       />
 

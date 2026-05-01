@@ -49,58 +49,58 @@ const paths = [
 
 export function DGMCareerPaths() {
   return (
-    <section className="bg-card/20 py-20">
-      <div className="mx-auto max-w-5xl px-6">
-        <div className="mb-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-3 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary"
-          >
-            Career Paths
-          </motion.div>
-          <h2 className="font-serif text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-            One Course.{" "}
-            <span className="italic text-primary">Three Completely Different Outcomes.</span>
-          </h2>
-          <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-            Whether you want a job, freelance freedom, or to grow your own business this course opens all three doors.
-          </p>
-        </div>
-
-        <div className="grid gap-5 sm:grid-cols-3">
-          {paths.map((p, i) => {
-            const Icon = p.icon;
-            return (
+        <section className="bg-card/20 py-20">
+          <div className="mx-auto max-w-5xl px-6">
+            <div className="mb-10 text-center">
               <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className={`flex flex-col rounded-3xl border p-6 shadow-sm ${p.color}`}
+                className="mb-3 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary"
               >
-                <div className={`mb-3 flex h-11 w-11 items-center justify-center rounded-2xl ${p.iconBg}`}>
-                  <Icon size={20} className="text-white" />
-                </div>
-                <h3 className="mb-4 font-serif text-xl font-extrabold text-foreground">{p.path}</h3>
-                <ul className="mb-4 flex-1 space-y-2.5">
-                  {p.roles.map((r) => (
-                    <li key={r.title} className="flex items-start justify-between gap-3 text-sm">
-                      <span className="text-foreground">{r.title}</span>
-                      <span className="shrink-0 rounded-full bg-background/70 px-2 py-0.5 text-xs font-semibold text-primary">{r.salary}</span>
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-auto rounded-xl bg-background/50 p-3 text-xs leading-relaxed text-muted-foreground">
-                  {p.note}
-                </p>
+                Career Paths
               </motion.div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
+              <h2 className="font-serif text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+                One Course.{" "}
+                <span className="italic text-primary">Three Completely Different Outcomes.</span>
+              </h2>
+              <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
+                Whether you want a job, freelance freedom, or to grow your own business this course opens all three doors.
+              </p>
+            </div>
+
+            <div className="grid gap-5 sm:grid-cols-3">
+              {paths.map((p, i) => {
+                const Icon = p.icon;
+                return (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1 }}
+                    className={`flex flex-col rounded-3xl border p-6 shadow-sm ${p.color}`}
+                  >
+                    <div className={`mb-3 flex h-11 w-11 items-center justify-center rounded-2xl ${p.iconBg}`}>
+                      <Icon size={20} className="text-white" />
+                    </div>
+                    <h3 className="mb-4 font-serif text-xl font-extrabold text-foreground">{p.path}</h3>
+                    <ul className="mb-4 flex-1 space-y-2.5">
+                      {p.roles.map((r) => (
+                        <li key={r.title} className="flex items-start justify-between gap-3 text-sm">
+                          <span className="text-foreground">{r.title}</span>
+                          <span className="shrink-0 rounded-full bg-background/70 px-2 py-0.5 text-xs font-semibold text-primary">{r.salary}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <p className="mt-auto rounded-xl bg-background/50 p-3 text-xs leading-relaxed text-muted-foreground">
+                      {p.note}
+                    </p>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
   );
 }

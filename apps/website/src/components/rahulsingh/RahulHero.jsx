@@ -29,6 +29,7 @@ export default function RahulHero() {
                         src="/images/team/rahul-singh.webp"
                         alt="Rahul Singh"
                         fill
+                        sizes="(max-width: 768px) 208px, 256px"
                         className="object-cover object-top scale-[1.15] group-hover:scale-[1.25] transition-transform duration-700"
                     />
                 </div>

@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { formatDate } from "@/lib/format";
 import { createStudentPlan } from "@/actions/student";
+import { DateInput } from "@/components/ui/date-input";
 
 
 
@@ -109,12 +110,10 @@ function StepFullPay({ fullPayDate, setFullPayDate, net, onNext, onBack }) {
         <label className="block text-xs font-semibold text-muted-foreground mb-1.5">
           Due Date
         </label>
-        <input
-          type="date"
+        <DateInput
           required
-          className="input"
           value={fullPayDate}
-          onChange={e => setFullPayDate(e.target.value)}
+          onChange={(iso) => setFullPayDate(iso)}
         />
       </div>
 
@@ -176,11 +175,9 @@ function StepStandardEMI({ config, setConfig, net, onNext, onBack }) {
         <label className="block text-xs font-semibold text-muted-foreground mb-1.5">
           Start Date
         </label>
-        <input
-          type="date"
-          className="input"
+        <DateInput
           value={config.startDate}
-          onChange={e => setConfig({ ...config, startDate: e.target.value })}
+          onChange={(iso) => setConfig({ ...config, startDate: iso })}
         />
       </div>
 
@@ -245,11 +242,9 @@ function StepFlexible({ firstInstallment, setFirstInstallment, net, onNext, onBa
         <label className="block text-xs font-semibold text-muted-foreground mb-1.5">
           First Installment Due Date
         </label>
-        <input
-          type="date"
-          className="input"
+        <DateInput
           value={firstInstallment.date}
-          onChange={e => setFirstInstallment(prev => ({ ...prev, date: e.target.value }))}
+          onChange={(iso) => setFirstInstallment(prev => ({ ...prev, date: iso }))}
         />
       </div>
 

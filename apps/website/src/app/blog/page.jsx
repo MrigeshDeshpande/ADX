@@ -5,6 +5,8 @@ import BlogSearch from "@/components/blog/BlogSearch";
 import JsonLd from "@/components/JsonLd";
 import { getBlogSchema } from "@/lib/seo/schema/blogPostingSchema";
 
+export const revalidate = 3600;
+
 export const metadata = buildSEO({
   title: "SkillYards Blog",
   description:
@@ -22,7 +24,7 @@ export const metadata = buildSEO({
 });
 
 export default async function BlogPage() {
-  const posts = await sanityClient.fetch(POSTS_QUERY);
+  const posts = await sanityClient.fetch(POSTS_QUERY, {}, { next: { revalidate: 3600 } });
   const blogSchema = getBlogSchema();
 
   return (

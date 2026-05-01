@@ -1,8 +1,8 @@
 import dynamic from "next/dynamic";
 
-import HeroCarousel from "@/components/homepage/HeroCarousel";
-import AboutSection from "@/components/homepage/AboutSection";
+const HeroCarousel = dynamic(() => import("@/components/homepage/HeroCarousel"));
 
+const AboutSection = dynamic(() => import("@/components/homepage/AboutSection"));
 const ProblemSection = dynamic(() => import("@/components/homepage/ProblemSection"));
 const FeaturesSection = dynamic(() => import("@/components/homepage/FeaturesSection"));
 const LeadersSection = dynamic(() => import("@/components/common/LeadersSection"));

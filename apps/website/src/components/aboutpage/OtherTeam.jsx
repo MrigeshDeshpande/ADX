@@ -333,6 +333,7 @@ const TeamCarousel = ({
                     src={member.image || member.avatar || ""}
                     alt={member.name}
                     fill
+                    sizes="(max-width: 768px) 90vw, 33vw"
                     className={`object-cover ${member.imageClassName || "object-top"}`}
                   />
 

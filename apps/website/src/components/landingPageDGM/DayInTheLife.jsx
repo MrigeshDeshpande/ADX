@@ -53,41 +53,41 @@ function Timeline({ items }) {
 
 export function DGMDayInTheLife() {
   return (
-    <section className="bg-background py-20">
-      <div className="mx-auto max-w-5xl px-6">
-        <div className="mb-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-3 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary"
-          >
-            A Day in the Life
-          </motion.div>
-          <h2 className="font-serif text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-            What Your Days Look Like {" "}
-            <span className="italic text-primary">During & After.</span>
-          </h2>
-          <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-            Two timelines so you know exactly what you&apos;re signing up for and exactly where it leads.
-          </p>
-        </div>
+        <section className="bg-background py-20">
+          <div className="mx-auto max-w-5xl px-6">
+            <div className="mb-10 text-center">
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="mb-3 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary"
+              >
+                A Day in the Life
+              </motion.div>
+              <h2 className="font-serif text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+                What Your Days Look Like {" "}
+                <span className="italic text-primary">During & After.</span>
+              </h2>
+              <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
+                Two timelines so you know exactly what you&apos;re signing up for and exactly where it leads.
+              </p>
+            </div>
 
-        <div className="grid gap-8 sm:grid-cols-2">
-          <div>
-            <h3 className="mb-5 font-serif text-xl font-extrabold text-foreground">
-              During the Course <span className="text-sm font-normal text-muted-foreground">(Month 3 typical day)</span>
-            </h3>
-            <Timeline items={duringCourse} />
+            <div className="grid gap-8 sm:grid-cols-2">
+              <div>
+                <h3 className="mb-5 font-serif text-xl font-extrabold text-foreground">
+                  During the Course <span className="text-sm font-normal text-muted-foreground">(Month 3 typical day)</span>
+                </h3>
+                <Timeline items={duringCourse} />
+              </div>
+              <div>
+                <h3 className="mb-5 font-serif text-xl font-extrabold text-foreground">
+                  After Graduating <span className="text-sm font-normal text-muted-foreground">(Junior DM executive)</span>
+                </h3>
+                <Timeline items={afterGraduating} />
+              </div>
+            </div>
           </div>
-          <div>
-            <h3 className="mb-5 font-serif text-xl font-extrabold text-foreground">
-              After Graduating <span className="text-sm font-normal text-muted-foreground">(Junior DM executive)</span>
-            </h3>
-            <Timeline items={afterGraduating} />
-          </div>
-        </div>
-      </div>
-    </section>
+        </section>
   );
 }

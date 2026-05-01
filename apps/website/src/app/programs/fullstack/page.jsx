@@ -1,5 +1,6 @@
+import dynamic from "next/dynamic";
 import { buildSEO } from "@/lib/seo/buildSEO";
-import { FSDLandingPage } from "@/components/landingPageFSD/LandingPage";
+const FSDLandingPage = dynamic(() => import("@/components/landingPageFSD/LandingPage").then(m => m.FSDLandingPage));
 import JsonLd from "@/components/JsonLd";
 import { getCourseSchema } from "@/lib/seo/schema/courseSchema";
 import { courses } from "@/data/courses";

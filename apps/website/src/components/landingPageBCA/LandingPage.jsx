@@ -1,17 +1,19 @@
 "use client";
 
 import React from 'react';
+import dynamic from 'next/dynamic';
 import { BCAHero } from './Hero';
-import { BCABenefits } from './Benefits';
-import { BCA_CTA } from './CTA';
-import { BCAComparisonSection } from './ComparisonTable';
-import { BcaCoreValues } from './CoreValue';
-import { BCAEducators } from './Educators';
-import BCAJourneyTimeline from './ProgramPhases';
-import { BCASkills } from './Skills';
-import { BCAStats } from './Stats';
-import { BCASyllabus } from './Syllabus';
-import PartnersSlider from '../common/PartnersSlider';
+
+const BCABenefits = dynamic(() => import('./Benefits').then(m => m.BCABenefits));
+const BCA_CTA = dynamic(() => import('./CTA').then(m => m.BCA_CTA));
+const BCAComparisonSection = dynamic(() => import('./ComparisonTable').then(m => m.BCAComparisonSection));
+const BcaCoreValues = dynamic(() => import('./CoreValue').then(m => m.BcaCoreValues));
+const BCAEducators = dynamic(() => import('./Educators').then(m => m.BCAEducators));
+const BCAJourneyTimeline = dynamic(() => import('./ProgramPhases'));
+const BCASkills = dynamic(() => import('./Skills').then(m => m.BCASkills));
+const BCAStats = dynamic(() => import('./Stats').then(m => m.BCAStats));
+const BCASyllabus = dynamic(() => import('./Syllabus').then(m => m.BCASyllabus));
+const PartnersSlider = dynamic(() => import('../common/PartnersSlider'));
 
 export const BCALandingPage = () => {
   return (

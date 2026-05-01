@@ -90,6 +90,7 @@ export async function getPaymentReceipt(db, paymentId) {
       allocatedAmount: allocation.amount,
       installmentDueDate: inst?.dueDate || null,
       installmentAmountDue: inst?.amountDue || null,
+      installmentStatus: inst?.status || null,
     };
   });
 
@@ -136,9 +137,25 @@ export function generateReceiptHTML(receiptData) {
   const formatDate = (dateString) => new Date(dateString).toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" });
 
   const isFullyPaid = ledgerSnapshot.pending === 0;
-  const statusText = isFullyPaid ? "PAID IN FULL" : "PARTIAL PAYMENT";
-  const statusColor = isFullyPaid ? "#059669" : "#d97706";
-  const statusBg = isFullyPaid ? "#ecfdf5" : "#fffbeb";
+  const allocatedInstallments = allocationBreakdown.filter((a) => a.installmentId);
+  const allAllocatedInstallmentsPaid =
+    allocatedInstallments.length > 0 &&
+    allocatedInstallments.every((a) => a.installmentStatus === "paid");
+
+  let statusText, statusColor, statusBg;
+  if (isFullyPaid) {
+    statusText = "PAID IN FULL";
+    statusColor = "#059669";
+    statusBg = "#ecfdf5";
+  } else if (allAllocatedInstallmentsPaid) {
+    statusText = "INSTALLMENT PAID";
+    statusColor = "#059669";
+    statusBg = "#ecfdf5";
+  } else {
+    statusText = "PARTIAL PAYMENT";
+    statusColor = "#d97706";
+    statusBg = "#fffbeb";
+  }
 
   const allocationRows = allocationBreakdown
     .map((alloc) => {
@@ -577,9 +594,9 @@ export function generateReceiptHTML(receiptData) {
             <div class="billing-grid">
               <div class="info-card">
                 <span class="card-label">Billed To Student</span>
-                <h3 class="entity-name">${studentDetails.studentName}</h3>
-                <p class="entity-data">${studentDetails.studentEmail}</p>
-                <p class="entity-data">${studentDetails.studentPhone || 'Phone unlisted'}</p>
+                <p class="entity-data"><strong>Name:</strong> ${studentDetails.studentName}</p>
+                <p class="entity-data"><strong>Email:</strong> ${studentDetails.studentEmail}</p>
+                <p class="entity-data"><strong>Phone:</strong> ${studentDetails.studentPhone || 'Unlisted'}</p>
               </div>
               <div class="info-card">
                 <span class="card-label">Payment Details</span>
@@ -630,7 +647,7 @@ export function generateReceiptHTML(receiptData) {
             <div class="footer-section">
               <div class="terms">
                 <strong>Terms &amp; Conditions</strong>
-                Fees once paid are non-refundable. This is a computer-generated receipt and does not require a physical signature. For any discrepancies, contact the administrative desk within 48 hours.
+                Fees once paid are non-refundable. This is a system-generated receipt; for discrepancies contact the admin desk within 48 hours.
               </div>
               <div class="signature-container">
                 ${stampBase64 ? `<img src="${stampBase64}" class="sig-stamp" alt="Company Stamp">` : ''}

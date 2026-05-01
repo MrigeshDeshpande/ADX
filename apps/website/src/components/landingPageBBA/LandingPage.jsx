@@ -1,17 +1,19 @@
 "use client";
 
 import React from 'react';
-import {BBAHero}  from './Hero';
-import { Benefits } from './Benefits';
-import { BBA_CTA } from './CTA';
-import { ComparisonSection } from './ComparisonTable';
-import { CoreValues } from './CoreValue';
-import { Educators } from './Educators';
-import JourneyTimeline from './ProgramPhases';
-import { Skills } from './Skills';
-import { Stats } from './Stats';
-import { Syllabus } from './Syllabus';
-import PartnersSlider from '../common/PartnersSlider';
+import dynamic from 'next/dynamic';
+import { BBAHero } from './Hero';
+
+const Benefits = dynamic(() => import('./Benefits').then(m => m.Benefits));
+const BBA_CTA = dynamic(() => import('./CTA').then(m => m.BBA_CTA));
+const ComparisonSection = dynamic(() => import('./ComparisonTable').then(m => m.ComparisonSection));
+const CoreValues = dynamic(() => import('./CoreValue').then(m => m.CoreValues));
+const Educators = dynamic(() => import('./Educators').then(m => m.Educators));
+const JourneyTimeline = dynamic(() => import('./ProgramPhases'));
+const Skills = dynamic(() => import('./Skills').then(m => m.Skills));
+const Stats = dynamic(() => import('./Stats').then(m => m.Stats));
+const Syllabus = dynamic(() => import('./Syllabus').then(m => m.Syllabus));
+const PartnersSlider = dynamic(() => import('../common/PartnersSlider'));
 
 export const LandingPage = () => {
   return (

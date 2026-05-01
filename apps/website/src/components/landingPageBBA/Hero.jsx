@@ -67,6 +67,7 @@ export const BBAHero = () => {
                 src="/images/BBA-PAGE.webp"
                 alt="BBA Program"
                 fill
+                sizes="100vw"
                 className="object-cover group-hover:scale-105 transition-transform duration-1000"
                 priority
               />

@@ -5,7 +5,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 export const metadata = {
   title: "Thank You — SkillYards",
   description: "Thanks for reaching out to SkillYards. Our team will get in touch with you shortly.",
-  alternates: { canonical: "/thank-you" },
+  alternates: { canonical: "/thank-you-contact" },
   robots: { index: false, follow: false },
 };
 

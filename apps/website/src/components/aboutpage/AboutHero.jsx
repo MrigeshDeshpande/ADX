@@ -91,6 +91,7 @@ export default function AboutHero() {
                 src={data.image}
                 alt="SkillYards Career Training"
                 fill
+                sizes="100vw"
                 priority
                 fetchPriority="high"
                 className="object-cover object-top"

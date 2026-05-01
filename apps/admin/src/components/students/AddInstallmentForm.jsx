@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { X } from "lucide-react";
+import { DateInput } from "@/components/ui/date-input";
 
 export function AddInstallmentForm({ open, onClose, onSubmit, remaining, isSubmitting }) {
   const [form, setForm] = useState({ date: "", amount: "" });
@@ -53,12 +54,10 @@ export function AddInstallmentForm({ open, onClose, onSubmit, remaining, isSubmi
             <label className="block text-xs font-semibold text-muted-foreground mb-1.5">
               Due Date
             </label>
-            <input
-              type="date"
+            <DateInput
               required
-              className="input"
               value={form.date}
-              onChange={(e) => setForm((f) => ({ ...f, date: e.target.value }))}
+              onChange={(iso) => setForm((f) => ({ ...f, date: iso }))}
             />
           </div>
 

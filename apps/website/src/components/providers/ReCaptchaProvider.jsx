@@ -9,7 +9,7 @@ export default function ReCaptchaProvider({ children }) {
       scriptProps={{
         async: true,
         defer: true,
-        appendTo: "head",
+        appendTo: "body",
       }}
     >
       {children}

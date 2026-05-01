@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
@@ -74,7 +74,7 @@ function ContactFormContent() {
 
             setSuccess(data.message);
             form.reset();
-            router.push("/thank-you");
+            router.push("/thank-you-contact");
 
         } catch (err) {
             setError(err.message);
@@ -207,9 +207,33 @@ function ContactFormContent() {
 }
 
 export default function ContactForm() {
+    const sentinelRef = useRef(null);
+    const [shouldLoad, setShouldLoad] = useState(false);
+
+    useEffect(() => {
+        if (!sentinelRef.current) return;
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setShouldLoad(true);
+                    observer.disconnect();
+                }
+            },
+            { rootMargin: "200px" }
+        );
+        observer.observe(sentinelRef.current);
+        return () => observer.disconnect();
+    }, []);
+
     return (
-        <ReCaptchaProvider>
-            <ContactFormContent />
-        </ReCaptchaProvider>
+        <div ref={sentinelRef}>
+            {shouldLoad ? (
+                <ReCaptchaProvider>
+                    <ContactFormContent />
+                </ReCaptchaProvider>
+            ) : (
+                <ContactFormContent />
+            )}
+        </div>
     );
 }

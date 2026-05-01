@@ -8,6 +8,16 @@ const nextConfig = {
     async headers() {
         const isDev = process.env.NODE_ENV !== "production";
 
+        const staticCacheHeaders = {
+            source: "/_next/static/(.*)",
+            headers: [
+                {
+                    key: "Cache-Control",
+                    value: "public, max-age=31536000, immutable",
+                },
+            ],
+        };
+
         const swHeaders = {
             source: "/sw.js",
             headers: [
@@ -54,7 +64,9 @@ const nextConfig = {
             ],
         };
 
-        return isDev ? [swHeaders] : [swHeaders, cspHeaders];
+        return isDev
+            ? [swHeaders]
+            : [swHeaders, staticCacheHeaders, cspHeaders];
     },
 
     images: {
@@ -62,6 +74,7 @@ const nextConfig = {
             { protocol: "https", hostname: "picsum.photos" },
             { protocol: "https", hostname: "randomuser.me" },
             { protocol: "https", hostname: "img.youtube.com" },
+            { protocol: "https", hostname: "i.ytimg.com" },
             {
                 protocol: "https",
                 hostname: "images.unsplash.com",

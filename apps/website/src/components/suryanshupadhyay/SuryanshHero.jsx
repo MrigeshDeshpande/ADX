@@ -29,6 +29,7 @@ export default function SuryanshHero() {
                         src="/images/team/suryanshSir.webp"
                         alt="Suryansh Upadhyay"
                         fill
+                        sizes="(max-width: 768px) 208px, 256px"
                         className="object-cover object-[center_20%] group-hover:scale-105 transition-transform duration-700"
                     />
                 </div>

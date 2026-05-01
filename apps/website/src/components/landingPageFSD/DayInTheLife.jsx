@@ -43,70 +43,70 @@ const schedule = [
 
 export function FSDDayInTheLife() {
   return (
-    <section className="bg-background py-20">
-      <div className="mx-auto max-w-3xl px-6">
-        <div className="mb-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-3 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary"
-          >
-            A Day in the Life
-          </motion.div>
-          <h2 className="font-serif text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-            What Your{" "}
-            <span className="italic text-primary">Day Actually Looks Like.</span>
-          </h2>
-          <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-            This is a typical weekday during the course Month 5, when you&apos;re in the deep end.
-          </p>
-        </div>
+        <section className="bg-background py-20">
+          <div className="mx-auto max-w-3xl px-6">
+            <div className="mb-10 text-center">
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="mb-3 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary"
+              >
+                A Day in the Life
+              </motion.div>
+              <h2 className="font-serif text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+                What Your{" "}
+                <span className="italic text-primary">Day Actually Looks Like.</span>
+              </h2>
+              <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
+                This is a typical weekday during the course Month 5, when you&apos;re in the deep end.
+              </p>
+            </div>
 
-        <div className="relative pl-6">
-          {/* Vertical line */}
-          <div className="absolute left-[1.15rem] top-4 h-[calc(100%-2rem)] w-px bg-border" />
+            <div className="relative pl-6">
+              {/* Vertical line */}
+              <div className="absolute left-[1.15rem] top-4 h-[calc(100%-2rem)] w-px bg-border" />
 
-          <div className="space-y-6">
-            {schedule.map((item, i) => {
-              const Icon = item.icon;
-              return (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: -16 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="relative flex gap-5"
-                >
-                  {/* Dot */}
-                  <div className={`relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${item.color} shadow-md`}>
-                    <Icon size={16} className="text-white" />
-                  </div>
+              <div className="space-y-6">
+                {schedule.map((item, i) => {
+                  const Icon = item.icon;
+                  return (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, x: -16 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.1 }}
+                      className="relative flex gap-5"
+                    >
+                      {/* Dot */}
+                      <div className={`relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${item.color} shadow-md`}>
+                        <Icon size={16} className="text-white" />
+                      </div>
 
-                  {/* Content */}
-                  <div className="flex-1 rounded-2xl border border-border bg-card p-4 shadow-sm">
-                    <div className="mb-1 flex items-center gap-3">
-                      <span className="text-xs font-bold text-primary">{item.time}</span>
-                      <h3 className="font-bold text-foreground">{item.title}</h3>
-                    </div>
-                    <p className="text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
-                  </div>
-                </motion.div>
-              );
-            })}
+                      {/* Content */}
+                      <div className="flex-1 rounded-2xl border border-border bg-card p-4 shadow-sm">
+                        <div className="mb-1 flex items-center gap-3">
+                          <span className="text-xs font-bold text-primary">{item.time}</span>
+                          <h3 className="font-bold text-foreground">{item.title}</h3>
+                        </div>
+                        <p className="text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </div>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="mt-8 rounded-2xl border border-border bg-card/50 p-4 text-center text-sm text-muted-foreground"
+            >
+              Total daily commitment: <strong className="text-foreground">6–8 hours</strong> (class + lab + project work). This is a serious program not a weekend hobby course.
+            </motion.p>
           </div>
-        </div>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mt-8 rounded-2xl border border-border bg-card/50 p-4 text-center text-sm text-muted-foreground"
-        >
-          Total daily commitment: <strong className="text-foreground">6–8 hours</strong> (class + lab + project work). This is a serious program not a weekend hobby course.
-        </motion.p>
-      </div>
-    </section>
+        </section>
   );
 }

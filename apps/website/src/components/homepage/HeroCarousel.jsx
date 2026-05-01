@@ -11,7 +11,9 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel";
-import Particles from "@/components/Particles";
+import dynamic from "next/dynamic";
+
+const Particles = dynamic(() => import("@/components/Particles"), { ssr: false });
 
 import slides from "@/data/home-slides.json";
 import { useTheme } from "@/app/context/ThemeContext";
@@ -111,37 +113,25 @@ export default function HeroCarousel() {
                                 <div className="relative z-10 flex h-full items-center justify-center text-center">
                                     <div className="mx-auto w-full max-w-7xl px-6 sm:px-12 md:px-24">
                                         <div className="max-w-3xl mx-auto flex flex-col items-center">
-                                                <m.p
-                                                    initial={{ opacity: 0, y: 10 }}
-                                                    animate={{ opacity: 1, y: 0 }}
-                                                    transition={{ delay: 0.2, duration: 0.5 }}
+                                                <p
                                                     className={`mb-4 inline-block rounded-full ${theme === "light" ? "bg-primary/10 text-primary border border-primary/20" : "bg-primary/20 text-primary border border-primary/30"} px-5 py-1.5 text-sm font-semibold tracking-wide backdrop-blur pointer-events-auto`}
                                                 >
                                                     {slide.subtitle}
-                                                </m.p>
+                                                </p>
 
-                                                <m.h1
-                                                    initial={{ opacity: 0, y: 10 }}
-                                                    animate={{ opacity: 1, y: 0 }}
-                                                    transition={{ duration: 0.4 }}
+                                                <h1
                                                     className={`text-3xl font-extrabold tracking-tight sm:text-5xl md:text-5xl text-foreground pointer-events-auto leading-tight`}
                                                 >
                                                     {slide.title}
-                                                </m.h1>
+                                                </h1>
 
-                                                <m.p
-                                                    initial={{ opacity: 0, y: 10 }}
-                                                    animate={{ opacity: 1, y: 0 }}
-                                                    transition={{ delay: 0.4, duration: 0.5 }}
+                                                <p
                                                     className={`mt-3 sm:mt-6 text-base md:text-lg text-muted-foreground pointer-events-auto font-medium max-w-2xl leading-relaxed px-2 sm:px-0`}
                                                 >
                                                     {slide.description}
-                                                </m.p>
+                                                </p>
 
-                                                <m.div
-                                                    initial={{ opacity: 0, y: 10 }}
-                                                    animate={{ opacity: 1, y: 0 }}
-                                                    transition={{ delay: 0.5, duration: 0.5 }}
+                                                <div
                                                     className="mt-6 sm:mt-10 flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 pointer-events-auto w-full sm:w-auto px-4 sm:px-0"
                                                 >
                                                     <div className="relative p-0.5 rounded-full bg-linear-to-r from-violet-500 via-primary to-blue-500 transition-transform duration-300 hover:scale-105 w-full sm:w-auto">
@@ -161,7 +151,7 @@ export default function HeroCarousel() {
                                                     >
                                                         <Link href="/contact">Book Free Career Counselling</Link>
                                                     </Button>
-                                                </m.div>
+                                                </div>
                                         </div>
                                     </div>
                                 </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import { Sun, Moon, Laptop } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import {
@@ -14,7 +14,8 @@ import { usePathname } from "next/navigation";
 
 export default function MobileNav({ onClose, theme, toggleTheme }) {
     return (
-        <motion.div
+        <LazyMotion features={domAnimation}>
+        <m.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
@@ -76,7 +77,8 @@ export default function MobileNav({ onClose, theme, toggleTheme }) {
                     </div>
                 </div>
             </Card>
-        </motion.div>
+        </m.div>
+        </LazyMotion>
     );
 }
 

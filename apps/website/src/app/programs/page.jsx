@@ -1,13 +1,14 @@
+import dynamic from "next/dynamic";
 import ProgramsHero from "@/components/programspage/ProgramsHero";
-// import TrustBar from "@/components/programspage/TrustBar";
-import ProgramCards from "@/components/programspage/ProgramCards";
-import ComparisonTable from "@/components/programspage/ComparisonTable";
-import CurriculumHighlights from "@/components/programspage/CurriculumHighlights";
-import PlacementOutcomes from "@/components/programspage/PlacementOutcomes";
-import AdmissionProcess from "@/components/programspage/AdmissionProcess";
-import BatchFeeInfo from "@/components/programspage/BatchFeeInfo";
-import ProgramsFAQ from "@/components/programspage/ProgramsFAQ";
-import FinalCTA from "@/components/programspage/FinalCTA";
+
+const ProgramCards = dynamic(() => import("@/components/programspage/ProgramCards"));
+const ComparisonTable = dynamic(() => import("@/components/programspage/ComparisonTable"));
+const CurriculumHighlights = dynamic(() => import("@/components/programspage/CurriculumHighlights"));
+const PlacementOutcomes = dynamic(() => import("@/components/programspage/PlacementOutcomes"));
+const AdmissionProcess = dynamic(() => import("@/components/programspage/AdmissionProcess"));
+const BatchFeeInfo = dynamic(() => import("@/components/programspage/BatchFeeInfo"));
+const ProgramsFAQ = dynamic(() => import("@/components/programspage/ProgramsFAQ"));
+const FinalCTA = dynamic(() => import("@/components/programspage/FinalCTA"));
 import { buildSEO } from "@/lib/seo/buildSEO";
 import JsonLd from "@/components/JsonLd";
 import { getCollectionPageSchema } from "@/lib/seo/schema/webPageSchema";

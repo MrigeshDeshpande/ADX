@@ -1,5 +1,6 @@
+import dynamic from "next/dynamic";
 import { buildSEO } from "@/lib/seo/buildSEO";
-import { DGMLandingPage } from "@/components/landingPageDGM/LandingPage";
+const DGMLandingPage = dynamic(() => import("@/components/landingPageDGM/LandingPage").then(m => m.DGMLandingPage));
 import JsonLd from "@/components/JsonLd";
 
 import { getCourseSchema } from "@/lib/seo/schema/courseSchema";
