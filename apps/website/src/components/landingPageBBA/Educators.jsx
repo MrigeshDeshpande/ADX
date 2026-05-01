@@ -50,7 +50,7 @@ export const Educators = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="group relative max-w-sm mx-auto w-full"
+                  className={`group relative max-w-sm mx-auto w-full ${index < 2 ? "block" : "hidden lg:block"}`}
                 >
                   <div className="relative aspect-4/5 rounded-[2.5rem] md:rounded-[3.5rem] overflow-hidden mb-6 md:mb-8 shadow-2xl border-4 border-border dark:border-neutral-700 transition-all duration-500 group-hover:rounded-[2rem] md:group-hover:rounded-[2.5rem]">
                     <Image

@@ -63,7 +63,7 @@ export default function HeroCarousel() {
 
     return (
         <LazyMotion features={domAnimation}>
-        <section className={`relative w-full h-80vh overflow-hidden ${bgColor} transition-colors duration-500`}>
+        <section className={`relative w-full h-[80vh] md:h-[65vh] lg:h-[80vh] overflow-hidden ${bgColor} transition-colors duration-500`}>
 
             {/* Mobile mesh background — pure CSS, no JS, no images */}
             <div className="absolute inset-0 z-0 md:hidden overflow-hidden pointer-events-none">
@@ -107,7 +107,7 @@ export default function HeroCarousel() {
             >
                 <CarouselContent className="h-full ml-0 pt-4 md:pt-8">
                     {slides.map((slide, index) => (
-                        <CarouselItem key={index} className="pl-0 h-[70vh] min-h-[440px] md:min-h-[520px]">
+                        <CarouselItem key={index} className="pl-0 h-[70vh] md:h-[65vh] lg:h-[70vh] min-h-[440px] md:min-h-[460px] lg:min-h-[520px]">
                             <div className="relative h-full w-full">
                                 {/* Content */}
                                 <div className="relative z-10 flex h-full items-center justify-center text-center">

@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 
 export default function ProgramsHero() {
   return (
-    <section className="relative w-full overflow-hidden bg-background h-[80vh] py-20 md:py-28 desk:py-36 border-b-2  ">
+    <section className="relative flex w-full items-center overflow-hidden bg-background h-[80vh] md:h-[65vh] desk:h-[80vh] py-20 md:py-0 desk:py-36 border-b-2">
       {/* Background Image & Glow */}
       <div className="pointer-events-none absolute inset-0 z-0">
         <Image
@@ -24,7 +24,7 @@ export default function ProgramsHero() {
         <div className="absolute bottom-0 right-0 h-[400px] w-[400px] rounded-full bg-secondary/10 blur-[100px]" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
+      <div className="relative z-10 mx-auto w-full max-w-4xl px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -39,7 +39,7 @@ export default function ProgramsHero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.1 }}
-          className="font-serif text-4xl font-extrabold leading-[1.1] tracking-tight text-background dark:text-foreground sm:text-5xl md:text-6xl desk:text-7xl drop-shadow-md dark:drop-shadow-none"
+          className="font-serif text-4xl font-extrabold leading-[1.1] tracking-tight text-background dark:text-foreground sm:text-5xl md:text-5xl desk:text-7xl drop-shadow-md dark:drop-shadow-none"
         >
           Turn Your Potential Into a{" "}
           <span className="italic text-secondary dark:text-primary">Paying Career.</span>

@@ -103,8 +103,7 @@ const ProgramsShowcase = () => {
                     overflow-hidden
                     ${isMobile
                                             ? "w-full h-[220px] md:h-[350px]"
-                                            : `h-[350px] ${hovered === index ? "w-[400px]" : "w-[250px]"
-                                            }`
+                                            : `h-[350px] ${hovered === index ? "w-[400px]" : "w-[250px]"}`
                                         }
                     ${isMobile && hovered === index ? "scale-105" : "scale-100"}
                   `}

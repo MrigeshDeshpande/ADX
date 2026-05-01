@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import {
   UserCheck,
   Briefcase,
@@ -62,6 +62,8 @@ const coreValues = [
 ];
 
 export const CoreValues = () => {
+  const [showAllPillars, setShowAllPillars] = useState(false);
+
   return (
     <section className="py-16 md:py-24 bg-background dark:bg-neutral-950 relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -83,7 +85,7 @@ export const CoreValues = () => {
             return (
               <div
                 key={index}
-                className="group bg-background dark:bg-neutral-950 p-5 sm:p-6 md:p-8 hover:bg-primary/3 dark:hover:bg-primary/6 transition-colors duration-300 relative"
+                className={`group bg-background dark:bg-neutral-950 p-5 sm:p-6 md:p-8 hover:bg-primary/3 dark:hover:bg-primary/6 transition-colors duration-300 relative ${index < 4 || showAllPillars ? "block" : "hidden lg:block"}`}
               >
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 md:w-11 md:h-11 rounded-xl bg-primary/10 dark:bg-primary/15 flex items-center justify-center shrink-0 group-hover:bg-primary/20 dark:group-hover:bg-primary/25 transition-colors duration-300">
@@ -102,6 +104,18 @@ export const CoreValues = () => {
             );
           })}
         </div>
+
+        {!showAllPillars && (
+          <div className="mt-4 flex justify-center lg:hidden">
+            <button
+              type="button"
+              onClick={() => setShowAllPillars(true)}
+              className="inline-flex items-center justify-center rounded-2xl border border-border bg-background px-6 py-3 text-sm font-semibold text-foreground shadow-sm transition hover:bg-accent"
+            >
+              Load More Pillars
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

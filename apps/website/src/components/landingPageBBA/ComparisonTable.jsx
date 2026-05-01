@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import {
   BookOpen,
   Users,
@@ -74,6 +74,7 @@ const comparisonData = [
 ];
 
 export const ComparisonSection = () => {
+  const [showAllComparison, setShowAllComparison] = useState(false);
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -93,6 +94,10 @@ export const ComparisonSection = () => {
       transition: { duration: 0.5 },
     },
   };
+
+  const visibleComparisonData = showAllComparison
+    ? comparisonData
+    : comparisonData.slice(0, 3);
 
   return (
         <section className="py-[10vh] md:py-[15vh] bg-background dark:bg-neutral-950 relative overflow-hidden w-full">
@@ -131,7 +136,7 @@ export const ComparisonSection = () => {
             </div>
 
             {/* Comparison Table - Desktop */}
-            <div className="hidden md:block">
+            <div className="hidden lg:block">
               <motion.div
                 variants={containerVariants}
                 initial="hidden"
@@ -205,6 +210,86 @@ export const ComparisonSection = () => {
             </div>
 
             {/* Comparison Cards - Mobile & Tablet */}
+            <div className="hidden md:block lg:hidden">
+              <motion.div
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="rounded-xl md:rounded-2xl border border-border/30 dark:border-neutral-800 bg-card/50 dark:bg-neutral-900/50 backdrop-blur-sm overflow-hidden"
+              >
+                <div className="w-full">
+                  <div className="grid grid-cols-3 bg-primary/5 dark:bg-primary/10 border-b border-border/30 dark:border-neutral-800">
+                    <div className="px-4 py-4">
+                      <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground dark:text-neutral-400">
+                        Aspect
+                      </span>
+                    </div>
+                    <div className="px-4 py-4 border-l border-border/30 dark:border-neutral-800">
+                      <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground dark:text-neutral-400">
+                        Traditional
+                      </span>
+                    </div>
+                    <div className="px-4 py-4 border-l border-border/30 dark:border-neutral-800">
+                      <span className="text-xs font-bold uppercase tracking-wider text-primary">
+                        SkillYards
+                      </span>
+                    </div>
+                  </div>
+
+                  {visibleComparisonData.map((item, index) => {
+                    const IconComponent = item.icon;
+                    return (
+                      <motion.div
+                        key={index}
+                        variants={itemVariants}
+                        className="grid grid-cols-3 border-b border-border/20 dark:border-neutral-800 hover:bg-muted/30 dark:hover:bg-neutral-800/30 transition-colors"
+                      >
+                        <div className="px-4 py-4 flex items-start gap-3">
+                          <div className="w-5 h-5 text-primary shrink-0 mt-0.5">
+                            <IconComponent size={18} />
+                          </div>
+                          <span className="text-sm font-bold text-foreground dark:text-neutral-200 uppercase tracking-tight">
+                            {item.aspect}
+                          </span>
+                        </div>
+
+                        <div className="px-4 py-4 border-l border-border/20 dark:border-neutral-800">
+                          <div className="flex items-start gap-2">
+                            <X className="w-4 h-4 text-red-500/60 shrink-0 mt-0.5" />
+                            <p className="text-sm text-foreground/70 dark:text-neutral-400 leading-snug">
+                              {item.traditional}
+                            </p>
+                          </div>
+                        </div>
+
+                        <div className="px-4 py-4 border-l border-border/20 dark:border-neutral-800 bg-primary/5 dark:bg-primary/5">
+                          <div className="flex items-start gap-2">
+                            <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                            <p className="text-sm font-medium text-foreground dark:text-neutral-100 leading-snug">
+                              {item.skillyards}
+                            </p>
+                          </div>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              </motion.div>
+
+              {!showAllComparison && (
+                <div className="mt-4 flex justify-center">
+                  <button
+                    type="button"
+                    onClick={() => setShowAllComparison(true)}
+                    className="inline-flex items-center justify-center rounded-2xl border border-border bg-background px-6 py-3 text-sm font-semibold text-foreground shadow-sm transition hover:bg-accent"
+                  >
+                    Load More Comparison
+                  </button>
+                </div>
+              )}
+            </div>
+
             <div className="md:hidden space-y-4">
               <motion.div
                 variants={containerVariants}
@@ -212,7 +297,7 @@ export const ComparisonSection = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
               >
-                {comparisonData.map((item, index) => {
+                {visibleComparisonData.map((item, index) => {
                   const IconComponent = item.icon;
                   return (
                     <motion.div
@@ -262,10 +347,21 @@ export const ComparisonSection = () => {
                   );
                 })}
               </motion.div>
+
+              {!showAllComparison && (
+                <div className="mt-4 flex justify-center">
+                  <button
+                    type="button"
+                    onClick={() => setShowAllComparison(true)}
+                    className="inline-flex items-center justify-center rounded-2xl border border-border bg-background px-6 py-3 text-sm font-semibold text-foreground shadow-sm transition hover:bg-accent"
+                  >
+                    Load More Comparison
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </section>
   );
 };
-
 

@@ -103,7 +103,7 @@ export default function FeaturesSection() {
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16 sm:mb-20 px-6">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-foreground leading-[1.1] mb-4">
-            Why <span className="text-primary italic font-serif">Choose</span> SkillYards?
+            The SkillYards <span className="text-primary italic font-serif">Advantage</span>
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground max-w-xl mx-auto">
             Here&apos;s why students trust us to launch their careers in tech and business.
@@ -121,7 +121,7 @@ export default function FeaturesSection() {
               const Icon = iconMap[feature.icon];
               const theme = cardThemes[idx % cardThemes.length];
               return (
-                <div key={idx} className="relative rounded-3xl overflow-hidden shadow-md">
+                <div key={idx} className="relative w-full rounded-3xl overflow-hidden shadow-md md:w-[72%] md:mx-auto">
                   <div className={`absolute inset-0 bg-gradient-to-br ${theme.gradient}`} />
                   <div
                     className="absolute inset-0 opacity-10"

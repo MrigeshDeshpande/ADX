@@ -189,7 +189,7 @@ export default function ServicesSection() {
                         <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground leading-[1.1]">
                             Our <span className="text-primary italic">Services</span>
                         </h2>
-                        <p className="mt-4 text-base text-muted-foreground max-w-xl leading-relaxed"
+                        <p className="mt-4 text-base text-muted-foreground max-w-xl md:max-w-2xl md:mx-auto lg:mx-0 leading-relaxed"
                             style={{ fontFamily: "var(--font-source-sans), sans-serif" }}>
                             End-to-end technology and digital marketing solutions designed to scale your business.
                         </p>
@@ -216,13 +216,13 @@ export default function ServicesSection() {
                         <BentoCard
                             key={service.title}
                             service={service}
-                            className={index < 3 || showAllMobileCards ? "block" : "hidden sm:block"}
+                            className={index < 4 || showAllMobileCards ? "block" : "hidden lg:block"}
                         />
                     ))}
                 </m.div>
 
                 {!showAllMobileCards && (
-                    <div className="mt-6 flex justify-center sm:hidden">
+                    <div className="mt-2 flex justify-center lg:hidden">
                         <button
                             type="button"
                             onClick={() => setShowAllMobileCards(true)}
@@ -239,7 +239,7 @@ export default function ServicesSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.2, duration: 0.4 }}
-                    className="flex justify-center w-full pt-10"
+                    className="flex justify-center w-full pt-3"
                 >
                     <Link href="/services"
                         className="group inline-flex items-center justify-center gap-2.5 px-8 py-3.5 font-bold text-base text-primary-foreground bg-primary rounded-2xl transition-all duration-200 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/20"

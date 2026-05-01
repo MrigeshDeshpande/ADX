@@ -24,8 +24,10 @@ export async function BlogSection() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {recentPosts.map((post) => (
-                        <BlogCard key={post._id} post={post} />
+                    {recentPosts.map((post, index) => (
+                        <div key={post._id} className={index < 2 ? "block" : "hidden lg:block"}>
+                            <BlogCard post={post} />
+                        </div>
                     ))}
                 </div>
 

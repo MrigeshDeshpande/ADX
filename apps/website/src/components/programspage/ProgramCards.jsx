@@ -153,8 +153,8 @@ export default function ProgramCards() {
                   </div>
                 </details>
                 <div className="mt-auto w-full pt-2">
-                  <Button asChild className="w-full h-12 md:h-14 rounded-full bg-linear-to-r from-primary to-accent text-primary-foreground font-extrabold text-base tracking-wide transition-all shadow-lg">
-                    <Link href={prog.href} className="flex items-center justify-center">Explore {prog.name} <ArrowRight size={20} className="ml-2" /></Link>
+                  <Button asChild className="w-full min-h-12 md:min-h-14 h-auto rounded-full bg-linear-to-r from-primary to-accent text-primary-foreground font-extrabold text-sm md:text-[15px] tracking-normal md:tracking-wide transition-all shadow-lg">
+                    <Link href={prog.href} className="flex w-full items-center justify-center gap-2 whitespace-normal px-4 py-3 text-center leading-tight">Explore {prog.name} <ArrowRight size={18} className="shrink-0" /></Link>
                   </Button>
                 </div>
               </div>
