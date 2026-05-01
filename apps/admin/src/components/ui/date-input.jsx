@@ -108,7 +108,6 @@ export function DateInput({ value, onChange, required, className = "input", disa
           type="text"
           inputMode="numeric"
           placeholder="dd/mm/yyyy"
-          pattern="\\d{2}/\\d{2}/\\d{4}"
           maxLength={10}
           className={`${className} pr-10`}
           value={display}
