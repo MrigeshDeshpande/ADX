@@ -1,6 +1,8 @@
 import ComingSoon from "@/components/ComingSoon";
 import { buildSEO } from "@/lib/seo/buildSEO";
 
+export const revalidate = 86400;
+
 export const metadata = buildSEO({
     title: "Legal Information | SkillYards",
     description:

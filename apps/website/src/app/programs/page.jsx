@@ -14,6 +14,8 @@ import JsonLd from "@/components/JsonLd";
 import { getCollectionPageSchema } from "@/lib/seo/schema/webPageSchema";
 import { getBreadcrumbSchema } from "@/lib/seo/schema/breadcrumbSchema";
 
+export const revalidate = 86400;
+
 export const metadata = buildSEO({
   title: "SkillYards Programs – BCA, BBA, Full-Stack & Digital Marketing in Agra",
   description:

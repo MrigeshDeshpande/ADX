@@ -1,4 +1,6 @@
 import { buildSEO } from "@/lib/seo/buildSEO";
+
+export const revalidate = 86400;
 import PageHero from "@/components/PageHero";
 import FAQsAccordion from "@/components/faqspage/FAQsAccordion";
 import { getFAQSchema } from "@/lib/seo/schema/faqSchema";

@@ -1,5 +1,7 @@
 import dynamic from "next/dynamic";
 import { buildSEO } from "@/lib/seo/buildSEO";
+
+export const revalidate = 86400;
 const BCALandingPage = dynamic(() => import("@/components/landingPageBCA/LandingPage").then(m => m.BCALandingPage));
 import JsonLd from "@/components/JsonLd";
 import { getCourseSchema } from "@/lib/seo/schema/courseSchema";

@@ -1,4 +1,6 @@
 import ComingSoon from "@/components/ComingSoon";
+
+export const revalidate = 86400;
 import { buildSEO } from "@/lib/seo/buildSEO";
 import JsonLd from "@/components/JsonLd";
 import { getImageGallerySchema } from "@/lib/seo/schema/webPageSchema";

@@ -2,6 +2,8 @@ import { buildSEO } from "@/lib/seo/buildSEO";
 import TeamSection from "@/components/teampage/TeamSection";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
+export const revalidate = 86400;
+
 export const metadata = buildSEO({
     title: "Meet the Team | SkillYards",
     description:

@@ -8,6 +8,8 @@ const ContactPageInfoCard = dynamic(() => import("@/components/ContactPageInfoCa
 
 import { buildSEO } from "@/lib/seo/buildSEO";
 
+export const revalidate = 86400;
+
 import { getContactPageSchema } from "@/lib/seo/schema/webPageSchema";
 
 const contactPageSchema = getContactPageSchema({

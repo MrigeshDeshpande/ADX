@@ -1,4 +1,6 @@
 import { buildSEO } from "@/lib/seo/buildSEO";
+
+export const revalidate = 86400;
 import PageHero from "@/components/PageHero";
 import Link from "next/link";
 import { Shield, Eye, Cookie, Share2, Lock, UserCheck, ExternalLink, RefreshCw, Mail } from "lucide-react";

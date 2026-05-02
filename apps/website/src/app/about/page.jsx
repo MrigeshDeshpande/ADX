@@ -2,6 +2,8 @@ import dynamic from "next/dynamic";
 
 import JsonLd from "@/components/JsonLd";
 import AboutHero from "@/components/aboutpage/AboutHero";
+
+export const revalidate = 86400;
 const AboutMissionVision = dynamic(() => import("@/components/aboutpage/AboutMissionVision"));
 
 const AboutWhyChoose = dynamic(() => import("@/components/aboutpage/AboutWhyChoose"));

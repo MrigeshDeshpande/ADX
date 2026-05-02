@@ -7,7 +7,7 @@ import { HoverBorderGradient } from "../ui/hover-border-gradient";
 
 
 export async function BlogSection() {
-    const posts = await sanityClient.fetch(POSTS_QUERY, {}, { next: { revalidate: 3600 } });
+    const posts = await sanityClient.fetch(POSTS_QUERY, {}, { next: { revalidate: 86400 } });
 
     const recentPosts = posts ? posts.slice(0, 3) : [];
 

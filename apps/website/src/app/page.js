@@ -23,6 +23,8 @@ import { getFAQSchema } from "@/lib/seo/schema/faqSchema";
 import { getWebPageSchema } from "@/lib/seo/schema/webPageSchema";
 import { faqCategories } from "@/data/faqs";
 
+export const revalidate = 86400;
+
 const homeKeywords = [
   "SkillYards",
   "online courses India",

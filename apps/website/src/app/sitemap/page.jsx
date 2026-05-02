@@ -1,4 +1,6 @@
 import Link from "next/link";
+
+export const revalidate = 86400;
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { buildSEO } from "@/lib/seo/buildSEO";
 import {

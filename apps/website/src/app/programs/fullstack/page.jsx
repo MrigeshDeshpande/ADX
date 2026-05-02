@@ -1,5 +1,7 @@
 import dynamic from "next/dynamic";
 import { buildSEO } from "@/lib/seo/buildSEO";
+
+export const revalidate = 86400;
 const FSDLandingPage = dynamic(() => import("@/components/landingPageFSD/LandingPage").then(m => m.FSDLandingPage));
 import JsonLd from "@/components/JsonLd";
 import { getCourseSchema } from "@/lib/seo/schema/courseSchema";

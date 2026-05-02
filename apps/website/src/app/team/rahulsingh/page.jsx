@@ -1,4 +1,6 @@
 import { buildSEO } from "@/lib/seo/buildSEO";
+
+export const revalidate = 86400;
 import JsonLd from "@/components/JsonLd";
 import RahulHero from "@/components/rahulsingh/RahulHero";
 import { getPersonSchema } from "@/lib/seo/schema/personSchema";

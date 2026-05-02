@@ -1,4 +1,6 @@
 import JsonLd from "@/components/JsonLd";
+
+export const revalidate = 86400;
 import ApplyForm from "@/components/careerspage/ApplyForm";
 import Image from "next/image";
 import {withPageSEO} from "@/lib/seo";

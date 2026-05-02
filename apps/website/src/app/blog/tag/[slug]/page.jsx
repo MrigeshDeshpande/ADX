@@ -2,11 +2,13 @@ import { sanityClient } from "@/lib/sanity/client";
 import { POSTS_BY_TAG_QUERY } from "@/lib/sanity/queries";
 import BlogCard from "@/components/blog/BlogCard";
 
+export const revalidate = 3600;
+
 export default async function TagPage({ params }) {
     const resolvedParams = await params;
     const slug = resolvedParams.slug;
 
-    const posts = await sanityClient.fetch(POSTS_BY_TAG_QUERY, { slug });
+    const posts = await sanityClient.fetch(POSTS_BY_TAG_QUERY, { slug }, { next: { revalidate: 3600 } });
 
     return (
         <div className="max-w-6xl mx-auto px-4 pt-34 pb-10">

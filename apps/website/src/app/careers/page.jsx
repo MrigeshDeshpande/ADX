@@ -1,4 +1,6 @@
 import JsonLd from "@/components/JsonLd";
+
+export const revalidate = 86400;
 import CareersHero from "@/components/careerspage/CareersHero";
 import WhyWorkAtSkillYards from "@/components/careerspage/WhyWorkAtSkillYards";
 import LifeAtSkillYards from "@/components/careerspage/LifeAtSkillYards";

@@ -1,4 +1,6 @@
 import { buildSEO } from "@/lib/seo/buildSEO";
+
+export const revalidate = 86400;
 import PageHero from "@/components/PageHero";
 import Link from "next/link";
 import { FileText, BookOpen, CheckCircle, XCircle, AlertTriangle, Clock, MessageCircle, RefreshCw, Mail } from "lucide-react";

@@ -36,7 +36,7 @@ export async function GET() {
       "slug": slug.current,
       _updatedAt
     }
-  `);
+  `, {}, { next: { revalidate: 3600 } });
 
   const blogUrls = posts.map((post) => ({
     loc: `${BASE_URL}/blog/${post.slug}`,
@@ -70,6 +70,7 @@ ${urls
   return new Response(xml, {
     headers: {
       "Content-Type": "application/xml",
+      "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
     },
   });
 }

@@ -7,6 +7,8 @@ import { getBreadcrumbSchema } from "@/lib/seo/schema/breadcrumbSchema";
 
 const serviceKeywords = ["SkillYards services", "IT services Agra", "digital marketing services Agra", "web development Agra", "industrial training Agra"];
 
+export const revalidate = 86400;
+
 export const metadata = buildSEO({
     title: "Our Services | SkillYards Agra",
     description: "Full-service technology and digital marketing solutions built for businesses that want to grow. Industrial training, web development, and digital marketing services.",

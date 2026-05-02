@@ -1,4 +1,6 @@
 import { buildSEO } from "@/lib/seo/buildSEO";
+
+export const revalidate = 86400;
 import GalleryVideosContent from "./GalleryVideosContent";
 import JsonLd from "@/components/JsonLd";
 import { getVideoGallerySchema } from "@/lib/seo/schema/webPageSchema";

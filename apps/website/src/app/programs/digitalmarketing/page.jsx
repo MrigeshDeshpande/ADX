@@ -1,5 +1,7 @@
 import dynamic from "next/dynamic";
 import { buildSEO } from "@/lib/seo/buildSEO";
+
+export const revalidate = 86400;
 const DGMLandingPage = dynamic(() => import("@/components/landingPageDGM/LandingPage").then(m => m.DGMLandingPage));
 import JsonLd from "@/components/JsonLd";
 
