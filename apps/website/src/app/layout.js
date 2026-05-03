@@ -1,5 +1,7 @@
 import { Inter, Playfair_Display, Source_Sans_3 } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 
 import "@/app/styles/globals.css";
 
@@ -75,6 +77,8 @@ export default function RootLayout({ children }) {
                         <BackToTop />
                     </div>
                     <Analytics />
+                    <SpeedInsights />
+
                 </ThemeProvider>
 
             </body>
