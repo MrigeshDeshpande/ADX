@@ -1,4 +1,6 @@
 import { Inter, Playfair_Display, Source_Sans_3 } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+
 import "@/app/styles/globals.css";
 
 import { ThemeProvider } from "@/app/context/ThemeContext";
@@ -72,7 +74,9 @@ export default function RootLayout({ children }) {
                         <Footer />
                         <BackToTop />
                     </div>
+                    <Analytics />
                 </ThemeProvider>
+
             </body>
         </html>
     );
