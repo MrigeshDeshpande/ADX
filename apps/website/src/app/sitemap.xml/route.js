@@ -2,7 +2,6 @@ import {
   BASE_URL,
   STATIC_SITEMAP_ROUTES,
   LEADERS,
-  PROGRAMS,
 } from "@/lib/sitemap-routes";
 
 import { sanityClient } from "@/lib/sanity/client";
@@ -24,11 +23,6 @@ export async function GET() {
     priority: 0.9,
   }));
 
-  const programUrls = PROGRAMS.map((program) => ({
-    loc: `${BASE_URL}/programs/${program.slug}`,
-    lastmod: now,
-    priority: program.priority,
-  }));
 
   // 🔹 Blog dynamic routes
   const posts = await sanityClient.fetch(`
@@ -48,7 +42,6 @@ export async function GET() {
   const urls = [
     ...staticUrls,
     ...teamUrls,
-    ...programUrls, 
     ...blogUrls,
   ];
 

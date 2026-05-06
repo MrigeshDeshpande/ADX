@@ -32,8 +32,8 @@ export default function Footer() {
                 { label: "Programs", href: "/programs" },
                 { label: "Full-Stack Development", href: "/programs/fullstack" },
                 { label: "Digital Marketing", href: "/programs/digitalmarketing" },
-                { label: "BCA Programs", href: "/programs/bca" },
-                { label: "BBA Programs", href: "/programs/bba" },
+                { label: "BCA Programs", href: "/programs/on-job-degree/best-bca-course-in-agra-with-job-training" },
+                { label: "BBA Programs", href: "/programs/on-job-degree/best-bba-course-in-agra-with-job-training" },
             ],
         },
         {

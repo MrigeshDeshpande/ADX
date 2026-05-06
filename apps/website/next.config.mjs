@@ -111,6 +111,8 @@ const nextConfig = {
                 permanent: true,
             },
 
+            { source: "/programs/bca", destination: "/programs/on-job-degree/best-bca-course-in-agra-with-job-training", permanent: true },
+            { source: "/programs/bba", destination: "/programs/on-job-degree/best-bba-course-in-agra-with-job-training", permanent: true },
             { source: "/about-us", destination: "/about", permanent: true },
             { source: "/contact-us", destination: "/contact", permanent: true },
             { source: "/courses", destination: "/programs", permanent: true },

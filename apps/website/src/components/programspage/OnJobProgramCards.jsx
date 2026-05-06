@@ -43,47 +43,11 @@ const programs = [
     accentClass: "border-secondary/50 hover:border-secondary/80",
     badgeBg: "bg-secondary/20 text-secondary-foreground",
   },
-  {
-    id: "fullstack",
-    name: "Full-Stack Web Development",
-    fullName: "Full-Stack Development Bootcamp",
-    type: "Skill Course",
-    typeColor: "text-green-700 bg-green-50 border-green-200 dark:text-green-400 dark:bg-green-950/30 dark:border-green-800",
-    badge: "Job-Ready Course",
-    targetAudience: "Students & graduates who want to become developers fast",
-    skills: ["HTML / CSS / JavaScript", "React.js & Next.js", "Node.js & Express", "MongoDB & SQL", "REST APIs", "Git & Deployment"],
-    duration: "6 Months",
-    mode: "Offline + Online (Hybrid)",
-    eligibility: "10+2 pass | Basic computer knowledge",
-    certification: "Industry Certificate + Portfolio Projects",
-    avgSalary: "₹4 – 8 LPA",
-    href: "/programs/fullstack",
-    accentClass: "border-green-300/50 hover:border-green-400/70 dark:border-green-800/50",
-    badgeBg: "bg-green-100 text-green-800 dark:bg-green-950/50 dark:text-green-400",
-  },
-  {
-    id: "digitalmarketing",
-    name: "Digital Marketing",
-    fullName: "Professional Digital Marketing Program",
-    type: "Skill Course",
-    typeColor: "text-orange-700 bg-orange-50 border-orange-200 dark:text-orange-400 dark:bg-orange-950/30 dark:border-orange-800",
-    badge: "Job-Ready Course",
-    targetAudience: "Anyone who wants to build a career in marketing or grow a business online",
-    skills: ["SEO & Content Marketing", "Google Ads & Meta Ads", "Email Marketing", "Analytics & Reporting", "Social Media Management", "E-Commerce Marketing"],
-    duration: "3 Months",
-    mode: "Offline + Online (Hybrid)",
-    eligibility: "10+2 pass | No prior experience needed",
-    certification: "Google, Meta & SkillYards Certificates",
-    avgSalary: "₹3 – 6 LPA",
-    href: "/programs/digitalmarketing",
-    accentClass: "border-orange-300/50 hover:border-orange-400/70 dark:border-orange-800/50",
-    badgeBg: "bg-orange-100 text-orange-800 dark:bg-orange-950/50 dark:text-orange-400",
-  },
 ];
 
-export default function ProgramCards() {
+export default function OnJobProgramCards() {
   return (
-    <section className="bg-background py-20 overflow-hidden w-full max-w-[100vw]">
+    <section id="degree-programs" className="bg-background py-20 overflow-hidden w-full max-w-[100vw]">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8">
         {/* Section header */}
         <div className="mb-12 text-center">
@@ -94,19 +58,18 @@ export default function ProgramCards() {
             className="mb-3 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary"
           >
             <BookOpen size={13} />
-            Our Programs
+            Our Degree Programs
           </motion.div>
           <h2 className="font-serif text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-            4 Paths. One{" "}
-            <span className="italic text-primary">Guaranteed</span> Outcome.
+            Choose Your <span className="italic text-primary">Specialisation</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground">
-            Whether you want a university degree or a fast-track skill course we have a program designed for your goal.
+            Both programs include university enrollment, industrial training, and 100% placement support.
           </p>
         </div>
 
         {/* Cards grid */}
-        <div className="grid gap-6 lg:gap-8 md:grid-cols-2">
+        <div className="grid gap-6 lg:gap-8 md:grid-cols-2 max-w-5xl mx-auto">
           {programs.map((prog, i) => (
             <motion.div
               key={prog.id}
@@ -138,20 +101,6 @@ export default function ProgramCards() {
                     ))}
                   </ul>
                 </div>
-                {/* Dropdown for Meta Info on small screens */}
-                <details className="mb-6 w-full group/accordion">
-                  <summary className="cursor-pointer list-none [&::-webkit-details-marker]:hidden flex items-center justify-between font-bold text-sm text-foreground bg-slate-50 dark:bg-zinc-900 border border-border/50 rounded-2xl p-4 transition-all hover:bg-slate-100 dark:hover:bg-zinc-800/80">
-                    Program Details
-                    <span className="transition-transform group-open/accordion:rotate-180">▼</span>
-                  </summary>
-                  <div className="mt-3 flex flex-col md:grid md:grid-cols-2 gap-3.5 rounded-2xl bg-slate-50 dark:bg-zinc-900 border border-border/50 p-4 md:p-5 text-sm w-full">
-                    <div className="flex items-start gap-2.5 text-accent-foreground"><Clock size={15} className="shrink-0 text-accent-foreground mt-0.5" /><span><strong>Duration:</strong> {prog.duration}</span></div>
-                    <div className="flex items-start gap-2.5 text-accent-foreground"><Monitor size={15} className="text-foreground shrink-0 mt-0.5" /><span><strong>Mode:</strong> {prog.mode}</span></div>
-                    <div className="flex items-start gap-2.5 md:col-span-2 text-accent-foreground"><GraduationCap size={15} className="text-foreground shrink-0 mt-0.5" /><span><strong>Eligibility:</strong> {prog.eligibility}</span></div>
-                    <div className="flex items-start gap-2.5 md:col-span-2 text-accent-foreground"><Briefcase size={15} className="text-foreground shrink-0 mt-0.5" /><span><strong>Certification:</strong> {prog.certification}</span></div>
-                    <div className="flex items-start gap-2.5 md:col-span-2 text-accent-foreground"><TrendingUp size={15} className="text-foreground shrink-0 mt-0.5" /><span><strong>Avg. Salary:</strong> {prog.avgSalary}</span></div>
-                  </div>
-                </details>
                 <div className="mt-auto w-full pt-2">
                   <Button asChild className="w-full min-h-12 md:min-h-14 h-auto rounded-full bg-linear-to-r from-primary to-accent text-primary-foreground font-extrabold text-sm md:text-[15px] tracking-normal md:tracking-wide transition-all shadow-lg">
                     <Link href={prog.href} className="flex w-full items-center justify-center gap-2 whitespace-normal px-4 py-3 text-center leading-tight">Explore {prog.name} <ArrowRight size={18} className="shrink-0" /></Link>
@@ -172,14 +121,9 @@ export default function ProgramCards() {
                     <span className={`shrink-0 rounded-full border px-3 py-1 text-sm font-bold ${prog.typeColor}`}>{prog.type}</span>
                   </CardItem>
 
-                  {/* For whom */}
-                  <CardItem translateZ="60" className="mb-6 text-base leading-relaxed text-muted-foreground w-full">
-                    <strong className="text-foreground">Who it&apos;s for: </strong>{prog.targetAudience}
-                  </CardItem>
-
                   {/* Skills */}
                   <CardItem translateZ="70" className="mb-6 w-full">
-                    <p className="mb-3 text-sm font-bold uppercase tracking-wider text-muted-foreground">What you&apos;ll learn</p>
+                    <p className="mb-3 text-sm font-bold uppercase tracking-wider text-muted-foreground">Key Skills</p>
                     <ul className="grid grid-cols-2 gap-x-3 gap-y-2 w-full">
                       {prog.skills.map((skill) => (
                         <li key={skill} className="flex items-center gap-2 text-sm text-foreground">
@@ -190,12 +134,10 @@ export default function ProgramCards() {
                   </CardItem>
 
                   {/* Meta row */}
-                  <CardItem translateZ="80" className="mb-6 grid grid-cols-2 gap-3.5 rounded-2xl bg-slate-50 dark:bg-zinc-900 border border-border/50 p-5 text-sm w-full">
-                    <div className="flex items-center gap-2.5 text-accent-foreground"><Clock size={15} className="shrink-0 text-accent-foreground" /><span><strong>Duration:</strong> {prog.duration}</span></div>
-                    <div className="flex items-center gap-2.5 text-accent-foreground"><Monitor size={15} className="text-foreground shrink-0" /><span><strong>Mode:</strong> {prog.mode}</span></div>
-                    <div className="flex items-start gap-2.5 col-span-2 text-accent-foreground"><GraduationCap size={15} className="text-foreground shrink-0 mt-0.5" /><span><strong>Eligibility:</strong> {prog.eligibility}</span></div>
-                    <div className="flex items-start gap-2.5 col-span-2 text-accent-foreground"><Briefcase size={15} className="text-foreground shrink-0 mt-0.5" /><span><strong>Certification:</strong> {prog.certification}</span></div>
-                    <div className="flex items-start gap-2.5 col-span-2 text-accent-foreground"><TrendingUp size={15} className="text-foreground shrink-0 mt-0.5" /><span><strong>Avg. Salary:</strong> {prog.avgSalary}</span></div>
+                  <CardItem translateZ="80" className="mb-6 grid grid-cols-1 gap-3 text-sm w-full">
+                    <div className="flex items-center gap-2.5 text-accent-foreground"><Clock size={15} className="shrink-0" /><span><strong>Duration:</strong> {prog.duration}</span></div>
+                    <div className="flex items-start gap-2.5 text-accent-foreground"><Briefcase size={15} className="shrink-0 mt-0.5" /><span><strong>Certification:</strong> {prog.certification}</span></div>
+                    <div className="flex items-start gap-2.5 text-accent-foreground"><TrendingUp size={15} className="shrink-0 mt-0.5" /><span><strong>Avg. Salary:</strong> {prog.avgSalary}</span></div>
                   </CardItem>
 
                   {/* CTA */}

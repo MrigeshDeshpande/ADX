@@ -32,11 +32,11 @@ export default function MobileNav({ onClose, theme, toggleTheme }) {
                             </AccordionTrigger>
                             <AccordionContent className="pl-4 pb-0 pt-1 border-l border-border/60 ml-2">
                                 <div className="grid grid-cols-1 gap-1">
-                                    <MobileLink href="/programs/bca" onClick={onClose}>
+                                    <MobileLink href="/programs/on-job-degree/best-bca-course-in-agra-with-job-training" onClick={onClose}>
                                         BCA Programs
                                     </MobileLink>
 
-                                    <MobileLink href="/programs/bba" onClick={onClose}>
+                                    <MobileLink href="/programs/on-job-degree/best-bba-course-in-agra-with-job-training" onClick={onClose}>
                                         BBA Programs
                                     </MobileLink>
                                     <MobileLink href="/programs/fullstack" onClick={onClose}>

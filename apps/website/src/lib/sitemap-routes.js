@@ -7,10 +7,11 @@ export const STATIC_SITEMAP_ROUTES = [
     { path: "/gallery", label: "Gallery", section: "Company" },
 
     { path: "/programs", label: "Programs", section: "Courses" },
-    { path: "/programs/fullstack", label: "Full-Stack Development", section: "Courses" },
-    { path: "/programs/digitalmarketing", label: "Digital Marketing", section: "Courses" },
-    { path: "/programs/bca", label: "BCA Programs", section: "Courses" },
-    { path: "/programs/bba", label: "BBA Programs", section: "Courses" },
+    { path: "/programs/fullstack", label: "Full-Stack Development", section: "Courses", priority: 0.95 },
+    { path: "/programs/digitalmarketing", label: "Digital Marketing", section: "Courses", priority: 0.95 },
+    { path: "/programs/on-job-degree", label: "On-Job Degree Programs", section: "Courses", priority: 0.95 },
+    { path: "/programs/on-job-degree/best-bca-course-in-agra-with-job-training", label: "BCA Programs", section: "Courses", priority: 0.9 },
+    { path: "/programs/on-job-degree/best-bba-course-in-agra-with-job-training", label: "BBA Programs", section: "Courses", priority: 0.9 },
 
     { path: "/blog", label: "Blog", section: "Resources" },
     { path: "/faqs", label: "FAQs", section: "Resources" },
@@ -33,11 +34,4 @@ export const STATIC_SITEMAP_ROUTES = [
 export const LEADERS = [
     { username: "suryanshupadhyay", name: "Suryansh Upadhyay" },
     { username: "rahulsingh", name: "Rahul Singh" },
-];
-
-export const PROGRAMS = [
-    { slug: "bca", priority: 0.95 },
-    { slug: "bba", priority: 0.95 },
-    { slug: "fullstack", priority: 0.95 },
-    { slug: "digitalmarketing", priority: 0.95 },
 ];

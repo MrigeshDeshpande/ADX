@@ -25,10 +25,10 @@ export default function DesktopNav({ theme, toggleTheme }) {
 
                     <DropdownMenuContent align="start" className="w-48">
                         <DropdownMenuItem asChild className="cursor-pointer">
-                            <Link href="/programs/bca" className="text-foreground">BCA Programs</Link>
+                            <Link href="/programs/on-job-degree/best-bca-course-in-agra-with-job-training" className="text-foreground">BCA Programs</Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem asChild className="cursor-pointer">
-                            <Link href="/programs/bba" className="text-foreground">BBA Programs</Link>
+                            <Link href="/programs/on-job-degree/best-bba-course-in-agra-with-job-training" className="text-foreground">BBA Programs</Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem asChild className="cursor-pointer">
                             <Link href="/programs/fullstack" className="text-foreground">Full-Stack Development</Link>

@@ -58,7 +58,7 @@ export const courses = {
       title: "BCA with On-Job Training | SkillYards",
       description:
         "Join the premium BCA program at SkillYards with industry-led training, elite mentorship, and 100% placement assistance in Agra.",
-      path: "/programs/bca",
+      path: "/programs/on-job-degree/best-bca-course-in-agra-with-job-training",
       keywords: [
         "BCA program Agra",
         "on-job training BCA",
@@ -79,7 +79,7 @@ export const courses = {
       title: "BBA with On-Job Training | SkillYards",
       description:
         "Join the premium BBA program at SkillYards with practical business training, mentorship, and placement support in Agra.",
-      path: "/programs/bba",
+      path: "/programs/on-job-degree/best-bba-course-in-agra-with-job-training",
       keywords: [
         "BBA program Agra",
         "on job training BBA",
