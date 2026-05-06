@@ -4,9 +4,9 @@ export const STATIC_SITEMAP_ROUTES = [
     { path: "/", label: "Home", section: "Company", priority: 1.0 },
     { path: "/about", label: "About Us", section: "Company" },
     { path: "/contact", label: "Contact", section: "Company" },
-    { path: "/gallery", label: "Gallery", section: "Company" },
+    { path: "/services", label: "Our Services", section: "Company" },
 
-    { path: "/programs", label: "Programs", section: "Courses" },
+    { path: "/programs", label: "Programs", section: "Courses", priority: 0.9 },
     { path: "/programs/fullstack", label: "Full-Stack Development", section: "Courses", priority: 0.95 },
     { path: "/programs/digitalmarketing", label: "Digital Marketing", section: "Courses", priority: 0.95 },
     { path: "/programs/on-job-degree", label: "On-Job Degree Programs", section: "Courses", priority: 0.95 },
@@ -22,13 +22,11 @@ export const STATIC_SITEMAP_ROUTES = [
     { path: "/team", label: "Our Team", section: "Company" },
 
     { path: "/testimonials", label: "Testimonials", section: "Students" },
-    { path: "/success-stories", label: "Success Stories", section: "Students" },
 
     { path: "/legal/privacy-policy", label: "Privacy Policy", section: "Legal" },
     { path: "/legal/refund-policy", label: "Refund Policy", section: "Legal" },
     { path: "/legal/terms-of-service", label: "Terms of Service", section: "Legal" },
 
-    { path: "/unsubscribe", label: "Unsubscribe", section: "Legal" },
 ];
 
 export const LEADERS = [

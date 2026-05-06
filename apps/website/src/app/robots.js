@@ -9,6 +9,8 @@ export default function robots() {
                     "/api/",
                     "/admin/",
                     "/_error/",
+                    "/unsubscribe",
+                    "/feedback",
                 ],
             },
         ],
