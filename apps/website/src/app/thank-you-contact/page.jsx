@@ -2,8 +2,6 @@ import Link from "next/link";
 import { CheckCircle2, Home, BookOpen, Phone } from "lucide-react";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
-export const revalidate = 86400;
-
 export const metadata = {
   title: "Thank You — SkillYards",
   description: "Thanks for reaching out to SkillYards. Our team will get in touch with you shortly.",

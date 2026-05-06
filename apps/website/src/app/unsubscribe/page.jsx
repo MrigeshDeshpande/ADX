@@ -4,8 +4,6 @@ import { buildSEO } from "@/lib/seo/buildSEO";
 import JsonLd from "@/components/JsonLd";
 import { getWebPageSchema } from "@/lib/seo/schema/webPageSchema";
 
-export const dynamic = "force-dynamic";
-
 export const metadata = buildSEO({
   title: "Unsubscribe from Emails",
   description:

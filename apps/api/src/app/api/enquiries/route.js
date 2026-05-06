@@ -27,13 +27,24 @@ async function postHandler(req, { ctx }) {
     );
   }
 
-  const enquiry = await createEnquiryService(validation.data);
-  ctx.log("ENQUIRY_SUBMITTED", { enquiryId: enquiry.id });
+  try {
+    const enquiry = await createEnquiryService(validation.data);
+    ctx.log("ENQUIRY_SUBMITTED", { enquiryId: enquiry.id });
 
-  return Response.json(
-    success(enquiry, "Enquiry submitted successfully"),
-    { status: 201 }
-  );
+    return Response.json(
+      success(enquiry, "Enquiry submitted successfully"),
+      { status: 201 }
+    );
+  } catch (err) {
+    const message = err.message || "Failed to submit enquiry";
+
+    if (message.includes("Captcha verification failed")) {
+      ctx.warn("ENQUIRY_CAPTCHA_FAILURE", { email: validation.data.email });
+      return Response.json(error("Captcha verification failed"), { status: 400 });
+    }
+
+    throw err;
+  }
 }
 
 // ── STRUCTURAL ENFORCEMENT ──

@@ -24,11 +24,6 @@ self.addEventListener("install", (event) => {
         caches.open(CACHE_NAME).then((cache) =>
             cache.addAll([
                 OFFLINE_URL,
-                "/t-rex/styles/t-rex.css",
-                "/t-rex/scripts/t-rex.js",
-                "/t-rex/default_100_percent/100-offline-sprite.png",
-                "/t-rex/default_200_percent/200-offline-sprite.png",
-                "/t-rex/default_200_percent/200-error-offline.png",
             ])
         )
     );
@@ -109,17 +104,6 @@ const navigationRoute = new workbox.routing.NavigationRoute(
 
 workbox.routing.registerRoute(navigationRoute);
 
-
-
-// ---------------------------------------------
-// T-REX OFFLINE GAME
-// ---------------------------------------------
-workbox.routing.registerRoute(
-    ({ url }) => url.pathname.startsWith("/t-rex/"),
-    new workbox.strategies.CacheFirst({
-        cacheName: "trex-assets",
-    })
-);
 
 // ---------------------------------------------
 // PUSH NOTIFICATIONS

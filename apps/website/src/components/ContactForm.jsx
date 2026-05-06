@@ -54,17 +54,14 @@ function ContactFormContent() {
         };
 
         try {
-            const res = await fetch(
-                `${process.env.NEXT_PUBLIC_API_URL}/api/enquiries`,
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        Accept: "application/json"
-                    },
-                    body: JSON.stringify(payload)
-                }
-            );
+            const res = await fetch("/api/contact-submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json"
+                },
+                body: JSON.stringify(payload)
+            });
 
             const data = await res.json();
 
@@ -74,7 +71,10 @@ function ContactFormContent() {
 
             setSuccess(data.message);
             form.reset();
-            router.push("/thank-you-contact");
+
+            if (data.redirectUrl) {
+                router.replace(data.redirectUrl);
+            }
 
         } catch (err) {
             setError(err.message);

@@ -38,7 +38,9 @@ export function IconCloud({
         if (images) {
           // Handle image URLs directly
           const img = new Image()
-          img.crossOrigin = "anonymous"
+          if (!items[index].startsWith("data:")) {
+            img.crossOrigin = "anonymous"
+          }
           img.src = items[index]
           img.onload = () => {
             offCtx.clearRect(0, 0, offscreen.width, offscreen.height)

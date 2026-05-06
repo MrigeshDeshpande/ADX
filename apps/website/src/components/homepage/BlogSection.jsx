@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { sanityClient } from "@/lib/sanity/client";
-import { POSTS_QUERY } from "@/lib/sanity/queries";
+import { HOMEPAGE_POSTS_QUERY } from "@/lib/sanity/queries";
 import BlogCard from "@/components/blog/BlogCard";
 import { HoverBorderGradient } from "../ui/hover-border-gradient";
 
 
 
 export async function BlogSection() {
-    const posts = await sanityClient.fetch(POSTS_QUERY, {}, { next: { revalidate: 86400 } });
+    const posts = await sanityClient.fetch(HOMEPAGE_POSTS_QUERY, {}, { next: { revalidate: 86400 } });
 
     const recentPosts = posts ? posts.slice(0, 3) : [];
 

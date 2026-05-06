@@ -6,6 +6,8 @@ import {
 
 import { sanityClient } from "@/lib/sanity/client";
 
+export const revalidate = 3600;
+
 export async function GET() {
   const now = new Date().toISOString();
 

@@ -16,26 +16,18 @@ export default function AboutSection() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
                     {/* Left Column: Image */}
-                    <LazyMotion features={domAnimation}>
-                    <m.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="relative w-full aspect-square max-h-[420px] max-w-[420px] md:max-h-560px md:max-w-none mx-auto md:ml-0 rounded-[2rem] overflow-hidden group shadow-2xl"
-                    >
+                    <div className="relative w-full aspect-square max-h-[420px] max-w-[420px] md:max-h-560px md:max-w-none mx-auto md:ml-0 rounded-[2rem] overflow-hidden group shadow-2xl">
                         <Image
                             src="/images/Home-about.webp"
                             alt="SkillYards Training Environment"
                             fill
                             className="object-cover transition-transform duration-700 group-hover:scale-105"
-                            sizes="(max-width: 768px) 95vw, 420px"
+                            sizes="(max-width: 768px) 90vw, 420px"
                             priority
                             fetchPriority="high"
                         />
                         <div className="absolute inset-0 bg-linear-to-t from-background/40 to-transparent pointer-events-none" />
-                    </m.div>
-                    </LazyMotion>
+                    </div>
 
                     {/* Right Column: Text Content */}
                     <div className="flex flex-col justify-center space-y-6">
