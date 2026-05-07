@@ -11,6 +11,7 @@ export default function robots() {
                     "/_error/",
                     "/unsubscribe",
                     "/feedback",
+                    "/campaigns/",
                 ],
             },
         ],

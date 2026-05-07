@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Logo from "@/components/logo";
 import { useTheme } from "@/app/context/ThemeContext";
 import { Menu, X, Sun, Moon, Laptop, ChevronDown } from "lucide-react";
@@ -14,6 +15,8 @@ export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const [isSticky, setIsSticky] = useState(false);
     const { theme, toggleTheme } = useTheme();
+    const pathname = usePathname();
+    const isCampaignRoute = pathname?.startsWith("/campaigns");
 
     useEffect(() => {
         const onScroll = () => setIsSticky(window.scrollY > 20);
@@ -21,6 +24,10 @@ export default function Header() {
         window.addEventListener("scroll", onScroll);
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
+
+    if (isCampaignRoute) {
+        return null;
+    }
 
     return (
         <header

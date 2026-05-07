@@ -2,6 +2,7 @@
 
 import { useMemo } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { GoogleMapEmbed } from "@/components/ui/GoogleMapEmbed";
 import {
     Facebook,
@@ -24,6 +25,11 @@ import SocialLinks from "@/components/SocialLinks";
 
 export default function Footer() {
     const year = useMemo(() => new Date().getFullYear(), []);
+    const pathname = usePathname();
+
+    if (pathname?.startsWith("/campaigns")) {
+        return null;
+    }
 
     const footerSections = [
         {
