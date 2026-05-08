@@ -24,14 +24,14 @@ const ProgramsShowcase = () => {
         {
             title: "Full-Stack Development",
             description: "Understand how real websites and applications are built, not just how they look. You work on live projects, learn frontend and backend logic, and build a portfolio recruiters care about.",
-            link: "/programs/fullstack",
+            link: "/programs/on-job-training/best-full-stack-development-course-in-agra",
             icon: <Code2 className="w-6 h-6 md:w-8 md:h-8 text-teal-400" />,
             bg: "url('/images/programmes/full-stack.jpg')",
         },
         {
             title: "Digital Marketing",
             description: "Master SEO, Google Ads, Meta Ads & analytics. Get Google & Meta certified in just 3 months.",
-            link: "/programs/digitalmarketing",
+            link: "/programs/on-job-training/best-digital-marketing-course-in-agra",
             icon: <Megaphone className="w-6 h-6 md:w-8 md:h-8 text-yellow-400" />,
             bg: "url('/images/programmes/uiux.jpg')",
         },

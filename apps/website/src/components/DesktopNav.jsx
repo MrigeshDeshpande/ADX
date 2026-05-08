@@ -5,10 +5,28 @@ import { Moon, Sun, Laptop, ChevronDown, Phone } from "lucide-react";
 import {
     DropdownMenu,
     DropdownMenuContent,
-    DropdownMenuItem,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { usePathname } from "next/navigation";
+
+const programGroups = [
+    {
+        title: "On-Job Degree",
+        href: "/programs/on-job-degree",
+        items: [
+            { label: "BCA", href: "/programs/on-job-degree/best-bca-course-in-agra-with-job-training" },
+            { label: "BBA", href: "/programs/on-job-degree/best-bba-course-in-agra-with-job-training" },
+        ],
+    },
+    {
+        title: "On-Job Training",
+        href: "/programs/on-job-training",
+        items: [
+            { label: "Full-Stack Development", href: "/programs/on-job-training/best-full-stack-development-course-in-agra" },
+            { label: "Digital Marketing", href: "/programs/on-job-training/best-digital-marketing-course-in-agra" },
+        ],
+    },
+];
 
 export default function DesktopNav({ theme, toggleTheme }) {
     return (
@@ -20,22 +38,47 @@ export default function DesktopNav({ theme, toggleTheme }) {
                 {/* Programs */}
                 <DropdownMenu>
                     <DropdownMenuTrigger className="flex items-center gap-1 text-[13px] font-medium text-foreground hover:text-muted-foreground hover:bg-accent transition px-3 py-1.5 rounded-full outline-none data-[state=open]:bg-accent data-[state=open]:text-foreground">
-                        Programs <ChevronDown className="h-3.5 w-3.5 opacity-60" />
+                        All Programs <ChevronDown className="h-3.5 w-3.5 opacity-60" />
                     </DropdownMenuTrigger>
 
-                    <DropdownMenuContent align="start" className="w-48">
-                        <DropdownMenuItem asChild className="cursor-pointer">
-                            <Link href="/programs/on-job-degree/best-bca-course-in-agra-with-job-training" className="text-foreground">BCA Programs</Link>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem asChild className="cursor-pointer">
-                            <Link href="/programs/on-job-degree/best-bba-course-in-agra-with-job-training" className="text-foreground">BBA Programs</Link>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem asChild className="cursor-pointer">
-                            <Link href="/programs/fullstack" className="text-foreground">Full-Stack Development</Link>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem asChild className="cursor-pointer">
-                            <Link href="/programs/digitalmarketing" className="text-foreground">Digital Marketing</Link>
-                        </DropdownMenuItem>
+                    <DropdownMenuContent
+                        align="start"
+                        sideOffset={10}
+                        className="w-[34rem] rounded-3xl border border-border/70 bg-popover/95 p-4 shadow-xl backdrop-blur-md"
+                    >
+                        <Link
+                            href="/programs"
+                            className="mb-4 block rounded-2xl border border-border/60 bg-card/50 px-4 py-3 transition hover:border-primary/30 hover:bg-accent/40"
+                        >
+                            <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">All Programs</p>
+                            <p className="mt-1 text-sm text-muted-foreground">
+                                Choose between degree-led paths and focused job training tracks.
+                            </p>
+                        </Link>
+
+                        <div className="grid grid-cols-2 gap-4">
+                            {programGroups.map((group) => (
+                                <div key={group.title} className="rounded-2xl border border-border/60 bg-background p-4">
+                                    <Link
+                                        href={group.href}
+                                        className="inline-block text-sm font-bold uppercase tracking-[0.16em] text-foreground transition hover:text-primary"
+                                    >
+                                        {group.title}
+                                    </Link>
+                                    <div className="mt-3 flex flex-col gap-2">
+                                        {group.items.map((item) => (
+                                            <Link
+                                                key={item.href}
+                                                href={item.href}
+                                                className="rounded-xl border border-transparent px-3 py-2.5 text-sm font-medium text-muted-foreground transition hover:border-primary/20 hover:bg-accent/50 hover:text-foreground"
+                                            >
+                                                {item.label}
+                                            </Link>
+                                        ))}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                     </DropdownMenuContent>
                 </DropdownMenu>
 

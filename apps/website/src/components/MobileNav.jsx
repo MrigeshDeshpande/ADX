@@ -12,6 +12,25 @@ import {
 } from "@/components/ui/accordion";
 import { usePathname } from "next/navigation";
 
+const programGroups = [
+    {
+        title: "On-Job Degree",
+        href: "/programs/on-job-degree",
+        items: [
+            { label: "BCA", href: "/programs/on-job-degree/best-bca-course-in-agra-with-job-training" },
+            { label: "BBA", href: "/programs/on-job-degree/best-bba-course-in-agra-with-job-training" },
+        ],
+    },
+    {
+        title: "On-Job Training",
+        href: "/programs/on-job-training",
+        items: [
+            { label: "Full-Stack Development", href: "/programs/on-job-training/best-full-stack-development-course-in-agra" },
+            { label: "Digital Marketing", href: "/programs/on-job-training/best-digital-marketing-course-in-agra" },
+        ],
+    },
+];
+
 export default function MobileNav({ onClose, theme, toggleTheme }) {
     return (
         <LazyMotion features={domAnimation}>
@@ -28,23 +47,41 @@ export default function MobileNav({ onClose, theme, toggleTheme }) {
                     <Accordion type="single" collapsible>
                         <AccordionItem value="programs" className="border-none">
                             <AccordionTrigger className="py-2.5 px-4 rounded-xl hover:no-underline text-sm font-medium text-foreground hover:bg-accent/80 transition">
-                                Programs
+                                All Programs
                             </AccordionTrigger>
                             <AccordionContent className="pl-4 pb-0 pt-1 border-l border-border/60 ml-2">
-                                <div className="grid grid-cols-1 gap-1">
-                                    <MobileLink href="/programs/on-job-degree/best-bca-course-in-agra-with-job-training" onClick={onClose}>
-                                        BCA Programs
-                                    </MobileLink>
+                                <div className="grid grid-cols-1 gap-3">
+                                    <Link
+                                        href="/programs"
+                                        onClick={onClose}
+                                        className="rounded-2xl border border-border/60 bg-card/40 px-4 py-3 transition hover:border-primary/30 hover:bg-accent/50"
+                                    >
+                                        <p className="text-xs font-bold uppercase tracking-[0.16em] text-primary">
+                                            All Programs
+                                        </p>
+                                        <p className="mt-1 text-sm text-muted-foreground">
+                                            View complete programs overview page.
+                                        </p>
+                                    </Link>
 
-                                    <MobileLink href="/programs/on-job-degree/best-bba-course-in-agra-with-job-training" onClick={onClose}>
-                                        BBA Programs
-                                    </MobileLink>
-                                    <MobileLink href="/programs/fullstack" onClick={onClose}>
-                                        Full-Stack Development
-                                    </MobileLink>
-                                    <MobileLink href="/programs/digitalmarketing" onClick={onClose}>
-                                        Digital Marketing
-                                    </MobileLink>
+                                    {programGroups.map((group) => (
+                                        <div key={group.title} className="rounded-2xl border border-border/60 bg-card/40 p-3">
+                                            <Link
+                                                href={group.href}
+                                                onClick={onClose}
+                                                className="inline-block px-1 text-xs font-bold uppercase tracking-[0.16em] text-foreground transition hover:text-primary"
+                                            >
+                                                {group.title}
+                                            </Link>
+                                            <div className="mt-2 grid grid-cols-1 gap-1">
+                                                {group.items.map((item) => (
+                                                    <MobileLink key={item.href} href={item.href} onClick={onClose}>
+                                                        {item.label}
+                                                    </MobileLink>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    ))}
                                 </div>
                             </AccordionContent>
                         </AccordionItem>

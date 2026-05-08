@@ -7,11 +7,12 @@ export const STATIC_SITEMAP_ROUTES = [
     { path: "/services", label: "Our Services", section: "Company" },
 
     { path: "/programs", label: "Programs", section: "Courses", priority: 0.9 },
-    { path: "/programs/fullstack", label: "Full-Stack Development", section: "Courses", priority: 0.95 },
-    { path: "/programs/digitalmarketing", label: "Digital Marketing", section: "Courses", priority: 0.95 },
     { path: "/programs/on-job-degree", label: "On-Job Degree Programs", section: "Courses", priority: 0.95 },
+    { path: "/programs/on-job-training", label: "On-Job Training Programs", section: "Courses", priority: 0.95 },
     { path: "/programs/on-job-degree/best-bca-course-in-agra-with-job-training", label: "BCA Programs", section: "Courses", priority: 0.9 },
     { path: "/programs/on-job-degree/best-bba-course-in-agra-with-job-training", label: "BBA Programs", section: "Courses", priority: 0.9 },
+    { path: "/programs/on-job-training/best-full-stack-development-course-in-agra", label: "Full-Stack Development", section: "Courses", priority: 0.9 },
+    { path: "/programs/on-job-training/best-digital-marketing-course-in-agra", label: "Digital Marketing", section: "Courses", priority: 0.9 },
 
     { path: "/blog", label: "Blog", section: "Resources" },
     { path: "/faqs", label: "FAQs", section: "Resources" },
