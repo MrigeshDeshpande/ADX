@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 import { readdirSync, statSync } from 'fs';
 import { join } from 'path';
+import { sanityClient } from '@/lib/sanity/client';
 
 const BASE_URL = 'https://www.skillyards.in';
 
@@ -17,6 +18,11 @@ const EXCLUDED_PATHS = new Set([
   '/thank-you-contact',
   '/sitemap', // the HTML sitemap page is fine, but excluded from XML to avoid recursion
 ]);
+
+const LEADERS = [
+  { username: 'suryanshupadhyay', name: 'Suryansh Upadhyay' },
+  { username: 'rahulsingh', name: 'Rahul Singh' },
+];
 
 // Dynamic route segments to skip (we'd need DB/filesystem lookups for slugs)
 const DYNAMIC_SEGMENT = /^\[.+\]$/;
@@ -69,19 +75,47 @@ function shouldExclude(path: string): boolean {
   return false;
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const appDir = join(process.cwd(), 'src', 'app');
   const routes = walkAppDir(appDir);
-
-  // TODO: When blog or careers content is finalized, add dynamic slugs here
-  // by querying your DB or fetching the slugs list.
-
   const uniqueRoutes = Array.from(new Set(routes)).sort();
 
-  return uniqueRoutes.map((path) => ({
+  const now = new Date();
+
+  const staticUrls: MetadataRoute.Sitemap = uniqueRoutes.map((path) => ({
     url: `${BASE_URL}${path}`,
-    lastModified: new Date(),
+    lastModified: now,
     changeFrequency: path === '/' ? 'weekly' : 'monthly',
     priority: path === '/' ? 1.0 : path.startsWith('/blog/') ? 0.6 : 0.8,
   }));
+
+  // 🔹 Team pages
+  const teamUrls: MetadataRoute.Sitemap = LEADERS.map((leader) => ({
+    url: `${BASE_URL}/team/${leader.username}`,
+    lastModified: now,
+    changeFrequency: 'monthly',
+    priority: 0.9,
+  }));
+
+  // 🔹 Blog dynamic routes
+  let blogUrls: MetadataRoute.Sitemap = [];
+  try {
+    const posts = await sanityClient.fetch(`
+      *[_type == "post" && defined(slug.current)]{
+        "slug": slug.current,
+        _updatedAt
+      }
+    `, {}, { next: { revalidate: 3600 } });
+
+    blogUrls = posts.map((post: any) => ({
+      url: `${BASE_URL}/blog/${post.slug}`,
+      lastModified: post._updatedAt ? new Date(post._updatedAt) : now,
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    }));
+  } catch (error) {
+    console.error("Failed to fetch blog posts for sitemap:", error);
+  }
+
+  return [...staticUrls, ...teamUrls, ...blogUrls];
 }
