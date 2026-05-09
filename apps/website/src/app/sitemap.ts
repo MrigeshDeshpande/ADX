@@ -19,10 +19,7 @@ const EXCLUDED_PATHS = new Set([
   '/sitemap', // the HTML sitemap page is fine, but excluded from XML to avoid recursion
 ]);
 
-const LEADERS = [
-  { username: 'suryanshupadhyay', name: 'Suryansh Upadhyay' },
-  { username: 'rahulsingh', name: 'Rahul Singh' },
-];
+
 
 // Dynamic route segments to skip (we'd need DB/filesystem lookups for slugs)
 const DYNAMIC_SEGMENT = /^\[.+\]$/;
@@ -89,13 +86,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: path === '/' ? 1.0 : path.startsWith('/blog/') ? 0.6 : 0.8,
   }));
 
-  // 🔹 Team pages
-  const teamUrls: MetadataRoute.Sitemap = LEADERS.map((leader) => ({
-    url: `${BASE_URL}/team/${leader.username}`,
-    lastModified: now,
-    changeFrequency: 'monthly',
-    priority: 0.9,
-  }));
 
   // 🔹 Blog dynamic routes
   let blogUrls: MetadataRoute.Sitemap = [];
@@ -117,5 +107,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     console.error("Failed to fetch blog posts for sitemap:", error);
   }
 
-  return [...staticUrls, ...teamUrls, ...blogUrls];
+  return [...staticUrls, ...blogUrls];
 }
