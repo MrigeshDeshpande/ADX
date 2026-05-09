@@ -14,16 +14,16 @@ const programGroups = [
         title: "On-Job Degree",
         href: "/programs/on-job-degree",
         items: [
-            { label: "BCA", href: "/programs/on-job-degree/best-bca-course-in-agra-with-job-training" },
-            { label: "BBA", href: "/programs/on-job-degree/best-bba-course-in-agra-with-job-training" },
+            { label: "BCA", href: "/bca-training-program-in-agra" },
+            { label: "BBA", href: "/bba-training-program-in-agra" },
         ],
     },
     {
         title: "On-Job Training",
         href: "/programs/on-job-training",
         items: [
-            { label: "Full-Stack Development", href: "/programs/on-job-training/best-full-stack-development-course-in-agra" },
-            { label: "Digital Marketing", href: "/programs/on-job-training/best-digital-marketing-course-in-agra" },
+            { label: "Full-Stack Development", href: "/full-stack-web-development-training-in-agra" },
+            { label: "Digital Marketing", href: "/digital-marketing-course-in-agra" },
         ],
     },
 ];

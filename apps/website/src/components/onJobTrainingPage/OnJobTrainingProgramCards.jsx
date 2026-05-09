@@ -21,7 +21,7 @@ const programs = [
     eligibility: "10+2 pass | Basic computer knowledge",
     certification: "Industry Certificate + Portfolio Projects",
     avgSalary: "₹4 – 8 LPA",
-    href: "/programs/on-job-training/best-full-stack-development-course-in-agra",
+    href: "/full-stack-web-development-training-in-agra",
     badgeBg: "bg-green-100 text-green-800 dark:bg-green-950/50 dark:text-green-400",
   },
   {
@@ -38,7 +38,7 @@ const programs = [
     eligibility: "10+2 pass | No prior experience needed",
     certification: "Google, Meta & SkillYards Certificates",
     avgSalary: "₹3 – 6 LPA",
-    href: "/programs/on-job-training/best-digital-marketing-course-in-agra",
+    href: "/digital-marketing-course-in-agra",
     badgeBg: "bg-orange-100 text-orange-800 dark:bg-orange-950/50 dark:text-orange-400",
   },
 ];

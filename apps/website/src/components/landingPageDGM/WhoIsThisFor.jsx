@@ -83,7 +83,7 @@ export function DGMWhoIsThisFor() {
                 </ul>
                 <p className="mt-5 rounded-xl bg-background/60 p-3 text-xs text-muted-foreground">
                   Want to build software instead?{" "}
-                  <a href="/programs/on-job-training/best-full-stack-development-course-in-agra" className="font-bold text-primary underline underline-offset-4">
+                  <a href="/full-stack-web-development-training-in-agra" className="font-bold text-primary underline underline-offset-4">
                     The Full-Stack Development course
                   </a>{" "}
                   is designed for you.

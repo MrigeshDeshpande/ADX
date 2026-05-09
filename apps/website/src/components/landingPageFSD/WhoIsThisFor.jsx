@@ -83,7 +83,7 @@ export function FSDWhoIsThisFor() {
                 </ul>
                 <p className="mt-5 rounded-xl bg-background/60 p-3 text-xs text-muted-foreground">
                   If you want a degree alongside practical skills,{" "}
-                  <a href="/programs/on-job-degree/best-bca-course-in-agra-with-job-training" className="font-bold text-primary underline underline-offset-4">
+                  <a href="/bca-training-program-in-agra" className="font-bold text-primary underline underline-offset-4">
                     the BCA program
                   </a>{" "}
                   might be a better fit.

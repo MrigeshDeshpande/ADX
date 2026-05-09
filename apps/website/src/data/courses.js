@@ -9,7 +9,7 @@ export const courses = {
       title: "Full-Stack Web Development Course in Agra | SkillYards OJT",
       description:
         "Go from zero to hired Full-Stack Developer in 6 months. MERN stack bootcamp in Agra with on-job training, real projects, and 95% placement support. Starting ₹25,000.",
-      path: "/programs/on-job-training/best-full-stack-development-course-in-agra",
+      path: "/full-stack-web-development-training-in-agra",
       keywords: [
         "full stack development course Agra",
         "full stack web development training in Agra",
@@ -33,7 +33,7 @@ export const courses = {
       title: "Digital Marketing Course in Agra with Placement | SkillYards OJT",
       description:
         "4-month Digital Marketing On-Job Training in Agra. Run real Google Ads & Meta campaigns. Earn Google, Meta & HubSpot certifications. 95% placement rate. Starting ₹15,000.",
-      path: "/programs/on-job-training/best-digital-marketing-course-in-agra",
+      path: "/digital-marketing-course-in-agra",
       keywords: [
         "digital marketing course Agra",
         "digital marketing training institute Agra",
@@ -58,7 +58,7 @@ export const courses = {
       title: "BCA with On-Job Training | SkillYards",
       description:
         "Join the premium BCA program at SkillYards with industry-led training, elite mentorship, and 100% placement assistance in Agra.",
-      path: "/programs/on-job-degree/best-bca-course-in-agra-with-job-training",
+      path: "/bca-training-program-in-agra",
       keywords: [
         "BCA program Agra",
         "on-job training BCA",
@@ -79,7 +79,7 @@ export const courses = {
       title: "BBA with On-Job Training | SkillYards",
       description:
         "Join the premium BBA program at SkillYards with practical business training, mentorship, and placement support in Agra.",
-      path: "/programs/on-job-degree/best-bba-course-in-agra-with-job-training",
+      path: "/bba-training-program-in-agra",
       keywords: [
         "BBA program Agra",
         "on job training BBA",

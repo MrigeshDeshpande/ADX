@@ -36,10 +36,10 @@ export default function Footer() {
             title: "All Programs",
             links: [
                 { label: "Programs", href: "/programs" },
-                { label: "Full-Stack Development", href: "/programs/on-job-training/best-full-stack-development-course-in-agra" },
-                { label: "Digital Marketing", href: "/programs/on-job-training/best-digital-marketing-course-in-agra" },
-                { label: "BCA Programs", href: "/programs/on-job-degree/best-bca-course-in-agra-with-job-training" },
-                { label: "BBA Programs", href: "/programs/on-job-degree/best-bba-course-in-agra-with-job-training" },
+                { label: "Full-Stack Development", href: "/full-stack-web-development-training-in-agra" },
+                { label: "Digital Marketing", href: "/digital-marketing-course-in-agra" },
+                { label: "BCA Programs", href: "/bca-training-program-in-agra" },
+                { label: "BBA Programs", href: "/bba-training-program-in-agra" },
             ],
         },
         {

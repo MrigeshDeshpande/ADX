@@ -99,27 +99,57 @@ const nextConfig = {
 
     async redirects() {
         return [
+            // Host canonicalization (keep existing)
             {
                 source: "/:path*",
-                has: [
-                    {
-                        type: "host",
-                        value: "skillyards.in",
-                    },
-                ],
+                has: [{ type: "host", value: "skillyards.in" }],
                 destination: "https://www.skillyards.in/:path*",
                 permanent: true,
             },
 
-            { source: "/programs/bca", destination: "/programs/on-job-degree/best-bca-course-in-agra-with-job-training", permanent: true },
-            { source: "/programs/bba", destination: "/programs/on-job-degree/best-bba-course-in-agra-with-job-training", permanent: true },
+            // === 301: Old deep URLs → New flat URLs ===
+            { source: "/programs/on-job-degree/best-bca-course-in-agra-with-job-training", destination: "/bca-training-program-in-agra", permanent: true },
+            { source: "/programs/on-job-degree/best-bba-course-in-agra-with-job-training", destination: "/bba-training-program-in-agra", permanent: true },
+            { source: "/programs/on-job-training/best-full-stack-development-course-in-agra", destination: "/full-stack-web-development-training-in-agra", permanent: true },
+            { source: "/programs/on-job-training/best-digital-marketing-course-in-agra", destination: "/digital-marketing-course-in-agra", permanent: true },
+
+            // === 301: Short aliases for convenience + legacy → New flat URLs ===
+            { source: "/programs/bca", destination: "/bca-training-program-in-agra", permanent: true },
+            { source: "/programs/bba", destination: "/bba-training-program-in-agra", permanent: true },
+            { source: "/programs/mca", destination: "/mca-training-program-in-agra", permanent: true },
+            { source: "/programs/fullstack", destination: "/full-stack-web-development-training-in-agra", permanent: true },
+            { source: "/programs/full-stack", destination: "/full-stack-web-development-training-in-agra", permanent: true },
+            { source: "/programs/digitalmarketing", destination: "/digital-marketing-course-in-agra", permanent: true },
+            { source: "/programs/digital-marketing", destination: "/digital-marketing-course-in-agra", permanent: true },
+            { source: "/programs/data-science", destination: "/programs", permanent: true },
+            { source: "/programs/mern-stack-developer", destination: "/full-stack-web-development-training-in-agra", permanent: true },
+            { source: "/programs/bachelor-of-computer-applications-bca", destination: "/bca-training-program-in-agra", permanent: true },
+
+            // === 301: Existing site-wide URL aliases (keep) ===
             { source: "/about-us", destination: "/about", permanent: true },
             { source: "/contact-us", destination: "/contact", permanent: true },
             { source: "/courses", destination: "/programs", permanent: true },
             { source: "/blogs", destination: "/blog", permanent: true },
             { source: "/reviews", destination: "/testimonials", permanent: true },
-            { source: "/terms-and-conditions", destination: "/terms-of-service", permanent: true },
             { source: "/gallery/photos", destination: "/gallery/images", permanent: true },
+
+            // === 301: FIX existing broken redirect (was pointing to non-existent /terms-of-service) ===
+            { source: "/terms-and-conditions", destination: "/legal/terms-of-service", permanent: true },
+            { source: "/terms-of-service", destination: "/legal/terms-of-service", permanent: true },
+            { source: "/privacy-policy", destination: "/legal/privacy-policy", permanent: true },
+            { source: "/refund-policy", destination: "/legal/refund-policy", permanent: true },
+
+            // === 301: Legacy /on-job-training root URL → category page ===
+            { source: "/on-job-training", destination: "/programs/on-job-training", permanent: true },
+        ];
+    },
+
+    async rewrites() {
+        return [
+            {
+                source: "/sitemap",
+                destination: "/sitemap-html",
+            },
         ];
     },
 };

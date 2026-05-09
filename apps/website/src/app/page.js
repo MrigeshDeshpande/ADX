@@ -9,7 +9,6 @@ const LeadersSection = dynamic(() => import("@/components/common/LeadersSection"
 const CTASection = dynamic(() => import("@/components/homepage/CTASection"));
 const FAQSection = dynamic(() => import("@/components/common/FAQSection"));
 const BlogSection = dynamic(() => import("@/components/homepage/BlogSection").then((mod) => mod.BlogSection));
-const ServicesSection = dynamic(() => import("@/components/homepage/ServicesSection"));
 const PartnersSlider = dynamic(() => import("@/components/common/PartnersSlider"));
 const ProgramsShowcase = dynamic(() => import("@/components/homepage/ProgrammeShowcase"));
 const HearFromStudents = dynamic(() => import("@/components/homepage/HearFromStudents"));
@@ -71,11 +70,10 @@ export default function Home() {
         <ProblemSection />
         <ProgramsShowcase />
         <FeaturesSection />
-        <SkillTestSection />
         <HearFromStudents />
         <FeaturedRoles />
-        <ServicesSection />
         <BlogSection />
+        <SkillTestSection />
         <LeadersSection />
         <PartnersSlider />
         <CTASection />

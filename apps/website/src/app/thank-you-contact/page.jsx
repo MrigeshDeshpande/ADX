@@ -56,7 +56,7 @@ export default function ThankYouPage() {
             </Link>
 
             <Link
-              href="/programs/on-job-degree/best-bca-course-in-agra-with-job-training"
+              href="/bca-training-program-in-agra"
               className="group flex flex-col items-center gap-2 p-6 rounded-2xl bg-white/70 dark:bg-neutral-900/70 backdrop-blur-md border border-neutral-200/60 dark:border-neutral-800 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10 transition-all"
             >
               <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">

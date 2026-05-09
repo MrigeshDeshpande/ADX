@@ -3,7 +3,6 @@
     "title": "Not Sure What to Do After 12th?",
     "subtitle": " Agra's #1 IT Training Institute",
     "description": "Build Skills That Actually Get You Hired. Get practical IT training, real-world skills, and career clarity – all in one place.",
-    "image": "https://picsum.photos/1200/700?random=301",
     "cta": "Explore Courses",
     "ctaHref": "/programs"
   },
@@ -11,16 +10,14 @@
     "title": "On Job Degree",
     "subtitle": "Earn a degree with real experience",
     "description": "Work alongside professionals while earning a recognized degree that accelerates your career.",
-    "image": "https://picsum.photos/1200/700?random=302",
     "cta": "View Degree Programs",
     "ctaHref": "/programs"
   },
   {
-    "title": "Software Development",
-    "subtitle": "Build real-world products",
-    "description": "Master modern software development with hands-on projects, mentors, and industry tools.",
-    "image": "https://picsum.photos/1200/700?random=303",
-    "cta": "Start Building",
-    "ctaHref": "/services"
+    "title": "On-Job Training",
+    "subtitle": "Learn by doing on real projects",
+    "description": "Build practical skills in Full-Stack Development and Digital Marketing with mentor-led training designed to make you job-ready.",
+    "cta": "Explore OJT Programs",
+    "ctaHref": "/programs/on-job-training"
   }
 ]
