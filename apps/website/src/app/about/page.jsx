@@ -7,11 +7,11 @@ export const revalidate = 86400;
 const AboutMissionVision = dynamic(() => import("@/components/aboutpage/AboutMissionVision"));
 
 const AboutWhyChoose = dynamic(() => import("@/components/aboutpage/AboutWhyChoose"));
-const TestimonialsByInterns = dynamic(() => import("@/components/aboutpage/TestimonialsByInterns"));
+const StudentWorkAbout = dynamic(() => import("@/components/aboutpage/StudentWorkAbout"));
 const CTASection = dynamic(() => import("@/components/aboutpage/CTASection"));
 const LifeAtSkillYards = dynamic(() => import("@/components/aboutpage/LifeAtSkillYards"));
 const TechnologiesWeTeach = dynamic(() => import("@/components/aboutpage/TechnologiesWeTeach"));
-const StudentSuccessStories = dynamic(() => import("@/components/aboutpage/StudentSuccessStories"));
+
 const SkillYardsJourney = dynamic(() => import("@/components/aboutpage/SkillYardsJourney"));
 const CtaBanner = dynamic(() => import("@/components/aboutpage/CtaBanner"));
 const PartnersSlider = dynamic(() => import("@/components/common/PartnersSlider"));
@@ -25,15 +25,15 @@ import { buildSEO } from "@/lib/seo/buildSEO";
 export const metadata = buildSEO({
   title: "About SkillYards",
   description:
-    "Learn about SkillYards, a skill-based learning platform empowering professionals with industry-relevant training, live classes, and certifications led by experts.",
+    "SkillYards is an Agra-based IT training institute built for students who want practical, career-focused learning after 12th or graduation.",
   path: "/about",
   keywords: [
     "About SkillYards",
-    "SkillYards learning platform",
-    "Skill development India",
-    "Online training institute",
-    "Professional certifications",
-    "Career-focused learning",
+    "IT training institute in Agra",
+    "Coding institute in Agra",
+    "Computer training institute in Agra",
+    "Project-based training in Agra",
+    "Career-focused training institute",
   ],
   ogImage: "/images/opengraph/about-og.jpg",
 });
@@ -44,7 +44,8 @@ export default function AboutPage() {
   const aboutPageSchema = getAboutPageSchema({
     url: "/about",
     name: "About SkillYards",
-    description: "Learn about SkillYards, a skill-based learning platform empowering professionals with industry-relevant training, live classes, and certifications led by experts."
+    description:
+      "SkillYards is an Agra-based IT training institute built for students who want practical, career-focused learning after 12th or graduation.",
   });
 
   return (
@@ -56,12 +57,12 @@ export default function AboutPage() {
         <LeadersSection />
         <OtherTeam />
         <PartnersSlider />
-        <TestimonialsByInterns />
+
         <CTASection />
         <LifeAtSkillYards />
         <TechnologiesWeTeach />
         <FAQSection />
-        <StudentSuccessStories />
+        <StudentWorkAbout />
         <PlacementStats />
         <SkillYardsJourney />
         <CtaBanner />

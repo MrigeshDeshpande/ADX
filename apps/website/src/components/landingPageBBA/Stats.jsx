@@ -4,7 +4,7 @@ import React from 'react';
 
 const stats = [
   { value: "5,000+", label: "Students Enrolled" },
-  { value: "95%", label: "Placement Rate" },
+  { value: "Dedicated", label: "Placement Support" },
   { value: "50+", label: "Industry Partners" },
   { value: "12 LPA", label: "Avg. Starting Package" },
 ];

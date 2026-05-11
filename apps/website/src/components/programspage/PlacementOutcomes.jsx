@@ -55,7 +55,7 @@ export default function PlacementOutcomes() {
         {/* Stats row */}
         <div className="mb-14 grid grid-cols-2 gap-6 rounded-3xl border border-border bg-card p-8 shadow-sm sm:grid-cols-4">
           {[
-            { value: "95%", label: "Overall Placement Rate" },
+            { value: "Dedicated", label: "Placement Support" },
             { value: "₹4.5 LPA", label: "Average Starting Package" },
             { value: "180+", label: "Hiring Partners" },
             { value: "1200+", label: "Students Placed" },

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Sun, BarChart2, MessageSquare, PenTool, Moon } from "lucide-react";
 
 const duringCourse = [
-  { time: "10:00 AM", icon: Sun, title: "Live Class", desc: "Mentor demonstrates the tool live you follow along in your own account. No slides, no theory dumps.", color: "bg-yellow-500" },
+  { time: "10:00 AM", icon: Sun, title: "In-Person Class", desc: "Mentor demonstrates the tool in-person and you follow along in your own account. No slides, no theory dumps.", color: "bg-yellow-500" },
   { time: "12:00 PM", icon: BarChart2, title: "Hands-On Lab", desc: "Apply what was just taught on a real account real keywords, real campaigns, real data.", color: "bg-orange-500" },
   { time: "2:00 PM", icon: MessageSquare, title: "Campaign Review Session", desc: "Your work gets reviewed by the mentor. Numbers are discussed, decisions are challenged, strategy is sharpened.", color: "bg-pink-500" },
   { time: "Evening", icon: Moon, title: "Self-Practice + Assignment", desc: "Recorded session for revision. Short assignment to reinforce the day. ~1–2 hrs outside class.", color: "bg-primary" },
@@ -13,7 +13,7 @@ const duringCourse = [
 const afterGraduating = [
   { time: "9:00 AM", icon: BarChart2, title: "Check Campaign Dashboards", desc: "Review overnight ad performance. Adjust bids, pause underperforming ads, flag anomalies.", color: "bg-blue-500" },
   { time: "10:30 AM", icon: PenTool, title: "Content Planning or Client Call", desc: "Prepare next week's social content, or join a client standup to discuss campaign direction.", color: "bg-green-500" },
-  { time: "1:00 PM", icon: Sun, title: "Reporting & Keyword Research", desc: "Build weekly performance report for clients, do keyword gap analysis, find new opportunities.", color: "bg-orange-500" },
+  { time: "1:00 PM", icon: Sun, title: "Reporting & Keyword Research", desc: "Build weekly performance reports from sample datasets, do keyword gap analysis, find new opportunities.", color: "bg-orange-500" },
   { time: "4:00 PM", icon: MessageSquare, title: "Analytics Review & Daily Wrap", desc: "Check GA4 traffic, review UTM performance, prepare daily summary. Done for the day.", color: "bg-purple-500" },
 ];
 

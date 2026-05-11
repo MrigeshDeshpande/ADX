@@ -49,7 +49,7 @@ export default function AboutMissionVision() {
             Our <span className="text-primary italic">Purpose</span>
           </h2>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-            Everything we build at SkillYards is driven by a clear mission and
+            Everything we teach at SkillYards is driven by a clear mission and
             vision — preparing students for real-world careers.
           </p>
         </m.div>

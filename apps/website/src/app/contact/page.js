@@ -26,7 +26,7 @@ export const metadata = buildSEO({
     "Contact SkillYards",
     "SkillYards contact number",
     "SkillYards support",
-    "Online training help",
+    "Training help",
     "SkillYards India",
     "EdTech support India",
   ],

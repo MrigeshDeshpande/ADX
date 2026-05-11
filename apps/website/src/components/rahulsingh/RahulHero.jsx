@@ -4,15 +4,13 @@ import { motion } from "framer-motion";
 import { Linkedin, Twitter, Instagram } from "lucide-react";
 
 const socials = [
-    { icon: Linkedin, url: "#", label: "LinkedIn" },
-    { icon: Twitter, url: "#", label: "Twitter" },
-    { icon: Instagram, url: "#", label: "Instagram" },
-];
+    { icon: Linkedin, url: "https://www.linkedin.com/in/rahulsinghh", label: "LinkedIn" },
+].filter(s => s.url !== "#");
 
 export default function RahulHero() {
     return (
         <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: "easeOut" }}
@@ -38,7 +36,7 @@ export default function RahulHero() {
             {/* Content */}
             <div className="flex-1 text-center md:text-right max-w-xl">
                 <motion.p
-                    initial={{ opacity: 0, x: 20 }}
+                    initial={false}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.2, duration: 0.5 }}
@@ -48,7 +46,7 @@ export default function RahulHero() {
                 </motion.p>
 
                 <motion.h3
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={false}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.3, duration: 0.5 }}
@@ -58,7 +56,7 @@ export default function RahulHero() {
                 </motion.h3>
 
                 <motion.p
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={false}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.4, duration: 0.5 }}
@@ -70,8 +68,9 @@ export default function RahulHero() {
                 </motion.p>
 
                 {/* Social Links */}
+                {socials.length > 0 && (
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={false}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.5, duration: 0.5 }}
@@ -90,6 +89,7 @@ export default function RahulHero() {
                         </a>
                     ))}
                 </motion.div>
+                )}
             </div>
         </motion.div>
     );

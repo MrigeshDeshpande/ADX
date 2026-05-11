@@ -10,14 +10,14 @@ export const revalidate = 86400;
 export const metadata = buildSEO({
     title: "Legal Information | SkillYards",
     description:
-        "Access SkillYards legal information including terms of service, privacy policy, refund policy, and other important guidelines governing our platform and services.",
+        "Access SkillYards legal information including terms of service, privacy policy, refund policy, and other important guidelines for our website and training programs.",
     path: "/legal",
     keywords: [
         "SkillYards legal",
         "SkillYards policies",
         "SkillYards terms and conditions",
         "SkillYards privacy policy",
-        "Online training platform legal information",
+        "IT training institute in Agra policies",
         "SkillYards user policies",
     ],
     ogImage: "/images/opengraph/home-og.jpg",
@@ -34,7 +34,7 @@ const legalPages = [
     {
         title: "Terms of Service",
         description:
-            "Review the terms, responsibilities, and usage conditions that apply when you access SkillYards programs and platform features.",
+            "Review the terms, responsibilities, and usage conditions that apply when you access SkillYards programs and website features.",
         href: "/legal/terms-of-service",
         icon: FileText,
     },
@@ -52,7 +52,7 @@ export default function LegalPage() {
         url: "/legal",
         name: "Legal Information",
         description:
-            "Access SkillYards legal information including terms of service, privacy policy, refund policy, and other important guidelines governing our platform and services.",
+            "Access SkillYards legal information including terms of service, privacy policy, refund policy, and other important guidelines for our website and training programs.",
     });
 
     return (
@@ -71,7 +71,7 @@ export default function LegalPage() {
                                 Policy Overview
                             </p>
                             <h2 className="text-2xl sm:text-3xl font-bold text-foreground leading-tight">
-                                Clear access to the documents that matter before enrollment and while using the platform.
+                                Clear access to the documents that matter before enrollment and while using our website.
                             </h2>
                             <p className="mt-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
                                 This section brings together the core SkillYards policy pages so learners, parents,

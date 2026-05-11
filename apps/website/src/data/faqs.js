@@ -32,7 +32,7 @@ export const faqCategories = {
             },
             {
                 question: "Are the classes online or offline?",
-                answer: "We offer both online and offline (Agra campus) modes of learning. Our offline campus provides direct mentorship, code reviews, and laboratory access.",
+                answer: "We offer completely offline training at our Agra campus. Our institute provides direct mentorship, code reviews, and laboratory access.",
             },
             {
                 question: "Who is eligible to join SkillYards?",
@@ -67,7 +67,7 @@ export const faqCategories = {
             },
             {
                 question: "Is placement actually guaranteed?",
-                answer: "We have a 95% placement rate — which means we actively work to place every eligible student. We don't guarantee a specific salary, but we do guarantee dedicated placement support: resume building, mock interviews, referrals, and direct connections with 180+ hiring partners.",
+                answer: "We have a strong track record of placements — which means we actively work to place every eligible student. We don't guarantee a specific salary, but we do guarantee dedicated placement support: resume building, mock interviews, referrals, and direct connections with 180+ hiring partners.",
             },
             {
                 question: "What are the fee and EMI options?",
@@ -75,7 +75,7 @@ export const faqCategories = {
             },
             {
                 question: "What payment modes are accepted?",
-                answer: "We accept UPI, bank transfer, cash, and debit/credit card at our campus. Online payments can be made via UPI or bank transfer after confirming your seat.",
+                answer: "We accept UPI, bank transfer, cash, and debit/credit card at our campus. Digital payments can be made via UPI or bank transfer after confirming your seat.",
             },
             {
                 question: "Can I switch programs after joining?",
@@ -83,11 +83,11 @@ export const faqCategories = {
             },
             {
                 question: "Are the programs available online?",
-                answer: "BCA and BBA are primarily offline (Agra campus), as they are university degree programs requiring physical attendance. Full-Stack Dev and Digital Marketing are available in hybrid mode (offline classes + recorded access online).",
+                answer: "All our programs are exclusively offline at our Agra campus. We believe in hands-on training to provide the best learning environment and direct mentorship.",
             },
             {
                 question: "What if I miss classes?",
-                answer: "All sessions are recorded and shared with enrolled students. Our mentors also hold weekly doubt-clearing sessions. For degree programs, we follow the university attendance policy (minimum 75% physical attendance required).",
+                answer: "All sessions are recorded and shared with enrolled students. Our mentors also hold weekly doubt-clearing sessions. For degree programs, we follow the university attendance policy (minimum 75% attendance required).",
             },
         ],
     },
@@ -110,10 +110,10 @@ export const faqCategories = {
             },
             {
                 question: "How is this different from just learning on YouTube or Udemy?",
-                answer: "YouTube gives you videos. We give you a mentor who reviews your code, peers who challenge you, real projects with real deadlines, and placement support that includes actual referrals to companies. 95% of people who start a programming tutorial online don't finish it. Our completion rate is the opposite.",
+                answer: "YouTube gives you videos. We give you a mentor who reviews your code, peers who challenge you, real projects with real deadlines, and placement support that includes actual referrals to companies. Most people who start a programming tutorial online alone don't finish it. Our completion rate is significantly higher because of the mentorship and peer environment.",
             },
             {
-                question: "Is placement really 95%? What does that actually mean?",
+                question: "What does your placement support actually mean?",
                 answer: "It means 100% active effort — resume building, mock interviews, referrals to our 180+ hiring partners, and direct introductions where possible. It does not mean we guarantee a specific salary or that a company must hire you. We will work hard to get you placed — but you have to show up hireable.",
             },
             {
@@ -160,20 +160,20 @@ export const faqCategories = {
                 answer: "Yes. Tool access is included during the course — you don't need to subscribe yourself. This includes Ahrefs, SEMrush (or Ubersuggest), Canva Pro, and Google Workspace. These are the same tools working professionals use daily.",
             },
             {
-                question: "Are the campaigns run on real client accounts with real money?",
-                answer: "Yes, from Month 2. You run live Google Ads and Meta Ads campaigns on real client accounts with real budgets and real targets. You'll have actual performance data (ROAS, CPL, impressions) for your portfolio. This is the biggest differentiator of SkillYards training.",
+                question: "Will I get hands-on practice running campaigns during the course?",
+                answer: "You learn campaign execution through mentor-guided practical work — using guided practice setups, sample datasets, and structured exercises designed to reflect real workflows. The focus is hands-on learning and portfolio-ready case work, without making unverifiable claims about live client accounts.",
             },
             {
                 question: "What certifications will I earn?",
-                answer: "During the course we guide you through earning: Google Ads Certification (Search), Google Analytics 4 Certification, Meta Blueprint Certification, and HubSpot Content Marketing Certification. All four are free to take — we just make sure you're prepared and have time built into the schedule.",
+                answer: "We focus on practical training and career preparation. If you choose to pursue any third-party certifications (like Google/Meta/HubSpot), mentors can guide you on what to study and how to prepare, but certification outcomes depend on the provider and your performance.",
             },
             {
                 question: "Is placement guaranteed? What does that actually mean?",
-                answer: "95% of eligible students are placed — meaning we actively work on your behalf: resume building, mock interviews, referrals to 180+ hiring partners, and direct introductions where possible. We don't guarantee a specific salary or force a company to hire you. But we don't stop until you have offers to evaluate.",
+                answer: "We provide dedicated placement support — resume building, mock interviews, and interview preparation. We do not guarantee placements or specific salary outcomes.",
             },
             {
-                question: "Can I freelance after this course? Will SkillYards help me find clients?",
-                answer: "Many graduates do freelance — especially local business owners and homemakers. We cover freelancing setup in Month 4: pricing, proposals, contracts, and client communication. While we don't directly find freelance clients, the skills and portfolio you build make it straightforward to start approaching local businesses.",
+                question: "Can I freelance after this course? Will SkillYards help me get work?",
+                answer: "Some students choose freelancing as a career path. We can cover practical basics like pricing, proposals, and professional communication as part of career preparation. We do not provide paid work; the focus is on building skills and a portfolio that helps you pursue opportunities independently.",
             },
             {
                 question: "Are there evening or weekend batches for working professionals?",
@@ -181,7 +181,7 @@ export const faqCategories = {
             },
             {
                 question: "How is this different from doing a free Google Digital Garage course?",
-                answer: "Google Digital Garage teaches concepts. SkillYards OJT makes you execute them on real accounts, with real budgets, with a mentor watching and correcting your work. The difference between watching a video about running a campaign and actually running one is a job offer.",
+                answer: "Free resources teach concepts. At SkillYards, training is mentor-led and practical — you learn by executing structured assignments, building a portfolio, and getting feedback on your work.",
             },
             {
                 question: "Can small business owners join to grow their own business?",
@@ -204,15 +204,15 @@ export const faqCategories = {
             },
             {
                 question: "Are BCA and BBA degrees university-recognised?",
-                answer: "Yes. Both programs are affiliated with a recognised university. You receive a standard bachelor's degree (BCA or BBA) along with on-job training and industry certifications from SkillYards.",
+                answer: "Yes. Both programs are affiliated with a recognised university. You receive a standard bachelor's degree (BCA or BBA) along with SkillYards' practical training and career support.",
             },
             {
                 question: "Do BCA and BBA programs offer placement support?",
-                answer: "Yes. Both programs include SkillYards' full placement support — resume building, mock interviews, and referrals to our hiring network. Our 95% placement rate applies to degree students too.",
+                answer: "Yes. Both programs include dedicated placement support such as resume building, mock interviews, and interview preparation.",
             },
             {
                 question: "Is attendance mandatory for degree programs?",
-                answer: "Yes. BCA and BBA are primarily offline programs with university attendance requirements. A minimum of 75% physical attendance is required as per university policy.",
+                answer: "Yes. BCA and BBA are primarily offline programs with university attendance requirements. A minimum of 75% attendance is required as per university policy.",
             },
             {
                 question: "Can I do BCA if I'm from an arts or commerce background?",
@@ -220,7 +220,7 @@ export const faqCategories = {
             },
             {
                 question: "What is the OJT (On-Job Training) component in degree programs?",
-                answer: "OJT is SkillYards' signature component where you work on real client projects alongside your academic coursework. This gives degree students practical skills that go beyond the university syllabus and directly supports placement.",
+                answer: "OJT is SkillYards' signature component where you work on mentor-guided practical projects alongside your academic coursework. This helps you build hands-on skills beyond the university syllabus.",
             },
         ],
     },
@@ -243,7 +243,7 @@ export const faqCategories = {
             },
             {
                 question: "What does the placement process look like?",
-                answer: "Placement prep starts from week 1 — resume building, LinkedIn optimisation, and mock interviews. In the final phase, we connect you with our 180+ hiring partners through referrals, on-campus drives, and direct introductions.",
+                answer: "Placement prep starts early — resume building, LinkedIn optimisation, and mock interviews. In the final phase, we support interview preparation and share opportunities where available, without guaranteeing outcomes.",
             },
         ],
     },
@@ -254,7 +254,7 @@ export const faqCategories = {
         faqs: [
             {
                 question: "Is the skill test really free?",
-                answer: "Yes, completely free. There is no payment, no subscription, and no catch. You take the test, get your score, and receive a certificate — all at zero cost.",
+                answer: "Yes, completely free. There is no payment, no subscription, and no catch. You take the test and get your score at zero cost.",
             },
             {
                 question: "How long does the test take?",

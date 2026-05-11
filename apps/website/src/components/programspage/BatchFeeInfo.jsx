@@ -5,46 +5,9 @@ import { CalendarDays, IndianRupee, CreditCard, Users } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-const batches = [
-  {
-    program: "BCA",
-    nextBatch: "July 2026",
-    duration: "3 Years",
-    fee: "Contact us",
-    emi: true,
-    seatsLeft: 12,
-    href: "/contact",
-  },
-  {
-    program: "BBA",
-    nextBatch: "July 2026",
-    duration: "3 Years",
-    fee: "Contact us",
-    emi: true,
-    seatsLeft: 10,
-    href: "/contact",
-  },
-  {
-    program: "Full-Stack Dev",
-    nextBatch: "April 2026",
-    duration: "6 Months",
-    fee: "Starting ₹25,000",
-    emi: true,
-    seatsLeft: 8,
-    href: "/contact",
-  },
-  {
-    program: "Digital Marketing",
-    nextBatch: "April 2026",
-    duration: "3 Months",
-    fee: "Starting ₹15,000",
-    emi: true,
-    seatsLeft: 15,
-    href: "/contact",
-  },
-];
+export default function BatchFeeInfo({ batches = [] }) {
+  if (!batches || batches.length === 0) return null;
 
-export default function BatchFeeInfo() {
   return (
     <section className="bg-card/20 py-20">
       <div className="mx-auto max-w-7xl px-6">
@@ -90,20 +53,22 @@ export default function BatchFeeInfo() {
                 </div>
                 <div className="flex items-center gap-2 text-muted-foreground">
                   <CreditCard size={14} className="text-primary shrink-0" />
-                  <span>EMI: <strong className="text-green-600 dark:text-green-400">{b.emi ? "Available" : "Not available"}</strong></span>
+                  <span>EMI: <strong className="text-green-600 dark:text-green-400">{b.emiAvailable ? "Available" : "Not available"}</strong></span>
                 </div>
-                <div className="flex items-center gap-2 text-muted-foreground">
-                  <Users size={14} className="text-primary shrink-0" />
-                  <span>
-                    Seats left:{" "}
-                    <strong className={b.seatsLeft <= 10 ? "text-red-500" : "text-foreground"}>
-                      {b.seatsLeft} only
-                    </strong>
-                  </span>
-                </div>
+                {b.seatsLeft !== undefined && b.seatsLeft !== null && (
+                  <div className="flex items-center gap-2 text-muted-foreground">
+                    <Users size={14} className="text-primary shrink-0" />
+                    <span>
+                      Seats left:{" "}
+                      <strong className={b.seatsLeft <= 10 ? "text-red-500" : "text-foreground"}>
+                        {b.seatsLeft} only
+                      </strong>
+                    </span>
+                  </div>
+                )}
               </div>
 
-              {b.seatsLeft <= 10 && (
+              {b.seatsLeft !== undefined && b.seatsLeft !== null && b.seatsLeft <= 10 && (
                 <div className="mb-3 rounded-full bg-red-50 px-3 py-1 text-center text-xs font-bold text-red-600 dark:bg-red-950/30 dark:text-red-400">
                   Only {b.seatsLeft} seats remaining!
                 </div>
@@ -114,7 +79,7 @@ export default function BatchFeeInfo() {
                 size="sm"
                 className="mt-auto w-full rounded-full bg-primary text-primary-foreground font-bold transition-all hover:bg-primary/90"
               >
-                <Link href={b.href}>Reserve My Seat</Link>
+                <Link href={b.ctaLink || "/contact"}>Reserve My Seat</Link>
               </Button>
             </motion.div>
           ))}

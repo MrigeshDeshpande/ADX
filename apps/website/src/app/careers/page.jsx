@@ -21,7 +21,7 @@ export const metadata = buildSEO({
     "SkillYards careers",
     "Jobs at SkillYards",
     "EdTech jobs India",
-    "Online teaching jobs",
+    "Teaching jobs",
     "IT trainer jobs",
     "SkillYards hiring",
   ],

@@ -37,14 +37,14 @@ const ProgramsShowcase = () => {
         },
         {
             title: "BCA Program",
-            description: "3-year university degree in Computer Applications with on-job training and 95% placement support.",
+            description: "3-year university degree in Computer Applications with on-job training and dedicated placement support.",
             link: "/bca-training-program-in-agra",
             icon: <GraduationCap className="w-6 h-6 md:w-8 md:h-8 text-orange-400" />,
             bg: "url('/images/programmes/bca.jpg')",
         },
         {
             title: "BBA Program",
-            description: "3-year business degree with digital marketing specialisation, live projects and industry certifications.",
+            description: "3-year business degree with digital marketing specialisation, live projects and dedicated placement support.",
             link: "/bba-training-program-in-agra",
             icon: <BarChart2 className="w-6 h-6 md:w-8 md:h-8 text-red-400" />,
             bg: "url('/images/programmes/mca.jpg')",

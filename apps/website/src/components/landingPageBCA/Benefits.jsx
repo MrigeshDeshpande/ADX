@@ -9,17 +9,17 @@ export const BCABenefits = () => {
     {
       image: "/images/benefits/career-growth-flat.webp",
       title: "Career Growth",
-      description: "Our graduates see an average salary increase of 45% within the first year of completion."
+      description: "Career-focused learning with practical projects, portfolio building, and mentor guidance."
     },
     {
       image: "/images/benefits/industry-certified-flat.webp",
-      title: "Industry Certified",
-      description: "Curriculum designed and certified by top tech companies and global software firms."
+      title: "Project-Based Training",
+      description: "Learn through hands-on assignments and mentor-guided projects aligned to real-world workflows."
     },
     {
       image: "/images/benefits/fast-track-flat.webp",
       title: "Fast-Track Learning",
-      description: "Intensive modules designed to get you job-ready in record time without compromising quality."
+      description: "Structured modules that focus on clarity, practice, and consistent progress — without hype or unrealistic promises."
     }
   ];
 
@@ -31,7 +31,7 @@ export const BCABenefits = () => {
             Why Choose SkillYards BCA?
           </h2>
           <p className="text-muted-foreground text-sm sm:text-base md:text-lg max-w-4xl mx-auto mt-4">
-            We provide more than just education. We provide a launchpad for your technology career.
+            SkillYards is an IT training institute in Agra focused on practical learning and career preparation.
           </p>
         </div>
 

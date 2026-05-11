@@ -32,15 +32,13 @@ const programs = {
       { icon: "🗄️", title: "Databases", desc: "MySQL, MongoDB, and query optimization. Design systems that scale." },
       { icon: "☁️", title: "Cloud & DevOps", desc: "AWS basics, Docker, CI/CD. Skills every modern dev team wants." },
       { icon: "🔐", title: "Cybersecurity Basics", desc: "OWASP fundamentals, secure coding practices, network security." },
-      { icon: "📜", title: "Industry Certifications", desc: "Verified certifications alongside your BCA degree." },
+      { icon: "📜", title: "Career Preparation", desc: "Project work, portfolio building, interview preparation, and mentor guidance." },
     ],
     quickWins: [
       "Build and deploy a full-stack web application",
       "Create a GitHub portfolio employers notice",
-      "Contribute to live company projects during training",
       "Clear technical interviews with confidence",
-      "Graduate with 3 years of CV-ready experience",
-      "Earn a stipend while you study",
+      "Graduate with strong project experience",
     ],
   },
   bba: {
@@ -48,20 +46,18 @@ const programs = {
     full: "Bachelor of Business Administration",
     tagline: "Business Careers — Marketing, Sales & Management",
     outcomes: [
-      { icon: "📊", title: "Digital Marketing", desc: "SEO, Meta Ads, Google Ads, email marketing. Run real campaigns for real businesses." },
+      { icon: "📊", title: "Digital Marketing", desc: "SEO, Meta Ads, Google Ads, email marketing. Learn execution through mentor-guided practical work." },
       { icon: "💰", title: "Finance & Accounting", desc: "Financial statements, budgeting, Tally, GST. The numbers side every business needs." },
       { icon: "🤝", title: "Sales & Business Development", desc: "B2B and B2C sales, CRM tools, and closing deals." },
       { icon: "📈", title: "Business Strategy", desc: "Market analysis, competitive positioning, growth frameworks." },
       { icon: "🌐", title: "E-Commerce & Startups", desc: "How modern businesses are built — product, ops, customer acquisition, scaling." },
-      { icon: "📜", title: "Industry Certifications", desc: "Google, HubSpot, and Meta certifications alongside your BBA degree." },
+      { icon: "📜", title: "Career Preparation", desc: "Project work, presentations, communication, and mentor guidance." },
     ],
     quickWins: [
-      "Manage a live social media account with real results",
-      "Run a Google Ads campaign from strategy to reporting",
-      "Handle real client accounts during on-job training",
+      "Build portfolio-ready campaign plans and reports",
+      "Practice campaign setup, tracking, and reporting workflows",
       "Build and present a business plan to industry mentors",
-      "Graduate with a portfolio of measurable business outcomes",
-      "Earn a stipend while you study",
+      "Graduate with a strong portfolio of practical work",
     ],
   },
 };
@@ -89,13 +85,13 @@ const comparisonRows = [
     icon: Trophy,
     aspect: "Placement",
     traditional: "Campus placement drives with no guaranteed outcomes.",
-    skillyards: "100% placement assistance. We don't stop until you're hired.",
+    skillyards: "Dedicated placement support with resume building, mock interviews, and career guidance.",
   },
   {
     icon: Check,
     aspect: "Skills Taught",
     traditional: "Outdated syllabus. Theory heavy. Rarely updated.",
-    skillyards: "Industry-current tools, live projects, certifications. Updated every semester.",
+    skillyards: "Industry-current tools and practical projects. Updated regularly.",
   },
   {
     icon: Check,
@@ -108,16 +104,16 @@ const comparisonRows = [
 const testimonials = [
   {
     name: "Ankit Sharma",
-    role: "Software Engineer @ TCS",
+    role: "BCA Student",
     program: "BCA",
-    quote: "I graduated with 3 years of actual experience. My interviewers were surprised — most fresh BCA grads can't explain a database join. I could. I had used them in production.",
-    outcome: "Placed at TCS",
+    quote: "The practical projects helped me understand how to explain my work clearly in interviews — especially databases and backend basics.",
+    outcome: "Career preparation support",
   },
   {
     name: "Priya Singh",
-    role: "Digital Marketing Executive @ Agency, Delhi",
+    role: "BBA Student",
     program: "BBA",
-    quote: "I had run real Google Ads campaigns before I even graduated. My first interview was basically me showing my work. I got the offer the same day.",
+    quote: "The mentor feedback on my assignments and reports helped me build confidence and a portfolio I could present during interviews.",
     outcome: "Hired same day",
   },
   {
@@ -136,26 +132,25 @@ const testimonials = [
   },
   {
     name: "Rohan Verma",
-    role: "SDE-1 @ Wipro",
+    role: "BCA Student",
     program: "BCA",
-    quote: "My friends from a regular BCA college struggled 6 months after graduation. I had an offer before my final exams.",
-    outcome: "Offer before finals",
+    quote: "The practical projects and mentor feedback helped me build confidence and a portfolio I could explain clearly.",
+    outcome: "Project-based learning",
   },
   {
     name: "Sakshi Sharma",
-    role: "Marketing Analyst @ E-Commerce Company",
+    role: "BBA Student",
     program: "BBA",
-    quote: "The free laptop, the real client work, the certifications — everything was designed to make you hireable. Not just degree-able.",
-    outcome: "Placed in 3 weeks",
+    quote: "The mentor-guided assignments and presentations helped me understand how to communicate my work professionally.",
+    outcome: "Career preparation",
   },
 ];
 
 const faqs = [
   { q: "Is the degree recognized by UGC / universities?", a: "Yes. Both BCA and BBA degrees are from a recognized university, valid for higher education and government jobs exactly like any other UG degree." },
-  { q: "What is on-job training exactly?", a: "From semester 1, you work on real projects with real companies under mentorship. It's structured like an internship built into your degree — not tacked on after." },
-  { q: "Is the laptop really free?", a: "Yes. A laptop is provided at enrollment as part of the program. No hidden charges, no EMI for the device." },
-  { q: "Which program should I choose — BCA or BBA?", a: "BCA is for you if you're drawn to technology, coding, and building software. BBA is for you if you're drawn to business, marketing, sales, or management. Both give you the same degree structure, free laptop, and on-job training." },
-  { q: "Is there a stipend during training?", a: "During on-job training phases, students can earn stipends from the companies they work with. Amounts vary by company and role." },
+  { q: "What is on-job training exactly?", a: "It means practical, mentor-guided project work alongside your degree curriculum — focused on skills, portfolio building, and career preparation." },
+  { q: "Is the laptop really free?", a: "Please confirm current laptop availability and terms with the admissions team during counseling. We avoid making time-sensitive promises on the website." },
+  { q: "Which program should I choose — BCA or BBA?", a: "BCA is for you if you're drawn to technology, coding, and building software. BBA is for you if you're drawn to business, marketing, sales, or management." },
   { q: "What if I'm not sure which stream to pick?", a: "Book a free career counseling session on WhatsApp. We'll talk through your interests and help you decide — no pressure." },
 ];
 
@@ -165,7 +160,7 @@ function Hero({ active, setActive }) {
   const heroPills = [
     { icon: <Laptop size={12} />, label: "Free Laptop Included", cls: "bg-[#dc2626] text-white shadow-lg shadow-[#dc2626]/25" },
     { icon: <Clock size={12} />, label: "3 Years Program", cls: "bg-[#f97316] text-white shadow-lg shadow-[#f97316]/25" },
-    { icon: <Calendar size={12} />, label: "Apply by May end: Seats closing fast", cls: "border border-white/10 bg-white/8 text-slate-100 backdrop-blur" },
+    { icon: <Calendar size={12} />, label: "Admissions via counseling", cls: "border border-white/10 bg-white/8 text-slate-100 backdrop-blur" },
   ];
   const [heroTimer, setHeroTimer] = useState(HERO_TIMER_DURATION);
 

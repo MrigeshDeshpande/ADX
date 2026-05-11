@@ -17,7 +17,7 @@ const steps = [
     number: "02",
     icon: PhoneCall,
     title: "Attend Demo + Ask Questions",
-    desc: "Our mentor teaches a live session. You see exactly what the next 6 months will look like. If it feels right, move forward.",
+    desc: "Our mentor teaches a trial class. You see exactly what the next 6 months will look like. If it feels right, move forward.",
     action: null,
   },
   {

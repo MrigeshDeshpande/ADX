@@ -33,7 +33,7 @@ export default function AboutSection() {
                     <div className="flex flex-col justify-center space-y-6">
                         <LazyMotion features={domAnimation}>
                         <m.div
-                            initial={{ opacity: 0, y: 10 }}
+                            initial={false}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 w-fit"
@@ -58,7 +58,7 @@ export default function AboutSection() {
                             {[
                                 "Industry Mentorship",
                                 "Project-Based Learning",
-                                "100% Placement Support",
+                                "Dedicated Placement Support",
                                 "Modern Tech Stack"
                             ].map((feature, idx) => (
                                 <div key={idx} className="flex items-center gap-2">

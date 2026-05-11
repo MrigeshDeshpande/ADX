@@ -5,7 +5,7 @@ import { Clock, Monitor, GraduationCap, Users, Calendar, BadgeCheck, Briefcase, 
 
 const facts = [
   { icon: Clock, label: "Duration", value: "4 Months" },
-  { icon: Monitor, label: "Mode", value: "Hybrid (Offline + Online)" },
+  { icon: Monitor, label: "Mode", value: "Offline (Agra Campus)" },
   { icon: GraduationCap, label: "Eligibility", value: "12th pass or any graduate any background" },
   { icon: Users, label: "Batch Size", value: "Max 20 students" },
   { icon: Calendar, label: "Schedule", value: "Weekday & Weekend batches" },

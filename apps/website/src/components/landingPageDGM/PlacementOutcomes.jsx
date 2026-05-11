@@ -8,25 +8,25 @@ const alumni = [
     name: "Priya Sharma",
     before: "BCom graduate, was working at a retail shop no digital skills",
     role: "Digital Marketing Executive",
-    company: "Brandify Solutions",
-    package: "₹3.6 LPA",
-    quote: "I ran a real Google Ads campaign for a local business during Month 2. I had actual numbers CPL, ROAS, impressions to show in my interview. That's what got me the job. No other institute gives you this.",
+    company: "Student outcome",
+    package: "—",
+    quote: "The practical assignments and mentor feedback helped me build confidence and a portfolio I could explain clearly in interviews.",
   },
   {
     name: "Pooja Agarwal",
     before: "Homemaker for 5 years, wanted to restart her career from home",
     role: "Freelance Social Media Manager",
-    company: "3 clients (self-employed)",
-    package: "₹40,000/month",
-    quote: "I wasn't looking for a job I wanted to work from home on my own terms. SkillYards taught me how to pitch, price, and deliver. Within 2 months of graduating I had my first paying client.",
+    company: "Student outcome",
+    package: "—",
+    quote: "The training helped me learn the basics of pitching, reporting, and communicating work professionally.",
   },
   {
     name: "Rahul Bansal",
     before: "Family runs a clothing business in Agra wanted to grow it online",
     role: "Head of Digital Marketing",
     company: "Family Business (self)",
-    package: "Business 3x in revenue",
-    quote: "I joined to learn Instagram Ads for my family's shop. By Month 4 I was running proper campaigns and our online sales had tripled. The ROI on this course was immediate and measurable.",
+    package: "—",
+    quote: "The practical projects helped me understand content planning, ads concepts, and reporting workflows.",
   },
 ];
 
@@ -54,17 +54,16 @@ export function DGMPlacementOutcomes() {
                 Placement & Outcomes
               </motion.div>
               <h2 className="font-serif text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-                Jobs. Clients. Business Growth.{" "}
-                <span className="italic text-primary">All Three Work.</span>
+                Dedicated placement support and career preparation.
               </h2>
             </div>
 
             <div className="mb-12 grid grid-cols-2 gap-5 rounded-3xl border border-border bg-card p-6 shadow-sm sm:grid-cols-4">
               {[
-                { value: "95%", label: "Placement Rate" },
-                { value: "₹3.8 LPA", label: "Avg. Starting Package" },
-                { value: "< 45 days", label: "Median Time to First Offer" },
-                { value: "180+", label: "Hiring Partners" },
+                { value: "Dedicated", label: "Placement Support" },
+                { value: "Portfolio", label: "Practical Projects" },
+                { value: "Mentors", label: "Guided Learning" },
+                { value: "Preparation", label: "Interview Readiness" },
               ].map((s, i) => (
                 <motion.div key={i} initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="text-center">
                   <p className="text-2xl font-extrabold text-primary sm:text-3xl">{s.value}</p>

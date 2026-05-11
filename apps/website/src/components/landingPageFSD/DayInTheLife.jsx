@@ -7,8 +7,8 @@ const schedule = [
   {
     time: "10:00 AM",
     icon: Sun,
-    title: "Live Class",
-    desc: "Mentor codes live you follow along. Concept + implementation in one session. No slides, no lectures.",
+    title: "In-Person Class",
+    desc: "Mentor codes in front of you, and you follow along. Concept + implementation in one session. No slides, no lectures.",
     color: "bg-yellow-500",
   },
   {

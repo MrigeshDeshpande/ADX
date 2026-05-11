@@ -65,7 +65,7 @@ export default function TeamPage() {
 
                 <TeamSection
                     title="Product & Engineering"
-                    subtitle="Architecting the platforms and curriculums."
+                    subtitle="Architecting the curriculums and infrastructure."
                     members={engineeringTeam}
                     featured={false}
                 />

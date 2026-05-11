@@ -17,7 +17,7 @@ const paths = [
       { title: "Content Marketing Executive", salary: "₹3–4 LPA" },
       { title: "Digital Marketing Manager (2–3 yrs)", salary: "₹8–15 LPA" },
     ],
-    note: "In-house at a brand, or at a digital marketing agency. Structured career ladder with clear growth path.",
+    note: "In-house at a brand or in a marketing team. Structured career ladder with clear growth path.",
   },
   {
     icon: Laptop,
@@ -38,10 +38,10 @@ const paths = [
     color: "border-purple-400/30 bg-purple-50/50 dark:bg-purple-950/10",
     iconBg: "bg-purple-500",
     roles: [
-      { title: "Start a digital marketing agency", salary: "Unlimited upside" },
+      { title: "Start a small marketing practice", salary: "Depends on work" },
       { title: "Grow your own e-commerce / D2C brand", salary: "Depends on product" },
       { title: "Scale your family business online", salary: "Business growth" },
-      { title: "Run paid ads for local Agra businesses", salary: "₹10K–50K/month per client" },
+      { title: "Run paid ads for local Agra businesses", salary: "Depends on work" },
     ],
     note: "Many SkillYards graduates use this course to grow their family shop or local business online before even looking for a job.",
   },

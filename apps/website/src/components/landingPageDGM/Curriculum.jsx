@@ -10,7 +10,7 @@ const months = [
     title: "Digital Foundations & SEO",
     hours: "~30 hrs/week",
     color: "bg-blue-500",
-    cert: "Google Analytics 4 Certification",
+    cert: "Practical portfolio work",
     topics: [
       "Digital marketing overview & strategy",
       "WordPress website setup & management",
@@ -20,14 +20,14 @@ const months = [
       "Google Analytics 4 tracking & reporting",
       "Keyword research (Ubersuggest, Ahrefs basics)",
     ],
-    builds: "A live website ranked for at least one target keyword with GSC data as proof",
+    builds: "A practice website + SEO audit checklist + reporting exercise",
   },
   {
     month: "Month 2",
     title: "Paid Advertising Google & Meta",
     hours: "~35 hrs/week",
     color: "bg-orange-500",
-    cert: "Google Ads Certification + Meta Blueprint",
+    cert: "Practical portfolio work",
     topics: [
       "Google Ads Search, Display, Shopping campaigns",
       "Campaign structure, ad groups & match types",
@@ -37,14 +37,14 @@ const months = [
       "A/B testing ads and landing pages",
       "Conversion tracking with Google Tag Manager",
     ],
-    builds: "A live Google Ads + Meta Ads campaign on a real client account with real budget",
+    builds: "A mentor-guided ads practice project: structure, tracking plan, and reporting template",
   },
   {
     month: "Month 3",
     title: "Social Media & Content Marketing",
     hours: "~35 hrs/week",
     color: "bg-pink-500",
-    cert: "HubSpot Content Marketing Certification",
+    cert: "Practical portfolio work",
     topics: [
       "Social media strategy Instagram, LinkedIn, YouTube",
       "Content calendar creation & scheduling",
@@ -54,24 +54,24 @@ const months = [
       "Brand voice & storytelling",
       "Canva Pro for content design",
     ],
-    builds: "A 30-day executed social campaign for a real brand with follower & engagement data",
+    builds: "A 30-day content plan + creative set + reporting exercise",
   },
   {
     month: "Month 4",
-    title: "Analytics, Strategy & Client Work",
+    title: "Analytics, Strategy & Practical Projects",
     hours: "~40 hrs/week",
     color: "bg-green-500",
-    cert: "Portfolio of live campaign case studies",
+    cert: "Portfolio of practical case work",
     topics: [
       "Advanced Google Analytics 4",
       "Google Looker Studio reporting dashboards",
       "Full-funnel marketing strategy",
-      "Client presentation & communication skills",
-      "Agency workflow & project management",
-      "Freelancing setup pricing, proposals, contracts",
+      "Presentation & communication skills",
+      "Project workflow & documentation",
+      "Freelancing basics (optional): pricing and proposals",
       "Interview preparation & LinkedIn optimisation",
     ],
-    builds: "A complete digital marketing audit + strategy document for a real client presented live",
+    builds: "A complete audit + strategy document presented as a mentor-reviewed project",
   },
 ];
 
@@ -95,7 +95,7 @@ export function DGMCurriculum() {
                 4 Months. <span className="italic text-primary">One Complete Marketer.</span>
               </h2>
               <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-                Each month ends with a real deliverable not a quiz. Results you can show employers.
+                Each month ends with practical project deliverables and mentor feedback.
               </p>
             </div>
 

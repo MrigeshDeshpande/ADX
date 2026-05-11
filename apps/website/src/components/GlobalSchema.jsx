@@ -4,11 +4,11 @@ export const globalSchema = {
 
     "@id": "https://www.skillyards.in/#organization",
 
-    "name": "SkillYards | Learn, Train & Certify in Agra, India",
+    "name": "SkillYards – IT Training Institute in Agra",
     "url": "https://www.skillyards.in",
 
     "description":
-        "SkillYards is a next-generation learning and certification platform based in Agra, India. We empower students, professionals, and institutions with modern skill development, industry-aligned training, and verified certifications.",
+        "SkillYards is an IT training institute in Agra offering project-based BCA, BBA, full-stack development, digital marketing, and career-focused training programs.",
 
     "image": {
         "@type": "ImageObject",

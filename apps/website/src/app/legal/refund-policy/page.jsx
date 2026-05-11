@@ -16,7 +16,7 @@ export const metadata = buildSEO({
         "SkillYards Refund Policy",
         "Refund Policy SkillYards",
         "Course refund terms",
-        "Online training refunds",
+        "Training refunds",
         "EdTech refund policy India",
         "SkillYards cancellations",
     ],
@@ -64,7 +64,7 @@ const sections = [
                 <ul className="mt-4 space-y-2">
                     {[
                         "Duplicate payment made for the same course or program",
-                        "Technical issues on our platform that prevent access to the purchased content and cannot be resolved by our support team",
+                        "Technical issues on our website that prevent access to the purchased content and cannot be resolved by our support team",
                         "Cancellation of a program or batch by SkillYards",
                     ].map((item) => (
                         <li key={item} className="flex gap-3">

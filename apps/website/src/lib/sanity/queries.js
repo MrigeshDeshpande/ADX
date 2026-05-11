@@ -63,3 +63,15 @@ export const POSTS_BY_TAG_QUERY = `
   }
 }
 `;
+
+export const BATCHES_QUERY = `
+*[_type == "batch"] | order(order asc){
+  program,
+  nextBatch,
+  duration,
+  fee,
+  emiAvailable,
+  seatsLeft,
+  ctaLink
+}
+`;

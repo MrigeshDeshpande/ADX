@@ -16,7 +16,7 @@ export const TEAM_MEMBERS = {
         id: "suryansh-upadhyay",
         name: "Suryansh Upadhyay",
         role: "CEO",
-        bio: "Transforming Education & Training by driving product strategy and ensuring we deliver immense value to our students and industry partners alike.",
+        bio: "Focused on building SkillYards as a practical, career-focused IT training institute in Agra for students after 12th or graduation.",
         image: "/images/team/suryanshSir.webp",
         badge: "Leadership",
         socials: {
@@ -67,7 +67,7 @@ export const TEAM_MEMBERS = {
         id: "kaushal-parihar",
         name: "Kaushal Parihar",
         role: "Field Sales Executive",
-        bio: "Sales on the move, results on target. Drives physical outreach and builds enterprise partnerships.",
+        bio: "Supports student outreach and helps learners understand programs, batches, and admissions.",
         image: "/images/team/KaushalSIr.webp",
         badge: "Ops",
         socials: {
@@ -108,7 +108,7 @@ export const TEAM_MEMBERS = {
         id: "saurabh-verma",
         name: "Saurabh Verma",
         role: "Business Development Associate",
-        bio: "Selling solutions, not just products. Connects learners with the exact programs they need to succeed.",
+        bio: "Helps students choose the right program based on goals, background, and career interests.",
         image: "/images/team/Saurav.webp",
         socials: {
             linkedin: "https://linkedin.com",

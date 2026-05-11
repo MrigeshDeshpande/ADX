@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useMemo } from "react";
 import { urlFor } from "@/lib/sanity/image";
+import Link from "next/link";
 
 const AVATAR_PALETTES = [
   { bg: "bg-[#FAEEDA]", text: "text-[#633806]" },
@@ -111,7 +112,6 @@ const BlogCard = ({ post, searchQuery }) => {
 
   return (
     <article
-      onClick={goToPost}
       style={{ "--tilt": `${tiltAngle}deg` }}
       onMouseEnter={(e) => {
         e.currentTarget.style.transform = `rotate(${
@@ -121,8 +121,14 @@ const BlogCard = ({ post, searchQuery }) => {
       onMouseLeave={(e) => {
         e.currentTarget.style.transform = `rotate(${tiltAngle}deg)`;
       }}
-      className="group relative cursor-pointer select-none flex flex-col gap-[14px] bg-white dark:bg-[#1c1c1a] border border-black/[0.08] dark:border-white/[0.08] rounded-sm p-[10px] pb-5 shadow-[2px_3px_10px_rgba(0,0,0,0.10)] dark:shadow-[2px_3px_16px_rgba(0,0,0,0.45)] transition-all duration-500 ease-[cubic-bezier(0.35,0.13,0,0.99)] hover:z-10 hover:shadow-[6px_16px_32px_rgba(0,0,0,0.16)]"
+      className="group relative select-none flex flex-col gap-[14px] bg-white dark:bg-[#1c1c1a] border border-black/[0.08] dark:border-white/[0.08] rounded-sm p-[10px] pb-5 shadow-[2px_3px_10px_rgba(0,0,0,0.10)] dark:shadow-[2px_3px_16px_rgba(0,0,0,0.45)] transition-all duration-500 hover:z-10 hover:shadow-[6px_16px_32px_rgba(0,0,0,0.16)] cursor-pointer"
     >
+      <Link 
+        href={`/blog/${slug}`}
+        className="absolute inset-0 z-0"
+        aria-label={`Read more about ${title}`}
+      />
+
       <div
         aria-hidden="true"
         className={`absolute -top-[9px] left-1/2 -translate-x-1/2 z-10 w-4 h-4 rounded-full border-2 border-white dark:border-[#1c1c1a] shadow-md ${pinClass}`}
@@ -178,12 +184,12 @@ const BlogCard = ({ post, searchQuery }) => {
             />
           </span>
 
-          <div className="flex gap-1 ml-auto">
+          <div className="flex gap-1 ml-auto relative z-10">
             {tags.map((tag) => (
               <button
                 key={tag.slug}
                 onClick={(e) => goToTag(e, tag.slug)}
-                className="text-[9px] px-1.5 py-0.5 rounded-full border border-black/10 dark:border-white/10 text-[#5f5e5a] hover:text-[#2c2c2a] dark:hover:text-white transition-colors"
+                className="text-[9px] px-1.5 py-0.5 rounded-full border border-black/10 dark:border-white/10 text-[#5f5e5a] hover:text-[#2c2c2a] dark:hover:text-white transition-colors bg-white/50 dark:bg-black/20 backdrop-blur-sm"
               >
                 {tag.title}
               </button>

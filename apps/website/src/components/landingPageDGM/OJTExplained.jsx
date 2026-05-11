@@ -6,13 +6,13 @@ import { IndianRupee, BarChart2, Wrench, FileBarChart, CheckCircle, X } from "lu
 const points = [
   {
     icon: IndianRupee,
-    title: "Real ad budgets. Real client accounts. From Month 2.",
-    desc: "Students don't practice on dummy accounts. From Month 2, you manage real Google Ads and Meta Ads campaigns on actual client accounts with real money and real targets.",
+    title: "Mentor-guided campaign practice from Month 2",
+    desc: "You learn campaign execution through structured, mentor-guided practical work designed to reflect real workflows — focused on skills, process, and measurable learning outcomes.",
   },
   {
     icon: BarChart2,
     title: "Your portfolio is campaign performance data not screenshots",
-    desc: "When you graduate, you don't show a certificate. You show a recruiter actual numbers: impressions, clicks, ROAS, SEO rankings. Specific. Measurable. Verifiable.",
+    desc: "You build portfolio-ready case work: campaign plans, audits, reports, and learn how to read performance metrics clearly and confidently.",
   },
   {
     icon: Wrench,
@@ -21,18 +21,18 @@ const points = [
   },
   {
     icon: FileBarChart,
-    title: "Month 4 is client work not more theory",
-    desc: "Your final month is dedicated to real client strategy a full digital marketing audit and a live campaign for a local Agra business or SkillYards brand.",
+    title: "Month 4 is practical projects, not just theory",
+    desc: "Your final month is dedicated to practical project work: audits, content planning, campaign simulations, reporting exercises, and mentor feedback.",
   },
 ];
 
 const reality = [
-  { text: "You run campaigns on real Google Ads and Meta accounts", yes: true },
-  { text: "You track real SEO rankings moving week by week", yes: true },
-  { text: "You present campaign reports to real clients", yes: true },
+  { text: "You execute mentor-guided practical campaign work", yes: true },
+  { text: "You learn reporting, analysis, and optimization workflows", yes: true },
+  { text: "You practice presenting your work with mentor feedback", yes: true },
   { text: "You use the same tools working marketers use daily", yes: true },
-  { text: "You watch videos and take a quiz to get a certificate", yes: false },
-  { text: "You practice on demo accounts with zero ad spend", yes: false },
+  { text: "You only watch videos and take quizzes", yes: false },
+  { text: "You do only theory without hands-on work", yes: false },
 ];
 
 export function DGMOJTExplained() {
@@ -53,7 +53,7 @@ export function DGMOJTExplained() {
                 <span className=" text-primary">We Make You Run an SEO Campaign</span>
               </h2>
               <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
-                The difference between knowing digital marketing and doing digital marketing is a job offer.
+                Mentor-led practical training focused on skills, projects, and career preparation.
               </p>
             </div>
 

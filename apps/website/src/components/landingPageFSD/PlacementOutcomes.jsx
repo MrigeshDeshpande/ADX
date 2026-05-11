@@ -61,7 +61,7 @@ export function FSDPlacementOutcomes() {
             {/* Stats */}
             <div className="mb-12 grid grid-cols-2 gap-5 rounded-3xl border border-border bg-card p-6 shadow-sm sm:grid-cols-4">
               {[
-                { value: "95%", label: "Placement Rate" },
+                { value: "Dedicated", label: "Placement Support" },
                 { value: "₹4.5 LPA", label: "Average Package" },
                 { value: "< 60 days", label: "Median Time to First Offer" },
                 { value: "180+", label: "Hiring Partners" },

@@ -37,7 +37,7 @@ const sections = [
                 <ul className="mt-4 space-y-3">
                     {[
                         { label: "Personal Information", desc: "Name, email address, phone number, educational background, and other details you provide during registration, enrollment, or communication." },
-                        { label: "Usage Data", desc: "Pages visited, time spent on our platform, interactions with content, and technical data such as browser type and device information." },
+                        { label: "Usage Data", desc: "Pages visited, time spent on our website, interactions with content, and technical data such as browser type and device information." },
                         { label: "Payment Information", desc: "Payment-related details are processed securely by trusted third-party payment gateways. SkillYards does not store your card or banking information." },
                     ].map((item) => (
                         <li key={item.label} className="flex gap-3">
@@ -87,7 +87,7 @@ const sections = [
         content: (
             <div className="space-y-3">
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                    SkillYards uses cookies and similar technologies to enhance your browsing experience. Cookies help us understand how users interact with our platform, remember preferences, and improve performance.
+                    SkillYards uses cookies and similar technologies to enhance your browsing experience. Cookies help us understand how users interact with our website, remember preferences, and improve performance.
                 </p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                     You can manage or disable cookies through your browser settings. However, disabling cookies may affect certain features of the website.
@@ -107,7 +107,7 @@ const sections = [
                 </p>
                 <ul className="mt-4 space-y-2">
                     {[
-                        "With trusted service providers who assist us in operating our platform",
+                        "With trusted service providers who assist us in operating our website",
                         "When required by law, regulation, or legal process",
                         "To protect the rights, safety, and integrity of SkillYards and its users",
                     ].map((item) => (
@@ -154,7 +154,7 @@ const sections = [
         title: "Third-Party Links",
         content: (
             <p className="text-sm text-muted-foreground leading-relaxed">
-                Our platform may contain links to third-party websites or services. SkillYards is not responsible for the privacy practices or content of these external platforms. We encourage you to review their privacy policies separately.
+                Our website may contain links to third-party websites or services. SkillYards is not responsible for the privacy practices or content of these external websites. We encourage you to review their privacy policies separately.
             </p>
         ),
     },
@@ -217,7 +217,7 @@ export default function PrivacyPolicyPage() {
             <JsonLd data={webPageSchema} id="privacy-policy-schema" />
             <PageHero
                 title="Privacy Policy"
-                description="This Privacy Policy explains how SkillYards collects, uses, protects, and shares your personal information when you use our website, services, and digital platforms."
+                description="This Privacy Policy explains how SkillYards collects, uses, protects, and shares your personal information when you use our website, services, and digital offerings."
             />
 
             <div className="bg-background">

@@ -35,8 +35,8 @@ const coreValues = [
     icon: ShieldCheck,
   },
   {
-    title: "Live Interactive Classes",
-    description: "Participate in live sessions with experts ask questions and gain insights.",
+    title: "In-Person Interactive Classes",
+    description: "Participate in classroom sessions with experts, ask questions, and gain insights.",
     icon: Video,
   },
   {

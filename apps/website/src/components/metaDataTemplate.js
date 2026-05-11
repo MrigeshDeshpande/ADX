@@ -8,11 +8,11 @@ export const commonMetadata = {
 
     title: {
         template: '%s | SkillYards.in',
-        default: 'SkillYards.in | Learn, Train & Get Certified Online',
+        default: 'SkillYards.in | IT Training Institute in Agra',
     },
 
     description:
-        'SkillYards.in is a skill-based learning platform offering online courses, live training, and professional certifications. Learn from industry experts and boost your career with practical, job-ready skills.',
+        'SkillYards is an IT training institute in Agra offering project-based BCA, BBA, full-stack development, and digital marketing programs with practical training and career-focused learning.',
 
     other: {
         'google-site-verification': process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
@@ -33,16 +33,15 @@ export const commonMetadata = {
     keywords: [
         'SkillYards',
         'SkillYards.in',
-        'online learning India',
-        'skill development',
-        'career growth',
-        'certification platform',
-        'digital learning',
-        'training courses',
-        'education technology',
-        'e-learning',
-        'job-ready skills',
-        'live online classes',
+        'IT training institute in Agra',
+        'coding institute in Agra',
+        'computer training institute in Agra',
+        'full-stack development training in Agra',
+        'digital marketing training in Agra',
+        'BCA practical training in Agra',
+        'BBA practical training in Agra',
+        'project-based training institute',
+        'career-focused training institute',
     ],
 
     archives: ['https://www.skillyards.in/courses'],

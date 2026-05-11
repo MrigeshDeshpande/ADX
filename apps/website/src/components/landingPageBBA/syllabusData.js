@@ -87,7 +87,7 @@ export const syllabusData = [
         "Influencer Marketing Strategies",
         "Native Advertising (Taboola, Outbrain)",
         "Data-Driven Decisions (Power BI)",
-        "Digital Marketing Agency Creation",
+        "Digital Marketing Freelance & Business Basics",
         "Management & Strategy Models"
       ]
     },

@@ -4,209 +4,209 @@
     "role": "Full Stack Developer",
     "feedback": "SkillYards transformed my career. The On Job Training program allowed me to learn while working on real projects. Highly recommend!",
     "rating": 5,
-    "avatar": "https://picsum.photos/200?random=101"
+    "avatar": null
   },
   {
     "name": "Sneha Verma",
     "role": "Software Engineer",
     "feedback": "The On Job Degree program helped me earn a degree while gaining practical experience. The mentors are top-notch!",
     "rating": 5,
-    "avatar": "https://picsum.photos/200?random=102"
+    "avatar": null
   },
   {
     "name": "Vikram Singh",
     "role": "Frontend Developer",
     "feedback": "Hands-on projects, flexible schedule, and career guidance – SkillYards covers everything you need to succeed in IT.",
     "rating": 5,
-    "avatar": "https://picsum.photos/200?random=103"
+    "avatar": null
   },
   {
     "name": "Anjali Gupta",
     "role": "UI/UX Designer",
     "feedback": "I loved the practical approach at SkillYards. Working on live projects helped me build a strong portfolio.",
     "rating": 5,
-    "avatar": "https://picsum.photos/200?random=104"
+    "avatar": null
   },
   {
     "name": "Rohit Kumar",
     "role": "Backend Developer",
     "feedback": "The real-world exposure I received during training boosted my confidence and technical skills tremendously.",
     "rating": 5,
-    "avatar": "https://picsum.photos/200?random=105"
+    "avatar": null
   },
   {
     "name": "Neha Patel",
     "role": "Data Analyst",
     "feedback": "SkillYards made learning data analytics easy and practical. The on-job experience made all the difference.",
     "rating": 5,
-    "avatar": "https://picsum.photos/200?random=106"
+    "avatar": null
   },
   {
     "name": "Amit Mishra",
     "role": "DevOps Engineer",
     "feedback": "From CI/CD pipelines to cloud deployment, everything was taught with hands-on practice. Excellent program!",
     "rating": 5,
-    "avatar": "https://picsum.photos/200?random=107"
+    "avatar": null
   },
   {
     "name": "Pooja Nair",
     "role": "QA Engineer",
     "feedback": "The mentors were very supportive, and the practical assignments prepared me perfectly for my job.",
     "rating": 5,
-    "avatar": "https://picsum.photos/200?random=108"
+    "avatar": null
   },
   {
     "name": "Saurabh Jain",
     "role": "MERN Stack Developer",
     "feedback": "SkillYards helped me transition into a developer role with confidence. Real projects made learning fast and effective.",
     "rating": 5,
-    "avatar": "https://picsum.photos/200?random=109"
+    "avatar": null
   },
   {
     "name": "Kritika Malhotra",
     "role": "Business Analyst",
-    "feedback": "The combination of theory, tools, and real client work made this program extremely valuable.",
+    "feedback": "The combination of theory, tools, and practical assignments made this program extremely valuable.",
     "rating": 5,
-    "avatar": "https://picsum.photos/200?random=110"
+    "avatar": null
   },
   {
     "name": "Arjun Mehta",
     "role": "Mobile App Developer",
-    "feedback": "Building live mobile apps during training gave me the confidence to crack interviews easily.",
+    "feedback": "Building apps during training helped me understand concepts clearly and present my work with confidence.",
     "rating": 5,
-    "avatar": "https://picsum.photos/200?random=111"
+    "avatar": null
   },
   {
     "name": "Nisha Roy",
     "role": "Cloud Engineer",
-    "feedback": "SkillYards’ on-job learning model is perfect for anyone who wants real industry experience along with certification.",
+    "feedback": "SkillYards’ practical learning model is great for anyone who wants project-based training and career preparation.",
     "rating": 5,
-    "avatar": "https://picsum.photos/200?random=112"
+    "avatar": null
   },
   {
     "name": "Deepak Yadav",
     "role": "Java Developer",
     "feedback": "The structured curriculum and daily practice sessions helped me gain clarity and confidence in Java development.",
     "rating": 5,
-    "avatar": "https://picsum.photos/200?random=113"
+    "avatar": null
   },
   {
     "name": "Priya Saxena",
     "role": "Frontend Engineer",
     "feedback": "SkillYards focuses on real skills. I learned React, performance optimization, and best coding practices.",
     "rating": 5,
-    "avatar": "https://picsum.photos/200?random=114"
+    "avatar": null
   },
   {
     "name": "Manish Rawat",
     "role": "PHP Developer",
     "feedback": "Working on live Laravel projects gave me strong backend fundamentals and deployment experience.",
     "rating": 5,
-    "avatar": "https://picsum.photos/200?random=115"
+    "avatar": null
   },
   {
     "name": "Shivani Joshi",
     "role": "Digital Marketer",
     "feedback": "The practical digital marketing training with live campaigns was extremely helpful.",
     "rating": 5,
-    "avatar": "https://picsum.photos/200?random=116"
+    "avatar": null
   },
   {
     "name": "Aditya Rana",
     "role": "Node.js Developer",
     "feedback": "I learned how to build scalable APIs and real-world backend systems at SkillYards.",
     "rating": 5,
-    "avatar": "https://picsum.photos/200?random=117"
+    "avatar": null
   },
   {
     "name": "Riya Kapoor",
     "role": "UI Developer",
     "feedback": "The mentors guided me personally and helped me improve both design sense and frontend skills.",
     "rating": 5,
-    "avatar": "https://picsum.photos/200?random=118"
+    "avatar": null
   },
   {
     "name": "Kunal Bansal",
     "role": "Data Engineer",
     "feedback": "SkillYards provided excellent exposure to real datasets, pipelines, and analytics tools.",
     "rating": 5,
-    "avatar": "https://picsum.photos/200?random=119"
+    "avatar": null
   },
   {
     "name": "Swati Arora",
     "role": "HR Tech Analyst",
     "feedback": "The mix of technical training and soft skills sessions helped me grow professionally.",
     "rating": 5,
-    "avatar": "https://picsum.photos/200?random=120"
+    "avatar": null
   },
   {
     "name": "Mohit Chauhan",
     "role": "React Developer",
-    "feedback": "I gained confidence by building production-ready React applications during training.",
+    "feedback": "I gained confidence by building React applications through practical training.",
     "rating": 5,
-    "avatar": "https://picsum.photos/200?random=121"
+    "avatar": null
   },
   {
     "name": "Isha Khanna",
     "role": "Product Analyst",
     "feedback": "SkillYards taught me how to analyze real business problems using data-driven approaches.",
     "rating": 5,
-    "avatar": "https://picsum.photos/200?random=122"
+    "avatar": null
   },
   {
     "name": "Rakesh Pandey",
     "role": "Python Developer",
     "feedback": "Hands-on Python projects and mentorship made learning smooth and enjoyable.",
     "rating": 5,
-    "avatar": "https://picsum.photos/200?random=123"
+    "avatar": null
   },
   {
     "name": "Megha Jain",
     "role": "Automation Tester",
-    "feedback": "The automation testing training helped me crack interviews confidently.",
+    "feedback": "The automation testing training helped me build strong fundamentals and confidence.",
     "rating": 5,
-    "avatar": "https://picsum.photos/200?random=124"
+    "avatar": null
   },
   {
     "name": "Yash Tiwari",
     "role": "AI Enthusiast",
     "feedback": "SkillYards introduced me to AI concepts with practical examples and projects.",
     "rating": 5,
-    "avatar": "https://picsum.photos/200?random=125"
+    "avatar": null
   },
   {
     "name": "Pankaj Singh",
     "role": "System Administrator",
     "feedback": "I gained hands-on experience with servers, deployment, and monitoring tools.",
     "rating": 5,
-    "avatar": "https://picsum.photos/200?random=126"
+    "avatar": null
   },
   {
     "name": "Ayesha Khan",
     "role": "Content Strategist",
-    "feedback": "The real-client exposure helped me understand content strategy from an industry perspective.",
+    "feedback": "The practical assignments helped me understand content strategy and reporting workflows.",
     "rating": 5,
-    "avatar": "https://picsum.photos/200?random=127"
+    "avatar": null
   },
   {
     "name": "Nitin Aggarwal",
     "role": "Tech Support Engineer",
     "feedback": "SkillYards provided excellent technical foundations and communication training.",
     "rating": 5,
-    "avatar": "https://picsum.photos/200?random=128"
+    "avatar": null
   },
   {
     "name": "Simran Kaur",
     "role": "Business Operations Executive",
     "feedback": "The industry-focused training helped me understand real workflows and tools.",
     "rating": 5,
-    "avatar": "https://picsum.photos/200?random=129"
+    "avatar": null
   },
   {
     "name": "Akash Verma",
     "role": "Junior Software Developer",
     "feedback": "SkillYards gave me the confidence and skills required to start my IT career.",
     "rating": 5,
-    "avatar": "https://picsum.photos/200?random=130"
+    "avatar": null
   }
 ]

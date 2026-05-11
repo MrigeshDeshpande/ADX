@@ -16,7 +16,7 @@ export const metadata = buildSEO({
         "SkillYards Terms of Service",
         "SkillYards Terms and Conditions",
         "User agreement SkillYards",
-        "Online learning terms",
+        "Learning terms",
         "EdTech terms India",
         "Course usage policy",
     ],
@@ -35,7 +35,7 @@ const sections = [
                     By accessing or using SkillYards, you confirm that you have read, understood, and agreed to these Terms of Service, along with our Privacy Policy and Refund & Cancellation Policy.
                 </p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                    If you do not agree with any part of these terms, you should not use our platform or services.
+                    If you do not agree with any part of these terms, you should not use our website or services.
                 </p>
             </div>
         ),
@@ -47,7 +47,7 @@ const sections = [
         title: "Eligibility",
         content: (
             <p className="text-sm text-muted-foreground leading-relaxed">
-                You must be at least 18 years old to create an account or enroll in paid programs on SkillYards. If you are under 18, you may use the platform only with the involvement and consent of a parent or legal guardian.
+                You must be at least 18 years old to create an account or enroll in paid programs on SkillYards. If you are under 18, you may use our services only with the involvement and consent of a parent or legal guardian.
             </p>
         ),
     },
@@ -79,7 +79,7 @@ const sections = [
                 </p>
                 <ul className="mt-4 space-y-2">
                     {[
-                        "Courses may include recorded content, live sessions, projects, and assessments",
+                        "Courses may include in-person classes, practical sessions, projects, and assessments",
                         "Access duration may vary depending on the program",
                         "Sharing login credentials or course content is strictly prohibited",
                     ].map((item) => (
@@ -138,7 +138,7 @@ const sections = [
                 <ul className="mt-4 space-y-2">
                     {[
                         "Sharing offensive, abusive, or misleading content",
-                        "Attempting to hack, disrupt, or reverse-engineer the platform",
+                        "Attempting to hack, disrupt, or reverse-engineer the website",
                         "Infringing on the rights or privacy of others",
                         "Misuse of certificates, credentials, or branding",
                     ].map((item) => (
@@ -158,7 +158,7 @@ const sections = [
         title: "Suspension & Termination",
         content: (
             <p className="text-sm text-muted-foreground leading-relaxed">
-                SkillYards reserves the right to suspend or terminate your access to the platform at its sole discretion, without prior notice, if you violate these terms or engage in activities that may harm SkillYards or its community.
+                SkillYards reserves the right to suspend or terminate your access to the institute or website at its sole discretion, without prior notice, if you violate these terms or engage in activities that may harm SkillYards or its community.
             </p>
         ),
     },
@@ -180,7 +180,7 @@ const sections = [
         title: "Limitation of Liability",
         content: (
             <p className="text-sm text-muted-foreground leading-relaxed">
-                To the maximum extent permitted by law, SkillYards shall not be liable for any indirect, incidental, or consequential damages arising from your use of the platform or services.
+                To the maximum extent permitted by law, SkillYards shall not be liable for any indirect, incidental, or consequential damages arising from your use of the website or services.
             </p>
         ),
     },
@@ -202,7 +202,7 @@ const sections = [
         title: "Changes to These Terms",
         content: (
             <p className="text-sm text-muted-foreground leading-relaxed">
-                SkillYards may update these Terms of Service from time to time. Continued use of the platform after changes are posted constitutes acceptance of the revised terms.
+                SkillYards may update these Terms of Service from time to time. Continued use of the website after changes are posted constitutes acceptance of the revised terms.
             </p>
         ),
     },

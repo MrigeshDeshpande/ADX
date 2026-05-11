@@ -1,19 +1,16 @@
-import dynamic from "next/dynamic";
-
-const HeroCarousel = dynamic(() => import("@/components/homepage/HeroCarousel"));
-
-const AboutSection = dynamic(() => import("@/components/homepage/AboutSection"));
-const ProblemSection = dynamic(() => import("@/components/homepage/ProblemSection"));
-const FeaturesSection = dynamic(() => import("@/components/homepage/FeaturesSection"));
-const LeadersSection = dynamic(() => import("@/components/common/LeadersSection"));
-const CTASection = dynamic(() => import("@/components/homepage/CTASection"));
-const FAQSection = dynamic(() => import("@/components/common/FAQSection"));
-const BlogSection = dynamic(() => import("@/components/homepage/BlogSection").then((mod) => mod.BlogSection));
-const PartnersSlider = dynamic(() => import("@/components/common/PartnersSlider"));
-const ProgramsShowcase = dynamic(() => import("@/components/homepage/ProgrammeShowcase"));
-const HearFromStudents = dynamic(() => import("@/components/homepage/HearFromStudents"));
-const FeaturedRoles = dynamic(() => import("@/components/homepage/FeaturedRoles"));
-const SkillTestSection = dynamic(() => import("@/components/homepage/SkillTestSection"));
+import HeroCarousel from "@/components/homepage/HeroCarousel";
+import AboutSection from "@/components/homepage/AboutSection";
+import ProblemSection from "@/components/homepage/ProblemSection";
+import FeaturesSection from "@/components/homepage/FeaturesSection";
+import LeadersSection from "@/components/common/LeadersSection";
+import CTASection from "@/components/homepage/CTASection";
+import FAQSection from "@/components/common/FAQSection";
+import { BlogSection } from "@/components/homepage/BlogSection";
+import PartnersSlider from "@/components/common/PartnersSlider";
+import ProgramsShowcase from "@/components/homepage/ProgrammeShowcase";
+import WhatStudentsBuild from "@/components/homepage/WhatStudentsBuild";
+import FeaturedRoles from "@/components/homepage/FeaturedRoles";
+import SkillTestSection from "@/components/homepage/SkillTestSection";
 
 import { buildSEO } from "@/lib/seo/buildSEO";
 import JsonLd from "@/components/JsonLd";
@@ -25,32 +22,34 @@ import { faqCategories } from "@/data/faqs";
 export const revalidate = 86400;
 
 const homeKeywords = [
-  "SkillYards",
-  "online courses India",
-  "skill development platform",
-  "professional certifications",
-  "live online training",
-  "job-ready skills",
-  "IT training India",
-  "career growth",
-  "e-learning platform",
+  "IT training institute in Agra",
+  "SkillYards Agra",
+  "coding institute in Agra",
+  "full stack development course in Agra",
+  "BCA with job training in Agra",
+  "BBA with digital marketing in Agra",
+  "digital marketing course in Agra",
+  "computer training institute in Agra",
+  "job oriented courses after 12th Agra",
+  "on job degree program Agra",
 ];
 
 const homepageFaqs = faqCategories.homepage.faqs.slice(0, 4);
 const faqSchema = getFAQSchema(homepageFaqs);
 const webPageSchema = getWebPageSchema({
   url: "/",
-  name: "Learn, Train & Get Certified Online | SkillYards",
-  description: "SkillYards is a skill-based learning platform offering online courses, live training, and professional certifications to help you build job-ready skills.",
-  keywords: homeKeywords
+  name: "SkillYards – IT Training Institute in Agra",
+  description:
+    "SkillYards is an IT training institute in Agra offering project-based BCA, BBA, full-stack development, and digital marketing programs with practical training and career-focused learning.",
+  keywords: homeKeywords,
 });
 
 const combinedSchema = [faqSchema, webPageSchema].filter(Boolean);
 
 export const metadata = buildSEO({
-  title: "Learn, Train & Get Certified Online",
+  title: "IT Training Institute in Agra",
   description:
-    "SkillYards is a skill-based learning platform offering online courses, live training, and professional certifications to help you build job-ready skills.",
+    "SkillYards is an IT training institute in Agra offering project-based BCA, BBA, full-stack development, and digital marketing programs with practical training and career-focused learning.",
   path: "/",
   keywords: homeKeywords,
   ogImage: "/images/opengraph/home-og.jpg",
@@ -70,7 +69,7 @@ export default function Home() {
         <ProblemSection />
         <ProgramsShowcase />
         <FeaturesSection />
-        <HearFromStudents />
+        <WhatStudentsBuild />
         <FeaturedRoles />
         <BlogSection />
         <SkillTestSection />

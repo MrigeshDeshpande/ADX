@@ -16,23 +16,23 @@ export default function PartnersSlider() {
 
                 {/* ── Heading ── */}
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={false}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
                     className="max-w-7xl mx-auto px-6 text-center mb-12 space-y-4"
                 >
                     <h2 className="font-serif text-4xl sm:text-5xl font-bold text-foreground leading-tight">
-                        Companies {" "}
+                        Industry {" "}
                         <span className="text-primary italic relative inline-block">
-                            Waiting for you
+                            Expectations
                             <svg className="absolute -bottom-1 left-0 w-full overflow-visible" viewBox="0 0 120 8" fill="none" preserveAspectRatio="none" aria-hidden>
                                 <path d="M0 6 Q30 0 60 6 Q90 12 120 6" stroke="#d4c2fc" strokeWidth="2.5" strokeLinecap="round" />
                             </svg>
                         </span>
                     </h2>
                     <p className="font-sans text-sm text-muted-foreground max-w-lg mx-auto leading-relaxed tracking-wide">
-                        From startups to Fortune 500s — our graduates and services are trusted by leading companies across India.
+                        Students train with tools, workflows, and interview expectations used across modern IT companies, agencies, and startups.
                     </p>
                 </motion.div>
 
@@ -74,7 +74,7 @@ export default function PartnersSlider() {
 
                 {/* ── Stats strip ── */}
                 <motion.div
-                    initial={{ opacity: 0, y: 16 }}
+                    initial={false}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.55, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
@@ -82,9 +82,9 @@ export default function PartnersSlider() {
                 >
                     <div className="grid grid-cols-3 divide-x divide-border/50 rounded-2xl border border-border/50 bg-card overflow-hidden">
                         {[
-                            { stat: "20+", label: "Partner Companies" },
-                            { stat: "500+", label: "Students Placed" },
-                            { stat: "98%", label: "Placement Rate" },
+                            { stat: "180+", label: "Hiring Partners" },
+                            { stat: "1200+", label: "Students Placed" },
+                            { stat: "Dedicated", label: "Career Support" },
                         ].map(({ stat, label }) => (
                             <div key={stat} className="flex flex-col items-center py-6 px-4 gap-1">
                                 <span className="font-mono text-3xl font-bold text-primary">{stat}</span>

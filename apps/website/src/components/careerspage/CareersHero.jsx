@@ -26,7 +26,7 @@ export default function CareersHero() {
                 </h1>
 
                 <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
-                    At SkillYards, we’re building more than a platform —
+                    At SkillYards, we’re building more than an institute —
                     we’re creating opportunities for people to learn, grow,
                     and transform their future through real skills.
                 </p>

@@ -1,7 +1,7 @@
 const stats = [
     { value: "30+",  label: "Student Reviews" },
     { value: "5.0★", label: "Average Rating" },
-    { value: "95%",  label: "Placement Rate" },
+    { value: "Dedicated",  label: "Placement Support" },
     { value: "180+", label: "Hiring Partners" },
 ];
 
