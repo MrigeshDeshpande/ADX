@@ -47,19 +47,5 @@ export const globalSchema = {
         "https://www.instagram.com/skillyardss",
         "https://www.twitter.com/skillyardss",
         "https://www.youtube.com/@Skillyardss"
-    ],
-
-    "potentialAction": {
-        "@type": "SearchAction",
-        "target": {
-            "@type": "EntryPoint",
-            "urlTemplate":
-                "https://www.skillyards.in/search?q={search_term_string}"
-        },
-        "query-input": {
-            "@type": "PropertyValueSpecification",
-            "valueRequired": true,
-            "valueName": "search_term_string"
-        }
-    }
+    ]
 };

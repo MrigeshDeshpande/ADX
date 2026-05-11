@@ -98,11 +98,5 @@ export const websiteSchema = {
 
   publisher: {
     "@id": ORGANIZATION_ID
-  },
-
-  potentialAction: {
-    "@type": "SearchAction",
-    target: "https://www.skillyards.in/search?q={search_term_string}",
-    "query-input": "required name=search_term_string"
   }
 };
