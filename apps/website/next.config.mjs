@@ -141,6 +141,12 @@ const nextConfig = {
 
             // === 301: Legacy /on-job-training root URL → category page ===
             { source: "/on-job-training", destination: "/programs/on-job-training", permanent: true },
+
+            {
+                source: "/gallery/videos/:id",
+                destination: "/gallery/videos",
+                permanent: true,
+            },
         ];
     },
 

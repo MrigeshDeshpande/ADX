@@ -16,7 +16,8 @@ const EXCLUDED_PATHS = new Set([
   '/campaigns',
   '/test',
   '/thank-you-contact',
-  '/sitemap', // the HTML sitemap page is fine, but excluded from XML to avoid recursion
+  '/sitemap',
+  '/sitemap-html'
 ]);
 
 
