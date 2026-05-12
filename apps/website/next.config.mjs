@@ -146,6 +146,24 @@ const nextConfig = {
                 destination: "/gallery/videos",
                 permanent: true,
             },
+
+            {
+                source: "/programs/on-job-degree/best-bba-college-in-agra-with-digital-skills",
+                destination: "/bba-training-program-in-agra",
+                permanent: true,
+            },
+
+            {
+                source: "/programs/on-job-training/digital-marketing-course-in-agra-with-live-projects",
+                destination: "/digital-marketing-course-in-agra",
+                permanent: true,
+            },
+
+            {
+                source: "/programs/on-job-training/mern-stack-developer-course-in-agra",
+                destination: "/full-stack-web-development-training-in-agra",
+                permanent: true,
+            },
         ];
     },
 
