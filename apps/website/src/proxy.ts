@@ -10,9 +10,6 @@ const GONE_URLS = new Set<string>([
   '/partners',
   '/certifications',
   '/team/vijaygoswami',
-  '/gallery/videos/4',
-  '/gallery/videos/22',
-  '/gallery/videos/32',
   '/foundation-training-program-in-agra',
 ]);
 
@@ -60,7 +57,6 @@ export const config = {
     '/partners',
     '/certifications',
     '/team/vijaygoswami',
-    '/gallery/videos/:path*',
     '/foundation-training-program-in-agra',
     
     // thank-you validation match

@@ -116,7 +116,6 @@ const nextConfig = {
             // === 301: Short aliases for convenience + legacy → New flat URLs ===
             { source: "/programs/bca", destination: "/bca-training-program-in-agra", permanent: true },
             { source: "/programs/bba", destination: "/bba-training-program-in-agra", permanent: true },
-            { source: "/programs/mca", destination: "/mca-training-program-in-agra", permanent: true },
             { source: "/programs/fullstack", destination: "/full-stack-web-development-training-in-agra", permanent: true },
             { source: "/programs/full-stack", destination: "/full-stack-web-development-training-in-agra", permanent: true },
             { source: "/programs/digitalmarketing", destination: "/digital-marketing-course-in-agra", permanent: true },
