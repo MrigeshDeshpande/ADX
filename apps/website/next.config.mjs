@@ -170,6 +170,12 @@ const nextConfig = {
                 destination: "/blog",
                 permanent: true,
             },
+
+            {
+                source: "/programs/on-job-training/tall-stack-developer-course-in-agra",
+                destination: "/full-stack-web-development-training-in-agra",
+                permanent: true,
+            },
         ];
     },
 
