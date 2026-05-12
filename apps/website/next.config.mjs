@@ -164,6 +164,12 @@ const nextConfig = {
                 destination: "/full-stack-web-development-training-in-agra",
                 permanent: true,
             },
+
+            {
+                source: "/blog/web-development-ke-latest-trends",
+                destination: "/blog",
+                permanent: true,
+            },
         ];
     },
 
