@@ -11,7 +11,11 @@ import JsonLd from "@/components/JsonLd";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Script from "next/script";
-import { organizationSchema, websiteSchema } from "@/lib/seo/schema/global";
+import {
+    organizationSchema,
+    primaryLocationSchema,
+    websiteSchema,
+} from "@/lib/seo/schema/global";
 const playfair = Playfair_Display({
     subsets: ["latin"],
     weight: ["500", "600", "700"],
@@ -42,6 +46,7 @@ export default function RootLayout({ children }) {
                 <script dangerouslySetInnerHTML={{ __html: themeScript }} />
 
                 <JsonLd data={organizationSchema} id="organization-schema" />
+                <JsonLd data={primaryLocationSchema} id="primary-location-schema" />
                 <JsonLd data={websiteSchema} id="website-schema" />
             </head>
 

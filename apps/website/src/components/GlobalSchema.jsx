@@ -26,7 +26,7 @@ export const globalSchema = {
 
     "address": {
         "@type": "PostalAddress",
-        "streetAddress": "A3, Behind Manoj Dhaba, Bhagwan Talkies Xing",
+        "streetAddress": "A-3, behind Manoj Dhaba, Bhagwan Talkies crossing, Indra Puri, New Agra Colony, Agra, Uttar Pradesh",
         "addressLocality": "Agra",
         "addressRegion": "Uttar Pradesh",
         "postalCode": "282005",
@@ -35,7 +35,7 @@ export const globalSchema = {
 
     "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+91 7895501840",
+        "telephone": "+91 7060166562",
         "contactType": "support",
         "areaServed": "IN",
         "availableLanguage": ["English", "Hindi"]
@@ -44,7 +44,7 @@ export const globalSchema = {
     "sameAs": [
         "https://www.facebook.com/skillyardss",
         "https://www.linkedin.com/company/skillyards",
-        "https://www.instagram.com/skillyardss",
+        "https://www.instagram.com/skillyards_eduhub",
         "https://www.twitter.com/skillyardss",
         "https://www.youtube.com/@Skillyardss"
     ]

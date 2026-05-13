@@ -1,4 +1,4 @@
-import { ORGANIZATION_ID } from "./global";
+import { ORGANIZATION_ID, PRIMARY_LOCATION_ID } from "./global";
 
 export const getJobPostingSchema = (job) => {
   if (!job) return null;
@@ -18,16 +18,7 @@ export const getJobPostingSchema = (job) => {
     responsibilities: job.responsibilities || "Execute projects, maintain quality, collaborate with teams",
     experienceRequirements: job.experience || "Entry Level",
     jobLocation: {
-      "@type": "Place",
-      name: "SkillYards",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "A3, Behind Manoj Dhaba, Bhagwan Talkies Xing",
-        addressLocality: "Agra",
-        addressRegion: "Uttar Pradesh",
-        postalCode: "282005",
-        addressCountry: "IN"
-      }
+      "@id": PRIMARY_LOCATION_ID,
     }
   };
 };

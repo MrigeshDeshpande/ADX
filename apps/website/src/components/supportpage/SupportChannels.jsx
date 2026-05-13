@@ -34,7 +34,7 @@ const channels = [
     {
         icon: <MapPin size={22} />,
         label: "Visit Us",
-        value: "A3, Behind Manoj Dhaba, Bhagwan Talkies Xing, Agra – 282005",
+        value: "A-3, behind Manoj Dhaba, Bhagwan Talkies crossing, Indra Puri, New Agra Colony, Agra, Uttar Pradesh 282005 – 282005",
         meta: "Mon – Sat · 9 AM to 6 PM",
         href: "https://maps.google.com/?q=SkillYards+Agra",
         iconClass: "bg-orange-100 text-orange-600 dark:bg-orange-950/50 dark:text-orange-400",

@@ -40,7 +40,7 @@ export const faqCategories = {
             },
             {
                 question: "Where is SkillYards located?",
-                answer: "Our main centre is located at A3, Behind Manoj Dhaba, Bhagwan Talkies Xing, Agra, Uttar Pradesh – 282005, India.",
+                answer: "Our main centre is located at A-3, behind Manoj Dhaba, Bhagwan Talkies crossing, Indra Puri, New Agra Colony, Agra, Uttar Pradesh – 282005, India.",
             },
         ],
     },

@@ -1,3 +1,5 @@
+import { absoluteUrl } from "../core/url.js";
+
 export const getBreadcrumbSchema = (items) => ({
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -5,6 +7,6 @@ export const getBreadcrumbSchema = (items) => ({
     "@type": "ListItem",
     position: index + 1,
     name: item.name,
-    item: item.url.startsWith("http") ? item.url : `https://www.skillyards.in${item.url}`,
+    item: item.url.startsWith("http") ? item.url : absoluteUrl(item.url),
   })),
 });

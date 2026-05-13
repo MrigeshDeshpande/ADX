@@ -1,4 +1,5 @@
-import { ORGANIZATION_ID } from "./global";
+import { ORGANIZATION_ID } from "./global.js";
+import { absoluteAssetUrl, absoluteUrl } from "../core/url.js";
 
 export const getPersonSchema = (person) => {
   if (!person) return null;
@@ -11,8 +12,8 @@ export const getPersonSchema = (person) => {
     worksFor: {
       "@id": ORGANIZATION_ID
     },
-    ...(person.url && { url: `https://www.skillyards.in${person.url}` }),
-    ...(person.image && { image: `https://www.skillyards.in${person.image}` }),
+    ...(person.url && { url: absoluteUrl(person.url) }),
+    ...(person.image && { image: absoluteAssetUrl(person.image) }),
     ...(person.description && { description: person.description })
   };
 };

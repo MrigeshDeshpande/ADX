@@ -1,10 +1,11 @@
-import { ORGANIZATION_ID } from "./global";
+import { ORGANIZATION_ID, PRIMARY_LOCATION_ID } from "./global.js";
+import { absoluteAssetUrl, absoluteUrl, withFragment } from "../core/url.js";
 
 export const getCourseSchema = (course) => ({
   "@context": "https://schema.org",
   "@type": "Course",
 
-  "@id": `https://www.skillyards.in${course.seo.path}#course`,
+  "@id": withFragment(absoluteUrl(course.seo.path), "#course"),
 
   name: course.title,
   description: course.description,
@@ -30,7 +31,9 @@ export const getCourseSchema = (course) => ({
     }
   },
 
-  image: course.seo?.ogImage ? `https://www.skillyards.in${course.seo.ogImage}` : "https://www.skillyards.in/images/opengraph/fullstack-og.jpg",
+  image: course.seo?.ogImage
+    ? absoluteAssetUrl(course.seo.ogImage)
+    : absoluteAssetUrl("/images/opengraph/fullstack-og.jpg"),
 
   educationalLevel: "Beginner to Advanced",
   inLanguage: "en",
@@ -48,16 +51,7 @@ export const getCourseSchema = (course) => ({
     courseMode: "offline",
 
     location: {
-      "@type": "Place",
-      name: "SkillYards",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "A3, Behind Manoj Dhaba, Bhagwan Talkies Xing",
-        addressLocality: "Agra",
-        addressRegion: "Uttar Pradesh",
-        postalCode: "282005",
-        addressCountry: "IN",
-      },
+      "@id": PRIMARY_LOCATION_ID,
     },
 
     ...(course.startDate && {
@@ -71,7 +65,7 @@ export const getCourseSchema = (course) => ({
     category: "Professional Training",
     availability: "https://schema.org/InStock",
     price: "0",
-    url: `https://www.skillyards.in${course.seo.path}`,
+    url: absoluteUrl(course.seo.path),
     priceCurrency: "INR",
   },
 });

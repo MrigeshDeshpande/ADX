@@ -18,6 +18,7 @@ export function buildSEO({
   description,
   path,
   keywords = [],
+  ogType = "website",
   ogImage,
 }) {
   validateSEO({ title, description, path });
@@ -45,7 +46,7 @@ export function buildSEO({
     },
 
     openGraph: {
-      type: "website",
+      type: ogType,
       title,
       description,
       url: absoluteUrl, 

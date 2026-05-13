@@ -1,17 +1,18 @@
-import { ORGANIZATION_ID } from "./global";
+import { ORGANIZATION_ID, WEBSITE_ID } from "./global.js";
+import { absoluteUrl, withFragment } from "../core/url.js";
 
 export const getWebPageSchema = (page) => {
   if (!page) return null;
   return {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": `https://www.skillyards.in${page.url}#webpage`,
-    url: `https://www.skillyards.in${page.url}`,
+    "@id": withFragment(absoluteUrl(page.url), "#webpage"),
+    url: absoluteUrl(page.url),
     name: page.name,
     ...(page.description && { description: page.description }),
     ...(page.keywords && { keywords: page.keywords }),
     isPartOf: {
-      "@id": "https://www.skillyards.in/#website"
+      "@id": WEBSITE_ID
     },
     about: {
       "@id": ORGANIZATION_ID
@@ -23,7 +24,7 @@ export const getAboutPageSchema = (page) => {
   if (!page) return null;
   return {
     ...getWebPageSchema(page),
-    "@type": "AboutPage",
+    "@type": ["WebPage", "AboutPage"],
   };
 };
 
@@ -31,7 +32,7 @@ export const getContactPageSchema = (page) => {
   if (!page) return null;
   return {
     ...getWebPageSchema(page),
-    "@type": "ContactPage",
+    "@type": ["WebPage", "ContactPage"],
   };
 };
 
@@ -39,7 +40,7 @@ export const getCollectionPageSchema = (page) => {
   if (!page) return null;
   return {
     ...getWebPageSchema(page),
-    "@type": "CollectionPage"
+    "@type": ["WebPage", "CollectionPage"]
   };
 };
 
@@ -47,7 +48,7 @@ export const getImageGallerySchema = (page) => {
   if (!page) return null;
   return {
     ...getWebPageSchema(page),
-    "@type": "ImageGallery"
+    "@type": ["WebPage", "ImageGallery"]
   };
 };
 
@@ -55,6 +56,6 @@ export const getVideoGallerySchema = (page) => {
   if (!page) return null;
   return {
     ...getWebPageSchema(page),
-    "@type": "VideoGallery"
+    "@type": ["WebPage", "VideoGallery"]
   };
 };

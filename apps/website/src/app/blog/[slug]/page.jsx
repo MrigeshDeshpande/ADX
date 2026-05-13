@@ -76,6 +76,7 @@ export async function generateMetadata({ params }) {
             "IT learning",
         ].filter(Boolean),
         ogImage: imageUrl,
+        ogType: "article",
     });
 }
 export default async function BlogPostPage({ params }) {
@@ -92,7 +93,10 @@ export default async function BlogPostPage({ params }) {
 
     const readingTime = calculateReadingTime(post.content);
     const headings = extractHeadings(post.content);
-    const blogPostingSchema = getBlogPostingSchema({ ...post, readingTime });
+    const resolvedImageUrl = post.coverImage
+        ? urlFor(post.coverImage).width(1200).height(630).url()
+        : undefined;
+    const blogPostingSchema = getBlogPostingSchema({ ...post, readingTime, resolvedImageUrl });
 
     return (
         <div className="min-h-screen bg-background text-foreground transition-colors duration-300">

@@ -6,7 +6,8 @@
     "dev": "next dev -p 3001",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "seo:check": "node scripts/check-seo-graph.mjs"
   },
   "dependencies": {
     "@next/third-parties": "^16.0.4",

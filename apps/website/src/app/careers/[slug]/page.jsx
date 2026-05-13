@@ -3,7 +3,7 @@ import JsonLd from "@/components/JsonLd";
 export const revalidate = 86400;
 import ApplyForm from "@/components/careerspage/ApplyForm";
 import Image from "next/image";
-import {withPageSEO} from "@/lib/seo";
+import { buildSEO } from "@/lib/seo/buildSEO";
 import { getJobPostingSchema } from "@/lib/seo/schema/jobPostingSchema";
 
 
@@ -38,10 +38,10 @@ export async function generateMetadata({ params }) {
     const job = await getJob(slug);
 
     if (!job) {
-        return withPageSEO({
+        return buildSEO({
             title: 'Job Not Found',
             description: 'The job you are looking for does not exist or has been closed.',
-            canonical: 'https://www.skillyards.in/careers',
+            path: '/careers',
             keywords: ['SkillYards careers', 'jobs at SkillYards'],
             ogImage: '/images/opengraph/careers-og.jpg',
         });
@@ -53,12 +53,10 @@ export async function generateMetadata({ params }) {
             .slice(0, 160) ||
         `Apply for ${job.title} at SkillYards and grow your career with us.`;
 
-    const canonical = `https://www.skillyards.in/careers/${job.slug}`;
-
-    return withPageSEO({
+    return buildSEO({
         title: `${job.title} | Careers at SkillYards`,
         description,
-        canonical,
+        path: `/careers/${job.slug}`,
         keywords: [
             job.title,
             job.department,

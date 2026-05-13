@@ -25,7 +25,7 @@ export const metadata = buildSEO({
 
 export default async function BlogPage() {
   const posts = await sanityClient.fetch(POSTS_QUERY, {}, { next: { revalidate: 3600 } });
-  const blogSchema = getBlogSchema();
+  const blogSchema = getBlogSchema(posts);
 
   return (
     <div className="bg-background min-h-screen pt-20">
