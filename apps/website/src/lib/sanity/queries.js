@@ -70,6 +70,7 @@ export const BATCHES_QUERY = `
   nextBatch,
   duration,
   fee,
+  image,
   emiAvailable,
   seatsLeft,
   ctaLink

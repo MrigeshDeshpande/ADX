@@ -130,6 +130,10 @@ const nextConfig = {
             { source: "/blogs", destination: "/blog", permanent: true },
             { source: "/reviews", destination: "/testimonials", permanent: true },
             { source: "/gallery/photos", destination: "/gallery/images", permanent: true },
+            { source: "/suryanshupadhyay", destination: "/team/suryanshupadhyay", permanent: true },
+            { source: "/rahulsingh", destination: "/team/rahulsingh", permanent: true },
+            { source: "/team/suryansh-upadhyay", destination: "/team/suryanshupadhyay", permanent: true },
+            { source: "/team/rahul-singh", destination: "/team/rahulsingh", permanent: true },
 
             // === 301: FIX existing broken redirect (was pointing to non-existent /terms-of-service) ===
             { source: "/terms-and-conditions", destination: "/legal/terms-of-service", permanent: true },

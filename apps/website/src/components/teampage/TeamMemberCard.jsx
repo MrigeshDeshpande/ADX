@@ -1,11 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { Linkedin, Twitter, Globe, ArrowUpRight } from "lucide-react";
+import Link from "next/link";
+import { Linkedin, Twitter, Globe, ArrowUpRight, Instagram } from "lucide-react";
 
-export default function TeamMemberCard({ name, role, bio, image, imageClassName, badge, socials = {}, priority = false }) {
-    return (
-        <div className="group flex flex-col gap-4 w-full">
+export default function TeamMemberCard({ name, role, bio, image, imageClassName, badge, socials = {}, priority = false, slug }) {
+    const mainContent = (
+        <div className="flex flex-col gap-4 w-full h-full">
             {/* Image Container */}
             <div className="relative w-full aspect-[4/5] sm:aspect-square md:aspect-[4/5] rounded-[2rem] overflow-hidden bg-muted cursor-pointer isolate">
                 {/* Base Image */}
@@ -44,23 +45,41 @@ export default function TeamMemberCard({ name, role, bio, image, imageClassName,
                 <p className="text-muted-foreground text-sm leading-relaxed font-medium">
                     {bio}
                 </p>
-                
-                {/* Socials */}
-                {(socials.linkedin || socials.twitter || socials.website) && (
-                    <div className="flex gap-2 mt-4 pt-4 border-t border-border">
-                        {socials.linkedin && (
-                            <a href={socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors p-2 -ml-2 rounded-full hover:bg-muted">
-                                <Linkedin size={18} />
-                            </a>
-                        )}
-                        {socials.twitter && (
-                            <a href={socials.twitter} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors p-2 rounded-full hover:bg-muted">
-                                <Twitter size={18} />
-                            </a>
-                        )}
-                    </div>
-                )}
             </div>
+        </div>
+    );
+
+    return (
+        <div className="group flex flex-col h-full relative">
+            {slug ? (
+                /* Card Link - wraps only identity info */
+                <Link href={`/team/${slug}`} className="block h-full">
+                    {mainContent}
+                </Link>
+            ) : (
+                mainContent
+            )}
+
+            {/* Socials - Outside Link to avoid nesting <a> tags */}
+            {(socials.linkedin || socials.twitter || socials.instagram || socials.website) && (
+                <div className="flex gap-2 mt-4 pt-4 px-2 border-t border-border">
+                    {socials.linkedin && (
+                        <a href={socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors p-2 -ml-2 rounded-full hover:bg-muted" aria-label={`${name}'s LinkedIn`}>
+                            <Linkedin size={18} />
+                        </a>
+                    )}
+                    {socials.instagram && (
+                        <a href={socials.instagram} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors p-2 rounded-full hover:bg-muted" aria-label={`${name}'s Instagram`}>
+                            <Instagram size={18} />
+                        </a>
+                    )}
+                    {socials.twitter && (
+                        <a href={socials.twitter} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors p-2 rounded-full hover:bg-muted" aria-label={`${name}'s Twitter`}>
+                            <Twitter size={18} />
+                        </a>
+                    )}
+                </div>
+            )}
         </div>
     );
 }

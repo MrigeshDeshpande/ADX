@@ -59,7 +59,7 @@ export default async function ProgramsPage() {
       <PlacementOutcomes />
       <AdmissionProcess />
       <BatchFeeInfo batches={batches} />
-      <ProgramsFAQ />
+      <ProgramsFAQ limit={5} />
       <FinalCTA />
     </main>
   );

@@ -30,6 +30,15 @@ export default {
             description: 'e.g., Contact us, Starting ₹25,000',
         },
         {
+            name: 'image',
+            title: 'Batch Card Image',
+            type: 'image',
+            options: {
+                hotspot: true,
+            },
+            description: 'Cover image for batch cards on website.',
+        },
+        {
             name: 'emiAvailable',
             title: 'EMI Available',
             type: 'boolean',
@@ -59,6 +68,7 @@ export default {
         select: {
             title: 'program',
             subtitle: 'nextBatch',
+            media: 'image',
         },
     },
 }

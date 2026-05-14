@@ -2,6 +2,7 @@ export const TEAM_MEMBERS = {
     // Leadership
     rahulSingh: {
         id: "rahul-singh",
+        slug: "rahulsingh",
         name: "Rahul Singh",
         role: "COO",
         bio: "Visionary behind SkillYards, dedicated to delivering industry-relevant learning and empowering tech professionals to bridge the gap between theory and reality.",
@@ -9,18 +10,23 @@ export const TEAM_MEMBERS = {
         imageClassName: "object-top scale-[1.15] group-hover:scale-[1.25] md:group-hover:scale-[1.25]",
         badge: "Leadership",
         socials: {
-            linkedin: "https://linkedin.com",
+            linkedin: "https://www.linkedin.com/in/rahul-singh-a90ab630/",
+            instagram: "https://www.instagram.com/rahul_rs0310?igsh=bmpqejlqZXdsbHN5&utm_source=qr",
+            twitter: "https://x.com/rsrsrahul444?s=11",
         },
     },
     suryanshUpadhyay: {
         id: "suryansh-upadhyay",
+        slug: "suryanshupadhyay",
         name: "Suryansh Upadhyay",
         role: "CEO",
         bio: "Focused on building SkillYards as a practical, career-focused IT training institute in Agra for students after 12th or graduation.",
         image: "/images/team/suryanshSir.webp",
         badge: "Leadership",
         socials: {
-            linkedin: "https://linkedin.com/in/suryanshupadhyay",
+            linkedin: "https://www.linkedin.com/in/suryansh-upadhyay-346a22347/",
+            instagram: "https://www.instagram.com/suryanshupadhyay_official?igsh=MTZnaDg2Z2JyMWNneg==",
+            twitter: "https://x.com/SuryanshUpad",
         },
     },
 

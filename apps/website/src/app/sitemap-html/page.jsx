@@ -34,8 +34,8 @@ const STATIC_SITEMAP_ROUTES = [
 ];
 
 const LEADERS = [
-    { username: "suryanshupadhyay", name: "Suryansh Upadhyay" },
-    { username: "rahulsingh", name: "Rahul Singh" },
+    { path: "/suryanshupadhyay", name: "Suryansh Upadhyay" },
+    { path: "/rahulsingh", name: "Rahul Singh" },
 ];
 
 export const metadata = buildSEO({
@@ -101,9 +101,9 @@ export default function SitemapPage() {
             </h2>
             <ul className="space-y-2">
               {LEADERS.map((leader) => (
-                <li key={leader.username}>
+                <li key={leader.path}>
                   <Link
-                    href={`/team/${leader.username}`}
+                    href={leader.path}
                     className="text-sm text-muted-foreground hover:text-primary transition-colors duration-150"
                   >
                     {leader.name}

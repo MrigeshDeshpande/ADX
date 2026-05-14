@@ -11,6 +11,7 @@ import ProgramsShowcase from "@/components/homepage/ProgrammeShowcase";
 import WhatStudentsBuild from "@/components/homepage/WhatStudentsBuild";
 import FeaturedRoles from "@/components/homepage/FeaturedRoles";
 import SkillTestSection from "@/components/homepage/SkillTestSection";
+import BatchFeeInfo from "@/components/programspage/BatchFeeInfo";
 
 import { buildSEO } from "@/lib/seo/buildSEO";
 import JsonLd from "@/components/JsonLd";
@@ -18,6 +19,8 @@ import JsonLd from "@/components/JsonLd";
 import { getFAQSchema } from "@/lib/seo/schema/faqSchema";
 import { getWebPageSchema } from "@/lib/seo/schema/webPageSchema";
 import { faqCategories } from "@/data/faqs";
+import { sanityClient } from "@/lib/sanity/client";
+import { BATCHES_QUERY } from "@/lib/sanity/queries";
 
 export const revalidate = 86400;
 
@@ -55,7 +58,9 @@ export const metadata = buildSEO({
   ogImage: "/images/opengraph/home-og.jpg",
 });
 
-export default function Home() {
+export default async function Home() {
+  const batches = await sanityClient.fetch(BATCHES_QUERY);
+
   return (
     <>
       <JsonLd
@@ -70,10 +75,11 @@ export default function Home() {
         <ProgramsShowcase />
         <FeaturesSection />
         <WhatStudentsBuild />
+        <BatchFeeInfo batches={batches} variant="home" />
         <FeaturedRoles />
-        <BlogSection />
         <SkillTestSection />
         <LeadersSection />
+        <BlogSection />
         <PartnersSlider />
         <CTASection />
         <FAQSection category="homepage" limit={4} />

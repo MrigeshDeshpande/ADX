@@ -1,11 +1,14 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { Linkedin, Twitter, Instagram } from "lucide-react";
+import { ArrowUpRight, Linkedin, Twitter, Instagram } from "lucide-react";
 
 const socials = [
-    { icon: Linkedin, url: "https://www.linkedin.com/in/suryansh-upadhyay", label: "LinkedIn" },
-].filter(s => s.url !== "#");
+    { icon: Linkedin, url: "https://www.linkedin.com/in/suryansh-upadhyay-346a22347/", label: "LinkedIn" },
+    { icon: Twitter, url: "https://x.com/SuryanshUpad", label: "Twitter" },
+    { icon: Instagram, url: "https://www.instagram.com/suryanshupadhyay_official?igsh=MTZnaDg2Z2JyMWNneg==", label: "Instagram" },
+];
 
 export default function SuryanshHero() {
     return (
@@ -17,7 +20,11 @@ export default function SuryanshHero() {
             className="relative flex flex-col md:flex-row items-center gap-10 md:gap-16 px-6 py-16 md:py-20"
         >
             {/* Image */}
-            <div className="relative group shrink-0 w-52 h-48 md:w-64 md:h-64 mt-6 md:mt-10">
+            <Link
+                href="/suryanshupadhyay"
+                aria-label="View Suryansh Upadhyay profile"
+                className="relative z-10 group shrink-0 w-52 h-48 md:w-64 md:h-64 mt-6 md:mt-10 block"
+            >
                 {/* Glow ring */}
                 <div className="absolute -inset-3 rounded-full bg-linear-to-br from-primary/30 via-secondary/20 to-transparent blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-700" />
                 
@@ -31,10 +38,10 @@ export default function SuryanshHero() {
                         className="object-cover object-[center_20%] group-hover:scale-105 transition-transform duration-700"
                     />
                 </div>
-            </div>
+            </Link>
 
             {/* Content */}
-            <div className="flex-1 text-center md:text-left max-w-xl">
+            <div className="relative z-10 flex-1 text-center md:text-left max-w-xl">
                 <motion.p
                     initial={false}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -67,6 +74,22 @@ export default function SuryanshHero() {
                     that bridge the gap between education and industry.
                 </motion.p>
 
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.45, duration: 0.5 }}
+                    className="mt-6"
+                >
+                    <Link
+                        href="/suryanshupadhyay"
+                        className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary transition-transform duration-300 hover:-translate-y-0.5"
+                    >
+                        View Profile
+                        <ArrowUpRight className="h-4 w-4" />
+                    </Link>
+                </motion.div>
+
                 {/* Social Links */}
                 {socials.length > 0 && (
                 <motion.div
@@ -74,7 +97,7 @@ export default function SuryanshHero() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.5, duration: 0.5 }}
-                    className="mt-6 flex justify-center md:justify-start gap-3"
+                    className="relative z-20 mt-6 flex justify-center md:justify-start gap-3"
                 >
                     {socials.map(({ icon: Icon, url, label }) => (
                         <a

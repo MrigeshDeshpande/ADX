@@ -6,10 +6,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { HelpCircle, Plus, Minus } from "lucide-react";
 import Link from "next/link";
 
-const faqs = faqCategories.general.faqs;
-
-export default function ProgramsFAQ() {
+export default function ProgramsFAQ({ limit }) {
   const [openIndex, setOpenIndex] = useState(0);
+  const faqs = typeof limit === "number"
+    ? faqCategories.general.faqs.slice(0, limit)
+    : faqCategories.general.faqs;
 
   return (
     <section className="relative bg-background py-20 overflow-hidden">
