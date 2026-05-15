@@ -121,7 +121,7 @@ const BlogCard = ({ post, searchQuery }) => {
       onMouseLeave={(e) => {
         e.currentTarget.style.transform = `rotate(${tiltAngle}deg)`;
       }}
-      className="group relative select-none flex flex-col gap-[14px] bg-white dark:bg-[#1c1c1a] border border-black/[0.08] dark:border-white/[0.08] rounded-sm p-[10px] pb-5 shadow-[2px_3px_10px_rgba(0,0,0,0.10)] dark:shadow-[2px_3px_16px_rgba(0,0,0,0.45)] transition-all duration-500 hover:z-10 hover:shadow-[6px_16px_32px_rgba(0,0,0,0.16)] cursor-pointer"
+      className="group relative select-none flex flex-col gap-[14px] bg-white dark:bg-[#1c1c1a] border border-black/[0.08] dark:border-white/[0.08] rounded-sm p-[10px] pb-5 shadow-[2px_3px_10px_rgba(0,0,0,0.10)] dark:shadow-[2px_3px_16px_rgba(0,0,0,0.45)] transition-all duration-500 hover:z-10 hover:shadow-[6px_16px_32px_rgba(0,0,0,0.16)] cursor-pointer h-full"
     >
       <Link 
         href={`/blog/${slug}`}
@@ -134,7 +134,7 @@ const BlogCard = ({ post, searchQuery }) => {
         className={`absolute -top-[9px] left-1/2 -translate-x-1/2 z-10 w-4 h-4 rounded-full border-2 border-white dark:border-[#1c1c1a] shadow-md ${pinClass}`}
       />
 
-      <div className="relative w-full aspect-[4/3] overflow-hidden rounded-[1px] bg-[#e5e3dc] dark:bg-[#2c2c2a]">
+      <div className="relative w-full aspect-[4/3] overflow-hidden rounded-[1px] bg-[#e5e3dc] dark:bg-[#2c2c2a] shrink-0">
         <Image
           src={coverUrl}
           alt={title || "Blog cover"}
@@ -152,7 +152,7 @@ const BlogCard = ({ post, searchQuery }) => {
         )}
       </div>
 
-      <div className="flex flex-col gap-1.5 px-1">
+      <div className="flex flex-col flex-1 gap-1.5 px-1">
         <time className="font-mono text-[10px] text-[#888780] dark:text-[#5f5e5a]">
           {dateLabel}
         </time>
@@ -161,7 +161,7 @@ const BlogCard = ({ post, searchQuery }) => {
           <Highlight text={title} query={searchQuery} />
         </h3>
 
-        <div className="flex items-center gap-1.5 mt-1 flex-wrap">
+        <div className="flex items-center gap-1.5 mt-auto pt-2 flex-wrap">
           <div
             className={`relative w-5 h-5 rounded-full flex items-center justify-center text-[8px] font-bold overflow-hidden ${colorTheme.bg} ${colorTheme.text}`}
           >

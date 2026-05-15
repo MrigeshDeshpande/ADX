@@ -102,17 +102,17 @@ const BlogSearch = ({ posts }) => {
     return (
         <div className="space-y-10" onKeyDown={handleKeyDown}>
             <div className="space-y-4">
-                <div className="relative max-w-md mx-auto group">
-                    <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
-                        <Search className="w-4 h-4 text-foreground group-focus-within:text-primary transition-colors" />
+                <div className="relative max-w-2xl mx-auto group z-20">
+                    <div className="absolute inset-y-0 left-5 flex items-center pointer-events-none">
+                        <Search className="w-5 h-5 text-muted-foreground group-focus-within:text-primary transition-colors duration-300" />
                     </div>
                     <input
                         ref={inputRef}
                         type="text"
-                        placeholder="Search articles..."
+                        placeholder="Search articles, guides, and tutorials..."
                         value={query}
                         onChange={(e) => { setQuery(e.target.value); setCurrentPage(1); setFocusedIndex(-1); }}
-                        className="w-full pl-11 pr-12 py-3 rounded-full border border-border bg-muted/40 text-sm focus:outline-none focus:ring-2 focus:ring-ring focus:bg-background transition-all text-foreground"
+                        className="w-full pl-14 pr-12 py-4 rounded-full border border-border/50 bg-background/50 backdrop-blur-sm text-base shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-foreground"
                     />
                 </div>
 
@@ -150,7 +150,7 @@ const BlogSearch = ({ posts }) => {
                     {paginated.map((post, index) => (
                         <div
                             key={post._id}
-                            className={`transition-all duration-300 rounded-3xl ${focusedIndex === index ? "ring-4 ring-primary ring-offset-4 scale-[1.03] shadow-2xl z-10" : ""
+                            className={`transition-all duration-300 rounded-3xl h-full ${focusedIndex === index ? "ring-4 ring-primary ring-offset-4 scale-[1.03] shadow-2xl z-10" : ""
                                 }`}
                         >
                             <BlogCard post={post} searchQuery={debouncedQuery} />
@@ -158,23 +158,28 @@ const BlogSearch = ({ posts }) => {
                     ))}
                 </div>
             ) : debouncedQuery ? (
-                <div className="flex flex-col items-center justify-center py-20 gap-8 border border-dashed border-border rounded-[2rem] bg-muted/20 text-center">
-                    <div className="space-y-2">
-                        <Search className="w-12 h-12 text-muted-foreground opacity-20 mx-auto mb-4" />
-                        <h3 className="text-xl font-semibold">No matches for {debouncedQuery}</h3>
-                        <p className="text-sm text-muted-foreground max-w-xs mx-auto">
-                            Don&apos;t let the search end here. Try one of our most popular categories:
+                <div className="flex flex-col items-center justify-center py-24 gap-8 border border-border/40 rounded-[2.5rem] bg-background/40 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(255,255,255,0.02)] text-center relative overflow-hidden">
+                    {/* Background Glow */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary/5 rounded-full blur-[80px] pointer-events-none"></div>
+                    
+                    <div className="space-y-4 relative z-10">
+                        <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <Search className="w-10 h-10 text-primary opacity-80" />
+                        </div>
+                        <h3 className="text-2xl font-bold font-serif text-foreground">No matches for &quot;{debouncedQuery}&quot;</h3>
+                        <p className="text-base text-muted-foreground max-w-sm mx-auto">
+                            Don&apos;t let the search end here. Try exploring one of our recommended topics:
                         </p>
                     </div>
 
-                    <div className="flex flex-wrap justify-center gap-3">
+                    <div className="flex flex-wrap justify-center gap-3 relative z-10 max-w-lg mx-auto mt-2">
                         {dynamicSuggestions.map((tag) => (
                             <button
                                 key={tag}
                                 onClick={() => { setQuery(tag); setCurrentPage(1); }}
-                                className="px-5 py-2 rounded-full bg-background border border-border text-xs font-medium hover:border-foreground shadow-sm transition-all flex items-center gap-2"
+                                className="px-6 py-2.5 rounded-full bg-primary/5 border border-primary/20 text-sm font-medium hover:bg-primary hover:text-primary-foreground hover:border-primary shadow-sm transition-all duration-300 flex items-center gap-2 group text-foreground"
                             >
-                                <Lightbulb className="w-3.5 h-3.5 text-yellow-500" />
+                                <Lightbulb className="w-4 h-4 text-primary group-hover:text-primary-foreground transition-colors" />
                                 {tag}
                             </button>
                         ))}
