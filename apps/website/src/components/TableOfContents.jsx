@@ -13,7 +13,6 @@ export default function TableOfContents({ headings }) {
 
         observerRef.current = new IntersectionObserver(
             (entries) => {
-                // Find the topmost visible heading
                 const visible = entries
                     .filter((e) => e.isIntersecting)
                     .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
@@ -23,7 +22,7 @@ export default function TableOfContents({ headings }) {
                 }
             },
             {
-                rootMargin: "-80px 0px -60% 0px",
+                rootMargin: "-10% 0px -70% 0px",
                 threshold: 0,
             }
         );
@@ -36,61 +35,51 @@ export default function TableOfContents({ headings }) {
         return () => observerRef.current?.disconnect();
     }, [headings]);
 
-    // Automatically scroll the Table of Contents container to keep the active item in view
-    useEffect(() => {
-        if (activeId) {
-            const activeEl = document.getElementById(`toc-${activeId}`);
-            if (activeEl) {
-                activeEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
-            }
-        }
-    }, [activeId]);
-
     if (!headings?.length) return null;
 
     return (
-        <ul className="space-y-0.5 text-sm">
-            {headings.map((heading) => {
-                const isActive = activeId === heading.id;
-                const isH3 = heading.level === "h2";
+        <div className="relative">
+            {/* Vertical Line */}
+            <div className="absolute left-0 top-1 bottom-1 w-px bg-border/50" />
+            
+            <ul className="space-y-1 text-sm relative z-10">
+                {headings.map((heading) => {
+                    const isActive = activeId === heading.id;
+                    const isSubheading = heading.level === "h3" || heading.level === "h4";
 
-                return (
-                    <li key={heading.id} id={`toc-${heading.id}`}>
-                        <a
-                            href={`#${heading.id}`}
-                            onClick={(e) => {
-                                e.preventDefault();
-                                const el = document.getElementById(heading.id);
-                                if (el) {
-                                    
-                                    const top = el.getBoundingClientRect().top + window.scrollY - 96;
-                                    window.scrollTo({ top, behavior: "smooth" });
-                                    setActiveId(heading.id);
-                                }
-                            }}
-                            className={[
-                                "flex items-center gap-2 py-1 transition-all duration-200 rounded-lg",
-                                isH3 ? "pl-4" : "pl-0",
-                                isActive
-                                    ? "text-blue-500 dark:text-blue-400 font-medium"
-                                    : "text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400",
-                            ].join(" ")}
-                        >
-                            {/* Indicator dot / bar */}
-                            <span
-                                className={[
-                                    "shrink-0 rounded-full transition-all duration-200",
-                                    isH3 ? "w-1 h-1" : "w-1.5 h-1.5",
-                                    isActive
-                                        ? "bg-blue-500 dark:bg-blue-400 scale-125"
-                                        : "bg-gray-300 dark:bg-gray-600",
-                                ].join(" ")}
-                            />
-                            <span className="leading-snug">{heading.text}</span>
-                        </a>
-                    </li>
-                );
-            })}
-        </ul>
+                    return (
+                        <li key={heading.id} id={`toc-${heading.id}`}>
+                            <a
+                                href={`#${heading.id}`}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    const el = document.getElementById(heading.id);
+                                    if (el) {
+                                        const top = el.getBoundingClientRect().top + window.scrollY - 96;
+                                        window.scrollTo({ top, behavior: "smooth" });
+                                        setActiveId(heading.id);
+                                    }
+                                }}
+                                className={`
+                                    group flex items-center gap-3 py-1.5 pr-2 transition-all duration-300 rounded-r-lg border-l-2 -ml-[1px]
+                                    ${isSubheading ? "pl-8" : "pl-4"}
+                                    ${isActive 
+                                        ? "text-primary border-primary font-bold bg-primary/5" 
+                                        : "text-muted-foreground border-transparent hover:text-foreground hover:border-border/50"
+                                    }
+                                `}
+                            >
+                                <span className={`
+                                    leading-snug transition-transform duration-300
+                                    ${isActive ? "translate-x-1" : "group-hover:translate-x-1"}
+                                `}>
+                                    {heading.text}
+                                </span>
+                            </a>
+                        </li>
+                    );
+                })}
+            </ul>
+        </div>
     );
 }

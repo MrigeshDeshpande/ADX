@@ -86,7 +86,7 @@ export default function ContactPageInfoCard() {
                         <li className="flex items-center justify-between border-b border-white/10 dark:border-primary/20 pb-3">
                             <span className="flex items-center gap-3 text-white/90 dark:text-neutral-200">
                                 <MapPin className="w-5 h-5 text-white/60 dark:text-primary/60" />
-                                Bhagwan Talkies Xing
+                                Bhagwan Talkies Crossing
                             </span>
                             <span className="font-semibold bg-white/10 dark:bg-primary/20 px-3 py-1 rounded-full text-sm">0.2 km</span>
                         </li>

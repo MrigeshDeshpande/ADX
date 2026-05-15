@@ -195,13 +195,6 @@ export default function TeamProfilePage({ profile }) {
                       sizes="(max-width: 1024px) 100vw, 40vw"
                     />
                     <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                    
-                    <div className="absolute bottom-6 left-6 right-6">
-                      <div className="flex items-center gap-2 rounded-full border border-white/10 bg-black/40 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white backdrop-blur-md">
-                        <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-                        SkillYards Official Profile
-                      </div>
-                    </div>
                   </div>
                 </div>
               </m.div>

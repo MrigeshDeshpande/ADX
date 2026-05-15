@@ -11,7 +11,7 @@ export const TEAM_PROFILES = {
     intro:
       "He began his entrepreneurial journey at a young age and went on to lead ventures across multiple sectors. Along the way, he closely observed a recurring challenge in Tier-2 cities: students earn degrees, yet often lack practical skills, confidence, and clear career direction.",
     badge: "Leadership",
-    location: "Agra, Uttar Pradesh, India",
+    location: "Agra, India",
     experienceLabel: "Entrepreneurship and EdTech leadership",
     company: "SkillYards Versatility Pvt. Ltd.",
     linkedin: "https://www.linkedin.com/in/suryansh-upadhyay-346a22347/",
@@ -37,18 +37,6 @@ export const TEAM_PROFILES = {
     ],
     experience: [
       {
-        title: "Managing Director",
-        organization: "Skillyards Versatility Pvt. Ltd.",
-        period: "Feb 2024 - Present",
-        location: "Agra, Uttar Pradesh, India · On-site",
-        points: [
-          "Leading an EdTech company focused on skill-based and industry-aligned education.",
-          "Designing sales strategies, academic operations, and growth frameworks.",
-          "Building partnerships, managing teams, and scaling programs.",
-          "Driving the vision of affordable and outcome-driven quality education.",
-        ],
-      },
-      {
         title: "Founder & CEO",
         organization: "SkillYards Versatility Pvt. Ltd.",
         period: "Current Leadership Role",
@@ -59,6 +47,19 @@ export const TEAM_PROFILES = {
           "Working across growth, operations, partnerships, and team-building to deliver measurable learner outcomes.",
         ],
       },
+      {
+        title: "Managing Director",
+        organization: "Skillyards Versatility Pvt. Ltd.",
+        period: "Feb 2024 - Present",
+        location: "Agra, India",
+        points: [
+          "Leading an EdTech company focused on skill-based and industry-aligned education.",
+          "Designing sales strategies, academic operations, and growth frameworks.",
+          "Building partnerships, managing teams, and scaling programs.",
+          "Driving the vision of affordable and outcome-driven quality education.",
+        ],
+      }
+      
     ],
     seo: {
       title: "Suryansh Upadhyay – Founder & CEO",
@@ -86,7 +87,7 @@ export const TEAM_PROFILES = {
     intro:
       "He owns operations, growth enablement, and P&L performance, with a focus on building a scalable, process-driven, enterprise-ready EdTech and EPO organization positioned for long-term growth.",
     badge: "Leadership",
-    location: "Agra, Uttar Pradesh, India",
+    location: "Agra, India",
     experienceLabel: "Operations, growth, and commercial leadership",
     company: "Skillyards Versatility Pvt. Ltd.",
     linkedin: "https://www.linkedin.com/in/rahul-singh-a90ab630/",
@@ -116,7 +117,7 @@ export const TEAM_PROFILES = {
         title: "Chief Operating Officer",
         organization: "Skillyards Versatility Pvt. Ltd.",
         period: "Aug 2025 - Present",
-        location: "Agra, Uttar Pradesh, India · On-site",
+        location: "Agra, India",
         points: [
           "Streamlined operations to improve process efficiency and organizational scalability.",
           "Drove growth through expertise in operations management and SaaS-aligned execution.",
@@ -128,7 +129,7 @@ export const TEAM_PROFILES = {
         title: "Senior Consultant",
         organization: "Univo Edtech",
         period: "Mar 2022 - Mar 2025",
-        location: "Noida, Uttar Pradesh, India · On-site",
+        location: "Noida, India",
         points: [
           "Developed and executed sales strategies for student enrollment.",
           "Built partnerships with institutions to expand enrollment options.",
@@ -140,7 +141,7 @@ export const TEAM_PROFILES = {
         title: "Team Lead",
         organization: "BYJU'S",
         period: "Mar 2020 - Feb 2022",
-        location: "Bengaluru, Karnataka, India · Hybrid",
+        location: "Bengaluru, India",
         points: [
           "Led a team of 12 sales professionals while consistently exceeding revenue targets.",
           "Trained and mentored team members to improve productivity and performance.",

@@ -224,8 +224,7 @@ function Hero({ active, setActive }) {
               transition={{ delay: 0.14 }}
               className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-slate-300 sm:mt-5 sm:max-w-2xl sm:text-lg lg:mx-0 lg:max-w-xl"
             >
-              Get UGC recognized university degree + 3 years of real industry experience in one program.
-              Plus <strong className="text-white">free laptop from day one.</strong>
+              Get UGC certified <strong className="text-[#f97316] font-black">Degree</strong>, <strong className="text-[#f97316] font-black">Skills</strong> and <strong className="text-[#f97316] font-black">placement</strong> at the same place.
             </motion.p>
 
             <motion.div
