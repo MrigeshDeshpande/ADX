@@ -3,6 +3,7 @@
 import { Code2, GraduationCap, BarChart2, Megaphone, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const ProgramsShowcase = () => {
     const [isMobile, setIsMobile] = useState(false);
@@ -26,28 +27,28 @@ const ProgramsShowcase = () => {
             description: "Understand how real websites and applications are built, not just how they look. You work on live projects, learn frontend and backend logic, and build a portfolio recruiters care about.",
             link: "/full-stack-web-development-training-in-agra",
             icon: <Code2 className="w-6 h-6 md:w-8 md:h-8 text-teal-400" />,
-            bg: "url('/images/programmes/full-stack.jpg')",
+            bg: "/images/programmes/full-stack.jpg",
         },
         {
             title: "Digital Marketing",
             description: "Master SEO, Google Ads, Meta Ads & analytics. Get Google & Meta certified in just 3 months.",
             link: "/digital-marketing-course-in-agra",
             icon: <Megaphone className="w-6 h-6 md:w-8 md:h-8 text-yellow-400" />,
-            bg: "url('/images/programmes/uiux.jpg')",
+            bg: "/images/programmes/uiux.jpg",
         },
         {
             title: "BCA Program",
             description: "3-year university degree in Computer Applications with on-job training and dedicated placement support.",
             link: "/bca-training-program-in-agra",
             icon: <GraduationCap className="w-6 h-6 md:w-8 md:h-8 text-orange-400" />,
-            bg: "url('/images/programmes/bca.jpg')",
+            bg: "/images/programmes/bca.jpg",
         },
         {
             title: "BBA Program",
             description: "3-year business degree with digital marketing specialisation, live projects and dedicated placement support.",
             link: "/bba-training-program-in-agra",
             icon: <BarChart2 className="w-6 h-6 md:w-8 md:h-8 text-red-400" />,
-            bg: "url('/images/programmes/mca.jpg')",
+            bg: "/images/programmes/mca.jpg",
         },
     ];
 
@@ -88,11 +89,6 @@ const ProgramsShowcase = () => {
                                     onClick={() =>
                                         isMobile && setHovered(hovered === index ? -1 : index)
                                     }
-                                    style={{
-                                        backgroundImage: program.bg,
-                                        backgroundSize: "cover",
-                                        backgroundPosition: "center",
-                                    }}
                                     className={`
                     rounded-3xl
                     transition-all
@@ -108,6 +104,14 @@ const ProgramsShowcase = () => {
                     ${isMobile && hovered === index ? "scale-105" : "scale-100"}
                   `}
                                 >
+                                    {/* Optimized Background Image */}
+                                    <Image
+                                        src={program.bg}
+                                        alt={program.title}
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
+                                        className="object-cover transition-transform duration-500"
+                                    />
                                     {/* Overlay */}
                                     <div className="absolute inset-0 bg-linear-to-r from-black/70 to-black/40" />
 

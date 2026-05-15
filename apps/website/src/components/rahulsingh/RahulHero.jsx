@@ -1,8 +1,8 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowUpRight, Linkedin, Twitter, Instagram } from "lucide-react";
+import Image from "next/image";
+import { LazyMotion, domAnimation, m } from "framer-motion";
+import { Linkedin, Twitter, Instagram, ArrowUpRight } from "lucide-react";
 
 const socials = [
     { icon: Linkedin, url: "https://www.linkedin.com/in/rahul-singh-a90ab630/", label: "LinkedIn" },
@@ -12,7 +12,8 @@ const socials = [
 
 export default function RahulHero() {
     return (
-        <motion.div
+        <LazyMotion features={domAnimation}>
+        <m.div
             initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -41,8 +42,8 @@ export default function RahulHero() {
             </Link>
 
             {/* Content */}
-            <div className="relative z-10 flex-1 text-center md:text-right max-w-xl">
-                <motion.p
+            <div className="flex-1 text-center md:text-right max-w-xl">
+                <m.p
                     initial={false}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
@@ -50,9 +51,9 @@ export default function RahulHero() {
                     className="inline-block text-xs font-semibold uppercase tracking-[0.2em] text-primary bg-primary/10 px-3 py-1 rounded-full mb-4"
                 >
                     Chief Operating Officer
-                </motion.p>
+                </m.p>
 
-                <motion.h3
+                <m.h3
                     initial={false}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -60,9 +61,9 @@ export default function RahulHero() {
                     className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground tracking-tight"
                 >
                     Rahul Singh
-                </motion.h3>
+                </m.h3>
 
-                <motion.p
+                <m.p
                     initial={false}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -72,9 +73,9 @@ export default function RahulHero() {
                     A dynamic operations leader driving SkillYards&apos; day-to-day excellence.
                     Rahul ensures seamless execution across all verticals, fostering a culture of
                     innovation, efficiency, and student-first thinking that powers real learning outcomes.
-                </motion.p>
+                </m.p>
 
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -88,11 +89,11 @@ export default function RahulHero() {
                         View Profile
                         <ArrowUpRight className="h-4 w-4" />
                     </Link>
-                </motion.div>
+                </m.div>
 
                 {/* Social Links */}
                 {socials.length > 0 && (
-                <motion.div
+                <m.div
                     initial={false}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -111,9 +112,10 @@ export default function RahulHero() {
                             <Icon className="w-4 h-4" />
                         </a>
                     ))}
-                </motion.div>
+                </m.div>
                 )}
             </div>
-        </motion.div>
+        </m.div>
+        </LazyMotion>
     );
 }

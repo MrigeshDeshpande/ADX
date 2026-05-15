@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import Image from "next/image";
 import partners from "@/data/partners.json";
 
@@ -8,6 +8,7 @@ const track = [...partners, ...partners];
 
 export default function PartnersSlider() {
     return (
+        <LazyMotion features={domAnimation}>
         <section className="relative py-20 bg-background overflow-hidden">
             {/* Ambient centre glow */}
             <div className="pointer-events-none absolute inset-y-0 left-1/2 -translate-x-1/2 w-[600px] rounded-full bg-secondary/15 blur-[100px]" />
@@ -15,7 +16,7 @@ export default function PartnersSlider() {
             <div className="relative z-10">
 
                 {/* ── Heading ── */}
-                <motion.div
+                <m.div
                     initial={false}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -34,7 +35,7 @@ export default function PartnersSlider() {
                     <p className="font-sans text-sm text-muted-foreground max-w-lg mx-auto leading-relaxed tracking-wide">
                         Students train with tools, workflows, and interview expectations used across modern IT companies, agencies, and startups.
                     </p>
-                </motion.div>
+                </m.div>
 
 
                 <div className="relative">
@@ -73,7 +74,7 @@ export default function PartnersSlider() {
                 </div>
 
                 {/* ── Stats strip ── */}
-                <motion.div
+                <m.div
                     initial={false}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -92,9 +93,10 @@ export default function PartnersSlider() {
                             </div>
                         ))}
                     </div>
-                </motion.div>
+                </m.div>
 
             </div>
         </section>
+        </LazyMotion>
     );
 }

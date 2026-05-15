@@ -23,8 +23,6 @@ export default function AboutSection() {
                             fill
                             className="object-cover transition-transform duration-700 group-hover:scale-105"
                             sizes="(max-width: 768px) 90vw, 420px"
-                            priority
-                            fetchPriority="high"
                         />
                         <div className="absolute inset-0 bg-linear-to-t from-background/40 to-transparent pointer-events-none" />
                     </div>

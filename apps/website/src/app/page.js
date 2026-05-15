@@ -1,17 +1,19 @@
 import HeroCarousel from "@/components/homepage/HeroCarousel";
 import AboutSection from "@/components/homepage/AboutSection";
-import ProblemSection from "@/components/homepage/ProblemSection";
-import FeaturesSection from "@/components/homepage/FeaturesSection";
-import LeadersSection from "@/components/common/LeadersSection";
-import CTASection from "@/components/homepage/CTASection";
-import FAQSection from "@/components/common/FAQSection";
-import { BlogSection } from "@/components/homepage/BlogSection";
-import PartnersSlider from "@/components/common/PartnersSlider";
-import ProgramsShowcase from "@/components/homepage/ProgrammeShowcase";
-import WhatStudentsBuild from "@/components/homepage/WhatStudentsBuild";
-import FeaturedRoles from "@/components/homepage/FeaturedRoles";
-import SkillTestSection from "@/components/homepage/SkillTestSection";
 import BatchFeeInfo from "@/components/programspage/BatchFeeInfo";
+import dynamic from "next/dynamic";
+
+const ProblemSection = dynamic(() => import("@/components/homepage/ProblemSection"));
+const FeaturesSection = dynamic(() => import("@/components/homepage/FeaturesSection"));
+const LeadersSection = dynamic(() => import("@/components/common/LeadersSection"));
+const CTASection = dynamic(() => import("@/components/homepage/CTASection"));
+const FAQSection = dynamic(() => import("@/components/common/FAQSection"));
+const BlogSection = dynamic(() => import("@/components/homepage/BlogSection").then(mod => mod.BlogSection));
+const PartnersSlider = dynamic(() => import("@/components/common/PartnersSlider"));
+const ProgramsShowcase = dynamic(() => import("@/components/homepage/ProgrammeShowcase"));
+const WhatStudentsBuild = dynamic(() => import("@/components/homepage/WhatStudentsBuild"));
+const FeaturedRoles = dynamic(() => import("@/components/homepage/FeaturedRoles"));
+const SkillTestSection = dynamic(() => import("@/components/homepage/SkillTestSection"));
 
 import { buildSEO } from "@/lib/seo/buildSEO";
 import JsonLd from "@/components/JsonLd";

@@ -1,11 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import SuryanshHero from "@/components/suryanshupadhyay/SuryanshHero";
 import RahulHero from "@/components/rahulsingh/RahulHero";
 
 export default function LeadersSection() {
     return (
+        <LazyMotion features={domAnimation}>
         <section className="relative py-24 overflow-hidden">
             {/* Ambient Background Effects */}
             <div className="absolute inset-0 pointer-events-none -z-10">
@@ -15,7 +16,7 @@ export default function LeadersSection() {
 
             {/* Section Header */}
             <div className="max-w-4xl mx-auto px-6 text-center mb-8">
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -27,7 +28,7 @@ export default function LeadersSection() {
                     <p className="mt-4 text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
                         Meet the driving forces behind SkillYards — building the future of skill-based education.
                     </p>
-                </motion.div>
+                </m.div>
             </div>
 
             {/* Leader Cards */}
@@ -38,5 +39,6 @@ export default function LeadersSection() {
                 </div>
             </div>
         </section>
+        </LazyMotion>
     );
 }
