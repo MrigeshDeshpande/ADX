@@ -376,14 +376,7 @@ function Hero({ active, setActive }) {
               </div>
             </div>
 
-            <a
-              href={WHATSAPP_HREF}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#f97316] px-5 py-3 text-sm font-extrabold text-white transition-all hover:scale-[1.02] hover:bg-[#ea580c] sm:mt-6 sm:px-6 sm:py-3.5"
-            >
-              Get Free Counselling <ArrowRight size={15} />
-            </a>
+
           </motion.aside>
         </div>
       </div>
@@ -622,14 +615,7 @@ function ProgramCards({ active, setActive }) {
                   >
                     Get Free Counselling <ArrowRight size={15} />
                   </a>
-                  <a
-                    href={WHATSAPP_HREF}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-[#fed7aa] bg-white px-6 py-3.5 text-sm font-semibold text-slate-900 transition-all hover:border-[#dc2626]/30 hover:bg-[#fff7ed]"
-                  >
-                    Get Free Counselling
-                  </a>
+
                 </div>
               </div>
             </div>
@@ -894,23 +880,13 @@ function WhySkillyards() {
           transition={{ delay: 0.12 }}
           className="mt-6 rounded-[1.75rem] border border-[#fed7aa] bg-white/90 p-4 shadow-sm sm:mt-8 sm:p-5"
         >
-          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <div>
-              <p className="text-sm font-extrabold text-slate-900">
-                Don&apos;t spend 3 years graduating into zero experience.
-              </p>
-              <p className="mt-1 text-xs leading-relaxed text-slate-600 sm:text-sm">
-                Choose degree with real work, real tools, and job-ready output from semester 1.
-              </p>
-            </div>
-            <a
-              href={WHATSAPP_HREF}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#dc2626] px-6 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-[#dc2626]/20 transition-all hover:scale-105 hover:bg-[#b91c1c] md:w-auto"
-            >
-              Get Free Counselling <ArrowRight size={15} />
-            </a>
+          <div className="text-center">
+            <p className="text-base font-extrabold text-slate-900 sm:text-lg">
+              Don&apos;t spend 3 years graduating into zero experience.
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-slate-600 sm:text-base">
+              Choose degree with real work, real tools, and job-ready output from semester 1.
+            </p>
           </div>
         </motion.div>
       </div>
