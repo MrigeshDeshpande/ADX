@@ -12,55 +12,55 @@ const DISQUS_SHORTNAME = "skillyards-versatilitty";
  *  - slug: unique page identifier (e.g. "my-blog-post")
  *  - title: page title shown in Disqus thread header
  *
- * Handles:
- *  - Initial embed script injection (only once across the app lifetime)
- *  - DISQUS.reset() on slug/title changes for client-side navigation
- *  - Cleanup to prevent memory leaks
- *  - Fallback message if Disqus fails to load
+ * Follows the exact Disqus universal embed pattern:
+ * 1. Sets window.disqus_config BEFORE injecting the script
+ * 2. Uses disqus_shortname global variable as required by Disqus
+ * 3. On re-renders (client navigation), calls DISQUS.reset()
  */
 export default function Discussion({ slug, title }) {
-  const containerRef = useRef(null);
+  const initialized = useRef(false);
 
   useEffect(() => {
     if (!slug) return;
 
-    // Build the canonical URL for this page
-    const pageUrl = `${window.location.origin}/blog/${slug}`;
+    const pageUrl = `https://www.skillyards.in/blog/${slug}`;
+    const pageIdentifier = slug;
 
-    // Configure Disqus for the current page
-    window.disqus_config = function () {
-      this.page.url = pageUrl;
-      this.page.identifier = slug;
-      this.page.title = title || "";
-    };
+    // Set the global shortname — Disqus reads this
+    window.disqus_shortname = DISQUS_SHORTNAME;
 
-    // If Disqus is already loaded (navigated from another post), reset it
+    // If Disqus was already loaded (client-side navigation), reset it
     if (window.DISQUS) {
       window.DISQUS.reset({
         reload: true,
         config: function () {
           this.page.url = pageUrl;
-          this.page.identifier = slug;
+          this.page.identifier = pageIdentifier;
           this.page.title = title || "";
         },
       });
       return;
     }
 
-    // First-time load: inject the Disqus embed script (only once)
-    const existingScript = document.querySelector(
-      `script[src*="${DISQUS_SHORTNAME}.disqus.com/embed.js"]`
-    );
+    // First load: set disqus_config BEFORE injecting the script
+    window.disqus_config = function () {
+      this.page.url = pageUrl;
+      this.page.identifier = pageIdentifier;
+      this.page.title = title || "";
+    };
 
-    if (!existingScript) {
-      const script = document.createElement("script");
-      script.src = `https://${DISQUS_SHORTNAME}.disqus.com/embed.js`;
-      script.setAttribute("data-timestamp", String(+new Date()));
-      script.async = true;
-      document.body.appendChild(script);
+    // Only inject the script once
+    if (!initialized.current) {
+      initialized.current = true;
+      const d = document;
+      const s = d.createElement("script");
+      s.src = `https://${DISQUS_SHORTNAME}.disqus.com/embed.js`;
+      s.setAttribute("data-timestamp", String(+new Date()));
+      s.async = true;
+      (d.head || d.body).appendChild(s);
     }
 
-    // Cleanup: remove the thread content when unmounting to avoid stale threads
+    // Cleanup thread content on unmount
     return () => {
       const thread = document.getElementById("disqus_thread");
       if (thread) {
@@ -70,7 +70,7 @@ export default function Discussion({ slug, title }) {
   }, [slug, title]);
 
   return (
-    <div ref={containerRef}>
+    <div>
       {/* Section heading */}
       <div className="mb-8">
         <div className="flex items-center gap-3 mb-2">
@@ -89,11 +89,11 @@ export default function Discussion({ slug, title }) {
       </div>
 
       {/* Glassmorphism container for Disqus */}
-      <div className="rounded-[2rem] border border-border/50 bg-white/80 dark:bg-white/5 backdrop-blur-md p-6 md:p-10 shadow-xl shadow-black/5 dark:shadow-black/20 relative overflow-hidden">
+      <div className="rounded-[2rem] border border-border/50 bg-white dark:bg-[#1a1a1a] p-6 md:p-10 shadow-xl relative overflow-hidden">
         {/* Subtle background glow */}
         <div className="absolute -right-20 -bottom-20 w-60 h-60 bg-primary/5 rounded-full blur-[80px] pointer-events-none" />
 
-        {/* Disqus thread mount point */}
+        {/* Disqus thread mount point — ID must be exactly "disqus_thread" */}
         <div id="disqus_thread" className="relative z-10 min-h-[200px]" />
 
         {/* Fallback for users with JS disabled */}
