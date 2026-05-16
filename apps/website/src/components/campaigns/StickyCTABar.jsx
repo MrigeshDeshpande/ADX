@@ -63,7 +63,7 @@ export function StickyCTABar({ whatsappHref }) {
               className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-xs font-extrabold text-white shadow-lg shadow-[#25D366]/30 transition-all hover:scale-105 hover:bg-[#20b857] active:scale-95"
             >
               <MessageCircle size={14} />
-              Claim Free Session
+              Get Free Counselling
             </a>
           </div>
         </motion.div>

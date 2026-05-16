@@ -252,7 +252,7 @@ function Hero({ active, setActive }) {
                 rel="noopener noreferrer"
                 className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#dc2626] px-6 py-3.5 text-sm font-extrabold text-white shadow-xl shadow-[#dc2626]/30 transition-all hover:scale-105 hover:bg-[#b91c1c] sm:w-auto sm:px-8 sm:py-4"
               >
-                Apply for Free Demo Class <ArrowRight size={16} />
+                Get Free Counselling <ArrowRight size={16} />
               </a>
             </motion.div>
 
@@ -382,7 +382,7 @@ function Hero({ active, setActive }) {
               rel="noopener noreferrer"
               className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#f97316] px-5 py-3 text-sm font-extrabold text-white transition-all hover:scale-[1.02] hover:bg-[#ea580c] sm:mt-6 sm:px-6 sm:py-3.5"
             >
-              Book Free Demo Class <ArrowRight size={15} />
+              Get Free Counselling <ArrowRight size={15} />
             </a>
           </motion.aside>
         </div>
@@ -472,7 +472,7 @@ function SocialProof() {
               rel="noopener noreferrer"
               className="inline-flex min-h-10 w-auto self-center items-center justify-center gap-2 rounded-full bg-[#111827] px-4 py-2.5 text-center text-xs font-extrabold leading-tight text-white transition-all hover:scale-[1.02] hover:bg-black sm:min-h-10 sm:px-4 sm:py-2.5 sm:text-sm"
             >
-              Reserve Your AI Demo Before Seats Fill <ArrowRight size={15} />
+              Get Free Counselling <ArrowRight size={15} />
             </a>
           </div>
         </motion.div>
@@ -620,7 +620,7 @@ function ProgramCards({ active, setActive }) {
                     rel="noopener noreferrer"
                     className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#dc2626] px-6 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-[#dc2626]/20 transition-all hover:scale-105 hover:bg-[#b91c1c]"
                   >
-                    Apply for Free Demo Class <ArrowRight size={15} />
+                    Get Free Counselling <ArrowRight size={15} />
                   </a>
                   <a
                     href={WHATSAPP_HREF}
@@ -628,7 +628,7 @@ function ProgramCards({ active, setActive }) {
                     rel="noopener noreferrer"
                     className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-[#fed7aa] bg-white px-6 py-3.5 text-sm font-semibold text-slate-900 transition-all hover:border-[#dc2626]/30 hover:bg-[#fff7ed]"
                   >
-                    View {prog.label} Curriculum
+                    Get Free Counselling
                   </a>
                 </div>
               </div>
@@ -909,7 +909,7 @@ function WhySkillyards() {
               rel="noopener noreferrer"
               className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#dc2626] px-6 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-[#dc2626]/20 transition-all hover:scale-105 hover:bg-[#b91c1c] md:w-auto"
             >
-              Book Free Demo Class <ArrowRight size={15} />
+              Get Free Counselling <ArrowRight size={15} />
             </a>
           </div>
         </motion.div>
@@ -1018,7 +1018,7 @@ function WhoIsThisFor() {
               rel="noopener noreferrer"
               className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#dc2626] px-6 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-[#dc2626]/20 transition-all hover:scale-105 hover:bg-[#b91c1c] md:w-auto"
             >
-              Check Your Fit <ArrowRight size={15} />
+              Get Free Counselling <ArrowRight size={15} />
             </a>
           </div>
         </motion.div>
@@ -1161,7 +1161,7 @@ function Instructor() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-[#dc2626] px-6 py-3 text-sm font-extrabold text-white shadow-lg shadow-[#dc2626]/20 transition-all hover:scale-105 hover:bg-[#b91c1c]"
               >
-                Talk to Mentor <ArrowRight size={15} />
+                Get Free Counselling <ArrowRight size={15} />
               </a>
             </div>
           </div>
@@ -1312,7 +1312,7 @@ function Testimonials() {
               rel="noopener noreferrer"
               className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#dc2626] px-6 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-[#dc2626]/20 transition-all hover:scale-105 hover:bg-[#b91c1c] md:w-auto"
             >
-              Book Free Demo Class <ArrowRight size={15} />
+              Get Free Counselling <ArrowRight size={15} />
             </a>
           </div>
         </motion.div>
@@ -1411,7 +1411,7 @@ function FinalCTA() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-[#dc2626] px-8 py-4 text-sm font-extrabold text-white shadow-xl shadow-[#dc2626]/25 transition-all hover:scale-105 hover:bg-[#b91c1c]"
           >
-            Book Free Demo Class <ArrowRight size={16} />
+            Get Free Counselling <ArrowRight size={16} />
           </a>
         </motion.div>
         <p className="mt-4 text-[11px] text-slate-400">
