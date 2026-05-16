@@ -41,15 +41,15 @@ const nextConfig = {
                         "default-src 'self'; " +
 
                         // Scripts
-                        "script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://utteranc.es https://www.google.com https://www.gstatic.com https://www.googletagmanager.com https://googleads.g.doubleclick.net https://www.googleadservices.com; "+
+                        "script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://utteranc.es https://www.google.com https://www.gstatic.com https://www.googletagmanager.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://*.disqus.com https://*.disquscdn.com; "+
                         // Frames
-                        "frame-src https://utteranc.es https://www.google.com https://www.gstatic.com https://www.youtube.com https://www.googletagmanager.com; " +
+                        "frame-src https://utteranc.es https://www.google.com https://www.gstatic.com https://www.youtube.com https://www.googletagmanager.com https://disqus.com https://*.disqus.com; " +
 
                         // API calls 
-                        "connect-src 'self' https://api.github.com https://www.google.com https://www.gstatic.com https://skillyards-backend.vercel.app https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://www.googleadservices.com; " +
+                        "connect-src 'self' https://api.github.com https://www.google.com https://www.gstatic.com https://skillyards-backend.vercel.app https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://*.disqus.com https://*.disquscdn.com; " +
 
                         // Images
-                        "img-src 'self' data: blob: https://picsum.photos https://images.unsplash.com https://cdn.sanity.io https://cdn.simpleicons.org https://img.youtube.com https://googleads.g.doubleclick.net https://www.googleadservices.com; " +
+                        "img-src 'self' data: blob: https://images.unsplash.com https://cdn.sanity.io https://cdn.simpleicons.org https://img.youtube.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://*.disquscdn.com https://referrer.disqus.com; " +
 
                         // Styles
                         "style-src 'self' 'unsafe-inline'; " +
@@ -70,7 +70,6 @@ const nextConfig = {
 
     images: {
         remotePatterns: [
-            { protocol: "https", hostname: "picsum.photos" },
             { protocol: "https", hostname: "randomuser.me" },
             { protocol: "https", hostname: "img.youtube.com" },
             { protocol: "https", hostname: "i.ytimg.com" },

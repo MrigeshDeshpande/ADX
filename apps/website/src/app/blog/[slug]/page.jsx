@@ -7,7 +7,8 @@ import TableOfContents from "@/components/TableOfContents";
 import { extractHeadings } from "@/lib/sanity/slugifyHeading";
 import { portableTextComponents } from "@/lib/sanity/portableTextComponents";
 import Image from "next/image";
-import Comments from "@/components/blog/Comments";
+import Link from "next/link";
+import Discussion from "@/components/blog/Discussion";
 import { buildSEO } from "@/lib/seo/buildSEO";
 import JsonLd from "@/components/JsonLd";
 import { getBlogPostingSchema } from "@/lib/seo/schema/blogPostingSchema";
@@ -165,7 +166,7 @@ export default async function BlogPostPage({ params }) {
                                     alt={post.title}
                                     width={1200}
                                     height={600}
-                                    className="w-full aspect-16/9 object-cover transition-transform duration-700 group-hover:scale-105"
+                                    className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105"
                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 800px"
                                     priority
                                 />
@@ -209,13 +210,7 @@ export default async function BlogPostPage({ params }) {
                         </section>
 
                         <div className="mt-20 border-t border-border/50 pt-10">
-                            <h3 className="text-2xl font-serif font-black mb-8 flex items-center gap-3">
-                                <span className="p-2 bg-primary/10 rounded-xl text-primary">
-                                    <Share2 size={20} />
-                                </span>
-                                Discussion
-                            </h3>
-                            <Comments />
+                            <Discussion slug={slug} title={post.title} />
                         </div>
                     </div>
 
@@ -260,13 +255,13 @@ export default async function BlogPostPage({ params }) {
                         )}
 
                         {/* Promo Card */}
-                        <div className="rounded-[2.5rem] bg-primary p-8 text-primary-foreground relative overflow-hidden group shadow-2xl shadow-primary/20">
+                        <div className="rounded-[2.5rem] bg-foreground p-8 text-primary-foreground relative overflow-hidden group shadow-2xl shadow-primary/20">
                             <div className="relative z-10">
                                 <h4 className="font-serif text-2xl font-black leading-tight mb-3">Launch Your Career.</h4>
                                 <p className="text-primary-foreground/80 text-sm font-medium mb-6 leading-relaxed">Join our high-impact training programs in Agra.</p>
-                                <a href="/programs" className="inline-flex h-12 w-full items-center justify-center rounded-xl bg-white text-primary text-xs font-black tracking-widest uppercase hover:bg-slate-50 transition-colors">
+                                <Link href="/programs" className="inline-flex h-12 w-full items-center justify-center rounded-xl bg-background text-foreground text-xs font-black tracking-widest uppercase transition-colors hover:bg-muted">
                                     Explore Courses
-                                </a>
+                                </Link>
                             </div>
                             <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-white/10 rounded-full blur-3xl group-hover:scale-110 transition-transform duration-700" />
                         </div>

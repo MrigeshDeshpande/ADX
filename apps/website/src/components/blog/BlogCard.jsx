@@ -87,10 +87,10 @@ const BlogCard = ({ post, searchQuery }) => {
 
   const dateLabel = publishedAt
     ? new Date(publishedAt).toLocaleDateString("en-US", {
-        month: "short",
-        day: "numeric",
-        year: "numeric",
-      })
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    })
     : "Recent";
 
   const tiltAngle = getTilt(slug);
@@ -114,16 +114,15 @@ const BlogCard = ({ post, searchQuery }) => {
     <article
       style={{ "--tilt": `${tiltAngle}deg` }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.transform = `rotate(${
-          tiltAngle * -0.4
-        }deg) translateY(-8px) scale(1.02)`;
+        e.currentTarget.style.transform = `rotate(${tiltAngle * -0.4
+          }deg) translateY(-8px) scale(1.02)`;
       }}
       onMouseLeave={(e) => {
         e.currentTarget.style.transform = `rotate(${tiltAngle}deg)`;
       }}
       className="group relative select-none flex flex-col gap-[14px] bg-white dark:bg-[#1c1c1a] border border-black/[0.08] dark:border-white/[0.08] rounded-sm p-[10px] pb-5 shadow-[2px_3px_10px_rgba(0,0,0,0.10)] dark:shadow-[2px_3px_16px_rgba(0,0,0,0.45)] transition-all duration-500 hover:z-10 hover:shadow-[6px_16px_32px_rgba(0,0,0,0.16)] cursor-pointer h-full"
     >
-      <Link 
+      <Link
         href={`/blog/${slug}`}
         className="absolute inset-0 z-0"
         aria-label={`Read more about ${title}`}

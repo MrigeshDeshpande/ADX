@@ -21,3 +21,5 @@ yarn-error.log*
 # tools / local configs
 .claude/
 .codex
+# IDE
+.idea/
