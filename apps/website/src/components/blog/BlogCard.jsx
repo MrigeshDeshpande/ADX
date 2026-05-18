@@ -35,6 +35,14 @@ const getPalette = (name) =>
 const getPinColor = (slug) =>
   PIN_COLORS[getHash(slug) % PIN_COLORS.length];
 
+const CONTENT_TYPE_LABELS = {
+  "pillar-brand": "Brand Pillar",
+  "pillar-sub": "Sub-Pillar",
+  cluster: "Guide",
+  comparison: "Compare",
+  news: "News",
+};
+
 const Highlight = ({ text, query }) => {
   const result = useMemo(() => {
     if (!query?.trim() || !text) return null;
@@ -70,7 +78,7 @@ const Highlight = ({ text, query }) => {
 };
 
 const BlogCard = ({ post, searchQuery }) => {
-  const { title, slug, publishedAt, author, coverImage } = post;
+  const { title, slug, publishedAt, author, coverImage, contentType, category } = post;
 
   const coverUrl = coverImage
     ? urlFor(coverImage).width(600).height(450).url()
@@ -91,6 +99,7 @@ const BlogCard = ({ post, searchQuery }) => {
   const tiltAngle = getTilt(slug);
   const colorTheme = getPalette(author?.name || "");
   const pinClass = getPinColor(slug);
+  const contentTypeLabel = CONTENT_TYPE_LABELS[contentType] || "Article";
 
   const initials = (author?.name || "SK")
     .split(" ")
@@ -135,6 +144,17 @@ const BlogCard = ({ post, searchQuery }) => {
       </div>
 
       <div className="flex flex-col flex-1 gap-1.5 px-1">
+        <div className="flex items-center gap-2 flex-wrap">
+          <span className="inline-flex items-center rounded-full border border-black/10 bg-black/[0.03] px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.18em] text-[#4f4d47] dark:border-white/10 dark:bg-white/[0.04] dark:text-[#bdb7aa]">
+            {contentTypeLabel}
+          </span>
+          {category && (
+            <span className="text-[10px] uppercase tracking-[0.16em] text-[#888780] dark:text-[#5f5e5a]">
+              {category.replace(/-/g, " ")}
+            </span>
+          )}
+        </div>
+
         <time className="font-mono text-[10px] text-[#888780] dark:text-[#5f5e5a]">
           {dateLabel}
         </time>

@@ -7,10 +7,21 @@ import { useRouter } from "next/navigation";
 
 const POSTS_PER_PAGE = 6;
 
+const CATEGORY_LABELS = {
+    "ojd-program": "OJD Program",
+    "ojd-bca": "OJD BCA",
+    "ojd-bba": "OJD BBA",
+    "full-stack": "Full-Stack",
+    "digital-marketing": "Digital Marketing",
+    "career-guidance": "Career Guidance",
+    "industry-news": "Industry News",
+};
+
 const BlogSearch = ({ posts }) => {
     const router = useRouter();
     const [query, setQuery] = useState("");
     const [debouncedQuery, setDebouncedQuery] = useState("");
+    const [activeCategory, setActiveCategory] = useState("all");
     const [currentPage, setCurrentPage] = useState(1);
     const [focusedIndex, setFocusedIndex] = useState(-1);
     const inputRef = useRef(null);
@@ -19,6 +30,23 @@ const BlogSearch = ({ posts }) => {
         const timer = setTimeout(() => setDebouncedQuery(query), 300);
         return () => clearTimeout(timer);
     }, [query]);
+
+    const categoryOptions = useMemo(() => {
+        const counts = {};
+
+        posts?.forEach((post) => {
+            if (!post.category) return;
+            counts[post.category] = (counts[post.category] || 0) + 1;
+        });
+
+        return Object.entries(counts)
+            .sort((a, b) => b[1] - a[1])
+            .map(([value, count]) => ({
+                value,
+                count,
+                label: CATEGORY_LABELS[value] || value.replace(/-/g, " "),
+            }));
+    }, [posts]);
 
 
     const dynamicSuggestions = useMemo(() => {
@@ -46,7 +74,12 @@ const BlogSearch = ({ posts }) => {
 
     const filtered = useMemo(() => {
         const rawQ = debouncedQuery.toLowerCase().trim();
-        if (!rawQ) return posts;
+        const safePosts = posts || [];
+        const categoryFiltered = activeCategory === "all"
+            ? safePosts
+            : safePosts.filter((post) => post.category === activeCategory);
+
+        if (!rawQ) return categoryFiltered;
         const tokens = rawQ.split(/\s+/).filter(t => t.length > 0);
 
         const scorePost = (post) => {
@@ -74,12 +107,12 @@ const BlogSearch = ({ posts }) => {
             return totalScore;
         };
 
-        return posts
+        return categoryFiltered
             .map((post) => ({ post, score: scorePost(post) }))
             .filter((item) => item.score > 0)
             .sort((a, b) => b.score - a.score)
             .map((item) => item.post);
-    }, [debouncedQuery, posts]);
+    }, [activeCategory, debouncedQuery, posts]);
 
     const paginated = debouncedQuery
         ? filtered
@@ -95,7 +128,7 @@ const BlogSearch = ({ posts }) => {
             setFocusedIndex(prev => (prev > 0 ? prev - 1 : -1));
         } else if (e.key === "Enter" && focusedIndex >= 0) {
             e.preventDefault();
-            router.push(`/blog/${paginated[focusedIndex].slug.current}`);
+            router.push(`/blog/${paginated[focusedIndex].slug}`);
         }
     };
 
@@ -116,7 +149,47 @@ const BlogSearch = ({ posts }) => {
                     />
                 </div>
 
-                {debouncedQuery && (
+                {categoryOptions.length > 0 && (
+                    <div className="flex flex-wrap justify-center gap-2 pt-2">
+                        <button
+                            type="button"
+                            onClick={() => {
+                                setActiveCategory("all");
+                                setCurrentPage(1);
+                                setFocusedIndex(-1);
+                            }}
+                            className={`rounded-full border px-4 py-2 text-[11px] font-bold uppercase tracking-[0.14em] transition-all ${
+                                activeCategory === "all"
+                                    ? "border-primary bg-primary text-primary-foreground"
+                                    : "border-border bg-background/60 text-muted-foreground hover:border-primary/40 hover:text-foreground"
+                            }`}
+                        >
+                            All
+                        </button>
+
+                        {categoryOptions.map((category) => (
+                            <button
+                                key={category.value}
+                                type="button"
+                                onClick={() => {
+                                    setActiveCategory(category.value);
+                                    setCurrentPage(1);
+                                    setFocusedIndex(-1);
+                                }}
+                                className={`rounded-full border px-4 py-2 text-[11px] font-bold uppercase tracking-[0.14em] transition-all ${
+                                    activeCategory === category.value
+                                        ? "border-primary bg-primary text-primary-foreground"
+                                        : "border-border bg-background/60 text-muted-foreground hover:border-primary/40 hover:text-foreground"
+                                }`}
+                            >
+                                {category.label}
+                                <span className="ml-2 opacity-70">{category.count}</span>
+                            </button>
+                        ))}
+                    </div>
+                )}
+
+                {(debouncedQuery || activeCategory !== "all") && (
                     <div className="flex items-center justify-center animate-in fade-in slide-in-from-top-1 duration-300">
                         <p className="text-[11px] font-medium uppercase tracking-widest text-muted-foreground/80 bg-muted/50 px-3 py-1 rounded-full border border-border/50">
                             {filtered.length === 0
@@ -127,7 +200,7 @@ const BlogSearch = ({ posts }) => {
                 )}
             </div>
 
-            {!query && dynamicSuggestions.length > 0 && (
+            {!query && activeCategory === "all" && dynamicSuggestions.length > 0 && (
                 <div className="flex flex-wrap justify-center items-center gap-3 -mt-4">
                     <span className="text-[10px] uppercase tracking-wider text-foreground font-bold flex items-center gap-1">
                         <TrendingUp className="w-3 h-3" /> Trending:

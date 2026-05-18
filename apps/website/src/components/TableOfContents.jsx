@@ -43,12 +43,12 @@ export default function TableOfContents({ headings }) {
             <div className="absolute left-0 top-1 bottom-1 w-px bg-border/50" />
             
             <ul className="space-y-1 text-sm relative z-10">
-                {headings.map((heading) => {
+                {headings.map((heading, index) => {
                     const isActive = activeId === heading.id;
                     const isSubheading = heading.level === "h3" || heading.level === "h4";
 
                     return (
-                        <li key={heading.id} id={`toc-${heading.id}`}>
+                        <li key={`${heading.id}-${index}`} id={`toc-${heading.id}`}>
                             <a
                                 href={`#${heading.id}`}
                                 onClick={(e) => {

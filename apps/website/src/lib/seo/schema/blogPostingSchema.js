@@ -6,6 +6,15 @@ export const getBlogPostingSchema = (post) => {
 
   const slug = post.slug?.current || post.slug;
   const postUrl = absoluteUrl(`/blog/${slug}`);
+  const category =
+    typeof post.category === "string"
+      ? post.category.replace(/-/g, " ")
+      : post.category?.title || "Technology";
+  const keywords = post.seo?.keywords || post.seoKeywords || [
+    "SkillYards",
+    "tech tutorials",
+    "career advice",
+  ];
 
   return {
     "@context": "https://schema.org",
@@ -41,8 +50,8 @@ export const getBlogPostingSchema = (post) => {
         url: absoluteAssetUrl("/images/logo-dark.png")
       }
     },
-    keywords: post.seo?.keywords || ["SkillYards", "tech tutorials", "career advice"],
-    articleSection: post.category?.title || "Technology",
+    keywords,
+    articleSection: category,
     ...(post.excerpt && { description: post.excerpt }),
     ...(typeof post.readingTime === "number" && { timeRequired: `PT${post.readingTime}M` }),
     ...(typeof post.wordCount === "number" && { wordCount: post.wordCount }),

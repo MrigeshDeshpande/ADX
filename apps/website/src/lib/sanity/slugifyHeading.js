@@ -24,6 +24,13 @@ export function slugifyHeading(block) {
         .replace(/^-|-$/g, "");     // trim leading/trailing hyphens
 }
 
+export function getHeadingId(block) {
+    const slug = slugifyHeading(block);
+    if (!slug) return "";
+
+    return block?._key ? `${slug}-${block._key}` : slug;
+}
+
 /**
  * extractHeadings
  *
@@ -37,7 +44,7 @@ export function extractHeadings(blocks = []) {
     return blocks
         .filter((block) => block._type === "block" && ["h2", "h3"].includes(block.style))
         .map((block) => ({
-            id: slugifyHeading(block),
+            id: getHeadingId(block),
             text: (block.children ?? []).map((c) => c.text ?? "").join(""),
             level: block.style, // "h2" | "h3"
         }))
