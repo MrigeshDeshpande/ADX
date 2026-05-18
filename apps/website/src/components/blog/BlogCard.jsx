@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { useMemo } from "react";
 import { urlFor } from "@/lib/sanity/image";
 import Link from "next/link";
@@ -71,11 +70,7 @@ const Highlight = ({ text, query }) => {
 };
 
 const BlogCard = ({ post, searchQuery }) => {
-  const router = useRouter();
-
   const { title, slug, publishedAt, author, coverImage } = post;
-
-  const tags = Array.isArray(post.tags) ? post.tags : [];
 
   const coverUrl = coverImage
     ? urlFor(coverImage).width(600).height(450).url()
@@ -103,12 +98,6 @@ const BlogCard = ({ post, searchQuery }) => {
     .join("")
     .slice(0, 2)
     .toUpperCase();
-
-  const goToPost = () => router.push(`/blog/${slug}`);
-  const goToTag = (e, tagSlug) => {
-    e.stopPropagation();
-    router.push(`/blog/tag/${tagSlug}`);
-  };
 
   return (
     <article
@@ -143,12 +132,6 @@ const BlogCard = ({ post, searchQuery }) => {
         />
 
         <div className="absolute top-[10px] -left-2 z-[5] w-12 h-[18px] -rotate-12 bg-[rgba(255,240,180,0.55)] dark:bg-[rgba(255,240,180,0.2)] border border-[rgba(200,180,100,0.25)]" />
-
-        {tags.length > 0 && (
-          <span className="absolute bottom-[10px] right-[10px] z-[5] text-[10px] font-medium uppercase bg-white/85 dark:bg-[#1c1c1a]/80 text-[#2c2c2a] dark:text-[#d3d1c7] px-2 py-1 rounded-full backdrop-blur-sm">
-            {tags[0].title}
-          </span>
-        )}
       </div>
 
       <div className="flex flex-col flex-1 gap-1.5 px-1">
@@ -183,17 +166,6 @@ const BlogCard = ({ post, searchQuery }) => {
             />
           </span>
 
-          <div className="flex gap-1 ml-auto relative z-10">
-            {tags.map((tag) => (
-              <button
-                key={tag.slug}
-                onClick={(e) => goToTag(e, tag.slug)}
-                className="text-[9px] px-1.5 py-0.5 rounded-full border border-black/10 dark:border-white/10 text-[#5f5e5a] hover:text-[#2c2c2a] dark:hover:text-white transition-colors bg-white/50 dark:bg-black/20 backdrop-blur-sm"
-              >
-                {tag.title}
-              </button>
-            ))}
-          </div>
         </div>
       </div>
     </article>

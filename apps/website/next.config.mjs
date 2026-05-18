@@ -168,6 +168,12 @@ const nextConfig = {
             },
 
             {
+                source: "/blog/tag/:slug*",
+                destination: "/blog",
+                permanent: true,
+            },
+
+            {
                 source: "/blog/web-development-ke-latest-trends",
                 destination: "/blog",
                 permanent: true,
