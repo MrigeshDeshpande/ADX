@@ -35,6 +35,14 @@ const getPalette = (name) =>
 const getPinColor = (slug) =>
   PIN_COLORS[getHash(slug) % PIN_COLORS.length];
 
+const CONTENT_TYPE_LABELS = {
+  "pillar-brand": "Guide",
+  "pillar-sub": "Guide",
+  cluster: "Guide",
+  comparison: "Comparison",
+  news: "News",
+};
+
 const Highlight = ({ text, query }) => {
   const result = useMemo(() => {
     if (!query?.trim() || !text) return null;
@@ -70,8 +78,10 @@ const Highlight = ({ text, query }) => {
 };
 
 const BlogCard = ({ post, searchQuery, onTagClick }) => {
-  const { title, slug, publishedAt, author, coverImage } = post;
+  const { title, slug, publishedAt, author, coverImage, contentType, category } = post;
   const tags = Array.isArray(post.tags) ? post.tags : [];
+
+  const hrefSlug = typeof slug === "string" ? slug : slug?.current;
 
   const coverUrl = coverImage
     ? urlFor(coverImage).width(600).height(450).url()
@@ -92,6 +102,7 @@ const BlogCard = ({ post, searchQuery, onTagClick }) => {
   const tiltAngle = getTilt(slug);
   const colorTheme = getPalette(author?.name || "");
   const pinClass = getPinColor(slug);
+  const contentTypeLabel = CONTENT_TYPE_LABELS[contentType] || "Article";
 
   const initials = (author?.name || "SK")
     .split(" ")
@@ -113,7 +124,7 @@ const BlogCard = ({ post, searchQuery, onTagClick }) => {
       className="group relative select-none flex flex-col gap-[14px] bg-white dark:bg-[#1c1c1a] border border-black/[0.08] dark:border-white/[0.08] rounded-sm p-[10px] pb-5 shadow-[2px_3px_10px_rgba(0,0,0,0.10)] dark:shadow-[2px_3px_16px_rgba(0,0,0,0.45)] transition-all duration-500 hover:z-10 hover:shadow-[6px_16px_32px_rgba(0,0,0,0.16)] cursor-pointer h-full"
     >
       <Link
-        href={`/blog/${slug}`}
+        href={`/blog/${hrefSlug}`}
         className="absolute inset-0 z-0"
         aria-label={`Read more about ${title}`}
       />
@@ -136,6 +147,17 @@ const BlogCard = ({ post, searchQuery, onTagClick }) => {
       </div>
 
       <div className="flex flex-col flex-1 gap-1.5 px-1">
+        <div className="flex items-center gap-2 flex-wrap">
+          <span className="inline-flex items-center rounded-full border border-black/10 bg-black/[0.03] px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.18em] text-[#4f4d47] dark:border-white/10 dark:bg-white/[0.04] dark:text-[#bdb7aa]">
+            {contentTypeLabel}
+          </span>
+          {category && (
+            <span className="text-[10px] uppercase tracking-[0.16em] text-[#888780] dark:text-[#5f5e5a]">
+              {category.replace(/-/g, " ")}
+            </span>
+          )}
+        </div>
+
         <time className="font-mono text-[10px] text-[#888780] dark:text-[#5f5e5a]">
           {dateLabel}
         </time>

@@ -4,7 +4,8 @@ import { isValidLinkedInUrl } from "../core/isValidLinkedInUrl.js";
 
 export const getBlogPostingSchema = (post) => {
   const isPillar = post.contentType === 'pillar-brand' || post.contentType === 'pillar-sub';
-  const postUrl = absoluteUrl(`/blog/${post.slug.current}`);
+  const slug = post.slug?.current || post.slug;
+  const postUrl = absoluteUrl(`/blog/${slug}`);
 
   // Keywords: prefer explicit seoKeywords from editor, fall back to tag titles
   const keywords = post.seoKeywords?.length

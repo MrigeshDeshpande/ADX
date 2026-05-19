@@ -1,13 +1,13 @@
 import Image from "next/image";
 import { urlFor } from "./image";
-import { slugifyHeading } from "./slugifyHeading";
+import { getHeadingId } from "./slugifyHeading";
 
 export const portableTextComponents = {
 
   block: {
 
     h2: ({ children, value }) => {
-      const id = slugifyHeading(value);
+      const id = getHeadingId(value);
 
       return (
         <h2 id={id} className="scroll-mt-28">
@@ -17,7 +17,7 @@ export const portableTextComponents = {
     },
 
     h3: ({ children, value }) => {
-      const id = slugifyHeading(value);
+      const id = getHeadingId(value);
 
       return (
         <h3 id={id} className="scroll-mt-28">
