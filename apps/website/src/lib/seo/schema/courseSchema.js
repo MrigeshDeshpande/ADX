@@ -59,13 +59,4 @@ export const getCourseSchema = (course) => ({
     }),
   },
 
-
-  offers: {
-    "@type": "Offer",
-    category: "Professional Training",
-    availability: "https://schema.org/InStock",
-    price: "0",
-    url: absoluteUrl(course.seo.path),
-    priceCurrency: "INR",
-  },
 });

@@ -69,8 +69,9 @@ const Highlight = ({ text, query }) => {
   );
 };
 
-const BlogCard = ({ post, searchQuery }) => {
+const BlogCard = ({ post, searchQuery, onTagClick }) => {
   const { title, slug, publishedAt, author, coverImage } = post;
+  const tags = Array.isArray(post.tags) ? post.tags : [];
 
   const coverUrl = coverImage
     ? urlFor(coverImage).width(600).height(450).url()
@@ -166,6 +167,19 @@ const BlogCard = ({ post, searchQuery }) => {
             />
           </span>
 
+          {tags.length > 0 && (
+            <div className="flex gap-1 ml-auto relative z-10">
+              {tags.slice(0, 2).map((tag) => (
+                <button
+                  key={tag.slug}
+                  onClick={(e) => { e.preventDefault(); onTagClick?.(tag.title); }}
+                  className="text-[9px] px-1.5 py-0.5 rounded-full border border-black/10 dark:border-white/10 text-[#5f5e5a] hover:text-[#2c2c2a] dark:hover:text-white transition-colors bg-white/50 dark:bg-black/20 backdrop-blur-sm"
+                >
+                  {tag.title}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </article>

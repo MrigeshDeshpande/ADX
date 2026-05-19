@@ -4,16 +4,7 @@ import { useMemo } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { GoogleMapEmbed } from "@/components/ui/GoogleMapEmbed";
-import {
-    Facebook,
-    Twitter,
-    Linkedin,
-    Instagram,
-    Youtube,
-    Github,
-} from "lucide-react";
 import Logo from "@/components/logo";
-import { Separator } from "@/components/ui/separator";
 import {
     Accordion,
     AccordionItem,
@@ -62,15 +53,6 @@ export default function Footer() {
             ],
         },
     ];
-
-    const socialLinks = [
-        { name: "Facebook", Icon: Facebook, url: process.env.NEXT_PUBLIC_FACEBOOK_URL },
-        { name: "Twitter", Icon: Twitter, url: process.env.NEXT_PUBLIC_TWITTER_URL },
-        { name: "LinkedIn", Icon: Linkedin, url: process.env.NEXT_PUBLIC_LINKEDIN_URL },
-        { name: "Instagram", Icon: Instagram, url: process.env.NEXT_PUBLIC_INSTAGRAM_URL },
-        { name: "YouTube", Icon: Youtube, url: process.env.NEXT_PUBLIC_YOUTUBE_URL },
-        { name: "GitHub", Icon: Github, url: process.env.NEXT_PUBLIC_GITHUB_URL },
-    ].filter(link => Boolean(link.url));
 
     return (
         <footer className="border-t border-border bg-background/90 backdrop-blur-md pt-8">
@@ -156,8 +138,7 @@ export default function Footer() {
                 <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-4 px-6 text-sm text-muted-foreground sm:flex-row">
                     {/* Left Content */}
                     <div className="text-center sm:text-left">
-                        © {year} SkillYards Versatilitty
-
+                        © {year} SkillYards Versatility
                     </div>
                 </div>
             </div>

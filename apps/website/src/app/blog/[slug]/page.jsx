@@ -12,11 +12,54 @@ import Discussion from "@/components/blog/Discussion";
 import { buildSEO } from "@/lib/seo/buildSEO";
 import JsonLd from "@/components/JsonLd";
 import { getBlogPostingSchema } from "@/lib/seo/schema/blogPostingSchema";
-import { Calendar, Clock, User, Share2, LayoutList } from "lucide-react";
+import { Share2, LayoutList } from "lucide-react";
 import ScrollProgress from "@/components/blog/ScrollProgress";
 import { cache } from "react";
+import { isValidLinkedInUrl } from "@/lib/seo/core/isValidLinkedInUrl";
+import ParentPillarCallout from "@/components/blog/ParentPillarCallout";
+import RelatedMoneyPages from "@/components/blog/RelatedMoneyPages";
+import SiblingArticles from "@/components/blog/SiblingArticles";
 
 export const revalidate = 3600;
+
+const POST_QUERY = `*[_type == "post" && slug.current == $slug][0]{
+  _id,
+  title,
+  slug,
+  excerpt,
+  publishedAt,
+  _updatedAt,
+  coverImage,
+  content,
+  contentType,
+  category,
+  seoTitle,
+  seoKeywords,
+  noIndex,
+  author->{
+    name,
+    image,
+    role,
+    shortBio,
+    linkedinUrl,
+  },
+  "tags": tags[]->{ title, "slug": slug.current },
+  parentPillar->{
+    _id,
+    title,
+    "slug": slug.current,
+    contentType
+  },
+  relatedMoneyPages,
+  "siblingArticles": siblingArticles[]->{
+    _id,
+    title,
+    "slug": slug.current,
+    excerpt,
+    coverImage,
+    contentType
+  }
+}`;
 
 export async function generateStaticParams() {
     const slugs = await sanityClient.fetch(
@@ -28,21 +71,7 @@ export async function generateStaticParams() {
 }
 
 const getPost = cache(async (slug) => {
-    const query = `*[_type == "post" && slug.current == $slug][0]{
-  _id,
-  title,
-  slug,
-  excerpt,
-  publishedAt,
-  coverImage,
-  content,
-  author->{
-    name,
-    image,
-    role
-  }
-}`;
-    return sanityClient.fetch(query, { slug }, { next: { revalidate: 3600 } });
+    return sanityClient.fetch(POST_QUERY, { slug }, { next: { revalidate: 3600 } });
 });
 
 export async function generateMetadata({ params }) {
@@ -57,24 +86,20 @@ export async function generateMetadata({ params }) {
         });
     }
 
-    const cleanDescription =
-        post.excerpt?.replace(/<[^>]+>/g, "").slice(0, 160) ||
-        "Read this article on SkillYards.";
-
     const imageUrl = post.coverImage
         ? urlFor(post.coverImage).width(1200).url()
         : undefined;
 
+    // Prefer seoKeywords (editorial intent), fall back to tag titles
+    const keywords = post.seoKeywords?.length
+        ? post.seoKeywords
+        : post.tags?.map(tag => tag.title) || [];
+
     return buildSEO({
-        title: post.title,
-        description: cleanDescription,
+        title: post.seoTitle || post.title,
+        description: post.excerpt,
         path: `/blog/${post.slug?.current || slug}`,
-        keywords: [
-            post.title,
-            post.author?.name,
-            "SkillYards blog",
-            "IT learning",
-        ].filter(Boolean),
+        keywords,
         ogImage: imageUrl,
         ogType: "article",
     });
@@ -115,7 +140,7 @@ export default async function BlogPostPage({ params }) {
                         items={[
                             { label: "Home", href: "/" },
                             { label: "Blog", href: "/blog" },
-                            { label: post.title.slice(0, 20) + "..." },
+                            { label: post.title },
                         ]}
                     />
 
@@ -133,7 +158,8 @@ export default async function BlogPostPage({ params }) {
                                 {post.author?.image ? (
                                     <Image
                                         src={urlFor(post.author.image).width(120).height(120).url()}
-                                        alt={post.author.name}
+                                        alt=""
+                                        aria-hidden="true"
                                         width={56}
                                         height={56}
                                         className="object-cover w-full h-full"
@@ -146,8 +172,15 @@ export default async function BlogPostPage({ params }) {
                             </div>
                         </div>
                         <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground/60">
+                            <span>
+                                By{" "}
+                                <span className="text-foreground/80">
+                                    {post.author?.name || "SkillYards Team"}
+                                </span>
+                            </span>
+                            <span aria-hidden="true" className="text-foreground/30">·</span>
                             <span>{new Date(post.publishedAt).toLocaleDateString("en-IN", { year: "numeric", month: "long", day: "numeric" })}</span>
-                            <span className="w-1 h-1 rounded-full bg-primary/30" />
+                            <span aria-hidden="true" className="text-foreground/30">·</span>
                             <span>{readingTime} min read</span>
                         </div>
                     </div>
@@ -163,7 +196,7 @@ export default async function BlogPostPage({ params }) {
                             <div className="mb-16 rounded-[2.5rem] overflow-hidden shadow-2xl shadow-black/5 dark:shadow-black/40 border border-border/50 relative group">
                                 <Image
                                     src={urlFor(post.coverImage).width(1200).url()}
-                                    alt={post.title}
+                                    alt={post.coverImage?.alt || post.title}
                                     width={1200}
                                     height={600}
                                     className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105"
@@ -189,6 +222,10 @@ export default async function BlogPostPage({ params }) {
                         ">
                             <PortableText value={post.content || []} components={portableTextComponents} />
                         </article>
+
+                        <ParentPillarCallout pillar={post.parentPillar} />
+                        <RelatedMoneyPages pages={post.relatedMoneyPages} />
+                        <SiblingArticles articles={post.siblingArticles} />
 
                         {/* Newsletter Block */}
                         <section className="mt-24 rounded-[3rem] bg-slate-50 dark:bg-white/[0.02] border border-border/50 p-8 md:p-12 relative overflow-hidden">
@@ -225,7 +262,8 @@ export default async function BlogPostPage({ params }) {
                                     {post.author?.image ? (
                                         <Image
                                             src={urlFor(post.author.image).width(100).height(100).url()}
-                                            alt={post.author.name}
+                                            alt=""
+                                            aria-hidden="true"
                                             width={64}
                                             height={64}
                                             className="object-cover w-full h-full"
@@ -237,11 +275,25 @@ export default async function BlogPostPage({ params }) {
                                     )}
                                 </div>
                                 <div>
-                                    <h4 className="font-serif text-lg font-black text-foreground leading-tight">{post.author?.name || "SkillYards Team"}</h4>
+                                    <h4 className="font-serif text-lg font-black text-foreground leading-tight">
+                                        {post.author?.name || "SkillYards Team"}
+                                    </h4>
                                     <p className="text-xs font-bold text-muted-foreground mt-1">{post.author?.role || "Education Lead"}</p>
                                 </div>
                             </div>
-                            <p className="text-sm text-muted-foreground/90 leading-relaxed font-medium">Expert insights on career growth and modern technology trends.</p>
+                            <p className="text-sm text-muted-foreground/90 leading-relaxed font-medium">
+                                {post.author?.shortBio || "Expert insights on career growth and modern technology trends."}
+                            </p>
+                            {isValidLinkedInUrl(post.author?.linkedinUrl) && (
+                                <a
+                                    href={post.author.linkedinUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="mt-4 inline-flex text-xs font-black uppercase tracking-[0.2em] text-primary/70 hover:text-primary"
+                                >
+                                    LinkedIn
+                                </a>
+                            )}
                         </div>
 
                         {/* TOC Card */}

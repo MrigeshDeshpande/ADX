@@ -153,7 +153,7 @@ const BlogSearch = ({ posts }) => {
                             className={`transition-all duration-300 rounded-3xl h-full ${focusedIndex === index ? "ring-4 ring-primary ring-offset-4 scale-[1.03] shadow-2xl z-10" : ""
                                 }`}
                         >
-                            <BlogCard post={post} searchQuery={debouncedQuery} />
+                            <BlogCard post={post} searchQuery={debouncedQuery} onTagClick={(tag) => { setQuery(tag); setCurrentPage(1); }} />
                         </div>
                     ))}
                 </div>

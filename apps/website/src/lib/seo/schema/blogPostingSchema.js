@@ -1,51 +1,60 @@
 import { ORGANIZATION_ID } from "./global.js";
 import { absoluteAssetUrl, absoluteUrl, withFragment } from "../core/url.js";
+import { isValidLinkedInUrl } from "../core/isValidLinkedInUrl.js";
 
 export const getBlogPostingSchema = (post) => {
-  if (!post) return null;
+  const isPillar = post.contentType === 'pillar-brand' || post.contentType === 'pillar-sub';
+  const postUrl = absoluteUrl(`/blog/${post.slug.current}`);
 
-  const slug = post.slug?.current || post.slug;
-  const postUrl = absoluteUrl(`/blog/${slug}`);
+  // Keywords: prefer explicit seoKeywords from editor, fall back to tag titles
+  const keywords = post.seoKeywords?.length
+    ? post.seoKeywords
+    : post.tags?.map(tag => tag.title) || [];
+
+  // Article section: from category enum, mapped to human-readable label
+  const categoryLabels = {
+    'ojd-program': 'On-Job Degree Program',
+    'ojd-bca': 'OJD BCA',
+    'ojd-bba': 'OJD BBA',
+    'full-stack': 'Full-Stack Development',
+    'digital-marketing': 'Digital Marketing',
+    'career-guidance': 'Career Guidance',
+    'industry-news': 'Industry News',
+  };
+  const articleSection = categoryLabels[post.category] || 'Education';
 
   return {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "@id": withFragment(postUrl, "#blogposting"),
-    url: postUrl,
+    "@type": isPillar ? "Article" : "BlogPosting",
+    "@id": withFragment(postUrl, "#article"),
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": postUrl
+      "@id": postUrl,
     },
-    headline: post.title,
-    ...(post.resolvedImageUrl && {
-      image: {
-        "@type": "ImageObject",
-        url: post.resolvedImageUrl,
-        width: 1200,
-        height: 630
-      }
-    }),
-    datePublished: post.publishedAt || new Date().toISOString(),
-    dateModified: post._updatedAt || post.publishedAt || new Date().toISOString(),
-    inLanguage: "en",
+    headline: post.seoTitle || post.title,
+    description: post.excerpt,
+    image: post.resolvedImageUrl || undefined,
+    datePublished: post.publishedAt,
+    dateModified: post._updatedAt || post.publishedAt,
     author: {
       "@type": "Person",
-      name: post.author?.name || "SkillYards Team"
+      name: post.author?.name || "SkillYards Team",
+      ...(isValidLinkedInUrl(post.author?.linkedinUrl) && {
+        sameAs: [post.author.linkedinUrl],
+      }),
     },
-    publisher: {
-      "@type": "Organization",
-      "@id": ORGANIZATION_ID,
-      name: "SkillYards",
-      logo: {
-        "@type": "ImageObject",
-        url: absoluteAssetUrl("/images/logo-dark.png")
-      }
-    },
-    keywords: post.seo?.keywords || ["SkillYards", "tech tutorials", "career advice"],
-    articleSection: post.category?.title || "Technology",
-    ...(post.excerpt && { description: post.excerpt }),
-    ...(typeof post.readingTime === "number" && { timeRequired: `PT${post.readingTime}M` }),
-    ...(typeof post.wordCount === "number" && { wordCount: post.wordCount }),
+    publisher: { "@id": ORGANIZATION_ID },
+    keywords: keywords,
+    articleSection: articleSection,
+    timeRequired: post.readingTime ? `PT${post.readingTime}M` : undefined,
+    wordCount: post.wordCount || undefined,
+    ...(post.parentPillar && {
+      isPartOf: {
+        "@type": "Article",
+        "@id": withFragment(absoluteUrl(`/blog/${post.parentPillar.slug}`), "#article"),
+        name: post.parentPillar.title,
+      },
+    }),
   };
 };
 

@@ -2,7 +2,7 @@ export const courses = {
   fullstack: {
     title: "Full Stack Development Course in Agra",
     description:
-      "Learn MERN stack, build real-world applications, and get job-ready with Skillyards full stack program.",
+      "Learn MERN stack, build real-world applications, and get job-ready with SkillYards full stack program.",
     certification: "Full Stack Development Certification",
 
     seo: {
