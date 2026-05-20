@@ -7,6 +7,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import BlogCard from "@/components/blog/BlogCard";
 import Discussion from "@/components/blog/Discussion";
 import JsonLd from "@/components/JsonLd";
+import NewsArticleTemplate from "@/components/blog/NewsArticleTemplate";
 import { getBlogPostingSchema } from "@/lib/seo/schema/blogPostingSchema";
 import ScrollProgress from "@/components/blog/ScrollProgress";
 import { isValidLinkedInUrl } from "@/lib/seo/core/isValidLinkedInUrl";
@@ -139,6 +140,27 @@ export default async function BlogPostPage({ params }) {
   const resolvedImageUrl = post.coverImage
     ? urlFor(post.coverImage).width(1200).height(630).url()
     : undefined;
+
+  if (post.contentType === "news") {
+    const blogPostingSchema = getBlogPostingSchema({
+      ...post,
+      readingTime,
+      resolvedImageUrl,
+    });
+
+    return (
+      <>
+        <JsonLd data={blogPostingSchema} id="blog-posting-schema" />
+        <NewsArticleTemplate
+          post={post}
+          headings={headings}
+          readingTime={readingTime}
+          slug={slug}
+        />
+      </>
+    );
+  }
+
   const blogPostingSchema = getBlogPostingSchema({
     ...post,
     readingTime,

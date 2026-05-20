@@ -8,6 +8,7 @@ export default defineType({
     { name: 'content', title: 'Content', default: true },
     { name: 'taxonomy', title: 'Taxonomy & Relationships' },
     { name: 'seo', title: 'SEO' },
+    { name: 'news', title: 'SkillYards Times' },
   ],
   fields: [
     // ============================================================
@@ -281,6 +282,122 @@ export default defineType({
       group: 'seo',
       initialValue: false,
       description: 'When true, search engines are instructed not to index this post. Use sparingly — only for thin content, test posts, or time-sensitive announcements.',
+    }),
+
+    // ============================================================
+    // SKILLYARDS TIMES GROUP (visible only when contentType === "news")
+    // ============================================================
+    defineField({
+      name: 'newsType',
+      title: 'News Type',
+      type: 'string',
+      group: 'news',
+      options: {
+        list: [
+          { title: 'Media Coverage', value: 'media-coverage' },
+        ],
+        layout: 'radio',
+      },
+      initialValue: 'media-coverage',
+      hidden: ({ document }) => document?.contentType !== 'news',
+      validation: Rule => Rule.custom((value, context) => {
+        if (context.document?.contentType === 'news' && !value) {
+          return 'News Type is required for news posts';
+        }
+        return true;
+      }),
+    }),
+    defineField({
+      name: 'sourceName',
+      title: 'Newspaper / Source Name',
+      type: 'string',
+      group: 'news',
+      hidden: ({ document }) => document?.contentType !== 'news',
+      validation: Rule => Rule.custom((value, context) => {
+        if (context.document?.contentType === 'news' && !value) {
+          return 'Source Name is required for news posts';
+        }
+        return true;
+      }),
+    }),
+    defineField({
+      name: 'sourceLanguage',
+      title: 'Source Language',
+      type: 'string',
+      group: 'news',
+      options: {
+        list: [
+          { title: 'Hindi', value: 'Hindi' },
+          { title: 'English', value: 'English' },
+          { title: 'Other', value: 'Other' },
+        ],
+        layout: 'dropdown',
+      },
+      initialValue: 'Hindi',
+      hidden: ({ document }) => document?.contentType !== 'news',
+      validation: Rule => Rule.custom((value, context) => {
+        if (context.document?.contentType === 'news' && !value) {
+          return 'Source Language is required for news posts';
+        }
+        return true;
+      }),
+    }),
+    defineField({
+      name: 'sourceDate',
+      title: 'Source Publication Date',
+      type: 'date',
+      group: 'news',
+      hidden: ({ document }) => document?.contentType !== 'news',
+      validation: Rule => Rule.custom((value, context) => {
+        if (context.document?.contentType === 'news' && !value) {
+          return 'Source Date is required for news posts';
+        }
+        return true;
+      }),
+    }),
+    defineField({
+      name: 'sourceUrl',
+      title: 'Source URL / E-paper Link',
+      type: 'url',
+      group: 'news',
+      hidden: ({ document }) => document?.contentType !== 'news',
+    }),
+    defineField({
+      name: 'clippingImage',
+      title: 'Newspaper Clipping Image',
+      type: 'image',
+      group: 'news',
+      options: { hotspot: true },
+      hidden: ({ document }) => document?.contentType !== 'news',
+      fields: [
+        defineField({
+          name: 'alt',
+          title: 'Alt Text',
+          type: 'string',
+          validation: Rule => Rule.required().min(10).max(120),
+        }),
+      ],
+      validation: Rule => Rule.custom((value, context) => {
+        if (context.document?.contentType === 'news' && !value) {
+          return 'Clipping Image is required for news posts';
+        }
+        return true;
+      }),
+    }),
+    defineField({
+      name: 'englishSummary',
+      title: 'English Summary',
+      type: 'text',
+      group: 'news',
+      rows: 4,
+      description: 'Write your own English summary of the newspaper coverage. Do not copy the full article word-for-word.',
+      hidden: ({ document }) => document?.contentType !== 'news',
+      validation: Rule => Rule.custom((value, context) => {
+        if (context.document?.contentType === 'news' && !value) {
+          return 'English Summary is required for news posts';
+        }
+        return true;
+      }),
     }),
   ],
 

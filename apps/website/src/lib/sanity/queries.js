@@ -52,6 +52,13 @@ export const POST_BY_SLUG_QUERY = `
   seoKeywords,
   category,
   noIndex,
+  newsType,
+  sourceName,
+  sourceLanguage,
+  sourceDate,
+  sourceUrl,
+  clippingImage,
+  englishSummary,
   author->{
     name,
     image,

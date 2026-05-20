@@ -15,24 +15,24 @@ export default function RelatedMoneyPages({ pages }) {
   if (related.length === 0) return null;
 
   return (
-    <section className="mt-12 rounded-[2.5rem] border border-border/50 bg-white dark:bg-black/20 p-6 md:p-8">
-      <h3 className="font-serif text-2xl font-black tracking-tight text-foreground">
+    <section className="mt-12 border-t-2 border-foreground/30 pt-6">
+      <h3 className="font-serif text-lg font-black tracking-tight text-foreground mb-5 border-b border-foreground/20 pb-2">
         Related Programs
       </h3>
-      <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
         {related.map((p) => (
           <li key={`${p.path}-${p.title}`}>
             <Link
               href={p.path}
-              className="group flex items-center gap-4 rounded-2xl border border-border/50 bg-slate-50 dark:bg-white/[0.02] px-4 py-3 hover:shadow-sm transition-shadow"
+              className="group flex items-center gap-3 border border-foreground/20 bg-[#f0ebe0] dark:bg-stone-900/30 px-4 py-3 hover:border-foreground/50 transition-colors"
             >
-              <span className="font-semibold text-foreground group-hover:text-primary transition-colors flex items-center gap-2">
-                <span>{p.title} </span>
+              <span className="font-serif font-bold text-foreground group-hover:text-foreground/70 transition-colors flex items-center gap-2">
+                <span>{p.title}</span>
                 <span
                   aria-hidden="true"
-                  className="text-primary/70 group-hover:text-primary transition-colors"
+                  className="text-foreground/50 group-hover:text-foreground/70 transition-colors"
                 >
-                  →
+                  &rarr;
                 </span>
               </span>
             </Link>

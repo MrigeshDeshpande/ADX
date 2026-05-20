@@ -20,12 +20,10 @@ export default function SiblingArticles({ articles }) {
   const toShow = normalized.slice(0, 4);
 
   return (
-    <section className="mt-12">
-      <div className="flex items-end justify-between gap-4 mb-6">
-        <h3 className="font-serif text-2xl font-black tracking-tight text-foreground">
-          More in this cluster
-        </h3>
-      </div>
+    <section className="mt-12 border-t-2 border-foreground/30 pt-6">
+      <h3 className="font-serif text-lg font-black tracking-tight text-foreground mb-5 border-b border-foreground/20 pb-2">
+        More in this cluster
+      </h3>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         {toShow.map((a) => {
@@ -33,32 +31,32 @@ export default function SiblingArticles({ articles }) {
           return (
             <article
               key={a._id || a.slug}
-              className="group rounded-[2rem] border border-border/50 bg-slate-50 dark:bg-white/[0.02] overflow-hidden hover:shadow-md transition-shadow"
+              className="group border border-foreground/20 bg-[#f0ebe0] dark:bg-stone-900/30 overflow-hidden hover:border-foreground/50 transition-colors"
             >
               <Link href={`/blog/${a.slug}`} className="block">
                 {imgUrl ? (
-                  <div className="relative w-full aspect-[16/10] bg-black/5 dark:bg-white/[0.04]">
+                  <div className="relative w-full aspect-[16/10] bg-foreground/5">
                     <Image
                       src={imgUrl}
                       alt={a.title}
                       fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                      className="object-cover group-hover:scale-[1.03] transition-transform duration-700"
                       sizes="(max-width: 640px) 100vw, 50vw"
                     />
                   </div>
                 ) : null}
 
-                <div className="p-5 md:p-6">
-                  <h4 className="text-lg font-bold leading-snug text-foreground group-hover:text-primary transition-colors">
+                <div className="p-4">
+                  <h4 className="font-serif text-base font-black leading-snug text-foreground group-hover:text-foreground/70 transition-colors">
                     {a.title}
                   </h4>
                   {a.excerpt ? (
-                    <p className="mt-2 text-muted-foreground line-clamp-3">
+                    <p className="mt-2 font-serif text-sm leading-relaxed text-foreground/60 line-clamp-3">
                       {a.excerpt}
                     </p>
                   ) : null}
-                  <div className="mt-4 text-sm font-semibold text-primary/80 group-hover:text-primary transition-colors">
-                    Read article →
+                  <div className="mt-3 font-serif text-xs font-bold uppercase tracking-wider text-foreground/50 group-hover:text-foreground/70 transition-colors">
+                    Read article &rarr;
                   </div>
                 </div>
               </Link>
@@ -69,4 +67,3 @@ export default function SiblingArticles({ articles }) {
     </section>
   );
 }
-

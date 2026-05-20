@@ -4,6 +4,7 @@ import { isValidLinkedInUrl } from "../core/isValidLinkedInUrl.js";
 
 export const getBlogPostingSchema = (post) => {
   const isPillar = post.contentType === 'pillar-brand' || post.contentType === 'pillar-sub';
+  const isNews = post.contentType === 'news';
   const slug = post.slug?.current || post.slug;
   const postUrl = absoluteUrl(`/blog/${slug}`);
 
@@ -24,9 +25,11 @@ export const getBlogPostingSchema = (post) => {
   };
   const articleSection = categoryLabels[post.category] || 'Education';
 
+  const schemaType = isNews ? "NewsArticle" : (isPillar ? "Article" : "BlogPosting");
+
   return {
     "@context": "https://schema.org",
-    "@type": isPillar ? "Article" : "BlogPosting",
+    "@type": schemaType,
     "@id": withFragment(postUrl, "#article"),
     mainEntityOfPage: {
       "@type": "WebPage",
@@ -49,12 +52,18 @@ export const getBlogPostingSchema = (post) => {
     articleSection: articleSection,
     timeRequired: post.readingTime ? `PT${post.readingTime}M` : undefined,
     wordCount: post.wordCount || undefined,
-    ...(post.parentPillar && {
+    ...(post.parentPillar && !isNews && {
       isPartOf: {
         "@type": "Article",
         "@id": withFragment(absoluteUrl(`/blog/${post.parentPillar.slug}`), "#article"),
         name: post.parentPillar.title,
       },
+    }),
+    ...(isNews && {
+      about: "SkillYards media coverage",
+      ...(post.sourceUrl && {
+        citation: post.sourceUrl,
+      }),
     }),
   };
 };
