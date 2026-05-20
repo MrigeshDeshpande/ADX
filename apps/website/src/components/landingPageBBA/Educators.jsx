@@ -42,7 +42,7 @@ export const Educators = () => {
               </motion.p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10 max-w-6xl mx-auto justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-10 max-w-4xl mx-auto justify-center">
               {educators.map((edu, index) => (
                 <motion.div
                   key={index}
@@ -50,7 +50,7 @@ export const Educators = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className={`group relative max-w-sm mx-auto w-full ${index < 2 ? "block" : "hidden lg:block"}`}
+                  className="group relative max-w-sm mx-auto w-full"
                 >
                   <div className="relative aspect-4/5 rounded-[2.5rem] md:rounded-[3.5rem] overflow-hidden mb-6 md:mb-8 shadow-2xl border-4 border-border dark:border-neutral-700 transition-all duration-500 group-hover:rounded-[2rem] md:group-hover:rounded-[2.5rem]">
                     <Image
