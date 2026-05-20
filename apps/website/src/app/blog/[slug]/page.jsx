@@ -148,14 +148,83 @@ export default async function BlogPostPage({ params }) {
       resolvedImageUrl,
     });
 
+    // Fetch all news articles ordered by publication date to resolve pagination index and full sibling articles
+    const allNews = await sanityClient.fetch(
+      `*[_type == "post" && contentType == "news"] | order(publishedAt desc){
+        _id,
+        title,
+        "slug": slug.current,
+        excerpt,
+        publishedAt,
+        coverImage,
+        content,
+        contentType,
+        newsType,
+        sourceName,
+        sourceLanguage,
+        sourceDate,
+        sourceUrl,
+        clippingImage,
+        englishSummary,
+        author->{
+          name,
+          image,
+          role,
+          shortBio,
+          linkedinUrl
+        },
+        "tags": tags[]->{
+          title,
+          "slug": slug.current
+        },
+        "relatedMoneyPages": relatedMoneyPages[]{
+          title,
+          path,
+          linkContext
+        }
+      }`
+    ).catch(() => []);
+
+    const currentIndex = allNews.findIndex((n) => n.slug === slug);
+    const resolvedCurrentIndex = currentIndex !== -1 ? currentIndex : 0;
+
+    // Align strictly to 3-column page groups (stories A, B, C render together side-by-side)
+    const groupStart = Math.floor(resolvedCurrentIndex / 3) * 3;
+
+    const story1 = allNews[groupStart] || post;
+    const story2 = allNews[groupStart + 1] || null;
+    const story3 = allNews[groupStart + 2] || null;
+
+    const nextPageSlug = allNews[groupStart + 3] ? allNews[groupStart + 3].slug : null;
+    const prevPageSlug = groupStart >= 3 && allNews[groupStart - 3] ? allNews[groupStart - 3].slug : null;
+    const pageNum = Math.floor(groupStart / 3) + 1;
+
+    // Dynamically calculate headings and reading time from the resolved Column 1 story content
+    const resolvedHeadings = extractHeadings(story1.content);
+    const resolvedReadingTime = calculateReadingTime(story1.content);
+
+    // Calculate Mobile 1-by-1 pagination properties
+    const nextStorySlug = allNews[resolvedCurrentIndex + 1] ? allNews[resolvedCurrentIndex + 1].slug : null;
+    const prevStorySlug = resolvedCurrentIndex > 0 && allNews[resolvedCurrentIndex - 1] ? allNews[resolvedCurrentIndex - 1].slug : null;
+
     return (
       <>
         <JsonLd data={blogPostingSchema} id="blog-posting-schema" />
         <NewsArticleTemplate
           post={post}
-          headings={headings}
-          readingTime={readingTime}
+          story1={story1}
+          headings={resolvedHeadings}
+          readingTime={resolvedReadingTime}
           slug={slug}
+          story2={story2}
+          story3={story3}
+          nextPageSlug={nextPageSlug}
+          prevPageSlug={prevPageSlug}
+          pageNum={pageNum}
+          nextStorySlug={nextStorySlug}
+          prevStorySlug={prevStorySlug}
+          currentIndex={resolvedCurrentIndex}
+          totalArticles={allNews.length}
         />
       </>
     );

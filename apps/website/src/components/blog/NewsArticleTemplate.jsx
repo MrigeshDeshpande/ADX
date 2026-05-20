@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import Discussion from "@/components/blog/Discussion";
 import ScrollProgress from "@/components/blog/ScrollProgress";
 import { isValidLinkedInUrl } from "@/lib/seo/core/isValidLinkedInUrl";
 import RelatedMoneyPages from "@/components/blog/RelatedMoneyPages";
@@ -9,54 +8,63 @@ import SiblingArticles from "@/components/blog/SiblingArticles";
 import TableOfContents from "@/components/TableOfContents";
 import { urlFor } from "@/lib/sanity/image";
 import { portableTextComponents } from "@/lib/sanity/portableTextComponents";
+import { calculateReadingTime } from "@/lib/sanity/readingTime";
+import { extractHeadings } from "@/lib/sanity/slugifyHeading";
 
-const formatDate = (value) =>
-  value
-    ? new Date(value).toLocaleDateString("en-IN", {
+const formatDate = (value) => {
+  if (!value) return "";
+  const cleanValue = typeof value === "string" ? value.split("T")[0] : value;
+  const localDate = typeof cleanValue === "string" ? new Date(cleanValue.replace(/-/g, "/")) : new Date(cleanValue);
+  return isNaN(localDate)
+    ? ""
+    : localDate.toLocaleDateString("en-IN", {
         year: "numeric",
         month: "long",
         day: "numeric",
-      })
-    : "";
+      });
+};
 
-const formatDateFull = (value) =>
-  value
-    ? new Date(value).toLocaleDateString("en-IN", {
+const formatDateFull = (value) => {
+  if (!value) return "";
+  const cleanValue = typeof value === "string" ? value.split("T")[0] : value;
+  const localDate = typeof cleanValue === "string" ? new Date(cleanValue.replace(/-/g, "/")) : new Date(cleanValue);
+  return isNaN(localDate)
+    ? ""
+    : localDate.toLocaleDateString("en-IN", {
         weekday: "long",
         year: "numeric",
         month: "long",
         day: "numeric",
-      })
-    : "";
+      });
+};
 
 const getHash = (str = "") =>
   [...str].reduce((acc, char) => acc + char.charCodeAt(0), 0);
 
-function Masthead({ post }) {
-  const volNum = Math.abs(getHash(post.slug?.current || "news") % 120) + 1;
-  const issueNum = Math.abs(getHash(post.title || "news") % 300) + 1;
-
+function Masthead({ post, pageNum }) {
   return (
     <div className="border-b-[4px] border-double border-foreground/80 pb-3 mb-8">
       <div className="flex justify-between items-center text-[9px] font-mono tracking-widest text-foreground/50 uppercase pb-1.5 select-none">
-        <span>AGRA NEWSROOM</span>
-        <span>MEMBER OF THE PRESS DISPATCH CO.</span>
+        <span>SKILLYARDS NEWSROOM</span>
+        <span>ESTD. 2026</span>
       </div>
       <div className="border-t border-foreground/35 mb-2" />
-      <h1 className="font-serif text-center text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight text-foreground leading-none uppercase select-none">
-        SkillYards Times
+      <h1 className="font-serif text-center text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight text-foreground leading-none uppercase select-none flex items-center justify-center gap-[0.22em]">
+        <span>
+          <span className="text-[1.25em] align-baseline">S</span>killyards
+        </span>
+        <span>
+          <span className="text-[1.25em] align-baseline">T</span>imes
+        </span>
       </h1>
       <div className="border-t border-foreground/35 mt-3" />
       
       <div className="border-b-[3px] border-t border-foreground/80 py-2 mt-2.5 flex flex-wrap justify-between items-center text-[10px] sm:text-[11px] font-mono tracking-[0.18em] uppercase text-foreground/80">
         <div className="font-bold">Agra, India</div>
         <div className="font-bold py-1 sm:py-0">{formatDateFull(post.publishedAt)}</div>
-        <div className="flex gap-2">
-          <span>VOL. {volNum}</span>
-          <span className="text-foreground/30">|</span>
-          <span>NO. {issueNum}</span>
+        <div className="font-bold">
+          PAGE {pageNum || 1}
         </div>
-        <div className="hidden md:block font-bold">RETAIL PRICE: FREE DISPATCH</div>
       </div>
     </div>
   );
@@ -230,7 +238,7 @@ function AuthorSection({ post }) {
                 aria-hidden="true"
                 width={48}
                 height={48}
-                className="object-cover w-full h-full filter grayscale contrast-125"
+                className="object-cover w-full h-full"
               />
             </div>
           </div>
@@ -270,9 +278,83 @@ function AuthorSection({ post }) {
   );
 }
 
-export default function NewsArticleTemplate({ post, headings, readingTime, slug }) {
-  const clippingImageUrl = post.clippingImage
+function FullStoryColumn({ story, columnNumber }) {
+  if (!story) return null;
+  const clippingUrl = story.clippingImage
+    ? urlFor(story.clippingImage).width(1200).url()
+    : null;
+  const readTime = calculateReadingTime(story.content);
+  const storyHeadings = extractHeadings(story.content) || [];
+
+  return (
+    <div className="space-y-8 pb-8">
+      <div>
+        <h2 className="font-serif text-3xl sm:text-4xl font-black leading-[1.08] tracking-tight text-stone-950 dark:text-stone-50 mb-4">
+          {story.title}
+        </h2>
+        
+        {story.excerpt && (
+          <p className="font-serif text-[15px] leading-relaxed text-foreground/75 italic border-l-[3px] border-foreground/30 pl-3 py-0.5 my-4">
+            {story.excerpt}
+          </p>
+        )}
+
+        <MetaRow post={story} readingTime={readTime} />
+      </div>
+
+      <ClippingImageSection post={story} clippingImageUrl={clippingUrl} />
+
+      <ProofSourceBox post={story} />
+
+      <EnglishSummaryBox summary={story.englishSummary} />
+
+      <ArticleBody content={story.content} publishedAt={story.publishedAt} />
+
+      {/* Document Outline Index */}
+      {storyHeadings.length > 0 && (
+        <div className="p-5 bg-[#faf6ee]/40 dark:bg-stone-900/10 border border-foreground/15">
+          <p className="text-[10px] font-mono font-bold uppercase tracking-[0.25em] text-foreground/50 mb-3 border-b border-foreground/15 pb-1 select-none">
+            IN THIS BRIEF
+          </p>
+          <TableOfContents headings={storyHeadings} />
+        </div>
+      )}
+
+      {/* related internal links - styled as extra press briefs */}
+      <RelatedMoneyPages pages={story.relatedMoneyPages} />
+
+      {/* Author Attribution */}
+      <AuthorSection post={story} />
+    </div>
+  );
+}
+
+export default function NewsArticleTemplate({
+  post,
+  story1,
+  headings,
+  readingTime,
+  slug,
+  story2,
+  story3,
+  nextPageSlug,
+  prevPageSlug,
+  pageNum,
+  nextStorySlug,
+  prevStorySlug,
+  currentIndex,
+  totalArticles,
+}) {
+  // Mobile Active Column values
+  const activeClippingUrl = post.clippingImage
     ? urlFor(post.clippingImage).width(1200).url()
+    : null;
+  const activeReadingTime = calculateReadingTime(post.content);
+  const activeHeadings = extractHeadings(post.content) || [];
+
+  // Desktop Column 1 values (story1 is Column 1 for desktop)
+  const story1ClippingUrl = story1?.clippingImage
+    ? urlFor(story1.clippingImage).width(1200).url()
     : null;
 
   return (
@@ -297,7 +379,7 @@ export default function NewsArticleTemplate({ post, headings, readingTime, slug 
           margin-right: 0.5rem;
           margin-top: 0.2rem;
           font-family: var(--font-serif), Georgia, serif;
-          color: inherit;
+          color: var(--primary, #f97316);
         }
       `}</style>
 
@@ -310,27 +392,20 @@ export default function NewsArticleTemplate({ post, headings, readingTime, slug 
             items={[
               { label: "Home", href: "/" },
               { label: "Blog", href: "/blog" },
-              { label: "Times Media", href: "/blog?type=news" },
-              { label: post.title },
+              { label: "SkillYards Times" },
             ]}
           />
-          <Masthead post={post} />
+          <Masthead post={post} pageNum={pageNum} />
         </div>
       </header>
 
       <main className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch divide-y lg:divide-y-0 lg:divide-x divide-foreground/20 min-h-[900px]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch divide-y lg:divide-y-0 lg:divide-x divide-stone-900/10 dark:divide-stone-100/10 min-h-[900px]">
           
-          {/* COLUMN 1: LEFT SECTION (Active Story Dispatch) */}
-          <div className="lg:col-span-4 pr-0 lg:pr-8 space-y-8 animate-paper-delay-1 pb-8 lg:pb-0">
-            
-            {/* Headlines Section */}
+          {/* MOBILE ONLY COLUMN: Single-Focus active story */}
+          <div className="block lg:hidden space-y-8 animate-paper-delay-1 pb-8">
             <div>
-              <div className="text-[10px] font-mono tracking-[0.2em] uppercase text-primary font-bold mb-2.5 flex items-center gap-1.5">
-                <span className="inline-block w-1.5 h-1.5 bg-primary" />
-                Special Dispatch · {post.newsType || "Media Feature"}
-              </div>
-              <h1 className="font-serif text-3xl sm:text-4xl font-extrabold leading-[1.08] tracking-tight text-foreground mb-4">
+              <h1 className="font-serif text-3xl sm:text-4xl font-black leading-[1.08] tracking-tight text-stone-950 dark:text-stone-50 mb-4">
                 {post.title}
               </h1>
               
@@ -340,22 +415,55 @@ export default function NewsArticleTemplate({ post, headings, readingTime, slug 
                 </p>
               )}
 
-              <MetaRow post={post} readingTime={readingTime} />
+              <MetaRow post={post} readingTime={activeReadingTime} />
             </div>
 
-            {/* Press Clipping Graphic */}
-            <ClippingImageSection post={post} clippingImageUrl={clippingImageUrl} />
+            <ClippingImageSection post={post} clippingImageUrl={activeClippingUrl} />
 
-            {/* Source Validation Dossier */}
             <ProofSourceBox post={post} />
 
-            {/* English Synopsis Box */}
             <EnglishSummaryBox summary={post.englishSummary} />
 
-            {/* Article Content */}
             <ArticleBody content={post.content} publishedAt={post.publishedAt} />
 
-            {/* Document Outline Index */}
+            {activeHeadings.length > 0 && (
+              <div className="p-5 bg-[#faf6ee]/40 dark:bg-stone-900/10 border border-foreground/15">
+                <p className="text-[10px] font-mono font-bold uppercase tracking-[0.25em] text-foreground/50 mb-3 border-b border-foreground/15 pb-1">
+                  IN THIS BRIEF
+                </p>
+                <TableOfContents headings={activeHeadings} />
+              </div>
+            )}
+
+            <RelatedMoneyPages pages={post.relatedMoneyPages} />
+
+            <AuthorSection post={post} />
+          </div>
+
+          {/* DESKTOP COLUMN 1: LEFT SECTION (Resolved story1) */}
+          <div className="hidden lg:block lg:col-span-4 pr-0 lg:pr-8 space-y-8 animate-paper-delay-1 pb-8 lg:pb-0">
+            <div>
+              <h1 className="font-serif text-3xl sm:text-4xl font-black leading-[1.08] tracking-tight text-stone-950 dark:text-stone-50 mb-4">
+                {story1.title}
+              </h1>
+              
+              {story1.excerpt && (
+                <p className="font-serif text-[15px] leading-relaxed text-foreground/75 italic border-l-[3px] border-foreground/30 pl-3 py-0.5 my-4">
+                  {story1.excerpt}
+                </p>
+              )}
+
+              <MetaRow post={story1} readingTime={readingTime} />
+            </div>
+
+            <ClippingImageSection post={story1} clippingImageUrl={story1ClippingUrl} />
+
+            <ProofSourceBox post={story1} />
+
+            <EnglishSummaryBox summary={story1.englishSummary} />
+
+            <ArticleBody content={story1.content} publishedAt={story1.publishedAt} />
+
             {headings.length > 0 && (
               <div className="p-5 bg-[#faf6ee]/40 dark:bg-stone-900/10 border border-foreground/15">
                 <p className="text-[10px] font-mono font-bold uppercase tracking-[0.25em] text-foreground/50 mb-3 border-b border-foreground/15 pb-1">
@@ -365,69 +473,58 @@ export default function NewsArticleTemplate({ post, headings, readingTime, slug 
               </div>
             )}
 
-            {/* related internal links - styled as extra press briefs */}
-            <RelatedMoneyPages pages={post.relatedMoneyPages} />
+            <RelatedMoneyPages pages={story1.relatedMoneyPages} />
 
-            {/* Sibling Articles - styled as more items from current dispatch */}
-            <SiblingArticles articles={post.siblingArticles} />
-
-            {/* Author Attribution */}
-            <AuthorSection post={post} />
+            <AuthorSection post={story1} />
           </div>
 
-          {/* COLUMN 2: BIG MIDDLE SECTION (Blank / Staged for next news story) */}
-          <div className="lg:col-span-5 px-0 lg:px-8 space-y-6 pt-8 lg:pt-0 flex flex-col justify-start animate-paper-delay-2 select-none pb-8 lg:pb-0">
-            {/* Running Editorial Header */}
-            <div className="border-b-2 border-double border-foreground/30 pb-2.5 mb-2">
-              <div className="flex justify-between items-center text-[10px] font-mono tracking-widest text-foreground/45 uppercase">
-                <span>SkillYards Times Gazette</span>
-                <span>Section B</span>
-              </div>
-            </div>
+          {/* COLUMN 2: BIG MIDDLE SECTION (Renders 2nd news story in full if available, else elegant blank) */}
+          <div className="hidden lg:flex lg:col-span-5 px-0 lg:px-8 space-y-6 pt-8 lg:pt-0 flex-col justify-start animate-paper-delay-2 pb-8 lg:pb-0">
+
             
-            {/* Faint elegant blank column layout with newspaper quote and layout motif */}
-            <div className="flex-1 flex flex-col items-center justify-center p-8 text-center border border-dashed border-foreground/15 min-h-[450px] bg-[#faf6eb]/10 dark:bg-stone-900/5 relative overflow-hidden">
-              <div className="absolute inset-0 bg-[radial-gradient(#80808008_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
-              
-              <div className="max-w-md space-y-4 relative z-10">
-                <div className="font-serif text-3xl font-black text-foreground/10 tracking-widest uppercase">
-                  Main Story B
-                </div>
-                <div className="w-12 h-[1px] bg-foreground/15 mx-auto" />
-                <p className="font-serif text-xs text-foreground/35 leading-relaxed uppercase tracking-wider">
-                  This column is reserved for subsequent editorial dispatches.
-                </p>
-                <p className="font-serif text-[11px] italic text-foreground/30 leading-relaxed px-4">
-                  "Education is the progressive discovery of our own ignorance."<br />
-                  — Will Durant
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* COLUMN 3: RIGHT SECTION (Blank / Advertisement / Ad placement) */}
-          <div className="lg:col-span-3 pl-0 lg:pl-8 space-y-6 pt-8 lg:pt-0 flex flex-col justify-between animate-paper-delay-3">
-            {/* Running Editorial Header */}
-            <div className="flex flex-col space-y-6 flex-1">
-              <div className="border-b-2 border-double border-foreground/30 pb-2.5 mb-2 select-none">
-                <div className="flex justify-between items-center text-[10px] font-mono tracking-widest text-foreground/45 uppercase">
-                  <span>Economic Register</span>
-                  <span>Page C-1</span>
-                </div>
-              </div>
-              
-              {/* Clean blank column outline */}
-              <div className="flex-1 flex flex-col items-center justify-center p-6 text-center border border-dashed border-foreground/15 min-h-[250px] bg-[#faf6eb]/10 dark:bg-stone-900/5 select-none relative">
-                <div className="max-w-xs space-y-3">
-                  <div className="font-serif text-xl font-bold text-foreground/10 tracking-wider uppercase">
-                    Dispatch C
+            {story2 ? (
+              <FullStoryColumn story={story2} columnNumber={2} />
+            ) : (
+              /* Faint elegant blank column layout with newspaper quote and layout motif */
+              <div className="flex-1 flex flex-col items-center justify-center p-8 text-center border border-dashed border-foreground/15 min-h-[450px] bg-[#faf6eb]/10 dark:bg-stone-900/5 relative overflow-hidden select-none">
+                <div className="absolute inset-0 bg-[radial-gradient(#80808008_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
+                
+                <div className="max-w-md space-y-4 relative z-10">
+                  <div className="font-serif text-3xl font-black text-foreground/10 tracking-widest uppercase">
+                    Main Story B
                   </div>
-                  <div className="w-8 h-[1px] bg-foreground/15 mx-auto" />
-                  <p className="font-serif text-[10px] text-foreground/30 leading-relaxed uppercase tracking-wider">
-                    Column open for press bulletins.
+                  <div className="w-12 h-[1px] bg-foreground/15 mx-auto" />
+                  <p className="font-serif text-xs text-foreground/35 leading-relaxed uppercase tracking-wider">
+                    This column is reserved for subsequent editorial dispatches.
+                  </p>
+                  <p className="font-serif text-[11px] italic text-foreground/30 leading-relaxed px-4">
+                    "Education is the progressive discovery of our own ignorance."<br />
+                    — Will Durant
                   </p>
                 </div>
               </div>
+            )}
+          </div>
+
+          {/* COLUMN 3: RIGHT SECTION (Renders 3rd news story in full if available, else elegant blank / Ads) */}
+          <div className="hidden lg:flex lg:col-span-3 pl-0 lg:pl-8 space-y-6 pt-8 lg:pt-0 flex-col justify-between animate-paper-delay-3">
+            <div className="flex flex-col space-y-6 flex-1">
+              {story3 ? (
+                <FullStoryColumn story={story3} columnNumber={3} />
+              ) : (
+                /* Clean blank column outline */
+                <div className="flex-1 flex flex-col items-center justify-center p-6 text-center border border-dashed border-foreground/15 min-h-[250px] bg-[#faf6eb]/10 dark:bg-stone-900/5 select-none relative">
+                  <div className="max-w-xs space-y-3">
+                    <div className="font-serif text-xl font-bold text-foreground/10 tracking-wider uppercase">
+                      Dispatch C
+                    </div>
+                    <div className="w-8 h-[1px] bg-foreground/15 mx-auto" />
+                    <p className="font-serif text-[10px] text-foreground/30 leading-relaxed uppercase tracking-wider">
+                      Column open for press bulletins.
+                    </p>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Print Ad Placement Mockup (tasteful context-relevant CTA) */}
@@ -449,13 +546,72 @@ export default function NewsArticleTemplate({ post, headings, readingTime, slug 
         </div>
       </main>
 
-      {/* Discussion Thread - Placed outside the newspaper grid for optimal height management */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 mt-20 pt-10 border-t-2 border-double border-foreground/30 animate-paper-delay-3">
-        <h3 className="text-[10px] font-mono font-bold uppercase tracking-[0.25em] text-foreground/50 mb-6 border-b border-foreground/15 pb-1 select-none">
-          DISPATCH COMMENTS / PUBLIC FORUM
-        </h3>
-        <Discussion slug={slug} title={post.title} />
-      </section>
+      {/* MOBILE TURNER (1-by-1 article flipping) */}
+      {(prevStorySlug || nextStorySlug) && (
+        <section className="block lg:hidden max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 mt-8 mb-8 select-none animate-paper-delay-3">
+          <div className="border-t-2 border-b-2 border-double border-foreground/30 py-3.5 flex justify-between items-center font-mono text-[10px] uppercase tracking-widest text-stone-900 dark:text-stone-100">
+            {prevStorySlug ? (
+              <a
+                href={`/blog/${prevStorySlug}`}
+                className="text-stone-950 dark:text-stone-50 hover:text-primary transition-colors flex items-center gap-1 font-black"
+              >
+                &larr; Prev News
+              </a>
+            ) : (
+              <span className="text-stone-400 dark:text-stone-600 font-medium">&larr; First News</span>
+            )}
+
+            <span className="font-serif italic text-xs font-bold text-stone-800 dark:text-stone-200">
+              {currentIndex + 1} of {totalArticles}
+            </span>
+
+            {nextStorySlug ? (
+              <a
+                href={`/blog/${nextStorySlug}`}
+                className="text-stone-950 dark:text-stone-50 hover:text-primary transition-colors flex items-center gap-1 font-black"
+              >
+                Next News &rarr;
+              </a>
+            ) : (
+              <span className="text-stone-400 dark:text-stone-600 font-medium">Last News &rarr;</span>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* DESKTOP TURNER (Page-by-page 3-column group shifting) */}
+      {(prevPageSlug || nextPageSlug) && (
+        <section className="hidden lg:block max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 mt-12 mb-8 select-none animate-paper-delay-3">
+          <div className="border-t-2 border-b-2 border-double border-foreground/30 py-3 flex justify-between items-center font-mono text-[10px] uppercase tracking-widest text-stone-900 dark:text-stone-100">
+            {prevPageSlug ? (
+              <a
+                href={`/blog/${prevPageSlug}`}
+                className="text-stone-950 dark:text-stone-50 hover:text-primary transition-colors flex items-center gap-1.5 font-black"
+              >
+                &larr; Prev Page
+              </a>
+            ) : (
+              <span className="text-stone-400 dark:text-stone-600 font-medium">&larr; First Page</span>
+            )}
+
+            <span className="font-serif italic text-xs font-bold text-stone-800 dark:text-stone-200">
+              Page {pageNum || 1}
+            </span>
+
+            {nextPageSlug ? (
+              <a
+                href={`/blog/${nextPageSlug}`}
+                className="text-stone-950 dark:text-stone-50 hover:text-primary transition-colors flex items-center gap-1.5 font-black"
+              >
+                Next Page &rarr;
+              </a>
+            ) : (
+              <span className="text-stone-400 dark:text-stone-600 font-medium">End of Gazette &rarr;</span>
+            )}
+          </div>
+        </section>
+      )}
+
     </div>
   );
 }
