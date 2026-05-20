@@ -40,9 +40,7 @@ export const TEAM_MEMBERS = {
         image: "/images/team/Mrigesh-Deshpande.webp",
         imageClassName: "object-center scale-[1.25] group-hover:scale-[1.35] md:group-hover:scale-[1.35]",
         badge: "Core",
-        socials: {
-            linkedin: "https://linkedin.com/in/mrigeshdeshpande",
-        },
+        socials: {},
     },
     chakreshChakshu: {
         id: "chakresh-chakshu",
@@ -53,7 +51,6 @@ export const TEAM_MEMBERS = {
         image: "/images/team/Chakresh-Chakshu.webp",
         imageClassName: "object-center scale-[1.1] group-hover:scale-[1.2] md:group-hover:scale-[1.2]",
         socials: {
-            linkedin: "https://linkedin.com/in/chakreshchakshu",
         },
     },
     neerajDang: {

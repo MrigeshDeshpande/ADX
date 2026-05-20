@@ -20,7 +20,7 @@ export const FSDEducators = () => {
                 viewport={{ once: true }}
                 className="text-primary font-bold tracking-widest uppercase text-xs sm:text-sm mb-3 sm:mb-4 block"
               >
-                Elite Faculty
+                Engineering Team
               </motion.span>
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
@@ -28,7 +28,7 @@ export const FSDEducators = () => {
                 viewport={{ once: true }}
                 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-extrabold mb-4 sm:mb-6 tracking-tight text-foreground"
               >
-                Learn from the <span className="text-primary italic">Best.</span>
+                Built by <span className="text-primary italic">Industry Engineers.</span>
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -37,7 +37,7 @@ export const FSDEducators = () => {
                 transition={{ delay: 0.1 }}
                 className="text-muted-foreground text-sm md:text-base lg:text-lg leading-relaxed"
               >
-                Our educators aren&apos;t just academics they are engineers, founders, and tech leaders who have built products used by millions.
+                Our engineers aren&apos;t just academics — they are full-stack developers and system designers who have built and shipped real production systems.
               </motion.p>
             </div>
 
