@@ -60,7 +60,7 @@ export default function SuryanshHero() {
                     transition={{ delay: 0.3, duration: 0.5 }}
                     className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground tracking-tight"
                 >
-                    Suryansh Upadhyay
+                    Suryansh Upadhyay - CEO
                 </m.h3>
 
                 <m.p
@@ -70,9 +70,7 @@ export default function SuryanshHero() {
                     transition={{ delay: 0.4, duration: 0.5 }}
                     className="mt-4 text-muted-foreground leading-relaxed"
                 >
-                    A visionary leader with deep expertise in business strategy, marketing, and organizational growth.
-                    Suryansh drives SkillYards&apos; mission to deliver impactful, skill-based learning experiences
-                    that bridge the gap between education and industry.
+                    Suryansh Upadhyay founded SkillYards to fix what traditional colleges miss - real industry skills and job placements. He built the institute&apos;s partnerships with IT companies and created Agra&apos;s first degree programs where students train while they study.
                 </m.p>
 
                 <m.div

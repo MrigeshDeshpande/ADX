@@ -15,10 +15,10 @@ export default function ProblemSection() {
                     </div>
                     
                     <h2 className="text-4xl md:text-5xl xl:text-6xl font-bold tracking-tight leading-[1.1]">
-                        Degrees Are Not <br className="hidden md:block" />
-                        Enough Anymore. <br className="hidden xl:block"/>
+                        Degree Alone <br className="hidden md:block" />
+                        Won&apos;t Get You Hired. <br className="hidden xl:block"/>
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent relative inline-block mt-2 xl:mt-0">
-                            Skills Are.
+                            Skills Will.
                             {/* Decorative underline */}
                             <span className="absolute -bottom-1 left-0 w-full h-1 sm:h-1.5 bg-gradient-to-r from-primary to-accent/50 rounded-full -rotate-1 opacity-70" />
                         </span>
@@ -55,15 +55,15 @@ export default function ProblemSection() {
                         <ul className="space-y-4 text-base md:text-lg font-medium leading-relaxed relative z-10">
                             <li className="flex items-start gap-3 opacity-90 group-hover:opacity-100 transition-opacity">
                                 <span className="text-secondary/80 mt-1 font-bold text-xl leading-none">×</span>
-                                <span>You don’t need <span className="line-through decoration-white/50">prior experience.</span></span>
+                                <span>You don&apos;t need a <span className="line-through decoration-white/50">perfect academic record.</span></span>
                             </li>
                             <li className="flex items-start gap-3 opacity-90 group-hover:opacity-100 transition-opacity">
                                 <span className="text-secondary/80 mt-1 font-bold text-xl leading-none">×</span>
-                                <span>You don’t need to be a <span className="line-through decoration-white/50">topper.</span></span>
+                                <span>You don&apos;t need <span className="line-through decoration-white/50">prior IT experience.</span></span>
                             </li>
                             <li className="flex items-start gap-3 font-bold pt-3 mt-2">
                                 <span className="text-secondary mt-1 text-xl leading-none">✓</span>
-                                <span className="text-lg md:text-xl drop-shadow-sm">What you need is the <span className="text-green-600 italic font-serif pr-1">desire</span> to learn.</span>
+                                <span className="text-lg md:text-xl drop-shadow-sm">What you need is the <span className="text-green-600 italic font-serif pr-1">willingness</span> to learn and get placed.</span>
                             </li>
                         </ul>
                     </div>
@@ -72,4 +72,3 @@ export default function ProblemSection() {
         </section>
     );
 }
-

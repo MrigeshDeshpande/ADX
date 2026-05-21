@@ -45,16 +45,16 @@ const webPageSchema = getWebPageSchema({
   url: "/",
   name: "SkillYards – IT Training Institute in Agra",
   description:
-    "SkillYards is an IT training institute in Agra offering project-based BCA, BBA, full-stack development, and digital marketing programs with practical training and career-focused learning.",
+    "Get BCA, BBA, full-stack & digital marketing training with DBRAU degree and 100% placement support. Book your free career counselling today!",
   keywords: homeKeywords,
 });
 
 const combinedSchema = [faqSchema, webPageSchema].filter(Boolean);
 
 export const metadata = buildSEO({
-  title: "IT Training Institute in Agra",
+  title: "SkillYards | IT Training With Degree & Placement in Agra",
   description:
-    "SkillYards is an IT training institute in Agra offering project-based BCA, BBA, full-stack development, and digital marketing programs with practical training and career-focused learning.",
+    "Get BCA, BBA, full-stack & digital marketing training with DBRAU degree and 100% placement support. Book your free career counselling today!",
   path: "/",
   keywords: homeKeywords,
   ogImage: "/images/opengraph/home-og.jpg",

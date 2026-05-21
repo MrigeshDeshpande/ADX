@@ -8,7 +8,7 @@ export const faqCategories = {
         faqs: [
             {
                 question: "What is On Job Training (OJT)?",
-                answer: "On Job Training at SkillYards allows you to learn and apply IT skills while working on real projects, gaining hands-on experience with guidance from industry experts.",
+                answer: "On Job Training (OJT) is a 7-9 month program where you learn full-stack development or digital marketing through live projects and real work experience. You don't need a degree - just complete the training, build your portfolio, and get placement support.",
             },
             {
                 question: "What is the On Job Degree program?",
@@ -20,7 +20,7 @@ export const faqCategories = {
             },
             {
                 question: "Which technologies do you train in?",
-                answer: "We offer comprehensive training in Full-Stack Web Development (MERN), Digital Marketing, BCA, and BBA — each with on-job training and placement support.",
+                answer: "We offer comprehensive training in Full-Stack Web Development (MERN), Digital Marketing, BCA, and BBA - each with on-job training and placement support.",
             },
             {
                 question: "Is there any certification provided?",
@@ -51,7 +51,7 @@ export const faqCategories = {
         faqs: [
             {
                 question: "What are the eligibility criteria for joining SkillYards?",
-                answer: "For skill courses (Full-Stack Dev & Digital Marketing), there is no strict eligibility — anyone with basic computer literacy can join. For degree programs (BCA & BBA), you need to have passed 12th grade with at least 50% marks.",
+                answer: "For skill courses (Full-Stack Dev & Digital Marketing), there is no strict eligibility - anyone with basic computer literacy can join. For degree programs (BCA & BBA), you need to have passed 12th grade with at least 50% marks.",
             },
             {
                 question: "What's the difference between a Degree program and a Skill Course?",
@@ -67,11 +67,11 @@ export const faqCategories = {
             },
             {
                 question: "Is placement actually guaranteed?",
-                answer: "We have a strong track record of placements — which means we actively work to place every eligible student. We don't guarantee a specific salary, but we do guarantee dedicated placement support: resume building, mock interviews, referrals, and direct connections with 180+ hiring partners.",
+                answer: "We have a strong track record of placements - which means we actively work to place every eligible student. We don't guarantee a specific salary, but we do guarantee dedicated placement support: resume building, mock interviews, referrals, and direct connections with 180+ hiring partners.",
             },
             {
                 question: "What are the fee and EMI options?",
-                answer: "Skill courses start from ₹15,000 (Digital Marketing) and ₹25,000 (Full-Stack Dev). Degree program fees are shared during your counselling session. EMI and instalment options are available across all programs — contact us to know the exact payment plan.",
+                answer: "Skill courses start from ₹15,000 (Digital Marketing) and ₹25,000 (Full-Stack Dev). Degree program fees are shared during your counselling session. EMI and instalment options are available across all programs - contact us to know the exact payment plan.",
             },
             {
                 question: "What payment modes are accepted?",
@@ -98,15 +98,15 @@ export const faqCategories = {
         faqs: [
             {
                 question: "Do I need prior coding experience to join?",
-                answer: "No. The course starts from absolute scratch — HTML, CSS, and basic JavaScript in Month 1. The only requirement is basic computer comfort (using a browser, typing). If you can use WhatsApp and Google, you can start this course.",
+                answer: "No. The course starts from absolute scratch - HTML, CSS, and basic JavaScript in Month 1. The only requirement is basic computer comfort (using a browser, typing). If you can use WhatsApp and Google, you can start this course.",
             },
             {
                 question: "Is a laptop mandatory? What are the minimum specs?",
-                answer: "Yes, a laptop is required — this is a hands-on practical course. Minimum: Intel Core i5 / Ryzen 5, 8GB RAM, 256GB SSD, Windows 10 or macOS. A smartphone alone won't work. If you don't have a laptop that meets these specs, talk to us before enrolling.",
+                answer: "Yes, a laptop is required - this is a hands-on practical course. Minimum: Intel Core i5 / Ryzen 5, 8GB RAM, 256GB SSD, Windows 10 or macOS. A smartphone alone won't work. If you don't have a laptop that meets these specs, talk to us before enrolling.",
             },
             {
                 question: "What if I miss a class?",
-                answer: "Every session is recorded and shared with enrolled students within 24 hours. We also hold weekly doubt-clearing sessions. That said — missing classes regularly will hurt you. The projects have deadlines. The code reviews expect your code.",
+                answer: "Every session is recorded and shared with enrolled students within 24 hours. We also hold weekly doubt-clearing sessions. That said - missing classes regularly will hurt you. The projects have deadlines. The code reviews expect your code.",
             },
             {
                 question: "How is this different from just learning on YouTube or Udemy?",
@@ -114,27 +114,27 @@ export const faqCategories = {
             },
             {
                 question: "What does your placement support actually mean?",
-                answer: "It means 100% active effort — resume building, mock interviews, referrals to our 180+ hiring partners, and direct introductions where possible. It does not mean we guarantee a specific salary or that a company must hire you. We will work hard to get you placed — but you have to show up hireable.",
+                answer: "It means 100% active effort - resume building, mock interviews, referrals to our 180+ hiring partners, and direct introductions where possible. It does not mean we guarantee a specific salary or that a company must hire you. We will work hard to get you placed - but you have to show up hireable.",
             },
             {
                 question: "Can I join if I'm currently working a day job?",
-                answer: "Yes. We offer weekend batches and evening batches for working professionals. Check current availability during your free demo session. Be honest with yourself though — this course requires 4–6 hours of daily work. A full-time job + this course is doable but demanding.",
+                answer: "Yes. We offer weekend batches and evening batches for working professionals. Check current availability during your free demo session. Be honest with yourself though - this course requires 4–6 hours of daily work. A full-time job + this course is doable but demanding.",
             },
             {
                 question: "What language is the course taught in?",
-                answer: "Primarily Hinglish (Hindi + English) — which is the most effective way to explain complex technical concepts to students in Agra. Technical terms, documentation, and code are in English. No prior English fluency required.",
+                answer: "Primarily Hinglish (Hindi + English) - which is the most effective way to explain complex technical concepts to students in Agra. Technical terms, documentation, and code are in English. No prior English fluency required.",
             },
             {
                 question: "How many students are in each batch?",
-                answer: "Maximum 20 students per batch. This is intentional — smaller batches mean more mentor attention, better code review quality, and a tighter peer learning environment. We don't scale beyond 20 per batch.",
+                answer: "Maximum 20 students per batch. This is intentional - smaller batches mean more mentor attention, better code review quality, and a tighter peer learning environment. We don't scale beyond 20 per batch.",
             },
             {
                 question: "What happens after I complete the course?",
-                answer: "You stay in the SkillYards alumni network — which means access to future job referrals, continued doubt support for 3 months post-completion, and invites to alumni events. Many graduates come back as mentors once they're 2–3 years into their careers.",
+                answer: "You stay in the SkillYards alumni network - which means access to future job referrals, continued doubt support for 3 months post-completion, and invites to alumni events. Many graduates come back as mentors once they're 2–3 years into their careers.",
             },
             {
                 question: "What's the refund and cancellation policy?",
-                answer: "Full refund if you cancel before attending the first class. 50% refund within the first 2 weeks. No refund after 2 weeks. The free demo class exists precisely so you can make this decision before paying — we strongly recommend attending before enrolling.",
+                answer: "Full refund if you cancel before attending the first class. 50% refund within the first 2 weeks. No refund after 2 weeks. The free demo class exists precisely so you can make this decision before paying - we strongly recommend attending before enrolling.",
             },
         ],
     },
@@ -145,23 +145,23 @@ export const faqCategories = {
         faqs: [
             {
                 question: "Do I need any prior marketing or tech knowledge?",
-                answer: "None at all. The course starts from the very beginning — what digital marketing is, why it matters, and how each channel works. If you can use Instagram and search on Google, you have everything you need to start.",
+                answer: "None at all. The course starts from the very beginning - what digital marketing is, why it matters, and how each channel works. If you can use Instagram and search on Google, you have everything you need to start.",
             },
             {
                 question: "Do I need to know coding?",
-                answer: "No. Digital marketing is creative and analytical — not technical. You'll learn to use tools, run campaigns, and read data. The most technical thing you'll do is set up a WordPress site, which requires no coding.",
+                answer: "No. Digital marketing is creative and analytical - not technical. You'll learn to use tools, run campaigns, and read data. The most technical thing you'll do is set up a WordPress site, which requires no coding.",
             },
             {
                 question: "Is a laptop mandatory? What specs do I need?",
-                answer: "Yes, a laptop is required. Any laptop with 4GB+ RAM running Windows 10 or macOS works — digital marketing tools are browser-based, so even an older machine is fine. This is much more accessible than coding courses.",
+                answer: "Yes, a laptop is required. Any laptop with 4GB+ RAM running Windows 10 or macOS works - digital marketing tools are browser-based, so even an older machine is fine. This is much more accessible than coding courses.",
             },
             {
                 question: "Will I get access to paid tools like Ahrefs or SEMrush?",
-                answer: "Yes. Tool access is included during the course — you don't need to subscribe yourself. This includes Ahrefs, SEMrush (or Ubersuggest), Canva Pro, and Google Workspace. These are the same tools working professionals use daily.",
+                answer: "Yes. Tool access is included during the course - you don't need to subscribe yourself. This includes Ahrefs, SEMrush (or Ubersuggest), Canva Pro, and Google Workspace. These are the same tools working professionals use daily.",
             },
             {
                 question: "Will I get hands-on practice running campaigns during the course?",
-                answer: "You learn campaign execution through mentor-guided practical work — using guided practice setups, sample datasets, and structured exercises designed to reflect real workflows. The focus is hands-on learning and portfolio-ready case work, without making unverifiable claims about live client accounts.",
+                answer: "You learn campaign execution through mentor-guided practical work - using guided practice setups, sample datasets, and structured exercises designed to reflect real workflows. The focus is hands-on learning and portfolio-ready case work, without making unverifiable claims about live client accounts.",
             },
             {
                 question: "What certifications will I earn?",
@@ -169,7 +169,7 @@ export const faqCategories = {
             },
             {
                 question: "Is placement guaranteed? What does that actually mean?",
-                answer: "We provide dedicated placement support — resume building, mock interviews, and interview preparation. We do not guarantee placements or specific salary outcomes.",
+                answer: "We provide dedicated placement support - resume building, mock interviews, and interview preparation. We do not guarantee placements or specific salary outcomes.",
             },
             {
                 question: "Can I freelance after this course? Will SkillYards help me get work?",
@@ -181,15 +181,15 @@ export const faqCategories = {
             },
             {
                 question: "How is this different from doing a free Google Digital Garage course?",
-                answer: "Free resources teach concepts. At SkillYards, training is mentor-led and practical — you learn by executing structured assignments, building a portfolio, and getting feedback on your work.",
+                answer: "Free resources teach concepts. At SkillYards, training is mentor-led and practical - you learn by executing structured assignments, building a portfolio, and getting feedback on your work.",
             },
             {
                 question: "Can small business owners join to grow their own business?",
-                answer: "Absolutely — and several do. If you run or help run a family business, you can apply everything you learn to your own brand in real time. Many graduates report growing their business during the course itself, not just after.",
+                answer: "Absolutely - and several do. If you run or help run a family business, you can apply everything you learn to your own brand in real time. Many graduates report growing their business during the course itself, not just after.",
             },
             {
                 question: "What language are classes taught in?",
-                answer: "Hinglish — Hindi mixed with English. Technical terms and tools are in English, but explanations are in Hindi or Hinglish to make sure everyone understands deeply. No prior English fluency required.",
+                answer: "Hinglish - Hindi mixed with English. Technical terms and tools are in English, but explanations are in Hindi or Hinglish to make sure everyone understands deeply. No prior English fluency required.",
             },
         ],
     },
@@ -200,7 +200,7 @@ export const faqCategories = {
         faqs: [
             {
                 question: "What are the eligibility criteria for BCA and BBA?",
-                answer: "Both BCA and BBA require 12th pass (any stream) with a minimum of 50% marks. There's no entrance exam — just a counselling session to ensure the program is the right fit for you.",
+                answer: "Both BCA and BBA require 12th pass (any stream) with a minimum of 50% marks. There's no entrance exam - just a counselling session to ensure the program is the right fit for you.",
             },
             {
                 question: "Are BCA and BBA degrees university-recognised?",
@@ -216,7 +216,7 @@ export const faqCategories = {
             },
             {
                 question: "Can I do BCA if I'm from an arts or commerce background?",
-                answer: "Yes. BCA does not require a science background at 12th level — any stream is accepted as long as you meet the 50% minimum marks requirement.",
+                answer: "Yes. BCA does not require a science background at 12th level - any stream is accepted as long as you meet the 50% minimum marks requirement.",
             },
             {
                 question: "What is the OJT (On-Job Training) component in degree programs?",
@@ -243,7 +243,7 @@ export const faqCategories = {
             },
             {
                 question: "What does the placement process look like?",
-                answer: "Placement prep starts early — resume building, LinkedIn optimisation, and mock interviews. In the final phase, we support interview preparation and share opportunities where available, without guaranteeing outcomes.",
+                answer: "Placement prep starts early - resume building, LinkedIn optimisation, and mock interviews. In the final phase, we support interview preparation and share opportunities where available, without guaranteeing outcomes.",
             },
         ],
     },
@@ -262,7 +262,7 @@ export const faqCategories = {
             },
             {
                 question: "Do I need any coding experience to take the test?",
-                answer: "No coding is required. The test is multiple choice — you just need a basic familiarity with HTML, CSS, JavaScript, and SEO concepts. Beginners are welcome.",
+                answer: "No coding is required. The test is multiple choice - you just need a basic familiarity with HTML, CSS, JavaScript, and SEO concepts. Beginners are welcome.",
             },
             {
                 question: "When will I receive my certificate?",
@@ -274,7 +274,7 @@ export const faqCategories = {
             },
             {
                 question: "What happens if I score below 60%?",
-                answer: "You still receive a certificate — labelled 'Beginner' — along with a personalised recommendation for which SkillYards program would help you reach the next level. There is no fail.",
+                answer: "You still receive a certificate - labelled 'Beginner' - along with a personalised recommendation for which SkillYards program would help you reach the next level. There is no fail.",
             },
             {
                 question: "Can I retake the test?",
@@ -282,7 +282,7 @@ export const faqCategories = {
             },
             {
                 question: "Will SkillYards contact me after the test?",
-                answer: "Our counselling team may reach out with a program recommendation based on your score — but only once, and only to help. You can opt out at any time.",
+                answer: "Our counselling team may reach out with a program recommendation based on your score - but only once, and only to help. You can opt out at any time.",
             },
         ],
     },

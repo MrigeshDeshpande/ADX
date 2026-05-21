@@ -23,32 +23,36 @@ const ProgramsShowcase = () => {
 
     const trainingPrograms = [
         {
-            title: "Full-Stack Development",
-            description: "Understand how real websites and applications are built, not just how they look. You work on live projects, learn frontend and backend logic, and build a portfolio recruiters care about.",
+            title: "Full-Stack Web Development",
+            description: "Build real web apps with React, Node.js & databases. Create a portfolio and get placed in top IT companies.",
             link: "/full-stack-web-development-training-in-agra",
             icon: <Code2 className="w-6 h-6 md:w-8 md:h-8 text-teal-400" />,
             bg: "/images/programmes/full-stack.jpg",
+            ctaLabel: "Explore Full-Stack Development",
         },
         {
-            title: "Digital Marketing",
+            title: "Digital Marketing Course",
             description: "Master SEO, Google Ads, Meta Ads & analytics. Get Google & Meta certified in just 3 months.",
             link: "/digital-marketing-course-in-agra",
             icon: <Megaphone className="w-6 h-6 md:w-8 md:h-8 text-yellow-400" />,
             bg: "/images/programmes/uiux.jpg",
+            ctaLabel: "Explore Digital Marketing",
         },
         {
-            title: "BCA Program",
-            description: "3-year university degree in Computer Applications with on-job training and dedicated placement support.",
+            title: "BCA Program With IT Training",
+            description: "3-year UGC-recognized degree with full-stack training, live projects, and 100% placement support.",
             link: "/bca-training-program-in-agra",
             icon: <GraduationCap className="w-6 h-6 md:w-8 md:h-8 text-orange-400" />,
             bg: "/images/programmes/bca.jpg",
+            ctaLabel: "Explore BCA Program",
         },
         {
-            title: "BBA Program",
-            description: "3-year business degree with digital marketing specialisation, live projects and dedicated placement support.",
+            title: "BBA Program With Digital Marketing",
+            description: "3-year UGC-recognized degree with digital marketing training, live projects, and guaranteed placement.",
             link: "/bba-training-program-in-agra",
             icon: <BarChart2 className="w-6 h-6 md:w-8 md:h-8 text-red-400" />,
             bg: "/images/programmes/mca.jpg",
+            ctaLabel: "Explore BBA Program",
         },
     ];
 
@@ -59,11 +63,11 @@ const ProgramsShowcase = () => {
                     {/* Header */}
                     <div className="w-full md:w-[20%] xl:w-[10%] text-center md:text-left mb-8 md:mb-0 mr-2">
                         <h2 className="text-3xl md:text-5xl font-bold mb-4 text-primary-background">
-                            LEARN.
+                            IT Courses
                             <br className="hidden md:block" />
-                            GROW.
+                            We Offer
                             <br className="hidden md:block" />
-                            ACHIEVE.
+                            in Agra
                         </h2>
                         <p className="text-lg md:text-xl text-primary">
                             Find your passion
@@ -168,7 +172,7 @@ const ProgramsShowcase = () => {
                                                 title={`Explore ${program.title}`}
                                                 className="inline-flex items-center gap-2 bg-white text-[#030e5a] font-bold text-sm px-5 py-2.5 rounded-full hover:bg-white/90 hover:gap-3 transition-all duration-200 group"
                                             >
-                                                Explore {program.title}
+                                                {program.ctaLabel}
                                                 <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5" />
                                             </Link>
                                         </div>

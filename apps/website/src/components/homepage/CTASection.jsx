@@ -34,7 +34,7 @@ export default function CTASection() {
                         </m.div>
 
                         <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-foreground leading-tight">
-                            Ready to <span className="text-primary italic">Kickstart</span> Your IT Career?
+                            Start Your IT Career With <span className="text-primary italic">SkillYards</span>
                         </h2>
                         
                         <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto">

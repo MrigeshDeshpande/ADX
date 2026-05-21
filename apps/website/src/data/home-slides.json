@@ -2,22 +2,22 @@
   {
     "title": "Not Sure What to Do After 12th?",
     "subtitle": " Agra's #1 IT Training Institute",
-    "description": "Build Skills That Actually Get You Hired. Get practical IT training, real-world skills, and career clarity – all in one place.",
-    "cta": "Explore Courses",
+    "description": "Learn IT skills that companies actually hire for. Get hands-on training, UGC-certified degrees, and guaranteed placement support - all in Agra.",
+    "cta": "Explore IT Courses in Agra",
     "ctaHref": "/programs"
   },
   {
-    "title": "On Job Degree",
-    "subtitle": "Earn a degree with real experience",
-    "description": "Work alongside professionals while earning a recognized degree that accelerates your career.",
-    "cta": "View Degree Programs",
+    "title": "Get a Real Degree While Building Real Skills",
+    "subtitle": "On Job Degree (OJD)",
+    "description": "Earn a UGC-recognized BCA or BBA degree while working on live IT projects. Study at SkillYards, get placed in top companies - no more choosing between degree and job readiness.",
+    "cta": "View BCA & BBA Programs",
     "ctaHref": "/programs"
   },
   {
-    "title": "On-Job Training",
-    "subtitle": "Learn by doing on real projects",
-    "description": "Build practical skills in Full-Stack Development and Digital Marketing with mentor-led training designed to make you job-ready.",
-    "cta": "Explore OJT Programs",
+    "title": "Job-Ready in 7 Months, Not 3 Years",
+    "subtitle": "On-Job Training (OJT)",
+    "description": "Master full-stack development or digital marketing with hands-on projects, industry mentors, and placement assistance. No degree required - just the drive to learn and get hired.",
+    "cta": "Explore Full-Stack & Digital Marketing",
     "ctaHref": "/programs/on-job-training"
   }
 ]

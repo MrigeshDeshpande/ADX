@@ -23,10 +23,10 @@ export default function LeadersSection() {
                     transition={{ duration: 0.6 }}
                 >
                     <h2 className="text-4xl sm:text-5xl font-extrabold text-foreground tracking-tight">
-                        Visionary Leadership
+                        Meet Our Leadership Team
                     </h2>
                     <p className="mt-4 text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
-                        Meet the driving forces behind SkillYards — building the future of skill-based education.
+                        Meet the team leading SkillYards - building an IT training institute in Agra that actually gets students placed.
                     </p>
                 </m.div>
             </div>

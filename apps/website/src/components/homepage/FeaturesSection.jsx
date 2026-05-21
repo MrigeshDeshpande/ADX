@@ -57,7 +57,7 @@ function AnimatedCard({ feature, theme }) {
           </m.div>
 
           <div className="space-y-4">
-            <m.h4
+            <m.div
               key={feature.title}
               className="text-3xl font-black tracking-tight leading-tight text-white"
               initial={{ opacity: 0, y: 10 }}
@@ -65,7 +65,7 @@ function AnimatedCard({ feature, theme }) {
               transition={{ duration: 0.4 }}
             >
               {feature.title}
-            </m.h4>
+            </m.div>
             <div className="w-12 h-1 rounded-full bg-white/40 mx-auto" />
             <m.p
               key={feature.description}

@@ -30,11 +30,11 @@ export default function FAQSection({ category = "homepage", limit = 4 }) {
           </motion.div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-foreground">
-            Got <span className="text-primary italic">Questions?</span> We have answers.
+            Frequently Asked <span className="text-primary italic">Questions</span>
           </h2>
 
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Everything you need to know about starting your career with SkillYards.
+            Get answers about our programs, placements, fees, and how to get started.
           </p>
         </div>
 
@@ -99,7 +99,7 @@ export default function FAQSection({ category = "homepage", limit = 4 }) {
 
         <div className="mt-12 text-center">
           <p className="text-sm text-muted-foreground">
-            Still have questions?{" "}
+            Need more answers?{" "}
             <a
               href="/faqs"
               className="text-primary font-bold underline underline-offset-4 hover:opacity-80"

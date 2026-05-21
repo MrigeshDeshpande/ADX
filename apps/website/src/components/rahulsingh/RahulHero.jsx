@@ -60,7 +60,7 @@ export default function RahulHero() {
                     transition={{ delay: 0.3, duration: 0.5 }}
                     className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground tracking-tight"
                 >
-                    Rahul Singh
+                    Rahul Singh - COO
                 </m.h3>
 
                 <m.p
@@ -70,9 +70,7 @@ export default function RahulHero() {
                     transition={{ delay: 0.4, duration: 0.5 }}
                     className="mt-4 text-muted-foreground leading-relaxed"
                 >
-                    A dynamic operations leader driving SkillYards&apos; day-to-day excellence.
-                    Rahul ensures seamless execution across all verticals, fostering a culture of
-                    innovation, efficiency, and student-first thinking that powers real learning outcomes.
+                    Rahul Singh manages SkillYards&apos; operations - curriculum planning, mentor coordination, and student placements. He makes sure training runs smoothly and students get the support they need from day one to their first job.
                 </m.p>
 
                 <m.div

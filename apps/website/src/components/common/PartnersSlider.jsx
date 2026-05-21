@@ -24,16 +24,16 @@ export default function PartnersSlider() {
                     className="max-w-7xl mx-auto px-6 text-center mb-12 space-y-4"
                 >
                     <h2 className="font-serif text-4xl sm:text-5xl font-bold text-foreground leading-tight">
-                        Industry {" "}
+                        Companies {" "}
                         <span className="text-primary italic relative inline-block">
-                            Expectations
+                            Waiting for You
                             <svg className="absolute -bottom-1 left-0 w-full overflow-visible" viewBox="0 0 120 8" fill="none" preserveAspectRatio="none" aria-hidden>
                                 <path d="M0 6 Q30 0 60 6 Q90 12 120 6" stroke="#d4c2fc" strokeWidth="2.5" strokeLinecap="round" />
                             </svg>
                         </span>
                     </h2>
                     <p className="font-sans text-sm text-muted-foreground max-w-lg mx-auto leading-relaxed tracking-wide">
-                        Students train with tools, workflows, and interview expectations used across modern IT companies, agencies, and startups.
+                        Students train with tools, workflows, and hiring expectations used across modern IT companies, agencies, and startups.
                     </p>
                 </m.div>
 

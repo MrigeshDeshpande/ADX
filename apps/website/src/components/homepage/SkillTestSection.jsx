@@ -55,20 +55,11 @@ export default function SkillTestSection() {
               </m.div>
 
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-foreground leading-[1.1]">
-                Test Your Skills in{" "}
-                <span className="text-primary italic">10 Minutes</span>
+                Free <span className="text-primary italic">10-Minute</span> IT Skill Test
               </h2>
 
               <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-lg">
-                Take our free skill assessment across{" "}
-                <span className="text-foreground font-semibold">
-                  HTML, CSS, JavaScript, React, Node.js
-                </span>{" "}
-                and more. Score 70% or higher and receive an official{" "}
-                <span className="text-foreground font-semibold">
-                  SkillYards Certificate
-                </span>{" "}
-                delivered straight to your inbox.
+                Test your IT skills across web development (HTML, CSS, JavaScript, React, Node.js) and digital marketing (SEO, PPC, analytics). Score 70%+ and get a free SkillYards Certificate sent to your email instantly.
               </p>
 
               {/* Feature pills */}
@@ -142,9 +133,9 @@ export default function SkillTestSection() {
                     <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto">
                       <Award size={28} className="text-primary" />
                     </div>
-                    <h3 className="text-xl font-black text-foreground">
+                    <div className="text-xl font-black text-foreground">
                       SkillYards Certificate
-                    </h3>
+                    </div>
                     <p className="text-xs text-muted-foreground uppercase tracking-widest font-semibold">
                       of Achievement
                     </p>
@@ -175,7 +166,7 @@ export default function SkillTestSection() {
 
                   {/* Topic badges */}
                   <div className="flex flex-wrap justify-center gap-2">
-                    {["React", "JavaScript", "Node.js", "CSS"].map((topic) => (
+                    {["React", "SEO", "Node.js", "PPC"].map((topic) => (
                       <span
                         key={topic}
                         className="px-3 py-1 rounded-full bg-primary/8 text-primary text-xs font-semibold border border-primary/15"
@@ -186,8 +177,7 @@ export default function SkillTestSection() {
                   </div>
 
                   <p className="text-center text-xs text-muted-foreground leading-relaxed">
-                    Earn this certificate by scoring 70% or above in the
-                    10-Minute Skill Test
+                    Score 70%+ on the test and get this certificate emailed to you instantly
                   </p>
                 </div>
               </div>

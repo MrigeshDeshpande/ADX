@@ -65,7 +65,7 @@ export default function HeroCarousel() {
         <LazyMotion features={domAnimation}>
         <section className={`relative w-full h-[80vh] md:h-[65vh] lg:h-[80vh] overflow-hidden ${bgColor} transition-colors duration-500`}>
 
-            {/* Mobile mesh background — pure CSS, no JS, no images */}
+            {/* Mobile mesh background - pure CSS, no JS, no images */}
             <div className="absolute inset-0 z-0 md:hidden overflow-hidden pointer-events-none">
                 <div className="absolute -top-24 -left-20 w-[70vw] h-[70vw] rounded-full bg-violet-500/30 dark:bg-violet-500/40 blur-3xl" />
                 <div className="absolute -bottom-32 -right-16 w-[65vw] h-[65vw] rounded-full bg-blue-500/25 dark:bg-blue-500/35 blur-3xl" />
@@ -79,7 +79,7 @@ export default function HeroCarousel() {
                 />
             </div>
 
-            {/* Background Particles layer — desktop only */}
+            {/* Background Particles layer - desktop only */}
             {isDesktop && (
                 <div className="absolute inset-0 z-2">
                     <Particles
@@ -113,17 +113,25 @@ export default function HeroCarousel() {
                                 <div className="relative z-10 flex h-full items-center justify-center text-center">
                                     <div className="mx-auto w-full max-w-7xl px-6 sm:px-12 md:px-24">
                                         <div className="max-w-3xl mx-auto flex flex-col items-center">
-                                                <p
-                                                    className={`mb-4 inline-block rounded-full ${theme === "light" ? "bg-primary/10 text-primary border border-primary/20" : "bg-primary/20 text-primary border border-primary/30"} px-5 py-1.5 text-sm font-semibold tracking-wide backdrop-blur pointer-events-auto`}
+                                                <span
+                                                    className={`badge-text mb-4 inline-block rounded-full ${theme === "light" ? "bg-primary/10 text-primary border border-primary/20" : "bg-primary/20 text-primary border border-primary/30"} px-5 py-1.5 text-sm font-semibold tracking-wide backdrop-blur pointer-events-auto`}
                                                 >
-                                                    {slide.subtitle}
-                                                </p>
+                                                    {slide.subtitle?.trim()}
+                                                </span>
 
-                                                <h1
-                                                    className={`text-3xl font-extrabold tracking-tight sm:text-5xl md:text-5xl text-foreground pointer-events-auto leading-tight`}
-                                                >
-                                                    {slide.title}
-                                                </h1>
+                                                {index === 0 ? (
+                                                    <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl text-foreground pointer-events-auto leading-tight">
+                                                        Best IT Training Institute in Agra With Degree &amp; Placement
+                                                    </h1>
+                                                ) : null}
+
+                                                {index !== 0 ? (
+                                                    <span
+                                                        className="hero-slide-text block text-3xl font-extrabold tracking-tight sm:text-5xl md:text-5xl text-foreground pointer-events-auto leading-tight"
+                                                    >
+                                                        {slide.title}
+                                                    </span>
+                                                ) : null}
 
                                                 <p
                                                     className={`mt-3 sm:mt-6 text-base md:text-lg text-muted-foreground pointer-events-auto font-medium max-w-2xl leading-relaxed px-2 sm:px-0`}

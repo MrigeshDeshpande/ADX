@@ -76,9 +76,9 @@ export default function Footer() {
                 {/* Desktop columns */}
                 {footerSections.map(section => (
                     <div key={section.title} className="hidden md:block md:col-span-1">
-                        <h3 className="mb-2 lg:mb-4 text-sm lg:text-lg font-semibold text-muted-foreground">
+                        <div className="footer-heading mb-2 lg:mb-4 text-sm lg:text-lg font-semibold text-muted-foreground">
                             {section.title}
-                        </h3>
+                        </div>
 
                         <ul className="space-y-1.5 lg:space-y-2 text-xs lg:text-sm">
                             {section.links.map(link => (
@@ -124,9 +124,9 @@ export default function Footer() {
 
                 {/* Map column (Visible on all devices) */}
                 <div className="block md:col-span-5 desk:col-span-3 lg:col-span-2 desk:pl-2 lg:pl-4">
-                    <h3 className="mb-3 lg:mb-4 text-base lg:text-lg font-semibold text-muted-foreground">
+                    <div className="footer-heading mb-3 lg:mb-4 text-base lg:text-lg font-semibold text-muted-foreground">
                         Our Location
-                    </h3>
+                    </div>
                     <div className="w-full h-52 md:h-56 lg:h-56 desk:h-full min-h-[13rem] lg:min-h-[16rem] relative rounded-[1.5rem] overflow-hidden shadow-lg border border-border group">
                         <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-black/5 dark:ring-white/10 rounded-[1.5rem] z-10" />
                         <GoogleMapEmbed />

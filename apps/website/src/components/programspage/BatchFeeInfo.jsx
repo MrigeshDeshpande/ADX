@@ -12,9 +12,10 @@ export default function BatchFeeInfo({ batches = [], variant = "programs" }) {
 
   const isHome = variant === "home";
   const eyebrow = isHome ? "Upcoming Batches" : "Batch & Fee Info";
-  const title = isHome ? "Pick Cohort. Claim Seat. Start Fast." : "Next Batches Are Filling Fast.";
+  const title = isHome ? "Upcoming Batches - Enroll Now" : "Next Batches Are Filling Fast.";
+  const sectionSubheading = isHome ? "Pick Cohort. Claim Seat. Start Fast." : null;
   const subtitle = isHome
-    ? "See live batch timing, fee clarity, remaining seats, and visual program cues before you talk to admissions."
+    ? "Reserve your seat now. See batch timings, fees, available seats, and program details upfront - no surprises."
     : "Seats stay intentionally limited. Each batch card gives you timing, fee clarity, and seat urgency at one glance.";
 
   return (
@@ -31,14 +32,19 @@ export default function BatchFeeInfo({ batches = [], variant = "programs" }) {
             {eyebrow}
           </motion.div>
           <h2 className="font-serif text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-            {title.split(". ").map((part, index, arr) => (
-              <span key={part}>
-                {index > 0 ? " " : null}
-                {index === arr.length - 1 ? <span className="italic text-primary">{part}</span> : part}
-                {index < arr.length - 1 ? "." : null}
-              </span>
-            ))}
+            {isHome ? (
+              <>
+                Upcoming Batches <span className="italic text-primary">- Enroll Now</span>
+              </>
+            ) : (
+              title
+            )}
           </h2>
+          {sectionSubheading ? (
+            <p className="section-subheading mx-auto mt-3 max-w-2xl text-base font-semibold text-foreground/80">
+              {sectionSubheading}
+            </p>
+          ) : null}
           <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
             {subtitle}
           </p>
@@ -151,9 +157,9 @@ export default function BatchFeeInfo({ batches = [], variant = "programs" }) {
         </div>
 
         <p className="mt-6 text-center text-xs text-muted-foreground">
-          Need more fee or schedule details?{" "}
+          Questions about fees or batches?{" "}
           <Link href={`https://wa.me/${process.env.NEXT_PUBLIC_PHONE?.replace(/\D/g, "") || "917060100561"}`} target="_blank" rel="noopener noreferrer" className="font-bold text-primary underline underline-offset-4 hover:opacity-80">
-            Contact our counsellors
+            WhatsApp our counsellors now
           </Link>
         </p>
       </div>

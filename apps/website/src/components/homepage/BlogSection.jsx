@@ -16,7 +16,7 @@ export async function BlogSection() {
             <div className="max-w-[1200px] mx-auto px-12 space-y-12">
                 <div className="text-center space-y-4">
                     <h2 className="font-serif text-4xl sm:text-5xl font-bold text-foreground">
-                        Latest Blogs & Tips
+                        Latest IT Career Tips &amp; Insights
                     </h2>
                     <p className="font-sans text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto">
                         Explore our latest insights, tips, and guides to stay ahead in your IT career.

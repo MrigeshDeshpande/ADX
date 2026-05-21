@@ -45,19 +45,19 @@ export default function AboutSection() {
                         </LazyMotion>
 
                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-foreground tracking-tight leading-tight">
-                            Elevate Your <span className="text-primary italic">Career</span> With Industry Experts
+                            Why Students Choose <span className="text-primary italic">SkillYards</span>
                         </h2>
 
                         <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-xl">
-                            At <span className="font-bold text-foreground">SkillYards</span>, We help students move from complication to clarification, from theory to actual skills, and from college life to career life through skill development for students that truly matters.
+                            SkillYards is Agra&apos;s leading IT training institute offering hands-on learning in BCA, BBA, full-stack development, and digital marketing. We bridge the gap between college degrees and real industry jobs through practical training, live projects, and guaranteed placement support.
                         </p>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pb-2">
                             {[
-                                "Industry Mentorship",
-                                "Project-Based Learning",
-                                "Dedicated Placement Support",
-                                "Modern Tech Stack"
+                                "Learn From IT Industry Experts",
+                                "Work on Real Company Projects",
+                                "100% Placement Assistance Guarantee",
+                                "Train on Latest Tools & Technologies"
                             ].map((feature, idx) => (
                                 <div key={idx} className="flex items-center gap-2">
                                     <CheckCircle2 size={18} className="text-primary shrink-0" />

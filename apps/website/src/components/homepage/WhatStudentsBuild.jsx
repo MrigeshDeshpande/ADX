@@ -6,20 +6,20 @@ import Link from "next/link";
 
 const projectCategories = [
     {
-        title: "Website Projects",
-        description: "Students build responsive websites, landing pages, portfolios, and basic web apps using HTML, CSS, JavaScript, React, and modern development tools.",
+        title: "Website & Web App Projects",
+        description: "Build responsive websites, e-commerce pages, admin dashboards, and full-stack applications using React, Node.js, databases, and deployment tools.",
         icon: <Globe className="w-8 h-8 text-primary" />,
         features: ["Responsive Design", "React Components", "API Integration"]
     },
     {
-        title: "Marketing & Business Projects",
-        description: "BBA and digital marketing students work on campaign ideas, content calendars, landing-page audits, ad-copy exercises, and basic performance reports.",
+        title: "Marketing & Business Campaigns",
+        description: "Create SEO strategies, Google Ads campaigns, social media content calendars, email marketing funnels, and performance analytics reports for real brands.",
         icon: <Megaphone className="w-8 h-8 text-primary" />,
         features: ["Campaign Strategy", "SEO Audits", "Content Planning"]
     },
     {
-        title: "Career Preparation Work",
-        description: "Students practice resumes, LinkedIn profiles, interview answers, communication, aptitude basics, and project explanation with mentor support.",
+        title: "Career Preparation & Interview Readiness",
+        description: "Build ATS-friendly resumes, optimize LinkedIn profiles, practice mock interviews, improve communication skills, and learn how to explain your projects confidently.",
         icon: <UserCheck className="w-8 h-8 text-primary" />,
         features: ["Mock Interviews", "Resume Building", "Soft Skills"]
     }
@@ -39,10 +39,10 @@ export default function WhatStudentsBuild() {
                         viewport={{ once: true }}
                     >
                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground tracking-tight">
-                            What Students Build at <span className="text-primary italic">SkillYards</span>
+                            Real Projects Built by Our <span className="text-primary italic">Students</span>
                         </h2>
                         <p className="mt-6 text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-                            SkillYards focuses on practical learning. Students do not just watch lectures — they work on projects, assignments, campaigns, presentations, and career-preparation tasks that help them understand how real work happens.
+                            Our training is hands-on from day one. Students don&apos;t just watch tutorials - they build real websites, run live marketing campaigns, and prepare job-ready portfolios that recruiters actually want to see.
                         </p>
                     </motion.div>
                 </div>
@@ -80,7 +80,7 @@ export default function WhatStudentsBuild() {
                         href="/programs"
                         className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-bold text-lg shadow-lg shadow-primary/20 hover:bg-primary/90 hover:gap-3 transition-all duration-300 hover:-translate-y-1"
                     >
-                        Explore SkillYards Programs
+                        View All Programs & Projects
                         <ArrowRight size={20} />
                     </Link>
                 </div>

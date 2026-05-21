@@ -1,22 +1,22 @@
 [
   {
-    "title": "Hands-on Training",
-    "description": "Gain practical experience with real-world projects under expert mentorship.",
+    "title": "Hands-on Project Training",
+    "description": "Work on live IT projects from day one. Build real applications, campaigns, and portfolios that get you hired.",
     "icon": "laptop"
   },
   {
-    "title": "Experienced Mentors",
-    "description": "Learn from industry professionals with years of practical experience.",
+    "title": "Industry-Experienced Mentors",
+    "description": "Learn from developers and marketers who've worked at top IT companies and built real products.",
     "icon": "users"
   },
   {
-    "title": "Career-focused Mentorship",
-    "description": "Get guidance on placements, resume building, and interview preparation.",
+    "title": "Career-Focused Mentorship",
+    "description": "Resume building, mock interviews, LinkedIn optimization, and job referrals - we prepare you for every stage.",
     "icon": "award"
   },
   {
-    "title": "Club Facilitation",
-    "description": "Skillyards ensures engaging, well-structured sessions that build skills, encourage collaboration, and create a thriving learning community.",
+    "title": "Club & Community Activities",
+    "description": "Join coding clubs, hackathons, and project showcases. Network with peers, collaborate on real work, and grow together.",
     "icon": "clock"
   }
 ]
