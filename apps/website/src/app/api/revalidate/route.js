@@ -5,25 +5,59 @@ const WEBHOOK_SECRET = process.env.SANITY_WEBHOOK_SECRET;
 
 export async function POST(request) {
   try {
-    const body = await request.json();
-    const authHeader = request.headers.get("authorization") || "";
-
+    // Validate env
     if (!WEBHOOK_SECRET) {
-      return NextResponse.json({ message: "Server misconfigured" }, { status: 500 });
+      console.error("SANITY_WEBHOOK_SECRET is missing");
+
+      return NextResponse.json(
+        { message: "Server misconfigured" },
+        { status: 500 }
+      );
     }
 
-    if (authHeader !== `Bearer ${WEBHOOK_SECRET}`) {
-      return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+    // Validate auth
+    const authHeader = request.headers.get("authorization") || "";
+    const sanitySecret = request.headers.get("x-sanity-secret") || "";
+
+    const isValid =
+      authHeader === `Bearer ${WEBHOOK_SECRET}` ||
+      sanitySecret === WEBHOOK_SECRET;
+
+    if (!isValid) {
+      return NextResponse.json(
+        { message: "Unauthorized" },
+        { status: 401 }
+      );
     }
 
-    const docType = body?._type;
+    // Parse body safely
+    let body = {};
 
-    if (docType === "faq" || docType === "faqCategory") {
-      revalidateTag("faqs");
+    try {
+      body = await request.json();
+    } catch {
+      // Ignore empty/invalid JSON body
     }
 
-    return NextResponse.json({ revalidated: true });
-  } catch {
-    return NextResponse.json({ message: "Invalid request" }, { status: 400 });
+    console.log("Sanity webhook received:", body);
+
+    // Revalidate FAQ cache
+    revalidateTag("faqs");
+
+    return NextResponse.json({
+      revalidated: true,
+      tag: "faqs",
+      timestamp: Date.now(),
+    });
+  } catch (error) {
+    console.error("Revalidation failed:", error);
+
+    return NextResponse.json(
+      {
+        message: "Failed to revalidate",
+        error: error?.message || "Unknown error",
+      },
+      { status: 500 }
+    );
   }
 }
