@@ -6,6 +6,9 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export default function FinalCTA() {
+  const whatsappNumber = process.env.NEXT_PUBLIC_PHONE?.replace(/\D/g, "") || "917060100561";
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Hi%2C%20I%27m%20confused%20between%20OJD%20and%20OJT%20programs.%20Can%20you%20help%20me%20choose%3F`;
+
   return (
     <section className="relative overflow-hidden bg-primary py-20">
       {/* Decorative blobs */}
@@ -19,9 +22,9 @@ export default function FinalCTA() {
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-3 text-xs font-bold uppercase tracking-widest text-primary-foreground/60"
+          className="mb-3 text-[10px] font-black uppercase tracking-widest text-primary-foreground/60"
         >
-          Your Next Step
+          Free Career Guidance
         </motion.p>
 
         <motion.h2
@@ -31,8 +34,7 @@ export default function FinalCTA() {
           transition={{ delay: 0.1 }}
           className="font-serif text-3xl font-extrabold leading-tight text-primary-foreground sm:text-4xl md:text-5xl"
         >
-          Ready to Start? <br className="hidden sm:block" />
-          <span className="opacity-80">Or Still Deciding?</span>
+          Still Confused Between OJD and OJT?
         </motion.h2>
 
         <motion.p
@@ -40,9 +42,9 @@ export default function FinalCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.15 }}
-          className="mx-auto mt-4 max-w-xl text-base text-primary-foreground/70"
+          className="mx-auto mt-4 max-w-xl text-base text-primary-foreground/75 leading-relaxed font-medium"
         >
-          Either way, we&apos;re here to help not to pressure. Talk to a counsellor first, or go straight to enrollment.
+          Get free career guidance and find the right SkillYards program based on your education, interest, and career goal.
         </motion.p>
 
         <motion.div
@@ -52,34 +54,31 @@ export default function FinalCTA() {
           transition={{ delay: 0.2 }}
           className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row"
         >
+          {/* Desktop/Laptop CTA: Links to contact page */}
           <Button
             asChild
             size="lg"
-            className="w-full rounded-full bg-primary-foreground px-8 py-6 text-sm font-extrabold text-primary shadow-xl transition-all hover:scale-105 hover:bg-primary-foreground/90 sm:w-auto"
+            className="hidden md:flex w-full rounded-full bg-primary-foreground px-8 py-6 text-xs font-black uppercase tracking-widest text-primary shadow-xl transition-all hover:scale-105 hover:bg-primary-foreground/90 sm:w-auto"
           >
             <Link href="/contact">
-              Enroll Now <ArrowRight size={18} className="ml-2" />
+              Find My Right Program <ArrowRight size={16} className="ml-2" />
             </Link>
           </Button>
 
+          {/* Mobile/Tablet CTA: Opens WhatsApp directly */}
           <Button
             asChild
-            variant="outline"
             size="lg"
-            className="w-full rounded-full border-2 border-primary-foreground/30 bg-transparent px-8 py-6 text-sm font-bold text-primary-foreground transition-all hover:scale-105 hover:bg-primary-foreground/10 sm:w-auto"
+            className="flex md:hidden w-full rounded-full bg-primary-foreground px-8 py-6 text-xs font-black uppercase tracking-widest text-primary shadow-xl transition-all hover:scale-105 hover:bg-primary-foreground/90 sm:w-auto"
           >
-            <Link
-              href="https://wa.me/917895501840?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20SkillYards%20programs"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <MessageCircle size={17} className="mr-2" /> Chat on WhatsApp
-            </Link>
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+              Find My Right Program <MessageCircle size={16} className="ml-2" />
+            </a>
           </Button>
         </motion.div>
 
-        <p className="mt-6 text-xs text-primary-foreground/50">
-          No spam. No hard sell. We&apos;ll answer your questions and let you decide.
+        <p className="mt-6 text-[10px] font-bold uppercase tracking-wider text-primary-foreground/50">
+          No pressure • 1-on-1 counseling • Completely free
         </p>
       </div>
     </section>
