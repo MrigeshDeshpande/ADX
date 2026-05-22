@@ -5,7 +5,7 @@ import PageHero from "@/components/PageHero";
 import FAQsAccordion from "@/components/faqspage/FAQsAccordion";
 import { getFAQSchema } from "@/lib/seo/schema/faqSchema";
 import { getWebPageSchema } from "@/lib/seo/schema/webPageSchema";
-import { faqCategories } from "@/data/faqs";
+import { getAllFaqCategories } from "@/lib/seo/getFaqs";
 import JsonLd from "@/components/JsonLd";
 const faqKeywords = [
     "SkillYards FAQs",
@@ -26,8 +26,16 @@ export const metadata = buildSEO({
     ogImage: "/images/opengraph/faqs-og.jpg",
 });
 
-export default function FaqsPage() {
-    const allFaqs = Object.values(faqCategories).flatMap(category => category.faqs);
+export default async function FaqsPage() {
+    const categories = await getAllFaqCategories();
+
+    const categoriesMap = {};
+    const allFaqs = [];
+    for (const cat of categories) {
+        categoriesMap[cat.slug] = { label: cat.title, description: cat.description, faqs: cat.faqs };
+        allFaqs.push(...cat.faqs);
+    }
+
     const faqSchema = getFAQSchema(allFaqs);
     const webPageSchema = getWebPageSchema({
         url: "/faqs",
@@ -48,7 +56,7 @@ export default function FaqsPage() {
                     { label: "FAQs" },
                 ]}
             />
-            <FAQsAccordion />
+            <FAQsAccordion categories={categoriesMap} />
         </>
     );
 }

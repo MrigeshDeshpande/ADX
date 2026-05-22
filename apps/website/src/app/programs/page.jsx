@@ -11,6 +11,8 @@ import { buildSEO } from "@/lib/seo/buildSEO";
 import JsonLd from "@/components/JsonLd";
 import { getCollectionPageSchema } from "@/lib/seo/schema/webPageSchema";
 import { getBreadcrumbSchema } from "@/lib/seo/schema/breadcrumbSchema";
+import { getFAQSchema } from "@/lib/seo/schema/faqSchema";
+import { getPageFaqs } from "@/lib/seo/getFaqs";
 import { sanityClient } from "@/lib/sanity/client";
 import { BATCHES_QUERY } from "@/lib/sanity/queries";
 
@@ -35,6 +37,7 @@ export const metadata = buildSEO({
 
 export default async function ProgramsPage() {
   const batches = await sanityClient.fetch(BATCHES_QUERY);
+  const faqs = await getPageFaqs("general", 5);
 
   const collectionSchema = getCollectionPageSchema({
     url: "/programs",
@@ -47,7 +50,9 @@ export default async function ProgramsPage() {
     { name: "Programs", url: "/programs" },
   ]);
 
-  const combinedSchema = [collectionSchema, breadcrumbSchema].filter(Boolean);
+  const faqSchema = getFAQSchema(faqs);
+
+  const combinedSchema = [collectionSchema, breadcrumbSchema, faqSchema].filter(Boolean);
 
   return (
     <main>
@@ -59,7 +64,7 @@ export default async function ProgramsPage() {
       <PlacementOutcomes />
       <AdmissionProcess />
       <BatchFeeInfo batches={batches} />
-      <ProgramsFAQ limit={5} />
+      <ProgramsFAQ faqs={faqs} />
       <FinalCTA />
     </main>
   );

@@ -20,7 +20,7 @@ import JsonLd from "@/components/JsonLd";
 
 import { getFAQSchema } from "@/lib/seo/schema/faqSchema";
 import { getWebPageSchema } from "@/lib/seo/schema/webPageSchema";
-import { faqCategories } from "@/data/faqs";
+import { getPageFaqs } from "@/lib/seo/getFaqs";
 import { sanityClient } from "@/lib/sanity/client";
 import { BATCHES_QUERY } from "@/lib/sanity/queries";
 
@@ -39,18 +39,6 @@ const homeKeywords = [
   "on job degree program Agra",
 ];
 
-const homepageFaqs = faqCategories.homepage.faqs.slice(0, 4);
-const faqSchema = getFAQSchema(homepageFaqs);
-const webPageSchema = getWebPageSchema({
-  url: "/",
-  name: "SkillYards – IT Training Institute in Agra",
-  description:
-    "Get BCA, BBA, full-stack & digital marketing training with DBRAU degree and 100% placement support. Book your free career counselling today!",
-  keywords: homeKeywords,
-});
-
-const combinedSchema = [faqSchema, webPageSchema].filter(Boolean);
-
 export const metadata = buildSEO({
   title: "SkillYards | IT Training With Degree & Placement in Agra",
   description:
@@ -62,6 +50,18 @@ export const metadata = buildSEO({
 
 export default async function Home() {
   const batches = await sanityClient.fetch(BATCHES_QUERY);
+  const homepageFaqs = await getPageFaqs("homepage", 4);
+
+  const faqSchema = getFAQSchema(homepageFaqs);
+  const webPageSchema = getWebPageSchema({
+    url: "/",
+    name: "SkillYards – IT Training Institute in Agra",
+    description:
+      "Get BCA, BBA, full-stack & digital marketing training with DBRAU degree and 100% placement support. Book your free career counselling today!",
+    keywords: homeKeywords,
+  });
+
+  const combinedSchema = [faqSchema, webPageSchema].filter(Boolean);
 
   return (
     <>
@@ -84,7 +84,7 @@ export default async function Home() {
         <BlogSection />
         <PartnersSlider />
         <CTASection />
-        <FAQSection category="homepage" limit={4} />
+        <FAQSection faqs={homepageFaqs} />
       </div>
     </>
   );

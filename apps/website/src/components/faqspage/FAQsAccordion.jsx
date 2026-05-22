@@ -2,9 +2,8 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Plus, Minus, BookOpen, CreditCard, Briefcase, Code2, Megaphone, GraduationCap, HelpCircle, Zap, ArrowRight } from "lucide-react";
+import { Plus, Minus, BookOpen, Briefcase, Code2, Megaphone, GraduationCap, HelpCircle, Zap, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { faqCategories } from "@/data/faqs";
 
 const categoryMeta = {
     homepage:      { icon: <HelpCircle size={18} />,    color: "bg-primary/10 text-primary border-primary/20" },
@@ -16,14 +15,23 @@ const categoryMeta = {
     test:          { icon: <Zap size={18} />,           color: "bg-emerald-100 text-emerald-700 border-emerald-200 dark:bg-emerald-950/40 dark:text-emerald-400 dark:border-emerald-800" },
 };
 
-const categoryKeys = Object.keys(faqCategories);
+const fallbackMeta = { icon: <HelpCircle size={18} />, color: "bg-muted text-muted-foreground border-border" };
 
-export default function FAQsAccordion() {
+export default function FAQsAccordion({ categories }) {
+    const categoryKeys = Object.keys(categories);
     const [activeTab, setActiveTab] = useState(categoryKeys[0]);
     const [openIndex, setOpenIndex] = useState(0);
 
-    const current = faqCategories[activeTab];
-    const meta = categoryMeta[activeTab];
+    if (!categoryKeys.length) {
+        return (
+            <section className="bg-background py-12 px-4 sm:px-6">
+                <p className="text-center text-muted-foreground text-sm">No FAQs available yet.</p>
+            </section>
+        );
+    }
+
+    const current = categories[activeTab];
+    const meta = categoryMeta[activeTab] ?? fallbackMeta;
 
     return (
         <section className="bg-background py-12 px-4 sm:px-6">
@@ -37,8 +45,8 @@ export default function FAQsAccordion() {
                                 Browse by topic
                             </p>
                             {categoryKeys.map((key) => {
-                                const m = categoryMeta[key];
-                                const cat = faqCategories[key];
+                                const m = categoryMeta[key] ?? fallbackMeta;
+                                const cat = categories[key];
                                 const isActive = activeTab === key;
                                 return (
                                     <button

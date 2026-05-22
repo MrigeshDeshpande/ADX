@@ -21,6 +21,8 @@ const OtherTeam = dynamic(() => import("@/components/aboutpage/OtherTeam"));
 const LeadersSection=dynamic(()=>import("@/components/common/LeadersSection"));
 
 import { buildSEO } from "@/lib/seo/buildSEO";
+import { getFAQSchema } from "@/lib/seo/schema/faqSchema";
+import { getPageFaqs } from "@/lib/seo/getFaqs";
 
 export const metadata = buildSEO({
   title: "About SkillYards",
@@ -40,13 +42,17 @@ export const metadata = buildSEO({
 
 import { getAboutPageSchema } from "@/lib/seo/schema/webPageSchema";
 
-export default function AboutPage() {
+export default async function AboutPage() {
   const aboutPageSchema = getAboutPageSchema({
     url: "/about",
     name: "About SkillYards",
     description:
       "SkillYards is an Agra-based IT training institute built for students who want practical, career-focused learning after 12th or graduation.",
   });
+
+  const faqs = await getPageFaqs("homepage", 4);
+  const faqSchema = getFAQSchema(faqs);
+  const combinedSchema = [aboutPageSchema, faqSchema].filter(Boolean);
 
   return (
     <>
@@ -61,13 +67,13 @@ export default function AboutPage() {
         <CTASection />
         <LifeAtSkillYards />
         <TechnologiesWeTeach />
-        <FAQSection />
+        <FAQSection faqs={faqs} />
         <StudentWorkAbout />
         <PlacementStats />
         <SkillYardsJourney />
         <CtaBanner />
       </div>
-      <JsonLd data={aboutPageSchema} id="about-page-schema-skillyards" />
+      <JsonLd data={combinedSchema} id="about-page-schema-skillyards" />
     </>
   );
 }

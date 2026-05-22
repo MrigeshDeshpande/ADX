@@ -1,19 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { faqCategories } from "@/data/faqs";
 import { AnimatePresence, motion } from "framer-motion";
 import { Plus, Minus, HelpCircle } from "lucide-react";
 import Link from "next/link";
 
-const faqsByCategory = [
-    { id: "admissions", label: "Admissions",    faqs: faqCategories.general.faqs.slice(0, 3) },
-    { id: "fees",       label: "Fees & Payments", faqs: faqCategories.general.faqs.slice(5, 8) },
-    { id: "placement",  label: "Placement",      faqs: faqCategories.general.faqs.slice(4, 6) },
-    { id: "technical",  label: "Technical",      faqs: faqCategories.support.faqs.slice(0, 2) },
-];
-
-export default function SupportFAQ() {
+export default function SupportFAQ({ faqsByCategory }) {
     const [activeTab, setActiveTab] = useState(0);
     const [openIndex, setOpenIndex] = useState(0);
 

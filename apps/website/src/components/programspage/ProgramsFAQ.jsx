@@ -1,16 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { faqCategories } from "@/data/faqs";
 import { motion, AnimatePresence } from "framer-motion";
 import { HelpCircle, Plus, Minus } from "lucide-react";
 import Link from "next/link";
 
-export default function ProgramsFAQ({ limit }) {
+export default function ProgramsFAQ({ faqs = [] }) {
   const [openIndex, setOpenIndex] = useState(0);
-  const faqs = typeof limit === "number"
-    ? faqCategories.general.faqs.slice(0, limit)
-    : faqCategories.general.faqs;
 
   return (
     <section className="relative bg-background py-20 overflow-hidden">

@@ -125,3 +125,35 @@ export const BATCHES_QUERY = `
   ctaLink
 }
 `;
+
+export const FAQS_BY_CATEGORY_QUERY = `
+*[_type == "faqCategory" && slug.current == $slug][0]{
+  title,
+  "slug": slug.current,
+  description,
+  "faqs": *[_type == "faq" && category->_id == ^._id && isActive == true]
+    | order(order asc){
+    question,
+    answer,
+    "slug": slug.current,
+    focusKeyphrase,
+    targetPages
+  }
+}
+`;
+
+export const ALL_FAQ_CATEGORIES_QUERY = `
+*[_type == "faqCategory"] | order(order asc){
+  title,
+  "slug": slug.current,
+  description,
+  "faqs": *[_type == "faq" && category->_id == ^._id && isActive == true]
+    | order(order asc){
+    question,
+    answer,
+    "slug": slug.current,
+    focusKeyphrase,
+    targetPages
+  }
+}
+`;

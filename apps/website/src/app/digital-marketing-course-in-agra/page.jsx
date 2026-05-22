@@ -11,33 +11,33 @@ import { getFAQSchema } from "@/lib/seo/schema/faqSchema";
 import { getPageFaqs } from "@/lib/seo/getFaqs";
 import { getWebPageSchema } from "@/lib/seo/schema/webPageSchema";
 
-const course = courses.digitalmarketing;
-const courseSchema = getCourseSchema(course);
-const faqs = getPageFaqs("digitalmarketing");
-const faqSchema = getFAQSchema(faqs);
-
 export const metadata = buildSEO({
-  ...course.seo,
+  ...courses.digitalmarketing.seo,
   path: "/digital-marketing-course-in-agra",
 });
 
-const breadcrumbSchema = getBreadcrumbSchema([
-  { name: "Home", url: "/" },
-  { name: "Programs", url: "/programs" },
-  { name: "On-Job Training", url: "/programs/on-job-training" },
-  { name: course.title, url: "/digital-marketing-course-in-agra" },
-]);
+export default async function DigitalMarketingPage() {
+  const course = courses.digitalmarketing;
+  const courseSchema = getCourseSchema(course);
+  const faqs = await getPageFaqs("digitalmarketing");
+  const faqSchema = getFAQSchema(faqs);
 
-const webPageSchema = getWebPageSchema({
-  url: "/digital-marketing-course-in-agra",
-  name: course.title,
-  description: course.seo.description,
-  keywords: course.seo.keywords,
-});
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Programs", url: "/programs" },
+    { name: "On-Job Training", url: "/programs/on-job-training" },
+    { name: course.title, url: "/digital-marketing-course-in-agra" },
+  ]);
 
-const combinedSchema = [courseSchema, breadcrumbSchema, faqSchema, webPageSchema].filter(Boolean);
+  const webPageSchema = getWebPageSchema({
+    url: "/digital-marketing-course-in-agra",
+    name: course.title,
+    description: course.seo.description,
+    keywords: course.seo.keywords,
+  });
 
-export default function DigitalMarketingPage() {
+  const combinedSchema = [courseSchema, breadcrumbSchema, faqSchema, webPageSchema].filter(Boolean);
+
   return (
     <>
       <JsonLd data={combinedSchema} id="digital-marketing-schema" />

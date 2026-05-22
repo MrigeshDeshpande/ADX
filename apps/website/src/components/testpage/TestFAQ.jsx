@@ -1,13 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { faqCategories } from "@/data/faqs";
 import { Plus, Minus } from "lucide-react";
 import Link from "next/link";
 
-const faqs = faqCategories.test.faqs;
-
-export default function TestFAQ() {
+export default function TestFAQ({ faqs = [] }) {
     const [open, setOpen] = useState(null);
 
     return (

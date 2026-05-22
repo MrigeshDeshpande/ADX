@@ -5,6 +5,9 @@ import { buildSEO } from "@/lib/seo/buildSEO";
 import JsonLd from "@/components/JsonLd";
 import { getCollectionPageSchema } from "@/lib/seo/schema/webPageSchema";
 import { getBreadcrumbSchema } from "@/lib/seo/schema/breadcrumbSchema";
+import { getFAQSchema } from "@/lib/seo/schema/faqSchema";
+import { getPageFaqs } from "@/lib/seo/getFaqs";
+import ProgramsFAQ from "@/components/programspage/ProgramsFAQ";
 
 const OnJobProgramCards = dynamic(() => import("@/components/onJobDegreePage/OnJobProgramCards"));
 const PlacementOutcomes = dynamic(() => import("@/components/onJobDegreePage/PlacementOutcomes"));
@@ -29,7 +32,9 @@ export const metadata = buildSEO({
   ogImage: "/images/opengraph/programs-og.jpg",
 });
 
-export default function OnJobDegreePage() {
+export default async function OnJobDegreePage() {
+  const faqs = await getPageFaqs("degrees", 6);
+
   const collectionSchema = getCollectionPageSchema({
     url: "/programs/on-job-degree",
     name: "SkillYards On-Job Degree Programs – BCA & BBA with Industrial Training",
@@ -42,7 +47,8 @@ export default function OnJobDegreePage() {
     { name: "On-Job Degree", url: "/programs/on-job-degree" },
   ]);
 
-  const combinedSchema = [collectionSchema, breadcrumbSchema].filter(Boolean);
+  const faqSchema = getFAQSchema(faqs);
+  const combinedSchema = [collectionSchema, breadcrumbSchema, faqSchema].filter(Boolean);
 
   return (
     <main>
@@ -50,8 +56,9 @@ export default function OnJobDegreePage() {
       <OnJobHero />
       <OnJobProgramCards />
       <WhyOnJobDegree />
-      <OnJobComparisonTable />     
+      <OnJobComparisonTable />
       <PlacementOutcomes />
+      {faqs.length > 0 && <ProgramsFAQ faqs={faqs} />}
       <FinalCTA />
     </main>
   );

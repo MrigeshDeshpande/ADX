@@ -5,6 +5,9 @@ import { buildSEO } from "@/lib/seo/buildSEO";
 import JsonLd from "@/components/JsonLd";
 import { getCollectionPageSchema } from "@/lib/seo/schema/webPageSchema";
 import { getBreadcrumbSchema } from "@/lib/seo/schema/breadcrumbSchema";
+import { getFAQSchema } from "@/lib/seo/schema/faqSchema";
+import { getPageFaqs } from "@/lib/seo/getFaqs";
+import ProgramsFAQ from "@/components/programspage/ProgramsFAQ";
 
 const OnJobTrainingProgramCards = dynamic(() => import("@/components/onJobTrainingPage/OnJobTrainingProgramCards"));
 const OnJobTrainingComparisonTable = dynamic(() => import("@/components/onJobTrainingPage/OnJobTrainingComparisonTable"));
@@ -29,7 +32,8 @@ export const metadata = buildSEO({
   ogImage: "/images/opengraph/programs-og.jpg",
 });
 
-export default function OnJobTrainingPage() {
+export default async function OnJobTrainingPage() {
+  const faqs = await getPageFaqs("general", 6);
   const collectionSchema = getCollectionPageSchema({
     url: "/programs/on-job-training",
     name: "SkillYards On-Job Training Programs – Full-Stack & Digital Marketing",
@@ -43,7 +47,8 @@ export default function OnJobTrainingPage() {
     { name: "On-Job Training", url: "/programs/on-job-training" },
   ]);
 
-  const combinedSchema = [collectionSchema, breadcrumbSchema].filter(Boolean);
+  const faqSchema = getFAQSchema(faqs);
+  const combinedSchema = [collectionSchema, breadcrumbSchema, faqSchema].filter(Boolean);
 
   return (
     <main>
@@ -53,6 +58,7 @@ export default function OnJobTrainingPage() {
       <WhyOnJobTraining />
       <OnJobTrainingComparisonTable />
       <PlacementOutcomes />
+      {faqs.length > 0 && <ProgramsFAQ faqs={faqs} />}
       <FinalCTA />
     </main>
   );

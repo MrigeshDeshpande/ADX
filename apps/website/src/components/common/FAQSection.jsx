@@ -3,13 +3,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus, HelpCircle } from "lucide-react";
-import { faqCategories } from "@/data/faqs";
 
-export default function FAQSection({ category = "homepage", limit = 4 }) {
+export default function FAQSection({ faqs = [] }) {
   const [openIndex, setOpenIndex] = useState(0);
-
-  const displayFaqs =
-    faqCategories[category]?.faqs?.slice(0, limit) || [];
 
   return (
     <section className="relative py-20 bg-background overflow-hidden">
@@ -39,7 +35,7 @@ export default function FAQSection({ category = "homepage", limit = 4 }) {
         </div>
 
         <div className="space-y-4">
-          {displayFaqs.map((faq, idx) => {
+          {faqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
 
             return (

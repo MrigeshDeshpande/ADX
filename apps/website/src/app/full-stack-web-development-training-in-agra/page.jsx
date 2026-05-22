@@ -11,33 +11,33 @@ import { getFAQSchema } from "@/lib/seo/schema/faqSchema";
 import { getPageFaqs } from "@/lib/seo/getFaqs";
 import { getWebPageSchema } from "@/lib/seo/schema/webPageSchema";
 
-const course = courses.fullstack;
-const courseSchema = getCourseSchema(course);
-const faqs = getPageFaqs("fullstack");
-const faqSchema = getFAQSchema(faqs);
-
 export const metadata = buildSEO({
-  ...course.seo,
+  ...courses.fullstack.seo,
   path: "/full-stack-web-development-training-in-agra",
 });
 
-const breadcrumbSchema = getBreadcrumbSchema([
-  { name: "Home", url: "/" },
-  { name: "Programs", url: "/programs" },
-  { name: "On-Job Training", url: "/programs/on-job-training" },
-  { name: course.title, url: "/full-stack-web-development-training-in-agra" },
-]);
+export default async function FullStackPage() {
+  const course = courses.fullstack;
+  const courseSchema = getCourseSchema(course);
+  const faqs = await getPageFaqs("fullstack");
+  const faqSchema = getFAQSchema(faqs);
 
-const webPageSchema = getWebPageSchema({
-  url: "/full-stack-web-development-training-in-agra",
-  name: course.title,
-  description: course.seo.description,
-  keywords: course.seo.keywords,
-});
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Programs", url: "/programs" },
+    { name: "On-Job Training", url: "/programs/on-job-training" },
+    { name: course.title, url: "/full-stack-web-development-training-in-agra" },
+  ]);
 
-const combinedSchema = [courseSchema, breadcrumbSchema, faqSchema, webPageSchema].filter(Boolean);
+  const webPageSchema = getWebPageSchema({
+    url: "/full-stack-web-development-training-in-agra",
+    name: course.title,
+    description: course.seo.description,
+    keywords: course.seo.keywords,
+  });
 
-export default function FullStackPage() {
+  const combinedSchema = [courseSchema, breadcrumbSchema, faqSchema, webPageSchema].filter(Boolean);
+
   return (
     <>
       <JsonLd data={combinedSchema} id="fullstack-schema" />
