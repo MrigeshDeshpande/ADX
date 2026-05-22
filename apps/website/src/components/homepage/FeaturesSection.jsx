@@ -1,99 +1,59 @@
 "use client";
 
-import { useRef } from "react";
-import { LazyMotion, domAnimation, m, useInView } from "motion/react";
-import { Laptop, Users, Clock, Award } from "lucide-react";
+import * as React from "react";
+import Image from "next/image";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 import { StickyScroll } from "@/components/ui/sticky-scroll-reveal";
 import features from "@/data/features.json";
 
-const iconMap = { laptop: Laptop, users: Users, clock: Clock, award: Award };
-
-const cardThemes = [
-  { gradient: "from-violet-900 via-violet-800 to-blue-900",   orb1: "bg-violet-500/40", orb2: "bg-blue-500/30"   },
-  { gradient: "from-emerald-500 via-teal-500 to-cyan-500",   orb1: "bg-emerald-300/40", orb2: "bg-cyan-300/30"  },
-  { gradient: "from-orange-500 via-rose-500 to-pink-600",    orb1: "bg-orange-300/40", orb2: "bg-pink-300/30"   },
-  { gradient: "from-indigo-500 via-purple-600 to-fuchsia-500", orb1: "bg-indigo-300/40", orb2: "bg-fuchsia-300/30" },
-];
-
-function AnimatedCard({ feature, theme }) {
-  const Icon = iconMap[feature.icon];
-  const ref = useRef(null);
-  const inView = useInView(ref, { margin: "0px 0px -100px 0px" });
-
+function FeatureImageCard({ feature }) {
   return (
-    <LazyMotion features={domAnimation}>
-      <div ref={ref} className={`relative h-full w-full overflow-hidden bg-gradient-to-br ${theme.gradient}`}>
-        {/* Orbs — only animate when in view */}
-        <m.div
-          className={`absolute w-48 h-48 rounded-full blur-2xl ${theme.orb1}`}
-          animate={inView ? { x: [0, 30, -20, 0], y: [0, -40, 20, 0] } : {}}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          style={{ top: "-10%", left: "-10%" }}
-        />
-        <m.div
-          className={`absolute w-40 h-40 rounded-full blur-2xl ${theme.orb2}`}
-          animate={inView ? { x: [0, -25, 15, 0], y: [0, 30, -20, 0] } : {}}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          style={{ bottom: "5%", right: "-5%" }}
-        />
-
-        {/* Dot grid */}
-        <div
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
-            backgroundSize: "24px 24px",
-          }}
-        />
-
-        {/* Content */}
-        <div className="relative z-10 flex flex-col items-center justify-center gap-6 h-full p-10 text-center">
-          <m.div
-            className="w-20 h-20 rounded-3xl bg-white/15 backdrop-blur-sm flex items-center justify-center border border-white/20"
-            whileHover={{ scale: 1.1, rotate: 5 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            {Icon && <Icon className="w-10 h-10 text-white" />}
-          </m.div>
-
-          <div className="space-y-4">
-            <m.div
-              key={feature.title}
-              className="text-3xl font-black tracking-tight leading-tight text-white"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-            >
-              {feature.title}
-            </m.div>
-            <div className="w-12 h-1 rounded-full bg-white/40 mx-auto" />
-            <m.p
-              key={feature.description}
-              className="text-lg font-medium leading-relaxed max-w-[240px] mx-auto text-white/75"
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.1 }}
-            >
-              {feature.description}
-            </m.p>
-          </div>
-        </div>
-      </div>
-    </LazyMotion>
+    <div className="relative h-full w-full overflow-hidden bg-card">
+      <Image
+        src={feature.image}
+        alt={feature.title}
+        fill
+        sizes="(max-width: 1024px) 100vw, 480px"
+        className="object-cover"
+      />
+      <div className="absolute inset-0 ring-1 ring-inset ring-black/5 dark:ring-white/10" />
+      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+    </div>
   );
 }
 
 function buildContent() {
-  return features.map((feature, idx) => ({
+  return features.map((feature) => ({
     title: feature.title,
-    description: feature.description,
-    content: <AnimatedCard feature={feature} theme={cardThemes[idx % cardThemes.length]} />,
+    content: <FeatureImageCard feature={feature} />,
   }));
 }
 
 const content = buildContent();
 
 export default function FeaturesSection() {
+  const [api, setApi] = React.useState(null);
+  const [current, setCurrent] = React.useState(0);
+
+  React.useEffect(() => {
+    if (!api) return;
+
+    const onSelect = () => {
+      setCurrent(api.selectedScrollSnap());
+    };
+
+    onSelect();
+    api.on("select", onSelect);
+
+    return () => {
+      api.off("select", onSelect);
+    };
+  }, [api]);
+
   return (
     <section className="py-20 sm:py-28 bg-background relative">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -115,35 +75,47 @@ export default function FeaturesSection() {
         </div>
 
         {/* Mobile */}
-        <LazyMotion features={domAnimation}>
-          <div className="flex lg:hidden flex-col gap-4 px-6">
-            {features.slice(0, 3).map((feature, idx) => {
-              const Icon = iconMap[feature.icon];
-              const theme = cardThemes[idx % cardThemes.length];
-              return (
-                <div key={idx} className="relative w-full rounded-3xl overflow-hidden shadow-md md:w-[72%] md:mx-auto">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${theme.gradient}`} />
-                  <div
-                    className="absolute inset-0 opacity-10"
-                    style={{
-                      backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
-                      backgroundSize: "20px 20px",
-                    }}
-                  />
-                  <div className="relative z-10 flex gap-4 items-start p-6">
-                    <div className="w-12 h-12 rounded-2xl bg-white/15 border border-white/20 flex items-center justify-center shrink-0">
-                      {Icon && <Icon className="w-6 h-6 text-white" />}
-                    </div>
-                    <div>
-                      <h3 className="text-base font-extrabold mb-1 text-white">{feature.title}</h3>
-                      <p className="text-sm leading-relaxed text-white/75">{feature.description}</p>
+        <div className="lg:hidden px-6">
+          <Carousel
+            setApi={setApi}
+            opts={{ align: "start", loop: true }}
+            className="mx-auto w-full max-w-md"
+          >
+            <CarouselContent className="-ml-0">
+              {features.map((feature) => (
+                <CarouselItem key={feature.title} className="pl-0">
+                  <div className="relative w-full overflow-hidden rounded-3xl shadow-md">
+                    <div className="relative aspect-[3/4] w-full">
+                      <Image
+                        src={feature.image}
+                        alt={feature.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 28rem"
+                        className="object-cover"
+                      />
                     </div>
                   </div>
-                </div>
-              );
-            })}
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+          <div className="mt-5 flex justify-center gap-2">
+            {features.map((feature, index) => (
+              <button
+                key={feature.title}
+                type="button"
+                onClick={() => api?.scrollTo(index)}
+                aria-label={`Go to feature slide ${index + 1}`}
+                aria-current={current === index ? "true" : undefined}
+                className={`h-2.5 rounded-full transition-all duration-300 ${
+                  current === index
+                    ? "w-8 bg-primary"
+                    : "w-2.5 bg-muted hover:bg-muted-foreground/50"
+                }`}
+              />
+            ))}
           </div>
-        </LazyMotion>
+        </div>
       </div>
     </section>
   );

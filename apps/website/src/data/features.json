@@ -1,22 +1,18 @@
 [
   {
     "title": "Hands-on Project Training",
-    "description": "Work on live IT projects from day one. Build real applications, campaigns, and portfolios that get you hired.",
-    "icon": "laptop"
+    "image": "/images/features/hands-on-training.webp"
   },
   {
     "title": "Industry-Experienced Mentors",
-    "description": "Learn from developers and marketers who've worked at top IT companies and built real products.",
-    "icon": "users"
+    "image": "/images/features/industry-mentors.webp"
   },
   {
     "title": "Career-Focused Mentorship",
-    "description": "Resume building, mock interviews, LinkedIn optimization, and job referrals - we prepare you for every stage.",
-    "icon": "award"
+    "image": "/images/features/career-mentorship.webp"
   },
   {
     "title": "Club & Community Activities",
-    "description": "Join coding clubs, hackathons, and project showcases. Network with peers, collaborate on real work, and grow together.",
-    "icon": "clock"
+    "image": "/images/features/community-activities.webp"
   }
 ]
