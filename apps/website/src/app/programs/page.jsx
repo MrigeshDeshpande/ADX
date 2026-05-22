@@ -5,6 +5,7 @@ import ProgramCards from "@/components/programspage/ProgramCards";
 import AdmissionProcess from "@/components/programspage/AdmissionProcess";
 import ProgramsFAQ from "@/components/programspage/ProgramsFAQ";
 import FinalCTA from "@/components/programspage/FinalCTA";
+import BatchFeeInfo from "@/components/programspage/BatchFeeInfo";
 import { buildSEO } from "@/lib/seo/buildSEO";
 import JsonLd from "@/components/JsonLd";
 import { getCollectionPageSchema } from "@/lib/seo/schema/webPageSchema";
