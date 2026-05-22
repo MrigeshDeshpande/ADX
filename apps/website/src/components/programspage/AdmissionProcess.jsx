@@ -31,7 +31,7 @@ const steps = [
     number: "04",
     icon: CalendarCheck,
     title: "Batch Starts",
-    desc: "Join your batch, meet your mentors, and begin your journey toward a placed career.",
+    desc: "Join your batch, meet your mentors, and begin your journey toward a successful career.",
     action: null,
   },
 ];

@@ -1,10 +1,8 @@
 import ProgramsHero from "@/components/programspage/ProgramsHero";
-import ProgramCards from "@/components/programspage/ProgramCards";
 import ComparisonTable from "@/components/programspage/ComparisonTable";
-import CurriculumHighlights from "@/components/programspage/CurriculumHighlights";
-import PlacementOutcomes from "@/components/programspage/PlacementOutcomes";
+import GoogleTrustProof from "@/components/programspage/GoogleTrustProof";
+import ProgramCards from "@/components/programspage/ProgramCards";
 import AdmissionProcess from "@/components/programspage/AdmissionProcess";
-import BatchFeeInfo from "@/components/programspage/BatchFeeInfo";
 import ProgramsFAQ from "@/components/programspage/ProgramsFAQ";
 import FinalCTA from "@/components/programspage/FinalCTA";
 import { buildSEO } from "@/lib/seo/buildSEO";
@@ -19,17 +17,16 @@ import { BATCHES_QUERY } from "@/lib/sanity/queries";
 export const revalidate = 86400;
 
 export const metadata = buildSEO({
-  title: "SkillYards Programs – BCA, BBA, Full-Stack & Digital Marketing in Agra",
+  title: "SkillYards Programs | OJD & OJT IT Training in Agra",
   description:
-    "Explore SkillYards programs: BCA with on-job training, BBA with digital marketing, Full-Stack Web Development, and Digital Marketing courses in Agra with practical projects, mentorship, and career-focused learning.",
+    "Explore SkillYards On Job Degree and On Job Training programs in Agra, including BCA, BBA, Full-Stack Development and Digital Marketing with practical projects and 100% placement assistance.",
   path: "/programs",
   keywords: [
-    "BCA with on-job training Agra",
-    "BCA admission 2026 Agra",
-    "BBA digital marketing degree Agra",
-    "full stack development course Agra",
-    "digital marketing training institute Agra",
-    "IT training institute Agra",
+    "IT training programs in Agra",
+    "IT courses in Agra",
+    "On Job Degree in Agra",
+    "On Job Training in Agra",
+    "Career courses after 12th in Agra",
     "SkillYards programs",
   ],
   ogImage: "/images/opengraph/programs-og.jpg",
@@ -41,8 +38,9 @@ export default async function ProgramsPage() {
 
   const collectionSchema = getCollectionPageSchema({
     url: "/programs",
-    name: "SkillYards Programs – BCA, BBA, Full-Stack & Digital Marketing in Agra",
-    description: "Explore SkillYards programs: BCA with on-job training, BBA with digital marketing, Full-Stack Web Development, and Digital Marketing courses in Agra with practical projects, mentorship, and career-focused learning."
+    name: "SkillYards Programs | OJD & OJT IT Training in Agra",
+    description:
+      "Explore SkillYards On Job Degree and On Job Training programs in Agra, including BCA, BBA, Full-Stack Development and Digital Marketing with practical projects and 100% placement assistance."
   });
 
   const breadcrumbSchema = getBreadcrumbSchema([
@@ -58,10 +56,9 @@ export default async function ProgramsPage() {
     <main>
       <JsonLd data={combinedSchema} id="programs-schema" />
       <ProgramsHero />
-      <ProgramCards />
       <ComparisonTable />
-      <CurriculumHighlights />
-      <PlacementOutcomes />
+      <GoogleTrustProof />
+      <ProgramCards />
       <AdmissionProcess />
       <BatchFeeInfo batches={batches} />
       <ProgramsFAQ faqs={faqs} />
