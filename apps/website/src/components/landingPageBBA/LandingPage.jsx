@@ -4,16 +4,15 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import { BBAHero } from './Hero';
 
-const Benefits = dynamic(() => import('./Benefits').then(m => m.Benefits));
-const BBA_CTA = dynamic(() => import('./CTA').then(m => m.BBA_CTA));
-const ComparisonSection = dynamic(() => import('./ComparisonTable').then(m => m.ComparisonSection));
-const CoreValues = dynamic(() => import('./CoreValue').then(m => m.CoreValues));
+const WhoIsThisFor = dynamic(() => import('./WhoIsThisFor').then(m => m.WhoIsThisFor));
+const WhyNotRegular = dynamic(() => import('./WhyNotRegular').then(m => m.WhyNotRegular));
+const CareerPaths = dynamic(() => import('./CareerPaths').then(m => m.CareerPaths));
 const Educators = dynamic(() => import('./Educators').then(m => m.Educators));
-const JourneyTimeline = dynamic(() => import('./ProgramPhases'));
-const Skills = dynamic(() => import('./Skills').then(m => m.Skills));
-const Stats = dynamic(() => import('./Stats').then(m => m.Stats));
 const Syllabus = dynamic(() => import('./Syllabus').then(m => m.Syllabus));
-const PartnersSlider = dynamic(() => import('../common/PartnersSlider'));
+const BbaPartners = dynamic(() => import('./BbaPartners').then(m => m.BbaPartners));
+const EligibilityAndAdmission = dynamic(() => import('./EligibilityAndAdmission').then(m => m.EligibilityAndAdmission));
+const BBAFAQ = dynamic(() => import('./FAQ').then(m => m.BBAFAQ));
+const FinalCTA = dynamic(() => import('./FinalCTA').then(m => m.FinalCTA));
 
 export const LandingPage = () => {
   return (
@@ -21,16 +20,15 @@ export const LandingPage = () => {
       <div className="w-full bg-background">
         <main className="w-full">
           <BBAHero />
-          <Benefits />
-          <BBA_CTA />
-          <ComparisonSection />
-          <CoreValues />
-          <Educators />
-          <JourneyTimeline />
-          <Skills />
-          <Stats />
+          <WhoIsThisFor />
           <Syllabus />
-          <PartnersSlider />
+          <WhyNotRegular />
+          <CareerPaths />
+          <Educators />
+          <BbaPartners />
+          <EligibilityAndAdmission />
+          <BBAFAQ />
+          <FinalCTA />
         </main>
       </div>
     </section>

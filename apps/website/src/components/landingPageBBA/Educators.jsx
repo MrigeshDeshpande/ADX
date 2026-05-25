@@ -21,7 +21,7 @@ export const Educators = () => {
                 viewport={{ once: true }}
                 className="text-primary font-bold tracking-widest uppercase text-xs sm:text-sm mb-3 sm:mb-4 block"
               >
-                Elite Faculty
+                Instructors
               </motion.span>
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
@@ -29,7 +29,7 @@ export const Educators = () => {
                 viewport={{ once: true }}
                 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-extrabold mb-4 sm:mb-6 tracking-tight text-foreground dark:text-neutral-50"
               >
-                Learn from the <span className="text-primary italic">Best.</span>
+                Who teaches the <span className="text-primary italic">Digital Marketing</span> program
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -38,7 +38,7 @@ export const Educators = () => {
                 transition={{ delay: 0.1 }}
                 className="text-muted-foreground dark:text-neutral-400 text-sm md:text-base lg:text-lg leading-relaxed"
               >
-                Our educators aren&apos;t just academics; they are industry leaders, founders, and experts who have shaped the modern business landscape.
+                Industry professionals who work with the tools they teach. No theory-only instructors here.
               </motion.p>
             </div>
 

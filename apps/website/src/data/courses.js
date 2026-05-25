@@ -70,21 +70,25 @@ export const courses = {
   },
 
   bba: {
-    title: "BBA with On-Job Training in Agra",
+    title: "BBA with Digital Marketing in Agra | SkillYards Degree Program",
     description:
-      "Career-focused BBA program with business exposure, practical learning, and placement assistance.",
-    certification: "Bachelor of Business Administration (BBA)",
+      "Join SkillYards' BBA program in Agra — open to any stream, 12th pass. Learn SEO, Google Ads, Meta Ads and more alongside your degree. 3 hrs daily practical training. Batch starts August 2026.",
+    certification: "Bachelor of Business Administration",
+
+    startDate: "2026-08",
 
     seo: {
-      title: "BBA with On-Job Training | SkillYards",
+      title: "BBA with Digital Marketing in Agra | SkillYards Degree Program",
       description:
-        "Join the premium BBA program at SkillYards with practical business training, mentorship, and placement support in Agra.",
+        "Join SkillYards' BBA program in Agra — open to any stream, 12th pass. Learn SEO, Google Ads, Meta Ads and more alongside your degree. 3 hrs daily practical training. Batch starts August 2026.",
       path: "/bba-training-program-in-agra",
       keywords: [
         "BBA program Agra",
         "on job training BBA",
         "SkillYards BBA",
         "business administration course Agra",
+        "BBA with digital marketing Agra",
+        "BBA degree Agra",
       ],
       ogImage: "/images/opengraph/bba-og.jpg",
     },
