@@ -8,7 +8,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 
 const trustItems = [
   "12th pass eligible",
-  "3 hrs daily practical training",
+  "Daily hands-on practical training",
   "Batch starts August 2026",
   "35 seats only",
 ];
@@ -56,9 +56,9 @@ export default function OnJobHero() {
           className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg"
         >
           SkillYards&apos; On Job Degree programs are 3-year university-affiliated degrees (BCA or BBA)
-          where students spend 3 hours daily on hands-on practical training and 2 hours on academic
-          theory. Unlike a regular college, you graduate with a degree and the actual skills employers
-          ask for in interviews.
+          where students spend the majority of each day on hands-on practical training alongside
+          academic theory. Unlike a regular college, you graduate with a degree and the actual skills
+          employers ask for in interviews.
         </motion.p>
 
         <motion.div

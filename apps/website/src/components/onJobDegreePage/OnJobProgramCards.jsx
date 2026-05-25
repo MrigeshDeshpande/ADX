@@ -22,7 +22,7 @@ const programs = [
     ],
     facts: [
       { icon: Clock, label: "Duration", value: "3 years (6 semesters)" },
-      { icon: Clock, label: "Training", value: "3 hrs daily practical + 2 hrs theory" },
+      { icon: Clock, label: "Training", value: "Daily hands-on practical training alongside theory" },
       { icon: Users, label: "Eligibility", value: "12th Science, 50% minimum" },
       { icon: MapPin, label: "Mode", value: "Offline, Agra campus" },
       { icon: IndianRupee, label: "Fee", value: "Starting ₹5,000/month (T&C apply)" },
@@ -49,7 +49,7 @@ const programs = [
     ],
     facts: [
       { icon: Clock, label: "Duration", value: "3 years (6 semesters)" },
-      { icon: Clock, label: "Training", value: "3 hrs daily practical + 2 hrs theory" },
+      { icon: Clock, label: "Training", value: "Daily hands-on practical training alongside theory" },
       { icon: Users, label: "Eligibility", value: "12th pass (any stream), 50% minimum" },
       { icon: MapPin, label: "Mode", value: "Offline, Agra campus" },
       { icon: IndianRupee, label: "Fee", value: "Starting ₹5,000/month (T&C apply)" },

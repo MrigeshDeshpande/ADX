@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const pillars = [
   {
     number: "01",
-    title: "3 hours of practical training, every single day",
+    title: "Daily hands-on practical training, every single day",
     desc: "Not a workshop. Not a once-a-week lab. Every day, for three years, you work on real skills alongside your degree subjects. By the time you graduate, you've spent hundreds of hours actually building, not just reading about it.",
   },
   {

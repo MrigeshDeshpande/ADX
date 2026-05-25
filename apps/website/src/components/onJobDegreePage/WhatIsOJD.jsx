@@ -20,7 +20,7 @@ export default function WhatIsOJD() {
           <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
             The On Job Degree (OJD) at SkillYards is a university-affiliated 3-year bachelor&apos;s degree -
             BCA or BBA, that integrates daily hands-on skill training with academic coursework. Students
-            learn MERN stack development (BCA) or Digital Marketing (BBA) for 3 hours every day alongside
+            learn MERN stack development (BCA) or Digital Marketing (BBA) for the majority of each day alongside
             their degree subjects, at SkillYards&apos; Agra campus.
           </p>
         </motion.div>
@@ -45,7 +45,7 @@ export default function WhatIsOJD() {
                 {
                   label: "Daily practical training",
                   regular: "Minimal or none",
-                  ojd: "3 hours every day",
+                  ojd: "Daily hands-on practical training",
                 },
                 {
                   label: "Skill focus",

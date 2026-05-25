@@ -1,82 +1,218 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { TrendingUp, Quote } from "lucide-react";
+import { ArrowRight, FileText, Mic, Code, Users, BadgeCheck, Briefcase } from "lucide-react";
 
-const stats = [
-  { value: "3", label: "students placed, first batch" },
-  { value: "SN Digitech & 7th Triangle", label: "companies hiring our graduates" },
-  { value: "Frontend & Full-Stack", label: "developer roles" },
-  { value: "₹3.5 LPA", label: "average starting package" },
+const trustStats = [
+  { value: "₹3.5 LPA", label: "Average starting package" },
+  { value: "100+", label: "Hiring companies" },
+  { value: "50+", label: "Students placed" },
+];
+
+const programs = [
+  {
+    degree: "BCA",
+    label: "Full-Stack Development",
+    tagline: "Build things. Show the code. Get hired.",
+    skills: [
+      "MERN Stack development",
+      "Frontend with React",
+      "Backend with Node.js",
+      "Database design",
+      "REST APIs",
+    ],
+    roles: [
+      "Frontend Developer",
+      "Full-Stack Developer",
+      "Backend Developer",
+      "Junior Software Engineer",
+    ],
+    badgeBg: "bg-primary/10 text-primary border border-primary/20",
+    skillDot: "bg-primary",
+    roleBg: "bg-primary/5 text-primary border-primary/15",
+  },
+  {
+    degree: "BBA",
+    label: "Digital Marketing",
+    tagline: "Run campaigns. Show results. Get hired.",
+    skills: [
+      "SEO and search visibility",
+      "Google Ads and Meta Ads",
+      "Social media management",
+      "Content marketing",
+      "Analytics and reporting",
+    ],
+    roles: [
+      "Digital Marketing Executive",
+      "SEO Specialist",
+      "Social Media Manager",
+      "Marketing Analyst",
+    ],
+    badgeBg: "bg-secondary/20 text-secondary-foreground border border-secondary/20",
+    skillDot: "bg-secondary",
+    roleBg: "bg-secondary/10 text-secondary-foreground border-secondary/20",
+  },
+];
+
+const supportItems = [
+  {
+    icon: FileText,
+    title: "Resume that reflects real work",
+    desc: "We help you build a resume around projects and skills, not just your degree.",
+  },
+  {
+    icon: Mic,
+    title: "Mock interviews before the real ones",
+    desc: "Practice rounds with honest feedback so interviews don't catch you off guard.",
+  },
+  {
+    icon: Code,
+    title: "Technical test preparation",
+    desc: "Targeted prep for the coding and marketing assessments companies actually use.",
+  },
+  {
+    icon: Users,
+    title: "Direct referrals to hiring partners",
+    desc: "We connect you with companies we know, not just job boards.",
+  },
+  {
+    icon: BadgeCheck,
+    title: "Support until you are placed",
+    desc: "Not until you graduate. Until you have an offer letter in hand.",
+  },
+  {
+    icon: Briefcase,
+    title: "Portfolio and LinkedIn review",
+    desc: "We go through your work, projects, and profile before you start applying so you put your best foot forward.",
+  },
 ];
 
 export default function PlacementOutcomes() {
   return (
-    <section className="bg-background py-20">
+    <section className="bg-card/20 py-20">
       <div className="mx-auto max-w-5xl px-6">
 
-        <div className="mb-12">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-3 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary"
-          >
-            <TrendingUp size={13} />
-            Placement & Outcomes
-          </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-14 max-w-2xl"
+        >
           <h2 className="font-serif text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-            Where our students are going
+            Skills you build here open{" "}
+            <span className="italic text-primary">real doors.</span>
           </h2>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
-            SkillYards started in 2023. We&apos;re a young institute and we won&apos;t pretend otherwise. What we
-            can tell you is that students from our first batch are already placed, and we supported them
-            every step of the way.
+          <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+            Every hour of practical training maps to a skill employers hire for. Here is exactly
+            what you graduate with and where it takes you.
           </p>
-        </div>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-10 grid grid-cols-2 gap-5 rounded-3xl border border-border bg-card p-6 shadow-sm sm:grid-cols-4"
+          className="mb-14 grid grid-cols-3 divide-x divide-border rounded-2xl border border-border bg-card shadow-sm"
         >
-          {stats.map((s, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 8 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-              className="text-center"
-            >
-              <p className="text-2xl font-extrabold leading-tight text-primary sm:text-3xl">{s.value}</p>
-              <p className="mt-1 text-xs text-muted-foreground sm:text-sm">{s.label}</p>
-            </motion.div>
+          {trustStats.map((stat) => (
+            <div key={stat.label} className="px-6 py-5 text-center">
+              <p className="text-2xl font-extrabold text-primary sm:text-3xl">{stat.value}</p>
+              <p className="mt-1 text-xs text-muted-foreground sm:text-sm">{stat.label}</p>
+            </div>
           ))}
         </motion.div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-8 max-w-2xl text-sm leading-relaxed text-muted-foreground"
-        >
-          Resume building, mock interview sessions, technical test preparation, direct referrals to
-          hiring partners, and continued support until placement. We work with you until you&apos;re placed,
-          not just until you graduate.
-        </motion.p>
+        <div className="mb-16 grid gap-8 md:grid-cols-2">
+          {programs.map((prog, i) => (
+            <motion.div
+              key={prog.degree}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.12 }}
+              className="flex flex-col rounded-3xl border border-border bg-card shadow-sm overflow-hidden"
+            >
+              <div className="border-b border-border px-6 py-5">
+                <span className={`mb-3 inline-block rounded-full px-3 py-1 text-xs font-bold ${prog.badgeBg}`}>
+                  {prog.degree}
+                </span>
+                <h3 className="font-serif text-xl font-extrabold text-foreground">{prog.label}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">{prog.tagline}</p>
+              </div>
+
+              <div className="flex flex-1 flex-col gap-6 p-6 sm:flex-row">
+                <div className="flex-1">
+                  <p className="mb-3 text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                    You learn
+                  </p>
+                  <ul className="space-y-2">
+                    {prog.skills.map((s) => (
+                      <li key={s} className="flex items-start gap-2 text-sm text-foreground">
+                        <span className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${prog.skillDot}`} />
+                        {s}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="hidden sm:flex items-center">
+                  <ArrowRight size={20} className="text-border" />
+                </div>
+
+                <div className="flex-1">
+                  <p className="mb-3 text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                    You can go for
+                  </p>
+                  <ul className="space-y-2">
+                    {prog.roles.map((r) => (
+                      <li key={r}>
+                        <span className={`inline-block rounded-lg border px-3 py-1.5 text-xs font-semibold ${prog.roleBg}`}>
+                          {r}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="rounded-3xl border border-border bg-card p-6 shadow-sm"
+          className="rounded-3xl bg-primary px-8 py-10 text-primary-foreground"
         >
-          <Quote size={28} className="mb-3 text-primary/20" />
-          <p className="text-sm italic text-muted-foreground">
-            [Testimonial to be added, awaiting student approval]
-          </p>
+          <div className="mb-8">
+            <h3 className="font-serif text-2xl font-extrabold sm:text-3xl">
+              We don&apos;t stop at graduation.
+            </h3>
+            <p className="mt-2 text-sm text-primary-foreground/70">
+              Getting placed takes more than a degree. Here is what we do with every student,
+              from the final semester until they have an offer.
+            </p>
+          </div>
+
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {supportItems.map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.07 }}
+                  className="rounded-2xl bg-primary-foreground/10 p-5"
+                >
+                  <Icon size={20} className="mb-3 text-primary-foreground/80" />
+                  <p className="mb-1 text-sm font-bold text-primary-foreground">{item.title}</p>
+                  <p className="text-xs leading-relaxed text-primary-foreground/65">{item.desc}</p>
+                </motion.div>
+              );
+            })}
+          </div>
         </motion.div>
 
       </div>
