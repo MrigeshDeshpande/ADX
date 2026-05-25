@@ -1,62 +1,138 @@
 import dynamic from "next/dynamic";
 import OnJobHero from "@/components/onJobDegreePage/OnJobHero";
+import WhatIsOJD from "@/components/onJobDegreePage/WhatIsOJD";
 import WhyOnJobDegree from "@/components/onJobDegreePage/WhyOnJobDegree";
 import { buildSEO } from "@/lib/seo/buildSEO";
 import JsonLd from "@/components/JsonLd";
-import { getCollectionPageSchema } from "@/lib/seo/schema/webPageSchema";
 import { getBreadcrumbSchema } from "@/lib/seo/schema/breadcrumbSchema";
 import { getFAQSchema } from "@/lib/seo/schema/faqSchema";
 import { getPageFaqs } from "@/lib/seo/getFaqs";
 import ProgramsFAQ from "@/components/programspage/ProgramsFAQ";
 
 const OnJobProgramCards = dynamic(() => import("@/components/onJobDegreePage/OnJobProgramCards"));
+const OJDEligibility = dynamic(() => import("@/components/onJobDegreePage/OJDEligibility"));
 const PlacementOutcomes = dynamic(() => import("@/components/onJobDegreePage/PlacementOutcomes"));
 const FinalCTA = dynamic(() => import("@/components/onJobDegreePage/FinalCTA"));
-const OnJobComparisonTable = dynamic(() => import("@/components/onJobDegreePage/OnJobComparisonTable"));
 
 export const revalidate = 86400;
 
 export const metadata = buildSEO({
-  title: "BCA & BBA with On-Job Training in Agra | SkillYards Degree Programs",
+  title: "BCA & BBA Degree Programs in Agra with Practical Training | SkillYards",
   description:
-    "Earn a recognized university degree (BCA/BBA) while gaining 3 years of real industry experience. SkillYards on-job degree programs in Agra ensure 100% placement and high-demand skills.",
+    "Earn a recognised BCA or BBA degree in Agra while learning MERN stack development or Digital Marketing hands-on. 3 hrs practical + 2 hrs theory daily. Batch starts August. 35 seats.",
   path: "/programs/on-job-degree",
   keywords: [
-    "on-job training degree Agra",
-    "BCA with job training Agra",
-    "BBA with job training Agra",
-    "best BCA college in Agra with placement",
-    "industry-integrated degree programs",
-    "earn while you learn degree Agra",
+    "BCA degree Agra",
+    "BBA degree Agra",
+    "BCA with practical training Agra",
+    "BBA with digital marketing Agra",
+    "on job degree Agra",
+    "degree with skill training Agra",
   ],
   ogImage: "/images/opengraph/programs-og.jpg",
 });
 
+const courseSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Course",
+      "@id": "https://www.skillyards.in/programs/on-job-degree#bca",
+      "name": "BCA with Full-Stack Development",
+      "description": "A 3-year university-affiliated Bachelor of Computer Applications degree with 3 hours of daily hands-on MERN stack development training at SkillYards, Agra.",
+      "provider": {
+        "@type": "Organization",
+        "name": "SkillYards",
+        "url": "https://www.skillyards.in",
+      },
+      "educationalCredentialAwarded": "Bachelor of Computer Applications (BCA)",
+      "timeRequired": "P3Y",
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "offline",
+        "startDate": "2026-08-01",
+        "location": {
+          "@type": "Place",
+          "name": "SkillYards, Agra",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Agra",
+            "addressRegion": "Uttar Pradesh",
+            "addressCountry": "IN",
+          },
+        },
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "5000",
+          "priceCurrency": "INR",
+          "unitText": "month",
+        },
+      },
+    },
+    {
+      "@type": "Course",
+      "@id": "https://www.skillyards.in/programs/on-job-degree#bba",
+      "name": "BBA with Digital Marketing",
+      "description": "A 3-year university-affiliated Bachelor of Business Administration degree with 3 hours of daily hands-on Digital Marketing training at SkillYards, Agra.",
+      "provider": {
+        "@type": "Organization",
+        "name": "SkillYards",
+        "url": "https://www.skillyards.in",
+      },
+      "educationalCredentialAwarded": "Bachelor of Business Administration (BBA)",
+      "timeRequired": "P3Y",
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "offline",
+        "startDate": "2026-08-01",
+        "location": {
+          "@type": "Place",
+          "name": "SkillYards, Agra",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Agra",
+            "addressRegion": "Uttar Pradesh",
+            "addressCountry": "IN",
+          },
+        },
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "5000",
+          "priceCurrency": "INR",
+          "unitText": "month",
+        },
+      },
+    },
+  ],
+};
+
 export default async function OnJobDegreePage() {
   const faqs = await getPageFaqs("degrees", 6);
-
-  const collectionSchema = getCollectionPageSchema({
-    url: "/programs/on-job-degree",
-    name: "SkillYards On-Job Degree Programs – BCA & BBA with Industrial Training",
-    description: "Earn a recognized university degree (BCA/BBA) while gaining 3 years of real industry experience. SkillYards on-job degree programs in Agra ensure 100% placement."
-  });
 
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: "Home", url: "/" },
     { name: "Programs", url: "/programs" },
-    { name: "On-Job Degree", url: "/programs/on-job-degree" },
+    { name: "On Job Degree", url: "/programs/on-job-degree" },
   ]);
 
   const faqSchema = getFAQSchema(faqs);
-  const combinedSchema = [collectionSchema, breadcrumbSchema, faqSchema].filter(Boolean);
+  const combinedSchema = [breadcrumbSchema, faqSchema].filter(Boolean);
 
   return (
     <main>
+      <JsonLd data={courseSchema} id="ojd-schema" />
       <JsonLd data={combinedSchema} id="on-job-degree-schema" />
       <OnJobHero />
+      <WhatIsOJD />
       <OnJobProgramCards />
       <WhyOnJobDegree />
-      <OnJobComparisonTable />
+      <OJDEligibility />
       <PlacementOutcomes />
       {faqs.length > 0 && <ProgramsFAQ faqs={faqs} />}
       <FinalCTA />

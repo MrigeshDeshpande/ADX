@@ -1,124 +1,69 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BriefcaseBusiness, GraduationCap, IndianRupee, Sparkles } from "lucide-react";
 
-const reasons = [
+const pillars = [
   {
-    title: "3 Years of Real Experience",
-    desc: "Work on practical tasks and live exposure from early in your degree, so you graduate with experience that employers can immediately value.",
-    icon: BriefcaseBusiness,
-    accent: "from-primary/15 to-primary/5",
+    number: "01",
+    title: "3 hours of practical training, every single day",
+    desc: "Not a workshop. Not a once-a-week lab. Every day, for three years, you work on real skills alongside your degree subjects. By the time you graduate, you've spent hundreds of hours actually building, not just reading about it.",
   },
   {
-    title: "Earn While You Study",
-    desc: "Build confidence through training, internships, and stipend opportunities that help reduce the pressure of learning without outcomes.",
-    icon: IndianRupee,
-    accent: "from-secondary/20 to-secondary/5",
+    number: "02",
+    title: "Skills that show up in your portfolio",
+    desc: "BCA students learn the MERN stack and build projects they can show employers. BBA students run actual campaigns, work with real tools, and build a body of work. A portfolio is what gets you through the door, and a degree is what keeps you there.",
   },
   {
-    title: "Degree + Career Readiness",
-    desc: "Get a recognised university degree along with practical skills, project work, and guided industry preparation for jobs and higher studies.",
-    icon: GraduationCap,
-    accent: "from-accent/20 to-accent/5",
+    number: "03",
+    title: "A degree and a skill set together",
+    desc: "Both programs are university-affiliated. You get a recognised bachelor's degree. The difference is you also leave with something most graduates don't. Proof that you can actually do the work.",
   },
-];
-
-const highlights = [
-  { value: "BCA / BBA", label: "Career-focused degree paths" },
-  { value: "Live Training", label: "Applied learning with exposure" },
-  { value: "Job Ready", label: "Skills built alongside academics" },
 ];
 
 export default function WhyOnJobDegree() {
   return (
-    <section className="relative overflow-hidden bg-linear-to-b from-background via-card/20 to-background py-20">
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-0 top-16 h-56 w-56 rounded-full bg-primary/10 blur-3xl" />
-        <div className="absolute right-0 top-24 h-72 w-72 rounded-full bg-secondary/10 blur-3xl" />
-      </div>
+    <section className="bg-background py-20">
+      <div className="mx-auto max-w-5xl px-6">
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 18 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mx-auto mb-12 max-w-3xl text-center"
+          className="mb-10"
         >
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-primary">
-            <Sparkles size={13} />
-            Why Choose This Path
-          </div>
-          <h2 className="font-serif text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-            Degree learning,
-            <span className="block italic text-primary">designed for employability.</span>
+          <h2 className="font-serif text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+            Why not just join a regular BCA or BBA college?
           </h2>
-          <p className="mt-5 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
-            Many students graduate with degrees but struggle during interviews because they lack practical experience. SkillYards solves this by combining classroom learning with real company exposure from the beginning.
+
+          <p className="mt-5 text-base leading-relaxed text-muted-foreground">
+            Most BCA and BBA colleges in Agra teach you the syllabus. That&apos;s it. You graduate, sit in
+            interviews, and realise you&apos;ve never actually built anything. Employers ask for React, Node.js,
+            or a live campaign you ran, and most fresh graduates have none of that.
+          </p>
+          <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+            SkillYards doesn&apos;t replace the degree. It fixes what the degree alone can&apos;t give you.
           </p>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.08 }}
-          className="mx-auto max-w-5xl rounded-[2rem] border border-border/60 bg-card/60 p-4 shadow-sm sm:p-6"
-        >
-          <p className="text-center text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-            What makes it different
-          </p>
-          <div className="mt-5 grid gap-4 md:grid-cols-3">
-            {highlights.map((item, index) => (
-              <div
-                key={item.label}
-                className="flex h-full flex-col rounded-2xl border border-border/60 bg-background px-5 py-5 text-center"
-              >
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
-                  0{index + 1}
-                </p>
-                <p className="mt-2 text-xl font-extrabold text-foreground">{item.value}</p>
-                <p className="mt-2 text-sm leading-6 text-muted-foreground">{item.label}</p>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-
-        <div className="mt-14 grid gap-6 lg:grid-cols-3">
-          {reasons.map((item, index) => {
-            const Icon = item.icon;
-
-            return (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
-                className="group relative overflow-hidden rounded-[2rem] border border-border/60 bg-card p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-md"
-              >
-                <div className={`absolute inset-x-0 top-0 h-24 bg-linear-to-br ${item.accent} opacity-90`} />
-                <div className="relative">
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-primary/15 bg-background text-primary shadow-sm">
-                      <Icon size={24} />
-                    </div>
-                    <span className="text-sm font-bold uppercase tracking-[0.18em] text-muted-foreground">
-                      0{index + 1}
-                    </span>
-                  </div>
-
-                  <h3 className="mt-8 font-serif text-2xl font-extrabold leading-tight text-foreground">
-                    {item.title}
-                  </h3>
-                  <p className="mt-4 text-base leading-7 text-muted-foreground">
-                    {item.desc}
-                  </p>
-                </div>
-              </motion.div>
-            );
-          })}
+        <div className="grid gap-6 lg:grid-cols-3">
+          {pillars.map((pillar, i) => (
+            <motion.div
+              key={pillar.number}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08 }}
+              className="rounded-2xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-md"
+            >
+              <p className="mb-4 text-4xl font-black text-primary/20">{pillar.number}</p>
+              <h3 className="font-serif text-lg font-extrabold leading-snug text-foreground">
+                {pillar.title}
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{pillar.desc}</p>
+            </motion.div>
+          ))}
         </div>
+
       </div>
     </section>
   );

@@ -3,38 +3,19 @@
 import { motion } from "framer-motion";
 import { TrendingUp, Quote } from "lucide-react";
 
-const alumni = [
-  {
-    name: "Priya Sharma",
-    background: "BCA Graduate, 2023",
-    role: "Junior Frontend Developer",
-    company: "TechSpark Noida",
-    package: "₹4.2 LPA",
-    quote: "I was honestly confused after 12th because I didn’t want only classroom study. During my second semester at SkillYards, I started working on a live client project, and that gave me confidence during interviews.",
-  },
-  {
-    name: "Rahul Verma",
-    background: "Full-Stack Dev Bootcamp, 2024",
-    role: "Full-Stack Developer",
-    company: "StartupBase Delhi",
-    package: "₹5.8 LPA",
-    quote: "Coming from a non-tech background, I was nervous. Six months later I'm building production apps. The mentors here are genuinely invested in your success.",
-  },
-  {
-    name: "Anjali Singh",
-    background: "Digital Marketing Program, 2024",
-    role: "Digital Marketing Executive",
-    company: "Brandify Solutions",
-    package: "₹3.6 LPA",
-    quote: "I ran a real Google Ads campaign for a local business during training. That experience is what got me the job no other institute does this.",
-  },
+const stats = [
+  { value: "3", label: "students placed, first batch" },
+  { value: "SN Digitech & 7th Triangle", label: "companies hiring our graduates" },
+  { value: "Frontend & Full-Stack", label: "developer roles" },
+  { value: "₹3.5 LPA", label: "average starting package" },
 ];
 
 export default function PlacementOutcomes() {
   return (
-    <section className="bg-card/20 py-20">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-12 text-center">
+    <section className="bg-background py-20">
+      <div className="mx-auto max-w-5xl px-6">
+
+        <div className="mb-12">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -45,58 +26,59 @@ export default function PlacementOutcomes() {
             Placement & Outcomes
           </motion.div>
           <h2 className="font-serif text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-            Real Results. <span className="italic text-primary">Real Careers.</span>
+            Where our students are going
           </h2>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
+            SkillYards started in 2023. We&apos;re a young institute and we won&apos;t pretend otherwise. What we
+            can tell you is that students from our first batch are already placed, and we supported them
+            every step of the way.
+          </p>
         </div>
 
-        <div className="mb-14 grid grid-cols-2 gap-6 rounded-3xl border border-border bg-card p-8 shadow-sm sm:grid-cols-4">
-          {[
-            { value: "Dedicated", label: "Placement Support" },
-            { value: "₹4.5 LPA", label: "Average Starting Package" },
-            { value: "180+", label: "Hiring Partners" },
-            { value: "1200+", label: "Students Placed" },
-          ].map((s, i) => (
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-10 grid grid-cols-2 gap-5 rounded-3xl border border-border bg-card p-6 shadow-sm sm:grid-cols-4"
+        >
+          {stats.map((s, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 8 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              transition={{ delay: i * 0.08 }}
               className="text-center"
             >
-              <p className="text-3xl font-extrabold text-primary">{s.value}</p>
-              <p className="mt-1 text-sm text-muted-foreground">{s.label}</p>
+              <p className="text-2xl font-extrabold leading-tight text-primary sm:text-3xl">{s.value}</p>
+              <p className="mt-1 text-xs text-muted-foreground sm:text-sm">{s.label}</p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        <div className="mb-14 grid gap-6 sm:grid-cols-3">
-          {alumni.map((a, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="relative rounded-3xl border border-border bg-card p-6 shadow-sm"
-            >
-              <Quote size={28} className="mb-3 text-primary/20" />
-              <p className="mb-4 text-sm leading-relaxed text-muted-foreground italic">
-                &ldquo;{a.quote}&rdquo;
-              </p>
-              <div className="border-t border-border pt-4">
-                <p className="font-bold text-foreground">{a.name}</p>
-                <p className="text-xs text-muted-foreground">{a.background}</p>
-                <p className="mt-1 text-xs font-semibold text-primary">
-                  {a.role} @ {a.company}
-                </p>
-                <span className="mt-1 inline-block rounded-full bg-primary/10 px-2 py-0.5 text-xs font-bold text-primary">
-                  {a.package}
-                </span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-8 max-w-2xl text-sm leading-relaxed text-muted-foreground"
+        >
+          Resume building, mock interview sessions, technical test preparation, direct referrals to
+          hiring partners, and continued support until placement. We work with you until you&apos;re placed,
+          not just until you graduate.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="rounded-3xl border border-border bg-card p-6 shadow-sm"
+        >
+          <Quote size={28} className="mb-3 text-primary/20" />
+          <p className="text-sm italic text-muted-foreground">
+            [Testimonial to be added, awaiting student approval]
+          </p>
+        </motion.div>
+
       </div>
     </section>
   );
