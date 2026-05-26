@@ -26,8 +26,7 @@ export function BbaPartners() {
             <p className="font-sans text-sm text-muted-foreground max-w-2xl mx-auto leading-relaxed tracking-wide">
               We&apos;re a young institute in Agra, our first BBA batch hasn&apos;t graduated yet. The companies
               shown below represent the kind of organisations that actively hire Digital Marketing
-              Executives, SEO Specialists and PPC Experts across India. These are not confirmed
-              SkillYards hiring partners.
+              Executives, SEO Specialists and PPC Experts across India.
             </p>
           </m.div>
 

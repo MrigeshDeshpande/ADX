@@ -26,7 +26,7 @@ export function BcaPartners() {
             <p className="font-sans text-sm text-muted-foreground max-w-2xl mx-auto leading-relaxed tracking-wide">
               Our first batch hasn&apos;t fully graduated yet. The companies shown below represent
               the kind of organisations that actively hire Frontend and Full-Stack Developers across
-              India. These are not confirmed SkillYards hiring partners.
+              India.
             </p>
           </m.div>
 
