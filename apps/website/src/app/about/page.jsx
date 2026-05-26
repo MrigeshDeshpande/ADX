@@ -23,6 +23,7 @@ const LeadersSection=dynamic(()=>import("@/components/common/LeadersSection"));
 import { buildSEO } from "@/lib/seo/buildSEO";
 import { getFAQSchema } from "@/lib/seo/schema/faqSchema";
 import { getPageFaqs } from "@/lib/seo/getFaqs";
+import { absoluteUrl } from "@/lib/seo/core/url";
 
 export const metadata = buildSEO({
   title: "About SkillYards",
@@ -51,7 +52,7 @@ export default async function AboutPage() {
   });
 
   const faqs = await getPageFaqs("homepage", 4);
-  const faqSchema = getFAQSchema(faqs);
+  const faqSchema = getFAQSchema(faqs, absoluteUrl("/about"));
   const combinedSchema = [aboutPageSchema, faqSchema].filter(Boolean);
 
   return (

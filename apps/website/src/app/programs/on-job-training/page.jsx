@@ -7,6 +7,7 @@ import { getCollectionPageSchema } from "@/lib/seo/schema/webPageSchema";
 import { getBreadcrumbSchema } from "@/lib/seo/schema/breadcrumbSchema";
 import { getFAQSchema } from "@/lib/seo/schema/faqSchema";
 import { getPageFaqs } from "@/lib/seo/getFaqs";
+import { absoluteUrl } from "@/lib/seo/core/url";
 import ProgramsFAQ from "@/components/programspage/ProgramsFAQ";
 
 const OnJobTrainingProgramCards = dynamic(() => import("@/components/onJobTrainingPage/OnJobTrainingProgramCards"));
@@ -47,7 +48,7 @@ export default async function OnJobTrainingPage() {
     { name: "On-Job Training", url: "/programs/on-job-training" },
   ]);
 
-  const faqSchema = getFAQSchema(faqs);
+  const faqSchema = getFAQSchema(faqs, absoluteUrl("/programs/on-job-training"));
   const combinedSchema = [collectionSchema, breadcrumbSchema, faqSchema].filter(Boolean);
 
   return (

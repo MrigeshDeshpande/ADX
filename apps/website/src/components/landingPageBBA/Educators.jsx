@@ -38,7 +38,7 @@ export const Educators = () => {
                 transition={{ delay: 0.1 }}
                 className="text-muted-foreground dark:text-neutral-400 text-sm md:text-base lg:text-lg leading-relaxed"
               >
-                Industry professionals who work with the tools they teach. No theory-only instructors here.
+                Industry professionals in Agra who work with the tools they teach. No theory-only instructors here.
               </motion.p>
             </div>
 

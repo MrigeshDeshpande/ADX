@@ -40,7 +40,7 @@ export function WhyNotRegular() {
             A regular BBA teaches you management theory and gives you a degree. That&apos;s useful. But
             employers hiring for digital marketing roles don&apos;t ask for your BBA grade, they ask
             if you&apos;ve run a Google Ads campaign, managed an SEO audit or tracked Meta Ad performance.
-            SkillYards adds that practical layer to your degree, every single day for three years.
+            SkillYards adds that practical layer to your BBA, every single day for three years.
           </p>
         </div>
 

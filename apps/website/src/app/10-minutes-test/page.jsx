@@ -4,6 +4,7 @@ import { getWebPageSchema } from "@/lib/seo/schema/webPageSchema";
 import { getQuizSchema } from "@/lib/seo/schema/serviceSchema";
 import { getFAQSchema } from "@/lib/seo/schema/faqSchema";
 import { getPageFaqs } from "@/lib/seo/getFaqs";
+import { absoluteUrl } from "@/lib/seo/core/url";
 import TestHero from "@/components/testpage/TestHero";
 import TestTopics from "@/components/testpage/TestTopics";
 import HowItWorks from "@/components/testpage/HowItWorks";
@@ -41,7 +42,7 @@ export default async function TenMinuteTestPage() {
     });
 
     const faqs = await getPageFaqs("test", 999);
-    const faqSchema = getFAQSchema(faqs);
+    const faqSchema = getFAQSchema(faqs, absoluteUrl("/10-minutes-test"));
     const combinedSchema = [webPageSchema, quizSchema, faqSchema].filter(Boolean);
 
     return (

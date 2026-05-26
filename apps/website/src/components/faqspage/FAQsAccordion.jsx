@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Plus, Minus, BookOpen, Briefcase, Code2, Megaphone, GraduationCap, HelpCircle, Zap, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { getFaqAnchorId } from "@/lib/seo/faqUtils";
 
 const categoryMeta = {
     homepage:      { icon: <HelpCircle size={18} />,    color: "bg-primary/10 text-primary border-primary/20" },
@@ -94,45 +95,56 @@ export default function FAQsAccordion({ categories }) {
                         <div className="space-y-2.5">
                             {current.faqs.map((faq, idx) => {
                                 const isOpen = openIndex === idx;
+                                const anchorId = getFaqAnchorId(faq);
                                 return (
                                     <div
                                         key={idx}
+                                        id={anchorId}
                                         className={`rounded-xl border transition-all duration-300 ${
                                             isOpen
                                                 ? "border-primary/30 bg-card shadow-sm shadow-primary/5"
                                                 : "border-border bg-card hover:border-primary/20"
                                         }`}
                                     >
-                                        <button
-                                            onClick={() => setOpenIndex(isOpen ? -1 : idx)}
-                                            className="flex w-full items-start justify-between gap-4 px-5 py-4 text-left"
+                                        <h3 className="m-0">
+                                            <button
+                                                id={`faq-trigger-${idx}`}
+                                                type="button"
+                                                aria-expanded={isOpen}
+                                                aria-controls={`faq-panel-${idx}`}
+                                                onClick={() => setOpenIndex(isOpen ? -1 : idx)}
+                                                className="flex w-full items-start justify-between gap-4 px-5 py-4 text-left"
+                                            >
+                                                <div className="flex items-start gap-3">
+                                                    <span className={`mt-0.5 shrink-0 text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center ${isOpen ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"}`}>
+                                                        {idx + 1}
+                                                    </span>
+                                                    <span className={`text-sm font-semibold leading-snug transition-colors ${isOpen ? "text-primary" : "text-foreground"}`}>
+                                                        {faq.question}
+                                                    </span>
+                                                </div>
+                                                <span className={`shrink-0 mt-0.5 rounded-full p-1 transition-all ${isOpen ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"}`}>
+                                                    {isOpen ? <Minus size={12} /> : <Plus size={12} />}
+                                                </span>
+                                            </button>
+                                        </h3>
+                                        <motion.div
+                                            id={`faq-panel-${idx}`}
+                                            role={isOpen ? "region" : undefined}
+                                            aria-labelledby={`faq-trigger-${idx}`}
+                                            hidden={!isOpen}
+                                            initial={false}
+                                            animate={{
+                                                height: isOpen ? "auto" : 0,
+                                                opacity: isOpen ? 1 : 0
+                                            }}
+                                            transition={{ duration: 0.22, ease: "easeInOut" }}
+                                            className="overflow-hidden"
                                         >
-                                            <div className="flex items-start gap-3">
-                                                <span className={`mt-0.5 shrink-0 text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center ${isOpen ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"}`}>
-                                                    {idx + 1}
-                                                </span>
-                                                <span className={`text-sm font-semibold leading-snug transition-colors ${isOpen ? "text-primary" : "text-foreground"}`}>
-                                                    {faq.question}
-                                                </span>
-                                            </div>
-                                            <div className={`shrink-0 mt-0.5 rounded-full p-1 transition-all ${isOpen ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"}`}>
-                                                {isOpen ? <Minus size={12} /> : <Plus size={12} />}
-                                            </div>
-                                        </button>
-                                        <AnimatePresence initial={false}>
-                                            {isOpen && (
-                                                <motion.div
-                                                    initial={{ height: 0, opacity: 0 }}
-                                                    animate={{ height: "auto", opacity: 1 }}
-                                                    exit={{ height: 0, opacity: 0 }}
-                                                    transition={{ duration: 0.22, ease: "easeInOut" }}
-                                                >
-                                                    <p className="pl-14 pr-5 pb-5 text-sm leading-relaxed text-muted-foreground">
-                                                        {faq.answer}
-                                                    </p>
-                                                </motion.div>
-                                            )}
-                                        </AnimatePresence>
+                                            <p className="pl-14 pr-5 pb-5 text-sm leading-relaxed text-muted-foreground">
+                                                {faq.answer}
+                                            </p>
+                                        </motion.div>
                                     </div>
                                 );
                             })}

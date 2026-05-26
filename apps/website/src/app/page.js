@@ -21,6 +21,7 @@ import JsonLd from "@/components/JsonLd";
 import { getFAQSchema } from "@/lib/seo/schema/faqSchema";
 import { getWebPageSchema } from "@/lib/seo/schema/webPageSchema";
 import { getPageFaqs } from "@/lib/seo/getFaqs";
+import { absoluteUrl } from "@/lib/seo/core/url";
 import { sanityClient } from "@/lib/sanity/client";
 import { BATCHES_QUERY } from "@/lib/sanity/queries";
 
@@ -52,7 +53,7 @@ export default async function Home() {
   const batches = await sanityClient.fetch(BATCHES_QUERY);
   const homepageFaqs = await getPageFaqs("homepage", 4);
 
-  const faqSchema = getFAQSchema(homepageFaqs);
+  const faqSchema = getFAQSchema(homepageFaqs, absoluteUrl("/"));
   const webPageSchema = getWebPageSchema({
     url: "/",
     name: "SkillYards – IT Training Institute in Agra",

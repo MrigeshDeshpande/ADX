@@ -22,24 +22,29 @@ export const BBAHero = () => {
                 items={[
                   { label: "Home", href: "/" },
                   { label: "Programs", href: "/programs" },
-                  { label: "BBA with Digital Marketing", href: null },
+                  { label: "On Job Degree", href: "/programs/on-job-degree" },
+                  { label: "BBA in Agra", href: null },
                 ]}
               />
             </div>
 
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/20 text-xs sm:text-sm font-bold mb-4 md:mb-6">
+              <span>BBA &middot; Any Stream &middot; Agra</span>
+            </div>
+
             {/* H1 */}
             <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] tracking-tighter text-foreground dark:text-neutral-50 font-extrabold">
-              A Business Degree.
+              BBA in Agra.
               <br />
-              <span className="text-primary italic">With Digital Marketing Skills to Back It Up.</span>
+              <span className="text-primary italic">Learn Business by Doing Business.</span>
             </h1>
 
             {/* Body */}
             <p className="mt-4 md:mt-6 text-sm sm:text-base md:text-lg text-muted-foreground dark:text-neutral-400 max-w-xl leading-relaxed">
-              SkillYards&apos; BBA program is a 3-year university-affiliated degree open to students
-              from any stream, Science, Commerce or Arts. Alongside your degree subjects, you
-              spend the majority of each day learning Digital Marketing hands-on: SEO, Google Ads,
-              Meta Ads and more. You graduate with a degree and skills employers actually hire for.
+               This program is for students who want a BBA degree with practical digital
+               marketing skills. SEO, Google Ads, Meta Ads. You learn them hands-on
+               alongside your degree subjects, every day. No prior business knowledge needed.
             </p>
 
             {/* CTAs */}
@@ -66,10 +71,10 @@ export const BBAHero = () => {
             {/* Trust Strip */}
             <div className="mt-6 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:gap-x-5 sm:gap-y-2 items-center lg:items-start lg:justify-start">
               {[
-                "Any stream eligible",
-                "Daily hands-on practical training",
+                "BBA in Agra",
+                "Any stream, 12th pass",
+                "Practical training daily",
                 "University-affiliated degree",
-                "Batch starts August 2026",
               ].map((item) => (
                 <div key={item} className="flex items-center gap-1.5">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
@@ -83,7 +88,7 @@ export const BBAHero = () => {
           <div className="relative w-full aspect-video sm:aspect-video lg:aspect-4/3 rounded-2xl md:rounded-3xl overflow-hidden border border-foreground/5 dark:border-neutral-800 shadow-2xl group">
             <Image
               src="/images/BBA-PAGE.webp"
-              alt="BBA with Digital Marketing program at SkillYards, Agra"
+              alt="BBA in Agra - SkillYards BBA program"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover group-hover:scale-105 transition-transform duration-1000"

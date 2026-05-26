@@ -44,7 +44,7 @@ export default function BCAJourneyTimeline() {
           Your <span className="text-primary italic">Journey</span>
         </>
       }
-      subtitle="From zero to developer a structured transformation into a skilled tech professional."
+      subtitle="Your BCA in Agra journey, from beginner to job-ready developer."
     />
   );
 }

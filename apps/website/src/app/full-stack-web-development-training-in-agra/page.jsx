@@ -10,6 +10,7 @@ import { getBreadcrumbSchema } from "@/lib/seo/schema/breadcrumbSchema";
 import { getFAQSchema } from "@/lib/seo/schema/faqSchema";
 import { getPageFaqs } from "@/lib/seo/getFaqs";
 import { getWebPageSchema } from "@/lib/seo/schema/webPageSchema";
+import { absoluteUrl } from "@/lib/seo/core/url";
 
 export const metadata = buildSEO({
   ...courses.fullstack.seo,
@@ -20,7 +21,7 @@ export default async function FullStackPage() {
   const course = courses.fullstack;
   const courseSchema = getCourseSchema(course);
   const faqs = await getPageFaqs("fullstack");
-  const faqSchema = getFAQSchema(faqs);
+  const faqSchema = getFAQSchema(faqs, absoluteUrl("/full-stack-web-development-training-in-agra"));
 
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: "Home", url: "/" },

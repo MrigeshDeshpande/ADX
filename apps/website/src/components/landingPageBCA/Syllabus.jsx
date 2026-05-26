@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { ChevronDown, CheckCircle2, BookOpen } from "lucide-react";
 import { syllabusData } from "./syllabusData";
 
@@ -25,7 +25,7 @@ const ContentSection = ({ title, courses, color = "primary" }) => (
   </div>
 );
 
-const MobileSection = ({ item, index, isOpen, onToggle }) => (
+const MobileSection = ({ item, isOpen, onToggle }) => (
   <div className={`border rounded-xl overflow-hidden transition-colors ${isOpen ? "border-primary bg-card dark:bg-neutral-900/50" : "border-border dark:border-neutral-800 bg-background"}`}>
     <button onClick={onToggle} className="w-full text-left p-4 flex justify-between items-center">
       <div className="flex flex-col gap-0.5">
@@ -56,25 +56,29 @@ export const BCASyllabus = () => {
   const current = syllabusData[activeIndex];
 
   return (
-    <section id="syllabus" className="py-16 md:py-20 bg-background dark:bg-neutral-950 w-full">
+    <section id="syllabus" className="py-12 md:py-20 bg-background dark:bg-neutral-950 w-full">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="text-center mb-8 lg:mb-12 max-w-2xl mx-auto">
+        <div className="text-center mb-8 lg:mb-12 max-w-3xl mx-auto">
           <span className="text-primary font-bold tracking-widest uppercase text-xs sm:text-sm mb-3 block">
             Curriculum
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-extrabold tracking-tight dark:text-neutral-50">
-            Full Stack Dev <span className="text-primary italic">Curriculum.</span>
+            BCA with Full-Stack Development. <span className="text-primary italic">Here's Exactly What You Learn</span>
           </h2>
           <p className="text-muted-foreground dark:text-neutral-400 text-sm md:text-base leading-relaxed mt-4">
-            Industry-relevant BCA program designed to ensure you are job-ready from day one.
+            Each semester combines MERN stack development training with BCA academic subjects.
+            This is the actual curriculum students follow.
+          </p>
+          <p className="text-xs font-bold text-primary mt-2 sm:mt-3">
+            Daily Full-Stack Development training alongside BCA academic subjects
           </p>
         </div>
 
         {/* Mobile View */}
         <div className="lg:hidden space-y-3">
           {syllabusData.map((item, i) => (
-            <MobileSection key={i} item={item} index={i} isOpen={openIndex === i} onToggle={() => setOpenIndex(openIndex === i ? null : i)} />
+            <MobileSection key={i} item={item} isOpen={openIndex === i} onToggle={() => setOpenIndex(openIndex === i ? null : i)} />
           ))}
         </div>
 

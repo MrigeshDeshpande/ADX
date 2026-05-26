@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Plus, Minus, HelpCircle } from "lucide-react";
+import { getFaqAnchorId } from "@/lib/seo/faqUtils";
 
 export default function FAQSection({ faqs = [] }) {
   const [openIndex, setOpenIndex] = useState(0);
@@ -37,10 +38,12 @@ export default function FAQSection({ faqs = [] }) {
         <div className="space-y-4">
           {faqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
+            const anchorId = getFaqAnchorId(faq);
 
             return (
               <motion.div
                 key={idx}
+                id={anchorId}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -51,43 +54,52 @@ export default function FAQSection({ faqs = [] }) {
                     : "border-border/40 bg-card/20 hover:border-border/80"
                 }`}
               >
-                <button
-                  onClick={() => setOpenIndex(isOpen ? null : idx)}
-                  className="w-full flex justify-between items-center p-6 text-left"
-                >
-                  <span
-                    className={`text-lg font-bold transition-colors ${
-                      isOpen ? "text-primary" : "text-foreground"
-                    }`}
+                <h3 className="m-0">
+                  <button
+                    id={`faq-trigger-${idx}`}
+                    type="button"
+                    aria-expanded={isOpen}
+                    aria-controls={`faq-panel-${idx}`}
+                    onClick={() => setOpenIndex(isOpen ? null : idx)}
+                    className="w-full flex justify-between items-center p-6 text-left"
                   >
-                    {faq.question}
-                  </span>
-
-                  <div
-                    className={`shrink-0 ml-4 p-2 rounded-full transition-transform duration-300 ${
-                      isOpen
-                        ? "bg-primary text-primary-foreground rotate-0"
-                        : "bg-muted text-muted-foreground rotate-90"
-                    }`}
-                  >
-                    {isOpen ? <Minus size={18} /> : <Plus size={18} />}
-                  </div>
-                </button>
-
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                    <span
+                      className={`text-lg font-bold transition-colors ${
+                        isOpen ? "text-primary" : "text-foreground"
+                      }`}
                     >
-                      <div className="px-6 pb-6 pt-0 text-muted-foreground text-base leading-relaxed max-w-[90%]">
-                        {faq.answer}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                      {faq.question}
+                    </span>
+
+                    <span
+                      className={`shrink-0 ml-4 p-2 rounded-full transition-transform duration-300 ${
+                        isOpen
+                          ? "bg-primary text-primary-foreground rotate-0"
+                          : "bg-muted text-muted-foreground rotate-90"
+                      }`}
+                    >
+                      {isOpen ? <Minus size={18} /> : <Plus size={18} />}
+                    </span>
+                  </button>
+                </h3>
+
+                <motion.div
+                  id={`faq-panel-${idx}`}
+                  role={isOpen ? "region" : undefined}
+                  aria-labelledby={`faq-trigger-${idx}`}
+                  hidden={!isOpen}
+                  initial={false}
+                  animate={{
+                    height: isOpen ? "auto" : 0,
+                    opacity: isOpen ? 1 : 0
+                  }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="overflow-hidden"
+                >
+                  <div className="px-6 pb-6 pt-0 text-muted-foreground text-base leading-relaxed max-w-[90%]">
+                    {faq.answer}
+                  </div>
+                </motion.div>
               </motion.div>
             );
           })}

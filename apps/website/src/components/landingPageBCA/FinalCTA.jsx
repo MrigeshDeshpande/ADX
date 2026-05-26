@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 
 export function FinalCTA() {
   return (
-    <section className="relative overflow-hidden bg-primary py-16 md:py-20">
+    <section className="relative overflow-hidden bg-primary py-12 md:py-20">
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -left-40 -top-40 h-96 w-96 rounded-full bg-white/5 blur-3xl" />
         <div className="absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-white/5 blur-3xl" />
@@ -21,7 +21,7 @@ export function FinalCTA() {
           transition={{ delay: 0.1 }}
           className="font-serif text-3xl font-extrabold leading-tight text-primary-foreground sm:text-4xl md:text-5xl"
         >
-           Not sure if BBA is right for you?
+          Ready to start building?
         </motion.h2>
 
         <motion.p
@@ -31,8 +31,8 @@ export function FinalCTA() {
           transition={{ delay: 0.15 }}
           className="mx-auto mt-4 max-w-lg text-sm text-primary-foreground/70 sm:text-base"
         >
-            Talk to our counselling team. They&apos;ll ask a few questions about your background and
-            interests and give you an honest recommendation. The call is free and takes about 15 minutes.
+          Talk to our counselling team. They&apos;ll confirm BCA is the right fit for your
+          background and goals. The call is free and takes about 15 minutes.
         </motion.p>
 
         <motion.div

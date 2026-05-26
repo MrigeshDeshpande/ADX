@@ -49,21 +49,28 @@ export const courses = {
   },
 
   bca: {
-    title: "BCA with On-Job Training in Agra",
+    title: "BCA with Full-Stack Development in Agra",
     description:
-      "Industry-led BCA program with real-world projects, mentorship, and placement support.",
-    certification: "Bachelor of Computer Applications (BCA)",
+      "Learn MERN stack development every day alongside your BCA degree at SkillYards, Agra. Science stream, 12th pass eligible. Daily hands-on coding. Batch starts August 2026. 35 seats.",
+    certification: "Bachelor of Computer Applications",
+    category: "Computer Science",
+
+    startDate: "2026-08",
 
     seo: {
-      title: "BCA with On-Job Training | SkillYards",
+      title: "BCA with Full-Stack Development in Agra | SkillYards",
       description:
-        "Join the premium BCA program at SkillYards with industry-led training, elite mentorship, and 100% placement assistance in Agra.",
+        "Learn MERN stack development every day alongside your BCA degree at SkillYards, Agra. Science stream, 12th pass eligible. Daily hands-on coding. Batch starts August 2026. 35 seats.",
       path: "/bca-training-program-in-agra",
       keywords: [
         "BCA program Agra",
         "on-job training BCA",
         "SkillYards BCA",
         "computer applications degree",
+        "BCA college in Agra",
+        "BCA admission Agra 2026",
+        "BCA fees Agra",
+        "BCA with coding in Agra",
       ],
       ogImage: "/images/opengraph/bca-og.jpg",
     },
@@ -72,7 +79,7 @@ export const courses = {
   bba: {
     title: "BBA with Digital Marketing in Agra | SkillYards Degree Program",
     description:
-      "Join SkillYards' BBA program in Agra — open to any stream, 12th pass. Learn SEO, Google Ads, Meta Ads and more alongside your degree. 3 hrs daily practical training. Batch starts August 2026.",
+      "Join SkillYards' BBA program in Agra — open to any stream, 12th pass. Learn SEO, Google Ads, Meta Ads and more alongside your degree. Daily hands-on practical training. Batch starts August 2026.",
     certification: "Bachelor of Business Administration",
 
     startDate: "2026-08",
@@ -80,7 +87,7 @@ export const courses = {
     seo: {
       title: "BBA with Digital Marketing in Agra | SkillYards Degree Program",
       description:
-        "Join SkillYards' BBA program in Agra — open to any stream, 12th pass. Learn SEO, Google Ads, Meta Ads and more alongside your degree. 3 hrs daily practical training. Batch starts August 2026.",
+        "Join SkillYards' BBA program in Agra — open to any stream, 12th pass. Learn SEO, Google Ads, Meta Ads and more alongside your degree. Daily hands-on practical training. Batch starts August 2026.",
       path: "/bba-training-program-in-agra",
       keywords: [
         "BBA program Agra",

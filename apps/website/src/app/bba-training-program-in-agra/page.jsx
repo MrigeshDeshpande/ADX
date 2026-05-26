@@ -7,6 +7,8 @@ export const revalidate = 86400;
 const BBALandingPage = dynamic(() => import("@/components/landingPageBBA/LandingPage").then(m => m.LandingPage));
 import JsonLd from "@/components/JsonLd";
 import { courses } from "@/data/courses";
+import { getFAQSchema } from "@/lib/seo/schema/faqSchema";
+import { getPageFaqs } from "@/lib/seo/getFaqs";
 
 const course = courses.bba;
 
@@ -88,14 +90,18 @@ const webPageSchema = buildWebPageSchema({
   keywords: course.seo.keywords,
 });
 
-const combinedSchema = { "@context": "https://schema.org", "@graph": [courseSchema, breadcrumbSchema, webPageSchema] };
+export default async function BBAPage() {
+  const bbaFaqs = await getPageFaqs("bba", 999);
 
-export default function BBAPage() {
+  const faqSchema = getFAQSchema(bbaFaqs, absoluteUrl("/bba-training-program-in-agra"));
+
+  const combinedSchema = { "@context": "https://schema.org", "@graph": [courseSchema, breadcrumbSchema, webPageSchema, faqSchema].filter(Boolean) };
+
   return (
     <>
       <JsonLd data={combinedSchema} id="course-schema" />
       <div className="w-full overflow-x-hidden">
-        <BBALandingPage />
+        <BBALandingPage faqs={bbaFaqs} />
       </div>
     </>
   );

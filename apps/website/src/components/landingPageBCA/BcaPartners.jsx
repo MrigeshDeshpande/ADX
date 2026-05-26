@@ -6,10 +6,10 @@ import partners from "@/data/partners.json";
 
 const track = [...partners, ...partners];
 
-export function BbaPartners() {
+export function BcaPartners() {
   return (
     <LazyMotion features={domAnimation}>
-      <section className="relative py-16 md:py-20 bg-background overflow-hidden">
+      <section className="relative py-12 md:py-20 bg-background overflow-hidden">
         <div className="pointer-events-none absolute inset-y-0 left-1/2 -translate-x-1/2 w-[600px] rounded-full bg-secondary/15 blur-[100px]" />
 
         <div className="relative z-10">
@@ -18,16 +18,15 @@ export function BbaPartners() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-7xl mx-auto px-6 text-center mb-12 space-y-4"
+            className="max-w-7xl mx-auto px-6 text-center mb-8 sm:mb-12 space-y-4"
           >
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-foreground leading-tight">
-              Companies hiring Digital Marketing professionals in Agra
+              Companies hiring Full-Stack Developers
             </h2>
             <p className="font-sans text-sm text-muted-foreground max-w-2xl mx-auto leading-relaxed tracking-wide">
-              We&apos;re a young institute in Agra, our first BBA batch hasn&apos;t graduated yet. The companies
-              shown below represent the kind of organisations that actively hire Digital Marketing
-              Executives, SEO Specialists and PPC Experts across India. These are not confirmed
-              SkillYards hiring partners.
+              Our first batch hasn&apos;t fully graduated yet. The companies shown below represent
+              the kind of organisations that actively hire Frontend and Full-Stack Developers across
+              India. These are not confirmed SkillYards hiring partners.
             </p>
           </m.div>
 
@@ -66,7 +65,8 @@ export function BbaPartners() {
 
           <div className="max-w-3xl mx-auto px-6 mt-8 text-center">
             <p className="text-xs text-muted-foreground">
-              Placement support includes resume building, mock interviews and referrals, starting from your second year.
+              Placement support includes resume building, technical interview prep and referrals,
+              starting from your second year.
             </p>
           </div>
         </div>

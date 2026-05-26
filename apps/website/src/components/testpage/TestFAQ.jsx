@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
 import Link from "next/link";
+import { getFaqAnchorId } from "@/lib/seo/faqUtils";
 
 export default function TestFAQ({ faqs = [] }) {
     const [open, setOpen] = useState(null);
@@ -22,30 +23,44 @@ export default function TestFAQ({ faqs = [] }) {
                 <div className="space-y-3">
                     {faqs.map((faq, i) => {
                         const isOpen = open === i;
+                        const anchorId = getFaqAnchorId(faq);
                         return (
                             <div
                                 key={i}
+                                id={anchorId}
                                 className={`rounded-2xl border transition-all duration-300 ${
                                     isOpen
                                         ? "border-primary/30 bg-card shadow-sm"
                                         : "border-border bg-card"
                                 }`}
                             >
-                                <button
-                                    onClick={() => setOpen(isOpen ? null : i)}
-                                    className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
-                                >
-                                    <span className={`text-sm font-bold leading-snug transition-colors ${isOpen ? "text-primary" : "text-foreground"}`}>
-                                        {faq.question}
-                                    </span>
-                                    <div className={`shrink-0 rounded-full p-1.5 transition-all ${isOpen ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"}`}>
-                                        {isOpen ? <Minus size={13} /> : <Plus size={13} />}
-                                    </div>
-                                </button>
+                                <h3 className="m-0">
+                                    <button
+                                        id={`faq-trigger-${i}`}
+                                        type="button"
+                                        aria-expanded={isOpen}
+                                        aria-controls={`faq-panel-${i}`}
+                                        onClick={() => setOpen(isOpen ? null : i)}
+                                        className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
+                                    >
+                                        <span className={`text-sm font-bold leading-snug transition-colors ${isOpen ? "text-primary" : "text-foreground"}`}>
+                                            {faq.question}
+                                        </span>
+                                        <span className={`shrink-0 rounded-full p-1.5 transition-all ${isOpen ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"}`}>
+                                            {isOpen ? <Minus size={13} /> : <Plus size={13} />}
+                                        </span>
+                                    </button>
+                                </h3>
                                 {isOpen && (
-                                    <p className="px-5 pb-5 text-sm leading-relaxed text-muted-foreground">
-                                        {faq.answer}
-                                    </p>
+                                    <div
+                                        id={`faq-panel-${i}`}
+                                        role="region"
+                                        aria-labelledby={`faq-trigger-${i}`}
+                                    >
+                                        <p className="px-5 pb-5 text-sm leading-relaxed text-muted-foreground">
+                                            {faq.answer}
+                                        </p>
+                                    </div>
                                 )}
                             </div>
                         );

@@ -4,33 +4,33 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import { BCAHero } from './Hero';
 
-const BCABenefits = dynamic(() => import('./Benefits').then(m => m.BCABenefits));
-const BCA_CTA = dynamic(() => import('./CTA').then(m => m.BCA_CTA));
-const BCAComparisonSection = dynamic(() => import('./ComparisonTable').then(m => m.BCAComparisonSection));
-const BcaCoreValues = dynamic(() => import('./CoreValue').then(m => m.BcaCoreValues));
-const BCAEducators = dynamic(() => import('./Educators').then(m => m.BCAEducators));
-const BCAJourneyTimeline = dynamic(() => import('./ProgramPhases'));
-const BCASkills = dynamic(() => import('./Skills').then(m => m.BCASkills));
-const BCAStats = dynamic(() => import('./Stats').then(m => m.BCAStats));
+const WhoIsThisFor = dynamic(() => import('./WhoIsThisFor').then(m => m.WhoIsThisFor));
 const BCASyllabus = dynamic(() => import('./Syllabus').then(m => m.BCASyllabus));
-const PartnersSlider = dynamic(() => import('../common/PartnersSlider'));
+const BCASkills = dynamic(() => import('./Skills').then(m => m.BCASkills));
+const WhyNotRegular = dynamic(() => import('./WhyNotRegular').then(m => m.WhyNotRegular));
+const BCAJourneyTimeline = dynamic(() => import('./ProgramPhases'));
+const Placement = dynamic(() => import('./Placement').then(m => m.Placement));
+const BcaPartners = dynamic(() => import('./BcaPartners').then(m => m.BcaPartners));
+const EligibilityAndAdmission = dynamic(() => import('./EligibilityAndAdmission').then(m => m.EligibilityAndAdmission));
+const BCAFAQ = dynamic(() => import('./FAQ').then(m => m.BCAFAQ));
+const FinalCTA = dynamic(() => import('./FinalCTA').then(m => m.FinalCTA));
 
-export const BCALandingPage = () => {
+export const BCALandingPage = ({ faqs = [] }) => {
   return (
     <section className="landing-page bg-background text-foreground min-h-screen w-full">
       <div className="w-full bg-background">
         <main className="w-full">
           <BCAHero />
-          <BCABenefits />
-          <BCA_CTA />
-          <BCAComparisonSection />
-          <BcaCoreValues />
-          <BCAEducators />
-          <BCAJourneyTimeline />
-          <BCASkills />
-          <BCAStats />
+          <WhoIsThisFor />
           <BCASyllabus />
-          <PartnersSlider />
+          <BCASkills />
+          <WhyNotRegular />
+          <BCAJourneyTimeline />
+          <Placement />
+          <BcaPartners />
+          <EligibilityAndAdmission />
+          <BCAFAQ faqs={faqs} />
+          <FinalCTA />
         </main>
       </div>
     </section>

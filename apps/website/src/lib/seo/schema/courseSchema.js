@@ -25,7 +25,7 @@ export const getCourseSchema = (course) => ({
     name: course.title,
     description: course.description,
     occupationalCategory: course.category || "Information Technology",
-    educationalCredentialAwarded: "Certificate of Completion",
+    educationalCredentialAwarded: course.certification || "Certificate of Completion",
     provider: {
       "@id": ORGANIZATION_ID,
     }
@@ -35,7 +35,7 @@ export const getCourseSchema = (course) => ({
     ? absoluteAssetUrl(course.seo.ogImage)
     : absoluteAssetUrl("/images/opengraph/fullstack-og.jpg"),
 
-  educationalLevel: "Beginner to Advanced",
+  educationalLevel: "Undergraduate",
   inLanguage: "en",
   ...(course.certification && {
     educationalCredentialAwarded: [{

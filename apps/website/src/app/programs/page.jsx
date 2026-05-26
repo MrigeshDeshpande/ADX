@@ -12,6 +12,7 @@ import { getCollectionPageSchema } from "@/lib/seo/schema/webPageSchema";
 import { getBreadcrumbSchema } from "@/lib/seo/schema/breadcrumbSchema";
 import { getFAQSchema } from "@/lib/seo/schema/faqSchema";
 import { getPageFaqs } from "@/lib/seo/getFaqs";
+import { absoluteUrl } from "@/lib/seo/core/url";
 import { sanityClient } from "@/lib/sanity/client";
 import { BATCHES_QUERY } from "@/lib/sanity/queries";
 
@@ -49,7 +50,7 @@ export default async function ProgramsPage() {
     { name: "Programs", url: "/programs" },
   ]);
 
-  const faqSchema = getFAQSchema(faqs);
+  const faqSchema = getFAQSchema(faqs, absoluteUrl("/programs"));
 
   const combinedSchema = [collectionSchema, breadcrumbSchema, faqSchema].filter(Boolean);
 

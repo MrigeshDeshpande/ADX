@@ -7,6 +7,7 @@ import JsonLd from "@/components/JsonLd";
 import { getBreadcrumbSchema } from "@/lib/seo/schema/breadcrumbSchema";
 import { getFAQSchema } from "@/lib/seo/schema/faqSchema";
 import { getPageFaqs } from "@/lib/seo/getFaqs";
+import { absoluteUrl } from "@/lib/seo/core/url";
 import ProgramsFAQ from "@/components/programspage/ProgramsFAQ";
 
 const OnJobProgramCards = dynamic(() => import("@/components/onJobDegreePage/OnJobProgramCards"));
@@ -121,7 +122,7 @@ export default async function OnJobDegreePage() {
     { name: "On Job Degree", url: "/programs/on-job-degree" },
   ]);
 
-  const faqSchema = getFAQSchema(faqs);
+  const faqSchema = getFAQSchema(faqs, absoluteUrl("/programs/on-job-degree"));
   const combinedSchema = [breadcrumbSchema, faqSchema].filter(Boolean);
 
   return (

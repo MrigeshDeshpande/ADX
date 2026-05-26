@@ -9,6 +9,7 @@ import JsonLd from "@/components/JsonLd";
 import { getContactPageSchema } from "@/lib/seo/schema/webPageSchema";
 import { getFAQSchema } from "@/lib/seo/schema/faqSchema";
 import { getPageFaqs, getAllFaqCategories } from "@/lib/seo/getFaqs";
+import { absoluteUrl } from "@/lib/seo/core/url";
 
 export const metadata = buildSEO({
     title: "Support Center | SkillYards Agra",
@@ -45,7 +46,7 @@ export default async function SupportPage() {
     ];
 
     const allSupportFaqs = faqsByCategory.flatMap(c => c.faqs);
-    const faqSchema = getFAQSchema(allSupportFaqs);
+    const faqSchema = getFAQSchema(allSupportFaqs, absoluteUrl("/support"));
     const combinedSchema = [supportPageSchema, faqSchema].filter(Boolean);
 
     return (

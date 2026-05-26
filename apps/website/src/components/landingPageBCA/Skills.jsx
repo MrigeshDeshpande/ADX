@@ -6,11 +6,7 @@ import {
   Code2,
   Database,
   Globe,
-  Cpu,
-  BarChart3,
-  Shield,
   Layers,
-  Smartphone,
 } from "lucide-react";
 
 const ACCENTS = [
@@ -59,19 +55,15 @@ function SkillCard({ icon, label, index }) {
 
 export const BCASkills = () => {
   const skills = [
-    { icon: <Code2 />,      label: "Full Stack Dev"    },
-    { icon: <Database />,   label: "Database Systems"  },
-    { icon: <Globe />,      label: "Web Technologies"  },
-    { icon: <Cpu />,        label: "AI & ML Basics"    },
-    { icon: <BarChart3 />,  label: "Data Analytics"    },
-    { icon: <Shield />,     label: "Cyber Security"    },
-    { icon: <Layers />,     label: "Cloud Computing"   },
-    { icon: <Smartphone />, label: "Mobile Apps"       },
+    { icon: <Code2 />,      label: "Full Stack Dev"     },
+    { icon: <Database />,   label: "Database Systems"   },
+    { icon: <Globe />,      label: "Web Technologies"   },
+    { icon: <Layers />,     label: "Cloud & Deployment" },
   ];
 
   return (
     <LazyMotion features={domAnimation} strict>
-      <section className="py-16 sm:py-20 lg:py-28 bg-background w-full relative overflow-hidden">
+      <section className="py-12 sm:py-20 lg:py-28 bg-background w-full relative overflow-hidden">
 
         {/* Ambient blobs */}
         <div className="absolute inset-0 pointer-events-none -z-10">
@@ -82,7 +74,7 @@ export const BCASkills = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
           {/* Header */}
-          <div className="text-center mb-12 sm:mb-16 lg:mb-20 max-w-3xl mx-auto">
+          <div className="text-center mb-8 sm:mb-16 lg:mb-20 max-w-3xl mx-auto">
             <m.span
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -99,8 +91,7 @@ export const BCASkills = () => {
               transition={{ delay: 0.05 }}
               className="text-3xl sm:text-4xl md:text-5xl font-serif font-extrabold mb-4 sm:mb-6 tracking-tight text-foreground"
             >
-              Future-Ready{" "}
-              <span className="text-primary italic">Skills.</span>
+              <span className="text-primary italic">Skills</span> You Will Build.
             </m.h2>
 
             <m.p
@@ -110,17 +101,14 @@ export const BCASkills = () => {
               transition={{ delay: 0.1 }}
               className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed"
             >
-              We don&apos;t just teach computer science theory we build developers equipped
-              with the hard and soft skills necessary for the modern tech economy.
+              This BCA in Agra focuses on the tools and technologies you will use every day as a developer.
             </m.p>
           </div>
 
-          {/* Skills grid — 2 cols on mobile (first 4 only), 3 on sm, 4 on lg */}
+          {/* Skills grid — 4 cols on desktop, 2 on mobile */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
             {skills.map((skill, index) => (
-              <div key={index} className={index >= 4 ? "hidden sm:block" : ""}>
-                <SkillCard {...skill} index={index} />
-              </div>
+              <SkillCard key={index} {...skill} index={index} />
             ))}
           </div>
 

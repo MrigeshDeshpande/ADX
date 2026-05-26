@@ -49,7 +49,7 @@ export default function JourneyTimeline() {
           Your <span className="text-primary italic">Journey</span>
         </>
       }
-      subtitle="From confusion to confidence a structured transformation into a skilled professional."
+      subtitle="From confusion to confidence a structured transformation into a skilled professional in Agra."
     />
   );
 }

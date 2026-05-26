@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { HelpCircle, Plus, Minus } from "lucide-react";
 import Link from "next/link";
+import { getFaqAnchorId } from "@/lib/seo/faqUtils";
 
 export function FSDFAQ({ faqs }) {
   const [openIndex, setOpenIndex] = useState(0);
@@ -32,38 +33,49 @@ export function FSDFAQ({ faqs }) {
             <div className="space-y-2.5">
               {faqs.map((faq, idx) => {
                 const isOpen = openIndex === idx;
+                const anchorId = getFaqAnchorId(faq);
                 return (
                   <motion.div
                     key={idx}
+                    id={anchorId}
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.04 }}
                     className={`rounded-2xl border transition-all duration-300 ${isOpen ? "border-primary/30 bg-card shadow-lg shadow-primary/5" : "border-border/50 bg-card/20 hover:border-border"}`}
                   >
-                    <button
-                      onClick={() => setOpenIndex(isOpen ? null : idx)}
-                      className="flex w-full items-center justify-between p-5 text-left"
+                    <h3 className="m-0">
+                      <button
+                        id={`faq-trigger-${idx}`}
+                        type="button"
+                        aria-expanded={isOpen}
+                        aria-controls={`faq-panel-${idx}`}
+                        onClick={() => setOpenIndex(isOpen ? null : idx)}
+                        className="flex w-full items-center justify-between p-5 text-left"
+                      >
+                        <span className={`text-sm font-bold transition-colors sm:text-base ${isOpen ? "text-primary" : "text-foreground"}`}>
+                          {faq.question}
+                        </span>
+                        <span className={`ml-4 shrink-0 rounded-full p-1.5 transition-all ${isOpen ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"}`}>
+                          {isOpen ? <Minus size={14} /> : <Plus size={14} />}
+                        </span>
+                      </button>
+                    </h3>
+                    <motion.div
+                      id={`faq-panel-${idx}`}
+                      role={isOpen ? "region" : undefined}
+                      aria-labelledby={`faq-trigger-${idx}`}
+                      hidden={!isOpen}
+                      initial={false}
+                      animate={{
+                        height: isOpen ? "auto" : 0,
+                        opacity: isOpen ? 1 : 0
+                      }}
+                      transition={{ duration: 0.25, ease: "easeInOut" }}
+                      className="overflow-hidden"
                     >
-                      <span className={`text-sm font-bold transition-colors sm:text-base ${isOpen ? "text-primary" : "text-foreground"}`}>
-                        {faq.question}
-                      </span>
-                      <div className={`ml-4 shrink-0 rounded-full p-1.5 transition-all ${isOpen ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"}`}>
-                        {isOpen ? <Minus size={14} /> : <Plus size={14} />}
-                      </div>
-                    </button>
-                    <AnimatePresence initial={false}>
-                      {isOpen && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.25, ease: "easeInOut" }}
-                        >
-                          <p className="px-5 pb-5 text-sm leading-relaxed text-muted-foreground">{faq.answer}</p>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+                      <p className="px-5 pb-5 text-sm leading-relaxed text-muted-foreground">{faq.answer}</p>
+                    </motion.div>
                   </motion.div>
                 );
               })}

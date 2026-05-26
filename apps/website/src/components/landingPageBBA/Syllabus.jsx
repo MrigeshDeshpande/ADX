@@ -64,10 +64,10 @@ export const Syllabus = () => {
             Curriculum
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-extrabold tracking-tight dark:text-neutral-50">
-            BBA with Digital Marketing, <span className="text-primary italic">Semester-wise Curriculum</span>
+            BBA with Digital Marketing in Agra, <span className="text-primary italic">Semester-wise Curriculum</span>
           </h2>
           <p className="text-muted-foreground dark:text-neutral-400 text-sm md:text-base leading-relaxed mt-4">
-            Each semester combines Digital Marketing practical training with BBA academic subjects. The curriculum below is what students actually learn.
+            Each semester in Agra combines Digital Marketing practical training with BBA academic subjects. The curriculum below is what students actually learn.
           </p>
           <p className="text-xs font-bold text-primary mt-3">
             Daily hands-on Digital Marketing training alongside BBA academic subjects
