@@ -20,14 +20,14 @@ export const metadata = buildSEO({
 export default async function FullStackPage() {
   const course = courses.fullstack;
   const courseSchema = getCourseSchema(course);
-  const faqs = await getPageFaqs("fullstack");
+  const faqs = await getPageFaqs("fullstack", 8);
   const faqSchema = getFAQSchema(faqs, absoluteUrl("/full-stack-web-development-training-in-agra"));
 
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: "Home", url: "/" },
     { name: "Programs", url: "/programs" },
     { name: "On-Job Training", url: "/programs/on-job-training" },
-    { name: course.title, url: "/full-stack-web-development-training-in-agra" },
+    { name: course.programName || course.title, url: "/full-stack-web-development-training-in-agra" },
   ]);
 
   const webPageSchema = getWebPageSchema({

@@ -1,128 +1,142 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { FolderGit2, Globe, Users, User } from "lucide-react";
+import { FileText, FolderGit2 } from "lucide-react";
 
 const projects = [
   {
-    name: "E-Commerce Platform",
-    type: "Full-Stack MERN App",
-    month: "Month 5",
-    desc: "A complete online store with product listings, cart, user auth, order management, and Razorpay payment integration.",
-    stack: ["React", "Node.js", "MongoDB", "Express", "Tailwind CSS"],
-    mode: "solo",
-    deployed: true,
+    name: "Personal portfolio website",
+    type: "Frontend foundation project",
+    month: "Early portfolio",
+    desc: "A responsive site that introduces you, your projects, and your coding foundation.",
+    stack: ["HTML", "CSS", "Responsive Design"],
   },
   {
-    name: "Real-Time Chat Application",
-    type: "Full-Stack App with WebSockets",
-    month: "Month 4",
-    desc: "Multi-room chat app with real-time messaging using Socket.io, user authentication, and message history.",
-    stack: ["React", "Node.js", "Socket.io", "JWT", "MongoDB"],
-    mode: "team",
-    deployed: true,
+    name: "React frontend project",
+    type: "Component-based UI build",
+    month: "Frontend milestone",
+    desc: "A practical React project focused on routing, components, state, and layout structure.",
+    stack: ["React", "Components", "Routing"],
   },
   {
-    name: "Job Board with Authentication",
-    type: "CRUD Application",
-    month: "Month 4",
-    desc: "Two-role system (recruiter + applicant), job listings, application tracking, and email notifications.",
-    stack: ["React", "Express", "MongoDB", "JWT", "Nodemailer"],
-    mode: "solo",
-    deployed: true,
+    name: "API-based application",
+    type: "Backend and API practice",
+    month: "Backend milestone",
+    desc: "A project that focuses on routes, requests, responses, and practical API handling.",
+    stack: ["Node.js", "Express", "APIs"],
   },
   {
-    name: "Personal Portfolio Website",
-    type: "Frontend Project",
-    month: "Month 1",
-    desc: "Your first deployed project live on a real domain from Day 30. This is the URL you put in every job application.",
-    stack: ["HTML5", "CSS3", "JavaScript", "Netlify"],
-    mode: "solo",
-    deployed: true,
+    name: "Full-stack MERN application",
+    type: "Integrated project build",
+    month: "Full-stack milestone",
+    desc: "A project that connects frontend, backend, database logic, and deployment workflow.",
+    stack: ["React", "Node.js", "Express", "MongoDB"],
   },
   {
-    name: "Industry Client Project",
-    type: "On-Job Training Project",
-    month: "Month 6",
-    desc: "A real product built for a real brief reviewed, deployed, and maintained by the team. Details vary by batch.",
-    stack: ["Full MERN Stack", "Git workflow", "Code review", "Agile sprint"],
-    mode: "team",
-    deployed: true,
+    name: "Authentication-based project",
+    type: "Protected routes and login flows",
+    month: "Security milestone",
+    desc: "A project that includes login, protected access, and user-based features.",
+    stack: ["JWT/Auth", "Forms", "Protected Routes"],
+  },
+  {
+    name: "Dashboard or admin panel style project",
+    type: "Data-view project",
+    month: "Applied workflow",
+    desc: "A project that handles structured data, basic management flows, and interactive UI patterns.",
+    stack: ["CRUD", "Dashboards", "State"],
+  },
+  {
+    name: "Deployed project with GitHub README",
+    type: "Presentation-ready project",
+    month: "Deployment milestone",
+    desc: "A deployed application with clear repository structure, README writing, and walkthrough notes.",
+    stack: ["Deployment", "GitHub", "README"],
+  },
+  {
+    name: "AI-assisted documentation and testing notes",
+    type: "Developer workflow support",
+    month: "Final presentation",
+    desc: "Project notes that show how you use AI-assisted debugging, documentation, and test-case thinking responsibly.",
+    stack: ["Documentation", "AI Workflow", "Testing Notes"],
   },
 ];
 
 export function FSDPortfolioProjects() {
+  const [showAll, setShowAll] = useState(false);
+
   return (
-        <section className="bg-card/20 py-20">
-          <div className="mx-auto max-w-5xl px-6">
-            <div className="mb-10 text-center">
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="mb-3 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary"
-              >
-                <FolderGit2 size={13} />
-                Portfolio Projects
-              </motion.div>
-              <h2 className="font-serif text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-                You Graduate with 5 Deployed Projects.{" "}
-                <span className="italic text-primary">Not a Certificate.</span>
-              </h2>
-              <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
-                Every project is on GitHub, live at a URL, and yours to show employers. This is what gets you hired not a course completion badge.
-              </p>
-            </div>
+    <section className="bg-card/20 py-20">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mb-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-3 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary"
+          >
+            <FolderGit2 size={13} />
+            Portfolio Projects
+          </motion.div>
+          <h2 className="font-serif text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+            Build Portfolio-Ready <span className="italic text-primary">Full-Stack Projects.</span>
+          </h2>
+          <p className="mx-auto mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+            By the end of the course, students learn how to build, document, deploy, and present full-stack projects that can support interviews, GitHub reviews, portfolio discussions, and career conversations.
+          </p>
+        </div>
 
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {projects.map((p, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className={`flex flex-col rounded-3xl border border-border bg-card p-5 shadow-sm transition-all hover:border-primary/30 hover:shadow-md ${i === 4 ? "sm:col-span-2 lg:col-span-1" : ""}`}
-                >
-                  {/* Header */}
-                  <div className="mb-3 flex items-start justify-between gap-2">
-                    <div>
-                      <span className="mb-1 inline-block rounded-full bg-primary/10 px-2 py-0.5 text-xs font-bold text-primary">
-                        {p.month}
-                      </span>
-                      <h3 className="font-serif text-lg font-extrabold text-foreground">{p.name}</h3>
-                      <p className="text-xs text-muted-foreground">{p.type}</p>
-                    </div>
-                  </div>
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {projects.map((project, i) => (
+            <motion.div
+              key={project.name}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.05 }}
+              className={`${!showAll && i >= 4 ? "hidden sm:flex" : "flex"} flex-col rounded-3xl border border-border bg-card p-5 shadow-sm transition-all hover:border-primary/30 hover:shadow-md`}
+            >
+              <div className="mb-3 flex items-start justify-between gap-2">
+                <div>
+                  <span className="mb-1 inline-block rounded-full bg-primary/10 px-2 py-0.5 text-xs font-bold text-primary">
+                    {project.month}
+                  </span>
+                  <h3 className="font-serif text-lg font-extrabold text-foreground">{project.name}</h3>
+                  <p className="text-xs text-muted-foreground">{project.type}</p>
+                </div>
+              </div>
 
-                  <p className="mb-4 text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
+              <p className="mb-4 text-sm leading-relaxed text-muted-foreground">{project.desc}</p>
 
-                  {/* Stack pills */}
-                  <div className="mb-4 flex flex-wrap gap-1.5">
-                    {p.stack.map((s) => (
-                      <span key={s} className="rounded-full border border-border bg-background px-2.5 py-0.5 text-xs font-medium text-muted-foreground">
-                        {s}
-                      </span>
-                    ))}
-                  </div>
+              <div className="mb-4 flex flex-wrap gap-1.5">
+                {project.stack.map((stack) => (
+                  <span key={stack} className="rounded-full border border-border bg-background px-2.5 py-0.5 text-xs font-medium text-muted-foreground">
+                    {stack}
+                  </span>
+                ))}
+              </div>
 
-                  {/* Footer */}
-                  <div className="mt-auto flex items-center justify-between pt-2 text-xs text-muted-foreground">
-                    <div className="flex items-center gap-1.5">
-                      {p.mode === "solo" ? <User size={13} /> : <Users size={13} />}
-                      <span className="capitalize">{p.mode} project</span>
-                    </div>
-                    {p.deployed && (
-                      <div className="flex items-center gap-1.5 text-green-600 dark:text-green-400">
-                        <Globe size={13} />
-                        <span>Live deployed</span>
-                      </div>
-                    )}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+              <div className="mt-auto flex items-center gap-2 border-t border-border pt-3 text-xs text-muted-foreground">
+                <FileText size={13} className="text-primary" />
+                Interview and portfolio discussion ready
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {projects.length > 4 && (
+          <div className="mt-5 flex justify-center sm:hidden">
+            <button
+              type="button"
+              onClick={() => setShowAll((value) => !value)}
+              className="rounded-full border border-primary/20 bg-primary/5 px-5 py-2 text-xs font-bold uppercase tracking-[0.16em] text-primary"
+            >
+              {showAll ? "Show less" : "Show more"}
+            </button>
           </div>
-        </section>
+        )}
+      </div>
+    </section>
   );
 }

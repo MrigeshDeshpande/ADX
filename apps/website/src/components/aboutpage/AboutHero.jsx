@@ -35,9 +35,14 @@ export default function AboutHero() {
             </div>
 
             <div className="space-y-3 desk:space-y-4">
-              <h1 className="text-3xl sm:text-5xl desk:text-7xl font-black tracking-tight leading-[1.1] sm:leading-[1.05] text-foreground">
-                {data.title}{" "}
-                <span className="relative inline-block text-primary italic">
+              <div className="flex justify-center desk:justify-start">
+                <p className="inline-flex rounded-full border border-primary/15 bg-primary/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.24em] text-primary">
+                  {data.badge}
+                </p>
+              </div>
+              <h1 className="mx-auto max-w-4xl text-3xl sm:text-5xl desk:mx-0 desk:max-w-5xl desk:text-7xl font-black tracking-tight leading-[1.1] sm:leading-[1.05] text-foreground">
+                <span className="block">{data.title}</span>
+                <span className="relative mt-2 inline-block text-primary italic sm:mt-3">
                   {data.highlight}
                   <svg className="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-2 sm:h-3 text-secondary/30 -z-10" viewBox="0 0 100 20" preserveAspectRatio="none">
                     <path d="M0 10 Q 25 20 50 10 T 100 10" stroke="currentColor" strokeWidth="4" fill="transparent" />
@@ -49,10 +54,12 @@ export default function AboutHero() {
               </p>
             </div>
 
-            <div className="space-y-4 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto desk:mx-0 font-medium">
-              <p>{data.description1}</p>
-              <p>{data.description2}</p>
-            </div>
+            {(data.description1 || data.description2) && (
+              <div className="space-y-4 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto desk:mx-0 font-medium">
+                {data.description1 ? <p>{data.description1}</p> : null}
+                {data.description2 ? <p>{data.description2}</p> : null}
+              </div>
+            )}
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center desk:justify-start pt-4 sm:pt-6">
@@ -76,6 +83,7 @@ export default function AboutHero() {
                 {data.secondaryCTA.text}
               </a>
             </div>
+
           </m.div>
 
           {/* Right Side: Image */}

@@ -1,23 +1,23 @@
 const timeline = [
     {
-        year: "2019",
-        title: "SkillYards Founded",
-        description: "Started with a mission to bridge the gap between education and industry.",
-    },
-    {
-        year: "2020",
-        title: "First Internship Program",
-        description: "Launched real-world internships for students across Agra.",
-    },
-    {
-        year: "2022",
-        title: "On Job Degree Model",
-        description: "Introduced On Job Degree & Training programs with live projects.",
+        year: "2023",
+        title: "SkillYards Takes Shape",
+        description: "SkillYards was built around a simple idea: students need practical skills, mentorship, and clearer career direction alongside academics.",
     },
     {
         year: "2024",
-        title: "Hiring Partner Network",
-        description: "Built partnerships with startups and IT companies across India.",
+        title: "Practical Learning Model Strengthened",
+        description: "Programs evolved around project-based learning, mentor support, portfolio-building, and stronger classroom accountability.",
+    },
+    {
+        year: "2025",
+        title: "OJD and OJT Pathways Expanded",
+        description: "SkillYards sharpened both On-Job Degree and On-Job Training pathways to support students at different career stages.",
+    },
+    {
+        year: "Today",
+        title: "AI-Integrated Career Building",
+        description: "The focus now is on practical AI usage, modern workflows, and career-focused skill development for learners in Agra.",
     },
 ];
 
@@ -30,7 +30,7 @@ export default function SkillYardsJourney() {
                         SkillYards Journey
                     </h2>
                     <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-                        A continuous journey of empowering students, shaping careers, and bridging the gap between education and the IT industry.
+                        A continuing effort to make learning more practical, more relevant, and more supportive for students building career direction.
                     </p>
                 </div>
 
@@ -74,7 +74,6 @@ export default function SkillYardsJourney() {
         </section>
     );
 }
-
 
 
 

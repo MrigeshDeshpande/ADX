@@ -7,51 +7,51 @@ import { BookOpen, ChevronDown } from "lucide-react";
 const months = [
   {
     month: "Month 1",
-    title: "Foundations",
-    hours: "~30 hrs/week",
+    title: "HTML, CSS, Responsive Design",
+    hours: "Foundation month",
     color: "bg-blue-500",
-    topics: ["HTML5 & CSS3", "Responsive Design & Flexbox/Grid", "Git & GitHub (version control from Day 1)", "Basic JavaScript", "VS Code setup & productivity", "Deploy your first static site on Netlify"],
-    builds: "Personal portfolio site live on a real domain",
+    topics: ["HTML5 structure", "CSS fundamentals", "Responsive design", "Flexbox and Grid", "VS Code workflow", "First static website deployment"],
+    builds: "Personal portfolio website",
   },
   {
     month: "Month 2",
-    title: "JavaScript Deep Dive",
-    hours: "~35 hrs/week",
+    title: "JavaScript Fundamentals and DOM",
+    hours: "Core coding month",
     color: "bg-yellow-500",
-    topics: ["ES6+ (arrow functions, destructuring, modules)", "DOM Manipulation", "Fetch API & Promises", "Async/Await & error handling", "Local Storage & browser APIs", "Interactive UIs without any framework"],
-    builds: "Weather app + a multi-page JavaScript project",
+    topics: ["Variables, functions, loops, arrays", "Objects and events", "DOM manipulation", "Browser storage", "Async JavaScript basics", "Interactive UI exercises"],
+    builds: "JavaScript project with DOM interactions",
   },
   {
     month: "Month 3",
-    title: "React & Frontend",
-    hours: "~35 hrs/week",
+    title: "Git, GitHub, and React JS",
+    hours: "Frontend build month",
     color: "bg-cyan-500",
-    topics: ["React fundamentals JSX, components, props", "useState, useEffect & custom hooks", "React Router for navigation", "Context API for state management", "Tailwind CSS with React", "Component-driven architecture"],
-    builds: "Full React frontend app (e-commerce UI or project management UI)",
+    topics: ["Git and GitHub workflow from early stage", "React fundamentals", "Components, props, state", "React Router basics", "Frontend architecture", "Responsive React project structure"],
+    builds: "React frontend project",
   },
   {
     month: "Month 4",
-    title: "Backend & APIs",
-    hours: "~35 hrs/week",
+    title: "Node.js, Express, and APIs",
+    hours: "Backend month",
     color: "bg-purple-500",
-    topics: ["Node.js & npm ecosystem", "Express.js routing, middleware, MVC", "REST API design principles", "JWT authentication & authorization", "Environment variables & security basics", "Testing APIs with Postman"],
-    builds: "REST API with authentication connected to a real frontend",
+    topics: ["Node.js runtime", "Express routing and middleware", "REST API basics", "Authentication flow", "Postman testing", "Error handling and debugging"],
+    builds: "API-based application",
   },
   {
     month: "Month 5",
-    title: "Database & Full-Stack Integration",
-    hours: "~40 hrs/week",
+    title: "MongoDB and Full-Stack Integration",
+    hours: "Integration month",
     color: "bg-green-500",
-    topics: ["MongoDB & Mongoose ODM", "CRUD operations & data modelling", "Connecting React frontend to Express backend", "File uploads, pagination & filtering", "Deploying full-stack app (Vercel + Railway)", "Intro to AWS S3 for file storage"],
-    builds: "Complete full-stack MERN application deployed and live",
+    topics: ["MongoDB and data modelling", "CRUD and schema basics", "React with backend APIs", "Full-stack integration", "Deployment workflow", "Database-backed features"],
+    builds: "Full-stack MERN application",
   },
   {
     month: "Month 6",
-    title: "Industry Project & Placement Prep",
-    hours: "~40 hrs/week",
+    title: "Deployment, AI Workflows, and Career Prep",
+    hours: "Portfolio month",
     color: "bg-red-500",
-    topics: ["Real client project (or live internal product)", "Code review & pull request workflow", "Performance optimisation basics", "Resume building & LinkedIn optimisation", "Mock technical interviews (3 rounds)", "GitHub profile & portfolio presentation"],
-    builds: "Industry project added to GitHub, deployed, portfolio-ready",
+    topics: ["Deployment practice", "AI-assisted coding workflows", "README and documentation", "Code review and debugging", "Portfolio preparation", "Placement preparation"],
+    builds: "Deployed project with GitHub README and portfolio notes",
   },
 ];
 
@@ -72,10 +72,10 @@ export function FSDCurriculum() {
                 Curriculum Month by Month
               </motion.div>
               <h2 className="font-serif text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-                6 Months. <span className="italic text-primary">One Clear Path.</span>
+                What You Learn Across 6 Months, <span className="italic text-primary">Step by Step.</span>
               </h2>
-              <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-                No fluff modules. Every month ends with something you can show an employer.
+              <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
+                The curriculum moves from basics into React, backend, databases, deployment, AI-assisted coding workflows, and portfolio preparation.
               </p>
             </div>
 
@@ -135,12 +135,12 @@ export function FSDCurriculum() {
                                 </ul>
                               </div>
                               <div className="flex flex-col justify-start gap-3">
-                                <div className="rounded-xl bg-primary/5 border border-primary/10 p-4">
+                                <div className="rounded-xl border border-primary/10 bg-primary/5 p-4">
                                   <p className="mb-1 text-xs font-bold uppercase tracking-wider text-primary">What you build</p>
                                   <p className="text-sm font-semibold text-foreground">{m.builds}</p>
                                 </div>
                                 <div className="rounded-xl bg-muted/30 p-3">
-                                  <p className="text-xs text-muted-foreground"><strong className="text-foreground">Weekly commitment:</strong> {m.hours}</p>
+                                  <p className="text-xs text-muted-foreground"><strong className="text-foreground">Focus:</strong> {m.hours}</p>
                                 </div>
                               </div>
                             </div>

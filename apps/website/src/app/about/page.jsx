@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 
 import JsonLd from "@/components/JsonLd";
 import AboutHero from "@/components/aboutpage/AboutHero";
+import WhySkillYardsBuilt from "@/components/aboutpage/WhySkillYardsBuilt";
 
 export const revalidate = 86400;
 const AboutMissionVision = dynamic(() => import("@/components/aboutpage/AboutMissionVision"));
@@ -19,24 +20,29 @@ const FAQSection = dynamic(() => import("@/components/common/FAQSection"));
 const PlacementStats = dynamic(() => import("@/components/aboutpage/PlacementStats"));
 const OtherTeam = dynamic(() => import("@/components/aboutpage/OtherTeam"));
 const LeadersSection=dynamic(()=>import("@/components/common/LeadersSection"));
+const AboutLocalSEO = dynamic(() => import("@/components/aboutpage/AboutLocalSEO"));
 
 import { buildSEO } from "@/lib/seo/buildSEO";
 import { getFAQSchema } from "@/lib/seo/schema/faqSchema";
+import { getBreadcrumbSchema } from "@/lib/seo/schema/breadcrumbSchema";
 import { getPageFaqs } from "@/lib/seo/getFaqs";
 import { absoluteUrl } from "@/lib/seo/core/url";
 
 export const metadata = buildSEO({
-  title: "About SkillYards",
+  title: "About SkillYards | AI-Integrated Career-Building Institute in Agra",
   description:
-    "SkillYards is an Agra-based IT training institute built for students who want practical, career-focused learning after 12th or graduation.",
+    "Learn about SkillYards - an AI-integrated career-building institute in Agra focused on practical learning, mentorship, industry-focused training, OJD degree pathways, OJT programs, and job-ready skill development for students after 12th and graduates.",
   path: "/about",
   keywords: [
     "About SkillYards",
-    "IT training institute in Agra",
-    "Coding institute in Agra",
-    "Computer training institute in Agra",
-    "Project-based training in Agra",
-    "Career-focused training institute",
+    "SkillYards Agra",
+    "AI-integrated training institute in Agra",
+    "Career-focused institute in Agra",
+    "Practical learning institute in Agra",
+    "Skill development institute in Agra",
+    "Full-Stack training institute in Agra",
+    "Digital marketing institute in Agra",
+    "Offline training institute in Agra",
   ],
   ogImage: "/images/opengraph/about-og.jpg",
 });
@@ -48,31 +54,42 @@ export default async function AboutPage() {
     url: "/about",
     name: "About SkillYards",
     description:
-      "SkillYards is an Agra-based IT training institute built for students who want practical, career-focused learning after 12th or graduation.",
+      "SkillYards is an AI-integrated career-building institute in Agra focused on practical learning, mentorship, industry-focused training, OJD degree pathways, OJT programs, and job-ready skill development for students after 12th and graduates.",
   });
 
-  const faqs = await getPageFaqs("homepage", 4);
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "About", url: "/about" },
+  ]);
+
+  const faqs = await getPageFaqs("about", 999);
   const faqSchema = getFAQSchema(faqs, absoluteUrl("/about"));
-  const combinedSchema = [aboutPageSchema, faqSchema].filter(Boolean);
+  const combinedSchema = [aboutPageSchema, breadcrumbSchema, faqSchema].filter(Boolean);
 
   return (
     <>
       <div className="bg-background text-foreground transition-colors duration-500">
         <AboutHero />
-        <AboutMissionVision />
+        <WhySkillYardsBuilt />
         <AboutWhyChoose />
+        <TechnologiesWeTeach />
         <LeadersSection />
         <OtherTeam />
         <PartnersSlider />
 
         <CTASection />
         <LifeAtSkillYards />
-        <TechnologiesWeTeach />
-        <FAQSection faqs={faqs} />
+        <AboutLocalSEO />
         <StudentWorkAbout />
         <PlacementStats />
         <SkillYardsJourney />
         <CtaBanner />
+        <FAQSection
+          faqs={faqs}
+          badge="About SkillYards"
+          title="Frequently Asked Questions"
+          description="Helpful answers about SkillYards, our learning model, OJD and OJT pathways, AI-integrated training, and our Agra campus."
+        />
       </div>
       <JsonLd data={combinedSchema} id="about-page-schema-skillyards" />
     </>

@@ -4,17 +4,17 @@ import { motion } from "framer-motion";
 import { CheckCircle, XCircle, Target } from "lucide-react";
 
 const forList = [
-  { label: "Fresh graduates (any degree)", sub: "BCA/BSc/BTech who learned theory but can't build anything" },
-  { label: "Career switchers", sub: "Working in banking, BPO, sales want into tech in 6 months" },
-  { label: "12th pass students", sub: "Want to start earning before committing to a 3-year degree" },
-  { label: "Self-taught learners stuck on YouTube", sub: "Know the basics but can't build or deploy real apps" },
+  { label: "College students and graduates", sub: "Learners who want structured coding practice and portfolio-building support" },
+  { label: "Early-career learners", sub: "Students who want to move from basics into full-stack project work" },
+  { label: "Serious 12th-pass students", sub: "Learners ready to start from basics and commit to practical coding" },
+  { label: "Working professionals and career switchers", sub: "People who want mentor support while transitioning toward web development" },
 ];
 
 const notForList = [
-  { label: "Someone who wants a quick 1-month certificate" },
-  { label: "Someone expecting 100% of learning to happen in class" },
-  { label: "Someone who won't put in 4–6 hours daily outside sessions" },
-  { label: "Someone who just wants something on their CV without working" },
+  { label: "Someone looking for a quick certificate without practical coding work" },
+  { label: "Someone who wants a fully online or fully self-paced course" },
+  { label: "Someone unwilling to practice outside class" },
+  { label: "Someone who wants shortcuts instead of fundamentals, projects, and debugging practice" },
 ];
 
 export function FSDWhoIsThisFor() {
@@ -35,7 +35,7 @@ export function FSDWhoIsThisFor() {
                 Honest About <span className="italic text-primary">Who We Can Help.</span>
               </h2>
               <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-                We&apos;d rather tell you upfront than take your money and waste your time.
+                A practical fit for learners who want structured classroom training and projects.
               </p>
             </div>
 
@@ -86,7 +86,7 @@ export function FSDWhoIsThisFor() {
                   <a href="/bca-training-program-in-agra" className="font-bold text-primary underline underline-offset-4">
                     the BCA program
                   </a>{" "}
-                  might be a better fit.
+                  may be a better fit.
                 </p>
               </motion.div>
             </div>

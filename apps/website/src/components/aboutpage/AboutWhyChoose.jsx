@@ -43,8 +43,8 @@ export default function AboutWhyChoose() {
           </h2>
 
           <p className="mt-6 text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
-            SkillYards focuses on skill development for students through
-            practical learning, mentorship, and career-focused preparation.
+            SkillYards is built around practical learning, mentor support, modern workflows,
+            and stronger career preparation for students after 12th and graduates.
           </p>
         </motion.div>
 
@@ -55,7 +55,7 @@ export default function AboutWhyChoose() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {data.map((item, index) => {
             const Icon = iconMap[item.icon];

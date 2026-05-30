@@ -70,7 +70,7 @@ export default function SuryanshHero() {
                     transition={{ delay: 0.4, duration: 0.5 }}
                     className="mt-4 text-muted-foreground leading-relaxed"
                 >
-                    Suryansh Upadhyay founded SkillYards to fix what traditional colleges miss - real industry skills and job placements. He built the institute&apos;s partnerships with IT companies and created Agra&apos;s first degree programs where students train while they study.
+                    Suryansh Upadhyay helped build SkillYards around the idea that students need practical skills, industry exposure, and structured mentorship alongside traditional education. His focus is on making learning more relevant, more practical, and more career-aware for students after 12th and graduates.
                 </m.p>
 
                 <m.div

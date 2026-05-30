@@ -28,11 +28,11 @@ export function FSDLandingPage({ faqs }) {
       <FSDTechStack />
       <FSDEducators />
       <FSDPortfolioProjects />
-      <FSDWhoIsThisFor />
       <FSDComparisonTable />
-      <FSDDayInTheLife />
+      <FSDWhoIsThisFor />
       <FSDPlacementOutcomes />
       <PartnersSlider />
+      <FSDDayInTheLife />
       <FSDAdmissionProcess />
       <FSDFAQ faqs={faqs} />
       <FSDFinalCTA />

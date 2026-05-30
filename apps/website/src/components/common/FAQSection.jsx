@@ -5,7 +5,12 @@ import { motion } from "framer-motion";
 import { Plus, Minus, HelpCircle } from "lucide-react";
 import { getFaqAnchorId } from "@/lib/seo/faqUtils";
 
-export default function FAQSection({ faqs = [] }) {
+export default function FAQSection({
+  faqs = [],
+  badge = "Support Center",
+  title = "Frequently Asked Questions",
+  description = "Get answers about our programs, placements, fees, and how to get started.",
+}) {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
@@ -23,15 +28,22 @@ export default function FAQSection({ faqs = [] }) {
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest"
           >
             <HelpCircle size={14} />
-            <span>Support Center</span>
+            <span>{badge}</span>
           </motion.div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-foreground">
-            Frequently Asked <span className="text-primary italic">Questions</span>
+            {title.includes("Questions") ? (
+              <>
+                {title.replace("Questions", "")}
+                <span className="text-primary italic">Questions</span>
+              </>
+            ) : (
+              title
+            )}
           </h2>
 
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Get answers about our programs, placements, fees, and how to get started.
+            {description}
           </p>
         </div>
 

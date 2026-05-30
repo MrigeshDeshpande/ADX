@@ -1,22 +1,32 @@
 [
   {
-    "title": "Practical IT Training",
-    "description": "Learn by building real projects instead of memorizing theory. Our programs focus on practical IT training for students.",
+    "title": "Practical Learning",
+    "description": "Students learn by doing, not by only listening. Assignments, projects, reviews, and guided practice stay central to the learning experience.",
     "icon": "Cpu"
   },
   {
-    "title": "Project-Based Learning",
-    "description": "Work on real-world problems and develop skills that companies actually look for.",
+    "title": "AI-Integrated Workflows",
+    "description": "SkillYards teaches practical AI usage in a grounded way so learners understand how modern developers and marketers actually work.",
     "icon": "Book"
   },
   {
-    "title": "Mentorship & Guidance",
-    "description": "Learn directly from experienced mentors who guide you through industry practices and professional growth.",
+    "title": "Mentor Guidance",
+    "description": "Mentors help students stay consistent, solve practical problems, and move forward with more clarity and confidence.",
     "icon": "Users"
   },
   {
-    "title": "Career Preparation",
-    "description": "Build job-ready resumes, improve communication skills, and prepare for real interview environments.",
+    "title": "Career-Focused Training",
+    "description": "Programs are designed to connect learning with outcomes like better portfolios, sharper communication, and stronger career direction.",
     "icon": "Briefcase"
+  },
+  {
+    "title": "Portfolio Building",
+    "description": "Students create visible work they can present during interviews, counselling conversations, GitHub reviews, and career discussions.",
+    "icon": "Book"
+  },
+  {
+    "title": "Real-World Skill Development",
+    "description": "The focus is on useful, modern skills that support practical execution, adaptability, and long-term professional growth.",
+    "icon": "Cpu"
   }
 ]

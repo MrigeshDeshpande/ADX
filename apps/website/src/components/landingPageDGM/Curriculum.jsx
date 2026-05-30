@@ -1,77 +1,63 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { BookOpen, ChevronDown } from "lucide-react";
 
-const months = [
+const modules = [
   {
-    month: "Month 1",
-    title: "Digital Foundations & SEO",
-    hours: "~30 hrs/week",
-    color: "bg-blue-500",
-    cert: "Practical portfolio work",
-    topics: [
-      "Digital marketing overview & strategy",
-      "WordPress website setup & management",
-      "On-page SEO titles, meta, headings, content",
-      "Off-page SEO & link building",
-      "Google Search Console setup & analysis",
-      "Google Analytics 4 tracking & reporting",
-      "Keyword research (Ubersuggest, Ahrefs basics)",
-    ],
-    builds: "A practice website + SEO audit checklist + reporting exercise",
+    module: "Module 1",
+    title: "Digital Marketing Fundamentals",
+    focus: "Understand channels, funnels, customer journeys, and how modern digital marketing works.",
+    topics: ["Marketing basics and terminology", "Digital channels overview", "Customer journey and funnel thinking", "How businesses use digital marketing in Agra and beyond"],
   },
   {
-    month: "Month 2",
-    title: "Paid Advertising Google & Meta",
-    hours: "~35 hrs/week",
-    color: "bg-orange-500",
-    cert: "Practical portfolio work",
-    topics: [
-      "Google Ads Search, Display, Shopping campaigns",
-      "Campaign structure, ad groups & match types",
-      "Meta Ads Facebook & Instagram campaigns",
-      "Audience targeting & retargeting",
-      "Ad copywriting & creative best practices",
-      "A/B testing ads and landing pages",
-      "Conversion tracking with Google Tag Manager",
-    ],
-    builds: "A mentor-guided ads practice project: structure, tracking plan, and reporting template",
+    module: "Module 2",
+    title: "SEO Training",
+    focus: "Learn how to improve search visibility with practical research, on-page work, and audit thinking.",
+    topics: ["Keyword research", "On-page SEO", "SEO audits", "Search Console basics"],
   },
   {
-    month: "Month 3",
-    title: "Social Media & Content Marketing",
-    hours: "~35 hrs/week",
-    color: "bg-pink-500",
-    cert: "Practical portfolio work",
-    topics: [
-      "Social media strategy Instagram, LinkedIn, YouTube",
-      "Content calendar creation & scheduling",
-      "Reels & short-form video for marketing",
-      "Email marketing Mailchimp / Klaviyo",
-      "Influencer marketing basics",
-      "Brand voice & storytelling",
-      "Canva Pro for content design",
-    ],
-    builds: "A 30-day content plan + creative set + reporting exercise",
+    module: "Module 3",
+    title: "Google Ads Training",
+    focus: "Plan and structure Google Ads campaigns with better messaging and reporting discipline.",
+    topics: ["Campaign structure", "Keyword grouping", "Ad copy planning", "Landing page coordination"],
   },
   {
-    month: "Month 4",
-    title: "Analytics, Strategy & Practical Projects",
-    hours: "~40 hrs/week",
-    color: "bg-green-500",
-    cert: "Portfolio of practical case work",
-    topics: [
-      "Advanced Google Analytics 4",
-      "Google Looker Studio reporting dashboards",
-      "Full-funnel marketing strategy",
-      "Presentation & communication skills",
-      "Project workflow & documentation",
-      "Freelancing basics (optional): pricing and proposals",
-      "Interview preparation & LinkedIn optimisation",
-    ],
-    builds: "A complete audit + strategy document presented as a mentor-reviewed project",
+    module: "Module 4",
+    title: "Meta Ads Training",
+    focus: "Build Meta Ads understanding around audiences, creative angles, and campaign messaging.",
+    topics: ["Audience research", "Creative angles", "Campaign objectives", "Ad reporting basics"],
+  },
+  {
+    module: "Module 5",
+    title: "Social Media Marketing",
+    focus: "Plan social content with consistency, structure, and platform-specific thinking.",
+    topics: ["Post planning", "Reel hooks", "Calendar creation", "Brand messaging"],
+  },
+  {
+    module: "Module 6",
+    title: "Content & Copywriting",
+    focus: "Write and organize content that supports SEO, ads, and social media campaigns.",
+    topics: ["Blog and page outlines", "Caption and hook writing", "Ad copy drafts", "Content calendars"],
+  },
+  {
+    module: "Module 7",
+    title: "Analytics & Reporting",
+    focus: "Turn metrics into useful summaries, explanations, and reporting documents.",
+    topics: ["Marketing metrics", "Report summaries", "Insight generation", "Performance explanation"],
+  },
+  {
+    module: "Module 8",
+    title: "AI for Digital Marketing",
+    focus: "Learn how to use AI tools responsibly for marketing research, content planning, campaign ideas, ad copy, SEO support, reporting, analytics interpretation, and productivity.",
+    topics: ["AI-assisted research", "Content planning support", "Campaign ideation", "Reporting and productivity workflows"],
+  },
+  {
+    module: "Module 9",
+    title: "Portfolio & Career Preparation",
+    focus: "Prepare project documentation, case work, interview answers, and portfolio presentation.",
+    topics: ["Case study formatting", "Resume and portfolio prep", "Interview preparation", "Career guidance"],
   },
 ];
 
@@ -79,97 +65,77 @@ export function DGMCurriculum() {
   const [open, setOpen] = useState(0);
 
   return (
-        <section className="bg-background py-20">
-          <div className="mx-auto max-w-4xl px-6">
-            <div className="mb-10 text-center">
+    <section className="bg-background py-16 sm:py-20">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6">
+        <div className="mb-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-3 inline-flex max-w-full items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-primary sm:px-4 sm:text-xs sm:tracking-widest"
+          >
+            <BookOpen size={13} />
+            What You Will Learn
+          </motion.div>
+          <h2 className="font-serif text-2xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+            Nine core modules.{" "}
+            <span className="italic text-primary">One practical digital marketing foundation.</span>
+          </h2>
+        </div>
+
+        <div className="space-y-3">
+          {modules.map((module, i) => {
+            const isOpen = open === i;
+
+            return (
               <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                key={module.title}
+                initial={{ opacity: 0, x: -12 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="mb-3 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary"
+                transition={{ delay: i * 0.05 }}
+                className={`rounded-2xl border transition-all duration-300 ${isOpen ? "border-primary/30 bg-card shadow-lg" : "border-border bg-card/50 hover:border-border/80"}`}
               >
-                <BookOpen size={13} />
-                Curriculum Month by Month
-              </motion.div>
-              <h2 className="font-serif text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-                4 Months. <span className="italic text-primary">One Complete Marketer.</span>
-              </h2>
-              <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-                Each month ends with practical project deliverables and mentor feedback.
-              </p>
-            </div>
+                <button
+                  onClick={() => setOpen(isOpen ? -1 : i)}
+                  className="flex w-full items-start justify-between gap-3 p-4 text-left sm:items-center sm:p-5"
+                >
+                  <div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">{module.module}</span>
+                    <h3 className={`font-bold text-sm leading-snug transition-colors sm:text-base ${isOpen ? "text-primary" : "text-foreground"}`}>
+                      {module.title}
+                    </h3>
+                  </div>
+                  <ChevronDown size={18} className={`shrink-0 text-muted-foreground transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
+                </button>
 
-            <div className="space-y-3">
-              {months.map((m, i) => {
-                const isOpen = open === i;
-                return (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, x: -12 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.08 }}
-                    className={`rounded-2xl border transition-all duration-300 ${isOpen ? "border-primary/30 bg-card shadow-lg" : "border-border bg-card/50 hover:border-border/80"}`}
-                  >
-                    <button
-                      onClick={() => setOpen(isOpen ? -1 : i)}
-                      className="flex w-full items-center justify-between p-5 text-left"
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
-                      <div className="flex items-center gap-4">
-                        <span className={`h-3 w-3 shrink-0 rounded-full ${m.color}`} />
-                        <div>
-                          <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">{m.month}</span>
-                          <h3 className={`font-bold text-base transition-colors ${isOpen ? "text-primary" : "text-foreground"}`}>
-                            {m.title}
-                          </h3>
-                        </div>
+                      <div className="border-t border-border px-4 pb-4 pt-4 sm:px-5 sm:pb-5">
+                        <p className="mb-4 text-sm leading-relaxed text-muted-foreground">{module.focus}</p>
+                        <ul className="grid gap-2 sm:grid-cols-2">
+                          {module.topics.map((topic) => (
+                            <li key={topic} className="flex items-start gap-2 text-sm text-muted-foreground">
+                              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                              {topic}
+                            </li>
+                          ))}
+                        </ul>
                       </div>
-                      <div className="flex items-center gap-3">
-                        <span className="hidden text-xs text-muted-foreground sm:block">{m.hours}</span>
-                        <ChevronDown size={18} className={`shrink-0 text-muted-foreground transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
-                      </div>
-                    </button>
-
-                    <AnimatePresence initial={false}>
-                      {isOpen && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.3, ease: "easeInOut" }}
-                        >
-                          <div className="border-t border-border px-5 pb-5 pt-4">
-                            <div className="grid gap-4 sm:grid-cols-2">
-                              <div>
-                                <p className="mb-2 text-xs font-bold uppercase tracking-wider text-muted-foreground">Topics Covered</p>
-                                <ul className="space-y-1.5">
-                                  {m.topics.map((t) => (
-                                    <li key={t} className="flex items-start gap-2 text-sm text-muted-foreground">
-                                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                                      {t}
-                                    </li>
-                                  ))}
-                                </ul>
-                              </div>
-                              <div className="flex flex-col gap-3">
-                                <div className="rounded-xl border border-primary/10 bg-primary/5 p-4">
-                                  <p className="mb-1 text-xs font-bold uppercase tracking-wider text-primary">What you deliver</p>
-                                  <p className="text-sm font-semibold text-foreground">{m.builds}</p>
-                                </div>
-                                <div className="rounded-xl bg-secondary/10 p-3">
-                                  <p className="text-xs text-muted-foreground"><strong className="text-foreground">Certification target:</strong> {m.cert}</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
   );
 }

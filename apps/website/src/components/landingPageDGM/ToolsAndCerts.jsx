@@ -1,115 +1,106 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Wrench, BadgeCheck } from "lucide-react";
+import { BadgeCheck, Wrench } from "lucide-react";
 
 const toolCategories = [
   {
-    category: "SEO Tools",
+    category: "SEO & Research",
     color: "border-blue-400/30 bg-blue-50/50 dark:bg-blue-950/10",
     dot: "bg-blue-500",
-    tools: ["Google Search Console", "Google Analytics 4", "Ahrefs / SEMrush", "Ubersuggest", "Screaming Frog (basics)"],
+    tools: ["Google Search Console", "Google Analytics", "Keyword research workflows", "SEO audit support", "Topic mapping"],
   },
   {
-    category: "Paid Advertising",
+    category: "Ads & Campaign Planning",
     color: "border-orange-400/30 bg-orange-50/50 dark:bg-orange-950/10",
     dot: "bg-orange-500",
-    tools: ["Google Ads Manager", "Meta Ads Manager", "Google Tag Manager", "Conversion tracking setup"],
+    tools: ["Google Ads planning", "Meta Ads structure", "Keyword grouping", "Ad messaging drafts", "Landing page coordination"],
   },
   {
-    category: "Content & Design",
+    category: "Content & Social",
     color: "border-pink-400/30 bg-pink-50/50 dark:bg-pink-950/10",
     dot: "bg-pink-500",
-    tools: ["Canva Pro", "CapCut / Premiere Rush", "Notion for content planning", "Buffer / Hootsuite for scheduling"],
+    tools: ["Blog outlines", "Caption planning", "Content calendars", "Reel hooks", "Creative angle ideas"],
   },
   {
-    category: "Email & CRM",
+    category: "Reporting & Analysis",
     color: "border-green-400/30 bg-green-50/50 dark:bg-green-950/10",
     dot: "bg-green-500",
-    tools: ["Mailchimp / Klaviyo", "HubSpot (basics)", "UTM tracking setup"],
-  },
-  {
-    category: "Analytics & Reporting",
-    color: "border-purple-400/30 bg-purple-50/50 dark:bg-purple-950/10",
-    dot: "bg-purple-500",
-    tools: ["Google Looker Studio", "UTM & campaign tracking", "Excel / Google Sheets for reporting"],
+    tools: ["Report summaries", "Performance explanation", "Insight generation", "Campaign documentation", "Presentation support"],
   },
 ];
 
-const certifications = [
-  { name: "Google Ads Certification", provider: "Google", color: "bg-blue-100 text-blue-800 dark:bg-blue-950/50 dark:text-blue-300" },
-  { name: "Google Analytics 4 Certification", provider: "Google", color: "bg-blue-100 text-blue-800 dark:bg-blue-950/50 dark:text-blue-300" },
-  { name: "Meta Blueprint Certification", provider: "Meta", color: "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/50 dark:text-indigo-300" },
-  { name: "HubSpot Content Marketing", provider: "HubSpot", color: "bg-orange-100 text-orange-800 dark:bg-orange-950/50 dark:text-orange-300" },
-  { name: "SkillYards Industry Certificate", provider: "SkillYards", color: "bg-primary/10 text-primary" },
+const notePoints = [
+  "SEO, Google Ads, Meta Ads, social media, content, analytics, and reporting are taught together as a practical skill set.",
+  "AI is integrated into workflow support, not sold as a shortcut around marketing basics.",
+  "Students learn how to plan, explain, and present marketing work clearly for interviews and opportunities.",
 ];
 
 export function DGMToolsAndCerts() {
   return (
-        <section className="bg-card/20 py-20">
-          <div className="mx-auto max-w-5xl px-6">
-            <div className="mb-10 text-center">
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="mb-3 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary"
-              >
-                <Wrench size={13} />
-                Tools & Certifications
-              </motion.div>
-              <h2 className="font-serif text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-                5 Industry Certifications.{" "}
-                <span className="italic text-primary">All Included.</span>
-              </h2>
-              <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-                Tools access is provided during the course. Certifications are free to earn we guide you through every one.
-              </p>
-            </div>
+    <section className="bg-background py-16 sm:py-20">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">
+        <div className="mb-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-3 inline-flex max-w-full items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-primary sm:px-4 sm:text-xs sm:tracking-widest"
+          >
+            <Wrench size={13} />
+            Tools & Workflow Exposure
+          </motion.div>
+          <h2 className="font-serif text-2xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+            Learn tools, structure, and reporting{" "}
+            <span className="italic text-primary">used by modern marketers.</span>
+          </h2>
+        </div>
 
-            {/* Certifications strip */}
+        <div className="grid gap-4 sm:grid-cols-2">
+          {toolCategories.map((cat, i) => (
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
+              key={cat.category}
+              initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mb-10 flex flex-wrap items-center justify-center gap-3"
+              transition={{ delay: i * 0.08 }}
+              className={`rounded-2xl border p-4 sm:p-5 ${cat.color}`}
             >
-              {certifications.map((cert) => (
-                <div key={cert.name} className={`flex items-center gap-2 rounded-full px-4 py-2 text-sm font-bold ${cert.color}`}>
-                  <BadgeCheck size={15} />
-                  <span>{cert.name}</span>
-                  <span className="opacity-60 text-xs font-normal">by {cert.provider}</span>
-                </div>
-              ))}
+              <div className="mb-3 flex items-center gap-2">
+                <span className={`h-2.5 w-2.5 rounded-full ${cat.dot}`} />
+                <h3 className="text-sm font-bold text-foreground sm:text-base">{cat.category}</h3>
+              </div>
+              <ul className="space-y-1.5">
+                {cat.tools.map((tool) => (
+                  <li key={tool} className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <span className="h-1 w-1 shrink-0 rounded-full bg-foreground/30" />
+                    {tool}
+                  </li>
+                ))}
+              </ul>
             </motion.div>
+          ))}
+        </div>
 
-            {/* Tools grid */}
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {toolCategories.map((cat, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 14 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08 }}
-                  className={`rounded-2xl border p-5 ${cat.color}`}
-                >
-                  <div className="mb-3 flex items-center gap-2">
-                    <span className={`h-2.5 w-2.5 rounded-full ${cat.dot}`} />
-                    <h3 className="font-bold text-foreground">{cat.category}</h3>
-                  </div>
-                  <ul className="space-y-1.5">
-                    {cat.tools.map((t) => (
-                      <li key={t} className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <span className="h-1 w-1 shrink-0 rounded-full bg-foreground/30" />
-                        {t}
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              ))}
-            </div>
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-8 rounded-3xl border border-border bg-card p-5 shadow-sm sm:p-6"
+        >
+          <div className="mb-4 flex items-center gap-2 text-primary">
+            <BadgeCheck size={16} />
+            <p className="text-sm font-bold uppercase tracking-widest">How SkillYards teaches this</p>
           </div>
-        </section>
+          <div className="grid gap-3 sm:grid-cols-3">
+            {notePoints.map((point) => (
+              <p key={point} className="rounded-2xl bg-secondary/10 p-4 text-sm leading-relaxed text-muted-foreground">
+                {point}
+              </p>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </section>
   );
 }

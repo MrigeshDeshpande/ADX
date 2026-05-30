@@ -5,7 +5,7 @@ export const TEAM_MEMBERS = {
         slug: "rahulsingh",
         name: "Rahul Singh",
         role: "COO",
-        bio: "Visionary behind SkillYards, dedicated to delivering industry-relevant learning and empowering tech professionals to bridge the gap between theory and reality.",
+        bio: "Focused on operations, curriculum coordination, student support, and creating smoother learning experiences that help students stay consistent and career-focused.",
         image: "/images/team/rahul-singh.webp",
         imageClassName: "object-top scale-[1.15] group-hover:scale-[1.25] md:group-hover:scale-[1.25]",
         badge: "Leadership",
@@ -20,7 +20,7 @@ export const TEAM_MEMBERS = {
         slug: "suryanshupadhyay",
         name: "Suryansh Upadhyay",
         role: "CEO",
-        bio: "Focused on building SkillYards as a practical, career-focused IT training institute in Agra for students after 12th or graduation.",
+        bio: "Focused on building SkillYards around practical skills, structured mentorship, and career-focused learning for students after 12th and graduates.",
         image: "/images/team/suryanshSir.webp",
         badge: "Leadership",
         socials: {

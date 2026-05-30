@@ -1,17 +1,20 @@
 [
   {
-    "title": "About",
-    "highlight": "SkillYards",
-    "tagline": "Turning Students into Skilled, Career-Ready Professionals",
-    "description1": "SkillYards is a IT training institute in Agra offering practical training for students, career guidance, and job-ready skills for learners after 12th and college students.",
-    "description2": "We focus on real-world projects, mentorship, and industry-oriented learning so students can confidently start their careers.",
+    "title": "Build Career-Ready Skills in Agra Through",
+    "highlight": "Practical Learning",
+    "badge": "AI-Integrated Career-Building Institute in Agra",
+    "tagline": "SkillYards combines practical training, mentorship, and AI-integrated learning to help students build real-world skills and career confidence.",
+    "description1": "",
+    "description2": "",
+    "trustLine": "Offline learning in Agra • AI-integrated programs • Practical projects • Placement assistance",
+    "localLine": "SkillYards Campus: A-3, behind Manoj Dhaba, Bhagwan Talkies Crossing, Indra Puri, New Agra Colony, Agra, Uttar Pradesh 282005.",
     "primaryCTA": {
-      "text": "Book Career Counselling",
-      "link": "/contact"
+      "text": "Explore Programs",
+      "link": "/programs"
     },
     "secondaryCTA": {
-      "text": "Explore IT Courses",
-      "link": "/programs"
+      "text": "Book Career Counselling",
+      "link": "/contact"
     },
     "image": "/images/About-page.webp"
   }

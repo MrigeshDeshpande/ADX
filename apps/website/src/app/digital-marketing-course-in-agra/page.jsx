@@ -20,14 +20,14 @@ export const metadata = buildSEO({
 export default async function DigitalMarketingPage() {
   const course = courses.digitalmarketing;
   const courseSchema = getCourseSchema(course);
-  const faqs = await getPageFaqs("digitalmarketing");
+  const faqs = await getPageFaqs("digitalmarketing", 8);
   const faqSchema = getFAQSchema(faqs, absoluteUrl("/digital-marketing-course-in-agra"));
 
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: "Home", url: "/" },
     { name: "Programs", url: "/programs" },
     { name: "On-Job Training", url: "/programs/on-job-training" },
-    { name: course.title, url: "/digital-marketing-course-in-agra" },
+    { name: course.programName || course.title, url: "/digital-marketing-course-in-agra" },
   ]);
 
   const webPageSchema = getWebPageSchema({

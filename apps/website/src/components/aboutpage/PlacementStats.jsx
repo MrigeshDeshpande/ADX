@@ -1,80 +1,57 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { Compass, FolderKanban, ShieldCheck, Sparkles } from "lucide-react";
 
-function Counter({ value, suffix = "+" }) {
-    const textRef = useRef(null);
-    const containerRef = useRef(null);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (!entry.isIntersecting) return;
-
-                const duration = 1200;
-                const startTime = performance.now();
-
-                const updateCounter = (currentTime) => {
-                    const elapsedTime = currentTime - startTime;
-                    if (elapsedTime < duration) {
-                        const currentVal = Math.ceil((elapsedTime / duration) * value);
-                        if (textRef.current) {
-                            textRef.current.textContent = currentVal + suffix;
-                        }
-                        requestAnimationFrame(updateCounter);
-                    } else {
-                        if (textRef.current) {
-                            textRef.current.textContent = value + suffix;
-                        }
-                    }
-                };
-
-                requestAnimationFrame(updateCounter);
-                observer.disconnect();
-            },
-            { threshold: 0.3 }
-        );
-
-        if (containerRef.current) observer.observe(containerRef.current);
-        return () => observer.disconnect();
-    }, [value, suffix]);
-
-    return (
-        <span ref={containerRef} className="text-4xl font-extrabold">
-            <span ref={textRef}>0{suffix}</span>
-        </span>
-    );
-}
+const cards = [
+    {
+        title: "Guided",
+        description: "Students should feel supported by mentors, structure, and clearer next steps.",
+        icon: Compass,
+    },
+    {
+        title: "More Confident",
+        description: "Learning is designed to improve confidence through practical work, not only theory.",
+        icon: ShieldCheck,
+    },
+    {
+        title: "More Prepared",
+        description: "Students build projects, portfolios, documentation, and stronger interview readiness.",
+        icon: FolderKanban,
+    },
+    {
+        title: "More Career-Aware",
+        description: "The aim is to reduce confusion and help learners understand where their skills can lead.",
+        icon: Sparkles,
+    },
+];
 
 export default function PlacementStats() {
     return (
         <section className="py-20 bg-background">
             <div className="max-w-7xl mx-auto px-6">
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-                    <div>
-                        <Counter value={1200} />
-                        <p className="mt-2 text-muted-foreground">
-                            Students Trained
-                        </p>
-                    </div>
-                    <div>
-                        <Counter value={300} />
-                        <p className="mt-2 text-muted-foreground">
-                            Internships Offered
-                        </p>
-                    </div>
-                    <div>
-                        <Counter value={180} />
-                        <p className="mt-2 text-muted-foreground">
-                            Hiring Partners
-                        </p>
-                    </div>
-                    <div>
-                        <Counter value={95} suffix="%" />
-                        <p className="mt-2 text-muted-foreground">
-                            Placement Success
-                        </p>
-                    </div>
+                <div className="mx-auto max-w-3xl text-center">
+                    <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground">
+                        More Than Courses - A Career-Building Journey
+                    </h2>
+                    <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+                        SkillYards is built to help students feel guided, more practical, less confused about the future,
+                        and better prepared for real-world learning and career conversations.
+                    </p>
+                </div>
+
+                <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                    {cards.map(({ title, description, icon: Icon }) => (
+                        <div
+                            key={title}
+                            className="rounded-[2rem] border border-border/50 bg-card/60 p-6 text-left shadow-md backdrop-blur-sm"
+                        >
+                            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                                <Icon className="h-5 w-5" />
+                            </div>
+                            <h3 className="mt-5 text-xl font-bold text-foreground">{title}</h3>
+                            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{description}</p>
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>

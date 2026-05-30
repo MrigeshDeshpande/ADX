@@ -52,9 +52,9 @@ const programs = [
     badgeText: "text-slate-900",
     glowColor: "bg-amber-400/10",
     topics: [
-      { phase: "Month 1", title: "Organic", subjects: ["SEO & Keyword Research", "Content Marketing Strategy", "WordPress Basics", "Google Analytics 4"] },
-      { phase: "Month 2", title: "Paid Media", subjects: ["Google Ads (Search/Display)", "Meta Ads (FB & Insta)", "Email Marketing", "Influencer Marketing"] },
-      { phase: "Month 3", title: "Growth", subjects: ["Social Media Strategy", "E-Commerce Marketing", "Reporting & Analysis", "Live Client Campaigns"] },
+      { phase: "Month 1-2", title: "Foundations", subjects: ["Digital Marketing Fundamentals", "SEO & Keyword Research", "Content Strategy", "Analytics Basics"] },
+      { phase: "Month 3-4", title: "Campaigns", subjects: ["Google Ads Planning", "Meta Ads Strategy", "Social Media Marketing", "Reporting Workflows"] },
+      { phase: "Month 5-6", title: "AI + Portfolio", subjects: ["AI for Marketing Tasks", "Portfolio Case Work", "Local SEO Planning", "Career Preparation"] },
     ],
   },
 ];

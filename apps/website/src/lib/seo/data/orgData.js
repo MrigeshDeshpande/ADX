@@ -5,7 +5,7 @@ export const orgData = {
   name: "SkillYards",
   url: BASE_URL,
   description:
-    "SkillYards is an IT training institute in Agra offering project-based BCA, BBA, full-stack development, digital marketing, and career-focused training programs.",
+    "SkillYards is an AI-integrated career-building institute in Agra offering practical learning, mentorship, OJD and OJT pathways, Full-Stack Web Development, Digital Marketing, and career-focused training with portfolio building and placement assistance.",
 
   foundingDate: "2023",
 
@@ -53,7 +53,7 @@ export const orgData = {
   location: {
     name: "SkillYards",
     address: {
-      streetAddress: "A-3, behind Manoj Dhaba, Bhagwan Talkies crossing, Indra Puri, New Agra Colony, Agra, Uttar Pradesh",
+      streetAddress: "A-3, behind Manoj Dhaba, Bhagwan Talkies Crossing, Indra Puri, New Agra Colony, Agra, Uttar Pradesh",
       addressLocality: "Agra",
       addressRegion: "Uttar Pradesh",
       postalCode: "282005",

@@ -24,7 +24,7 @@ const ProgramsShowcase = () => {
     const trainingPrograms = [
         {
             title: "Full-Stack Web Development",
-            description: "Build real web apps with React, Node.js & databases. Create a portfolio and get placed in top IT companies.",
+            description: "Learn HTML, CSS, JavaScript, React, Node.js, MongoDB, GitHub, deployment, and AI-assisted coding workflows through offline classroom training in Agra.",
             link: "/full-stack-web-development-training-in-agra",
             icon: <Code2 className="w-6 h-6 md:w-8 md:h-8 text-teal-400" />,
             bg: "/images/programmes/full-stack.jpg",
@@ -32,7 +32,7 @@ const ProgramsShowcase = () => {
         },
         {
             title: "Digital Marketing Course",
-            description: "Master SEO, Google Ads, Meta Ads & analytics. Get Google & Meta certified in just 3 months.",
+            description: "Learn SEO, Google Ads, Meta Ads, social media, analytics, reporting, and practical AI-integrated workflows in 6 months.",
             link: "/digital-marketing-course-in-agra",
             icon: <Megaphone className="w-6 h-6 md:w-8 md:h-8 text-yellow-400" />,
             bg: "/images/programmes/uiux.jpg",

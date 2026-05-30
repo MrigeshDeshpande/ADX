@@ -10,7 +10,7 @@ const alumni = [
     role: "Junior Frontend Developer",
     company: "TechSpark Noida",
     package: "₹4.2 LPA",
-    quote: "SkillYards didn't just teach me code they placed me in a real project during my final year. I had a job offer before I even graduated.",
+    quote: "SkillYards didn't just teach me code. I built practical projects during my final year and felt more confident for interviews and early career opportunities.",
   },
   {
     name: "Rahul Verma",

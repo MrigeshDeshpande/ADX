@@ -1,33 +1,33 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BriefcaseBusiness, FileStack, Rocket, Sparkles } from "lucide-react";
+import { BriefcaseBusiness, FileStack, Github, LineChart, Sparkles, Users } from "lucide-react";
 
 const reasons = [
   {
-    title: "Project-First Learning",
-    desc: "Concepts make more sense when tied to tasks, builds, campaigns, and deliverables. Training stays practical from start to finish.",
-    icon: FileStack,
+    title: "Classroom learning with mentor guidance",
+    desc: "Students learn through practical classroom sessions supported by mentors, structured assignments, and guided progress.",
+    icon: Users,
     accent: "from-primary/15 to-primary/5",
   },
   {
-    title: "Shorter Path To Hiring",
-    desc: "These tracks remove extra academic layers and focus on skill-building, portfolio proof, interview prep, and role-specific readiness.",
-    icon: Rocket,
+    title: "Portfolio and project-based learning",
+    desc: "Learners build portfolio-ready work through practical assignments, project exercises, GitHub/workflow practice, and structured execution.",
+    icon: FileStack,
     accent: "from-secondary/20 to-secondary/5",
   },
   {
-    title: "Mentored Work Exposure",
-    desc: "You train with guidance, feedback, and industry-style expectations so your work quality improves before interviews begin.",
+    title: "Job-ready skill focus",
+    desc: "The goal is to help students become more prepared for interviews, freelance work, internships, and real-world skill application.",
     icon: BriefcaseBusiness,
     accent: "from-accent/20 to-accent/5",
   },
 ];
 
 const highlights = [
-  { value: "2 Tracks", label: "Full-Stack and Digital Marketing" },
-  { value: "Hands-On", label: "Practical work over theory-only learning" },
-  { value: "Placement Focus", label: "Portfolio, confidence, and interview prep" },
+  { value: "2 Programs", label: "Full-Stack Web Development OJT and Digital Marketing OJT" },
+  { value: "Offline", label: "Classroom training in Agra with mentor support" },
+  { value: "Practical", label: "Assignments, projects, portfolio work, and workflow practice" },
 ];
 
 export default function WhyOnJobTraining() {
@@ -47,14 +47,19 @@ export default function WhyOnJobTraining() {
         >
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-primary">
             <Sparkles size={13} />
-            Why Choose This Path
+            What Is OJT?
           </div>
           <h2 className="font-serif text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-            Skill training,
-            <span className="block italic text-primary">built for quick momentum.</span>
+            What Is <span className="italic text-primary">On-Job Training (OJT)?</span>
           </h2>
-          <p className="mt-5 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
-            On-job training works best when learning stays close to actual execution. These programs focus on high-value skills, guided practice, and job-ready output.
+          <p className="mt-5 max-w-3xl text-base leading-8 text-muted-foreground sm:text-lg">
+            On-Job Training at SkillYards is designed for learners who want practical, job-ready skills instead of theory-only learning.
+          </p>
+          <p className="mt-3 max-w-3xl text-sm leading-7 text-muted-foreground sm:text-base">
+            Students learn through classroom sessions, mentor guidance, practical assignments, portfolio projects, GitHub/workflow practice, reporting exercises, and structured project-based learning.
+          </p>
+          <p className="mt-3 max-w-3xl text-sm leading-7 text-muted-foreground sm:text-base">
+            The goal is to help students become more prepared for interviews, freelance work, internships, and real-world skill application.
           </p>
         </motion.div>
 
@@ -66,14 +71,11 @@ export default function WhyOnJobTraining() {
           className="mx-auto max-w-5xl rounded-[2rem] border border-border/60 bg-card/60 p-4 shadow-sm sm:p-6"
         >
           <p className="text-center text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-            What makes it different
+            OJT at SkillYards
           </p>
           <div className="mt-5 grid gap-4 md:grid-cols-3">
             {highlights.map((item, index) => (
-              <div
-                key={item.label}
-                className="flex h-full flex-col rounded-2xl border border-border/60 bg-background px-5 py-5 text-center"
-              >
+              <div key={item.label} className="flex h-full flex-col rounded-2xl border border-border/60 bg-background px-5 py-5 text-center">
                 <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
                   0{index + 1}
                 </p>

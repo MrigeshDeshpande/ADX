@@ -8,11 +8,13 @@ export default function CtaBanner() {
 
             <div className="relative max-w-7xl mx-auto px-6 text-center">
                 <h2 className="text-3xl sm:text-4xl font-extrabold">
-                    Ready to Build Your Career with SkillYards?
+                    Start Building Practical Skills With SkillYards
                 </h2>
                 <p className="mt-4 max-w-2xl mx-auto text-primary-foreground">
-                    Join On Job Degree & Training programs designed to make you job-ready
-                    from day one.
+                    Explore SkillYards programs and discover practical, AI-integrated learning pathways designed for students after 12th, graduates, and career-focused learners.
+                </p>
+                <p className="mt-3 text-sm font-medium text-primary-foreground/90">
+                    Next batch starting soon - contact us for the upcoming schedule.
                 </p>
 
                 <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center ">
@@ -23,7 +25,7 @@ export default function CtaBanner() {
                     </Button>
                     <Button asChild size="lg" variant="outline" className="border-foreground text-foreground bg-primary-foreground shadow-lg shadow-primary">
                         <Link href="/contact">
-                            Talk to Counselor
+                            Book Career Counselling
                         </Link>
                     </Button>
                 </div>

@@ -70,7 +70,7 @@ export default function RahulHero() {
                     transition={{ delay: 0.4, duration: 0.5 }}
                     className="mt-4 text-muted-foreground leading-relaxed"
                 >
-                    Rahul Singh manages SkillYards&apos; operations - curriculum planning, mentor coordination, and student placements. He makes sure training runs smoothly and students get the support they need from day one to their first job.
+                    Rahul Singh focuses on operations, curriculum coordination, student support, and creating smoother learning experiences that help students stay consistent, supported, and career-focused throughout their time at SkillYards.
                 </m.p>
 
                 <m.div

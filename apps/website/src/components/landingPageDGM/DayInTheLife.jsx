@@ -7,7 +7,7 @@ const duringCourse = [
   { time: "10:00 AM", icon: Sun, title: "In-Person Class", desc: "Mentor demonstrates the tool in-person and you follow along in your own account. No slides, no theory dumps.", color: "bg-yellow-500" },
   { time: "12:00 PM", icon: BarChart2, title: "Hands-On Lab", desc: "Apply what was just taught on a real account real keywords, real campaigns, real data.", color: "bg-orange-500" },
   { time: "2:00 PM", icon: MessageSquare, title: "Campaign Review Session", desc: "Your work gets reviewed by the mentor. Numbers are discussed, decisions are challenged, strategy is sharpened.", color: "bg-pink-500" },
-  { time: "Evening", icon: Moon, title: "Self-Practice + Assignment", desc: "Recorded session for revision. Short assignment to reinforce the day. ~1–2 hrs outside class.", color: "bg-primary" },
+  { time: "Evening", icon: Moon, title: "Self-Practice + Assignment", desc: "Recorded session for revision. Short assignment to reinforce the day. About 1 to 2 hours outside class.", color: "bg-primary" },
 ];
 
 const afterGraduating = [

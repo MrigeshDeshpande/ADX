@@ -32,9 +32,6 @@ export default function PartnersSlider() {
                             </svg>
                         </span>
                     </h2>
-                    <p className="font-sans text-sm text-muted-foreground max-w-lg mx-auto leading-relaxed tracking-wide">
-                        Students train with tools, workflows, and hiring expectations used across modern IT companies, agencies, and startups.
-                    </p>
                 </m.div>
 
 
@@ -72,28 +69,6 @@ export default function PartnersSlider() {
                         </div>
                     </div>
                 </div>
-
-                {/* ── Stats strip ── */}
-                <m.div
-                    initial={false}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.55, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-                    className="max-w-3xl mx-auto px-6 mt-14"
-                >
-                    <div className="grid grid-cols-3 divide-x divide-border/50 rounded-2xl border border-border/50 bg-card overflow-hidden">
-                        {[
-                            { stat: "180+", label: "Hiring Partners" },
-                            { stat: "1200+", label: "Students Placed" },
-                            { stat: "Dedicated", label: "Career Support" },
-                        ].map(({ stat, label }) => (
-                            <div key={stat} className="flex flex-col items-center py-6 px-4 gap-1">
-                                <span className="font-mono text-3xl font-bold text-primary">{stat}</span>
-                                <span className="font-mono text-xs text-muted-foreground tracking-wide text-center">{label}</span>
-                            </div>
-                        ))}
-                    </div>
-                </m.div>
 
             </div>
         </section>

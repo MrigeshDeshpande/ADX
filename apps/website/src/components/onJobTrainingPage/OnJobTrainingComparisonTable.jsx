@@ -1,27 +1,30 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CheckCircle, LayoutList } from "lucide-react";
+import { Bot, Bug, ClipboardList, FileText, LayoutList, Lightbulb, LineChart, Search, Sparkles } from "lucide-react";
 
-const programs = ["Full-Stack", "Digital Marketing"];
+const fullStackAi = [
+  { label: "Debugging support", icon: Bug },
+  { label: "Code explanation", icon: Bot },
+  { label: "Documentation and README writing", icon: FileText },
+  { label: "Project planning", icon: ClipboardList },
+  { label: "Error understanding", icon: Sparkles },
+  { label: "Productivity support", icon: LayoutList },
+];
 
-const rows = [
-  { label: "Duration", values: ["6 Months", "3 Months"] },
-  { label: "Type", values: ["Skill Course", "Skill Course"] },
-  { label: "Training Style", values: ["Projects + Development Workflow", "Campaigns + Marketing Execution"] },
-  { label: "Eligibility", values: ["10+2 + basic computer knowledge", "10+2 pass"] },
-  { label: "Certification", values: ["Industry Certificate + Portfolio", "Google, Meta & SkillYards Certs"] },
-  { label: "Core Skills", values: ["React, Node, APIs, DB", "SEO, Ads, Content, Analytics"] },
-  { label: "Placement Support", values: ["100% Assistance", "100% Assistance"] },
-  { label: "Mode", values: ["Hybrid", "Hybrid"] },
-  { label: "Ideal For", values: ["Developer roles", "Marketing roles"] },
-  { label: "EMI Available", values: ["Yes", "Yes"] },
+const digitalAi = [
+  { label: "Keyword research support", icon: Search },
+  { label: "Content planning", icon: ClipboardList },
+  { label: "Ad copy drafts", icon: FileText },
+  { label: "SEO support", icon: Search },
+  { label: "Reporting summaries", icon: LineChart },
+  { label: "Campaign ideation", icon: Lightbulb },
 ];
 
 export default function OnJobTrainingComparisonTable() {
   return (
     <section className="bg-card/30 py-20">
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="mb-10 text-center">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -30,58 +33,80 @@ export default function OnJobTrainingComparisonTable() {
             className="mb-3 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary"
           >
             <LayoutList size={13} />
-            Side-by-Side Comparison
+            AI-Integrated Workflows
           </motion.div>
           <h2 className="font-serif text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-            Pick Track That Fits{" "}
-            <span className="italic text-primary">Your Goal.</span>
+            Learn Modern Skills With <span className="italic text-primary">AI-Integrated Workflows</span>
           </h2>
-          <p className="mx-auto mt-3 max-w-xl text-base text-muted-foreground">
-            Both paths are practical and placement-focused. Compare them quickly before choosing your direction.
+          <p className="mx-auto mt-3 max-w-3xl text-base leading-relaxed text-muted-foreground">
+            Modern developers and marketers use AI tools to improve productivity, research faster, understand problems better, organize workflows, and create better outputs.
+          </p>
+          <p className="mx-auto mt-3 max-w-3xl text-sm leading-7 text-muted-foreground sm:text-base">
+            SkillYards OJT programs include practical AI-assisted workflows alongside core fundamentals, so students learn how modern professionals actually work.
           </p>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
+        <div className="grid gap-6 lg:grid-cols-2">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-3xl border border-border bg-card p-6 shadow-sm"
+          >
+            <h3 className="font-serif text-2xl font-extrabold text-foreground">Full-Stack Web Development OJT</h3>
+            <p className="mt-2 text-sm leading-6 text-muted-foreground">
+              AI-assisted workflows for coding practice, debugging, project planning, and developer productivity.
+            </p>
+            <div className="mt-5 grid gap-3 sm:grid-cols-2">
+              {fullStackAi.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div key={item.label} className="flex items-center gap-3 rounded-2xl border border-border/60 bg-background p-4">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10">
+                      <Icon size={18} className="text-primary" />
+                    </div>
+                    <p className="text-sm font-semibold text-foreground">{item.label}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.08 }}
+            className="rounded-3xl border border-border bg-card p-6 shadow-sm"
+          >
+            <h3 className="font-serif text-2xl font-extrabold text-foreground">Digital Marketing OJT</h3>
+            <p className="mt-2 text-sm leading-6 text-muted-foreground">
+              AI-assisted workflows for research, planning, copy support, SEO, and campaign productivity.
+            </p>
+            <div className="mt-5 grid gap-3 sm:grid-cols-2">
+              {digitalAi.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div key={item.label} className="flex items-center gap-3 rounded-2xl border border-border/60 bg-background p-4">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10">
+                      <Icon size={18} className="text-primary" />
+                    </div>
+                    <p className="text-sm font-semibold text-foreground">{item.label}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </motion.div>
+        </div>
+
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="overflow-x-auto rounded-3xl border border-border shadow-sm max-w-5xl mx-auto"
+          className="mx-auto mt-8 max-w-3xl rounded-2xl border border-primary/10 bg-primary/5 px-5 py-4 text-center text-sm leading-relaxed text-muted-foreground"
         >
-          <table className="w-full min-w-[700px] border-collapse text-sm">
-            <thead>
-              <tr className="bg-primary text-primary-foreground">
-                <th className="rounded-tl-3xl px-6 py-4 text-left font-bold">Feature</th>
-                {programs.map((program, i) => (
-                  <th
-                    key={program}
-                    className={`px-5 py-4 text-center font-bold ${i === programs.length - 1 ? "rounded-tr-3xl" : ""}`}
-                  >
-                    {program}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((row, ri) => (
-                <tr
-                  key={row.label}
-                  className={`border-t border-border transition-colors hover:bg-primary/5 ${ri % 2 === 0 ? "bg-background" : "bg-card/50"}`}
-                >
-                  <td className="px-6 py-4 font-semibold text-foreground">{row.label}</td>
-                  {row.values.map((val, vi) => (
-                    <td key={`${row.label}-${vi}`} className="px-5 py-4 text-center text-muted-foreground">
-                      {val === "Yes" ? (
-                        <CheckCircle size={16} className="mx-auto text-green-500" />
-                      ) : (
-                        val
-                      )}
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </motion.div>
+          AI is taught as a practical assistant, not as a replacement for fundamentals, strategy, coding ability, creativity, or human judgement.
+        </motion.p>
       </div>
     </section>
   );

@@ -1,7 +1,34 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
+import { Brain, Code2, LineChart, Lightbulb } from "lucide-react";
+
+const aiCards = [
+  {
+    title: "For Developers",
+    icon: Code2,
+    points: [
+      "Debugging support",
+      "Code explanation",
+      "Documentation and README writing",
+      "Project planning",
+      "Error understanding",
+      "Productivity support",
+    ],
+  },
+  {
+    title: "For Marketers",
+    icon: LineChart,
+    points: [
+      "Keyword research support",
+      "Content planning",
+      "Ad copy drafts",
+      "SEO support",
+      "Reporting summaries",
+      "Campaign ideation",
+    ],
+  },
+];
 
 export default function StudentWorkAbout() {
     return (
@@ -14,7 +41,7 @@ export default function StudentWorkAbout() {
                         viewport={{ once: true }}
                         className="text-3xl sm:text-4xl font-extrabold mb-4"
                     >
-                        What Students Build at SkillYards
+                        Modern Learning Includes AI
                     </motion.h2>
                     <motion.p 
                         initial={false}
@@ -23,49 +50,47 @@ export default function StudentWorkAbout() {
                         transition={{ delay: 0.1 }}
                         className="mt-3 text-muted-foreground max-w-2xl mx-auto text-lg"
                     >
-                        Our training is defined by the quality of work our students produce. From day one, the focus is on practical implementation.
+                        Modern developers and marketers use AI to work faster and more efficiently.
+                        SkillYards integrates practical AI-assisted workflows while keeping the focus on fundamentals,
+                        practical understanding, and real-world execution.
                     </motion.p>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <div className="space-y-8">
-                        <div>
-                            <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                                <span className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-sm">01</span>
-                                Project-First Learning
-                            </h3>
-                            <p className="text-muted-foreground leading-relaxed">
-                                Students do not just watch lectures. They work on real-world assignments, industry campaigns, and technical tasks that simulate actual work environments.
-                            </p>
+                <div className="grid gap-6 lg:grid-cols-2">
+                    {aiCards.map(({ title, icon: Icon, points }) => (
+                        <div
+                            key={title}
+                            className="rounded-[2rem] border border-border/50 bg-card/60 p-8 shadow-lg backdrop-blur-sm"
+                        >
+                            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                                <Icon className="h-6 w-6" />
+                            </div>
+                            <h3 className="mt-6 text-2xl font-bold text-foreground">{title}</h3>
+                            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+                                {points.map((item) => (
+                                    <li
+                                        key={item}
+                                        className="rounded-2xl border border-border/40 bg-background/70 px-4 py-3 text-sm font-medium text-foreground"
+                                    >
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
                         </div>
-                        <div>
-                            <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                                <span className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-sm">02</span>
-                                Verifiable Proof
-                            </h3>
-                            <p className="text-muted-foreground leading-relaxed">
-                                Every student builds a portfolio that showcases their ability to solve problems, write clean code, or manage digital marketing campaigns effectively.
-                            </p>
-                        </div>
-                    </div>
+                    ))}
+                </div>
 
-                    <div className="bg-card/50 backdrop-blur-sm border border-border/50 rounded-[2rem] p-8 md:p-12">
-                        <h4 className="text-xl font-bold mb-6">Current Focus Areas</h4>
-                        <ul className="space-y-4">
-                            {[
-                                "Responsive Website Development",
-                                "Performance Marketing Audits",
-                                "Full-Stack Application Logic",
-                                "Social Media Content Calendars",
-                                "SEO Strategy Implementation",
-                                "Career Readiness Portfolios"
-                            ].map((item, idx) => (
-                                <li key={idx} className="flex items-center gap-3 text-foreground font-medium">
-                                    <CheckCircle2 className="text-primary w-5 h-5" />
-                                    {item}
-                                </li>
-                            ))}
-                        </ul>
+                <div className="mt-8 rounded-[2rem] border border-primary/15 bg-primary/5 p-6 text-sm leading-relaxed text-foreground sm:p-8">
+                    <div className="flex items-start gap-3">
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-background text-primary">
+                            <Brain className="h-5 w-5" />
+                        </div>
+                        <div>
+                            <p className="font-semibold">AI is taught as a practical assistant.</p>
+                            <p className="mt-2 text-muted-foreground">
+                                It is not positioned as a replacement for fundamentals, creativity, coding ability, strategy, or human judgement.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

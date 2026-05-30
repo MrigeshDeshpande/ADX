@@ -25,11 +25,11 @@ export default function ProgramsFAQ({ faqs = [] }) {
             FAQ
           </motion.div>
           <h2 className="font-serif text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-            Questions We Get{" "}
-            <span className="italic text-primary">Every Day.</span>
+            Questions About{" "}
+            <span className="italic text-primary">SkillYards OJT</span>
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-            Answered honestly because that&apos;s how decisions should be made.
+            Answered clearly so students and parents can understand how these programs work.
           </p>
         </div>
 

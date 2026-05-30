@@ -11,21 +11,21 @@ export function DGMFAQ({faqs}) {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-        <section className="relative overflow-hidden bg-background py-20">
+        <section className="relative overflow-hidden bg-background py-16 sm:py-20">
           <div className="pointer-events-none absolute right-0 top-0 h-[400px] w-[400px] -translate-y-1/2 translate-x-1/2 rounded-full bg-primary/5 blur-[120px]" />
 
-          <div className="relative z-10 mx-auto max-w-3xl px-6">
+          <div className="relative z-10 mx-auto max-w-3xl px-4 sm:px-6">
             <div className="mb-10 text-center">
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="mb-3 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary"
+                className="mb-3 inline-flex max-w-full items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-primary sm:px-4 sm:text-xs sm:tracking-widest"
               >
                 <HelpCircle size={13} />
                 FAQ
               </motion.div>
-              <h2 className="font-serif text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+              <h2 className="font-serif text-2xl font-extrabold tracking-tight text-foreground sm:text-4xl">
                 Every Question You Have.{" "}
                 <span className="italic text-primary">Answered Honestly.</span>
               </h2>
@@ -52,9 +52,9 @@ export function DGMFAQ({faqs}) {
                         aria-expanded={isOpen}
                         aria-controls={`faq-panel-${idx}`}
                         onClick={() => setOpenIndex(isOpen ? null : idx)}
-                        className="flex w-full items-center justify-between p-5 text-left"
+                        className="flex w-full items-start justify-between gap-3 p-4 text-left sm:items-center sm:p-5"
                       >
-                        <span className={`text-sm font-bold transition-colors sm:text-base ${isOpen ? "text-primary" : "text-foreground"}`}>
+                        <span className={`text-sm font-bold leading-snug transition-colors sm:text-base ${isOpen ? "text-primary" : "text-foreground"}`}>
                           {faq.question}
                         </span>
                         <span className={`ml-4 shrink-0 rounded-full p-1.5 transition-all ${isOpen ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"}`}>
@@ -75,7 +75,7 @@ export function DGMFAQ({faqs}) {
                       transition={{ duration: 0.25, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <p className="px-5 pb-5 text-sm leading-relaxed text-muted-foreground">{faq.answer}</p>
+                      <p className="px-4 pb-4 text-sm leading-relaxed text-muted-foreground sm:px-5 sm:pb-5">{faq.answer}</p>
                     </motion.div>
                   </motion.div>
                 );
@@ -85,7 +85,7 @@ export function DGMFAQ({faqs}) {
             <p className="mt-8 text-center text-sm text-muted-foreground">
               Still have questions?{" "}
               <Link href="/contact" className="font-bold text-primary underline underline-offset-4 hover:opacity-80">
-                Talk to our team
+                Book a free demo class
               </Link>
             </p>
           </div>

@@ -1,50 +1,57 @@
 export const courses = {
   fullstack: {
-    title: "Full Stack Development Course in Agra",
+    title: "AI-Integrated Full-Stack Web Development Course in Agra",
+    programName: "Full-Stack Web Development OJT",
     description:
-      "Learn MERN stack, build real-world applications, and get job-ready with SkillYards full stack program.",
-    certification: "Full Stack Development Certification",
+      "Join SkillYards' 6-month AI-integrated full-stack web development course in Agra. Learn HTML, CSS, JavaScript, React, Node.js, Express, MongoDB, Git/GitHub, deployment, debugging, documentation, AI-assisted coding workflows, mentor-guided projects, and placement assistance through offline classroom training.",
+    certification: "Full-Stack Web Development Certification",
 
     seo: {
-      title: "Full-Stack Web Development Course in Agra | SkillYards OJT",
+      title: "Full-Stack Web Development Course in Agra with AI | SkillYards",
       description:
-        "Go from zero to hired Full-Stack Developer in 6 months. MERN stack bootcamp in Agra with on-job training, real projects, and dedicated placement support. Starting ₹25,000.",
+        "Join SkillYards' 6-month AI-integrated Full-Stack Web Development Course in Agra. Learn MERN stack, React, Node.js, MongoDB, GitHub, deployment, AI-assisted coding workflows, projects, and placement assistance. Starting from ₹5k/month.",
       path: "/full-stack-web-development-training-in-agra",
       keywords: [
-        "full stack development course Agra",
-        "full stack web development training in Agra",
-        "MERN stack course Agra",
-        "coding bootcamp Agra",
-        "web development course with placement Agra",
-        "full stack developer course fees Agra",
-        "on job training web development Agra",
+        "Full-Stack Web Development Course in Agra",
+        "AI-Integrated Full-Stack Web Development Course in Agra",
+        "Full-Stack Web Development Training in Agra",
+        "MERN Stack Course in Agra",
+        "Web Development Course in Agra",
+        "Coding Course in Agra",
+        "React JS Course in Agra",
+        "Node.js Course in Agra",
+        "Full-Stack Developer Course with Placement Assistance in Agra",
       ],
-      ogImage: "/images/opengraph/fullstack-og.jpg",
+      ogImage: "/images/opengraph/programs-og.jpg",
     },
   },
 
   digitalmarketing: {
-    title: "Digital Marketing Course in Agra",
+    title: "AI-Integrated Digital Marketing Course in Agra",
+    programName: "Digital Marketing OJT",
     description:
-      "Master SEO, social media, and performance marketing with hands-on projects.",
+      "Join SkillYards' 6-month AI-integrated digital marketing course in Agra. Learn SEO, Google Ads, Meta Ads, social media marketing, content, analytics, reporting, practical AI tools, portfolio-ready case work, and placement assistance through offline classroom training.",
     certification: "Digital Marketing Certification",
 
     seo: {
-      title: "Digital Marketing Course in Agra with Placement | SkillYards OJT",
+      title: "Digital Marketing Course in Agra with AI & Placement Assistance | SkillYards",
       description:
-        "4-month Digital Marketing On-Job Training in Agra. Run real Google Ads & Meta campaigns. Earn Google, Meta & HubSpot certifications. Dedicated placement support. Starting ₹15,000.",
+        "Join SkillYards' 6-month AI-integrated Digital Marketing Course in Agra. Learn SEO, Google Ads, Meta Ads, social media, analytics, reporting, AI tools, portfolio projects, and placement assistance. Starting from ₹5.5k/month.",
       path: "/digital-marketing-course-in-agra",
       keywords: [
-        "digital marketing course Agra",
-        "digital marketing training institute Agra",
-        "digital marketing course with placement Agra",
-        "digital marketing classes in Agra",
-        "SEO course Agra",
-        "Google Ads training Agra",
-        "social media marketing course Agra",
-        "digital marketing certification Agra",
+        "Digital Marketing Course in Agra",
+        "Digital Marketing Training in Agra",
+        "Digital Marketing Institute in Agra",
+        "Offline Digital Marketing Course in Agra",
+        "AI Digital Marketing Course in Agra",
+        "AI-Integrated Digital Marketing Course in Agra",
+        "SEO Course in Agra",
+        "Google Ads Training in Agra",
+        "Meta Ads Training in Agra",
+        "Social Media Marketing Course in Agra",
+        "Digital Marketing Course with Placement Assistance in Agra",
       ],
-      ogImage: "/images/opengraph/digitalmarketing-og.jpg",
+      ogImage: "/images/opengraph/programs-og.jpg",
     },
   },
 

@@ -1,118 +1,129 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Layers } from "lucide-react";
+import { Briefcase, Bug, FileText, FolderGit2, Globe, Layers, LayoutTemplate, ServerCog, Sparkles } from "lucide-react";
 
 const layers = [
   {
-    layer: "Frontend",
+    layer: "GitHub-based code practice",
     color: "border-cyan-500/30 bg-cyan-500/5",
-    dotColor: "bg-cyan-500",
-    tech: [
-      { name: "HTML5 & CSS3", note: "Foundation" },
-      { name: "JavaScript (ES6+)", note: "Core language" },
-      { name: "React.js", note: "Primary framework" },
-      { name: "Tailwind CSS", note: "Styling" },
-      { name: "Next.js", note: "SSR/SSG basics" },
-    ],
+    icon: FolderGit2,
+    note: "Build consistency from early commits and structured repository practice.",
   },
   {
-    layer: "Backend",
+    layer: "Code review and debugging support",
     color: "border-purple-500/30 bg-purple-500/5",
-    dotColor: "bg-purple-500",
-    tech: [
-      { name: "Node.js", note: "Runtime" },
-      { name: "Express.js", note: "Framework" },
-      { name: "REST API design", note: "Architecture" },
-      { name: "JWT Auth", note: "Security" },
-      { name: "MVC pattern", note: "Structure" },
-    ],
+    icon: Bug,
+    note: "Understand mistakes, fix errors, and improve code quality with mentor guidance.",
   },
   {
-    layer: "Database",
+    layer: "Frontend projects with React",
     color: "border-green-500/30 bg-green-500/5",
-    dotColor: "bg-green-500",
-    tech: [
-      { name: "MongoDB", note: "Primary DB" },
-      { name: "Mongoose", note: "ODM" },
-      { name: "SQL basics", note: "Relational DB intro" },
-    ],
+    icon: LayoutTemplate,
+    note: "Build interactive interfaces and component-based frontend applications.",
   },
   {
-    layer: "Tools & DevOps",
+    layer: "Backend APIs with Node.js and Express",
     color: "border-orange-500/30 bg-orange-500/5",
-    dotColor: "bg-orange-500",
-    tech: [
-      { name: "Git & GitHub", note: "Version control" },
-      { name: "VS Code", note: "Editor" },
-      { name: "Postman", note: "API testing" },
-      { name: "Vercel / Railway", note: "Deployment" },
-      { name: "AWS S3 basics", note: "Cloud storage" },
-    ],
+    icon: ServerCog,
+    note: "Create routes, APIs, and backend logic that connect to real application flows.",
   },
   {
-    layer: "Professional Skills",
+    layer: "MongoDB database integration",
+    color: "border-emerald-500/30 bg-emerald-500/5",
+    icon: Layers,
+    note: "Work with collections, models, CRUD operations, and connected app data.",
+  },
+  {
+    layer: "Full-stack app deployment",
     color: "border-primary/20 bg-primary/5",
-    dotColor: "bg-primary",
-    tech: [
-      { name: "Code review", note: "PR workflow" },
-      { name: "Pair programming", note: "Collaboration" },
-      { name: "Agile basics", note: "Sprint workflow" },
-      { name: "Client communication", note: "Soft skill" },
-      { name: "Technical interviews", note: "Placement prep" },
-    ],
+    icon: Globe,
+    note: "Deploy frontend and backend projects so they can be shared in portfolios and interviews.",
+  },
+  {
+    layer: "README and documentation writing",
+    color: "border-sky-500/30 bg-sky-500/5",
+    icon: FileText,
+    note: "Document projects clearly for GitHub reviews, interviews, and portfolio discussions.",
+  },
+  {
+    layer: "AI-assisted debugging and documentation",
+    color: "border-fuchsia-500/30 bg-fuchsia-500/5",
+    icon: Sparkles,
+    note: "Use AI carefully to understand issues, drafts, and developer workflow improvements.",
+  },
+  {
+    layer: "Portfolio-ready project presentation",
+    color: "border-amber-500/30 bg-amber-500/5",
+    icon: Briefcase,
+    note: "Present your work in a way that supports interviews, GitHub reviews, and career conversations.",
   },
 ];
 
 export function FSDTechStack() {
+  const [showAll, setShowAll] = useState(false);
+
   return (
-        <section className="bg-background py-20">
-          <div className="mx-auto max-w-5xl px-6">
-            <div className="mb-10 text-center">
+    <section className="bg-background py-20">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mb-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-3 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary"
+          >
+            <Layers size={13} />
+            Practical Training
+          </motion.div>
+          <h2 className="font-serif text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+            Practical Full-Stack Training, <span className="italic text-primary">Not Just Theory.</span>
+          </h2>
+          <p className="mx-auto mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+            Students work on mentor-guided practical projects, full-stack application builds, GitHub-based code practice, code reviews, deployment exercises, and portfolio-ready project work. Selected students may also get exposure to live/internal projects where available.
+          </p>
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {layers.map((layer, i) => {
+            const Icon = layer.icon;
+            return (
               <motion.div
-                initial={{ opacity: 0, y: 10 }}
+                key={layer.layer}
+                initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="mb-3 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary"
+                transition={{ delay: i * 0.05 }}
+                className={`${!showAll && i >= 4 ? "hidden sm:block" : "block"} rounded-3xl border p-5 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md ${layer.color}`}
               >
-                <Layers size={13} />
-                Tech Stack
-              </motion.div>
-              <h2 className="font-serif text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-                What You Graduate With.{" "}
-                <span className="italic text-primary">Layer by Layer.</span>
-              </h2>
-              <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-                Every technology has a reason mapped to real job requirements, not a wishlist.
-              </p>
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {layers.map((layer, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 14 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08 }}
-                  className={`rounded-2xl border p-5 ${layer.color} ${i === 4 ? "sm:col-span-2 lg:col-span-1" : ""}`}
-                >
-                  <div className="mb-3 flex items-center gap-2">
-                    <span className={`h-2.5 w-2.5 rounded-full ${layer.dotColor}`} />
-                    <h3 className="font-bold text-foreground">{layer.layer}</h3>
+                <div className="mb-4 flex items-start justify-between gap-3">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-background/80 shadow-sm">
+                    <Icon size={18} className="text-foreground" />
                   </div>
-                  <ul className="space-y-2">
-                    {layer.tech.map((t) => (
-                      <li key={t.name} className="flex items-center justify-between text-sm">
-                        <span className="font-medium text-foreground">{t.name}</span>
-                        <span className="rounded-full bg-background/70 px-2 py-0.5 text-xs text-muted-foreground">{t.note}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              ))}
-            </div>
+                  <span className="rounded-full border border-white/40 bg-background/70 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-muted-foreground">
+                    Practical
+                  </span>
+                </div>
+                <h3 className="mb-2 font-serif text-lg font-extrabold leading-snug text-foreground">{layer.layer}</h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">{layer.note}</p>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {layers.length > 4 && (
+          <div className="mt-5 flex justify-center sm:hidden">
+            <button
+              type="button"
+              onClick={() => setShowAll((value) => !value)}
+              className="rounded-full border border-primary/20 bg-primary/5 px-5 py-2 text-xs font-bold uppercase tracking-[0.16em] text-primary"
+            >
+              {showAll ? "Show less" : "Show more"}
+            </button>
           </div>
-        </section>
+        )}
+      </div>
+    </section>
   );
 }

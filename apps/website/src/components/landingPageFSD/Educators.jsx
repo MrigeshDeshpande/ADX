@@ -37,7 +37,7 @@ export const FSDEducators = () => {
                 transition={{ delay: 0.1 }}
                 className="text-muted-foreground text-sm md:text-base lg:text-lg leading-relaxed"
               >
-                Our engineers aren&apos;t just academics — they are full-stack developers and system designers who have built and shipped real production systems.
+                Our engineers are full-stack developers and system designers who have built and shipped real production systems.
               </motion.p>
             </div>
 

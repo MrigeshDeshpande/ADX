@@ -1,92 +1,121 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { TrendingUp, Briefcase, IndianRupee, Laptop, Globe, Rocket } from "lucide-react";
+import { FileText, Lightbulb, LineChart, Megaphone, Search, Sparkles, Users } from "lucide-react";
 
-const reasons = [
+const aiUses = [
   {
-    icon: Globe,
-    stat: "60 Lakh+",
-    label: "Digital marketing job openings in India by 2026",
-    sub: "Demand is growing faster than supply skilled candidates are being hired fast.",
+    icon: Search,
+    title: "SEO",
+    items: ["Keyword ideas", "Content briefs", "Meta titles", "Topic clusters", "SEO audit support"],
   },
   {
-    icon: IndianRupee,
-    stat: "₹3–15 LPA",
-    label: "Salary range from fresher to 3 years experience",
-    sub: "Entry-level roles start at ₹3–5 LPA. Performance marketers with 2–3 years can earn ₹10–15 LPA.",
+    icon: FileText,
+    title: "Content Marketing",
+    items: ["Blog outlines", "Captions", "Hooks", "Ad copy drafts", "Content calendars"],
   },
   {
-    icon: Briefcase,
-    stat: "4 Career Paths",
-    label: "In-house, agency, freelance, or your own business",
-    sub: "No other skill gives you this range of outcomes from a single course.",
+    icon: Megaphone,
+    title: "Google Ads",
+    items: ["Ad copy variations", "Keyword grouping", "Landing page suggestions"],
   },
   {
-    icon: Laptop,
-    stat: "Zero Coding",
-    label: "No technical background needed whatsoever",
-    sub: "If you can use Instagram and Google, you already have more foundation than you think.",
+    icon: Users,
+    title: "Meta Ads",
+    items: ["Audience ideas", "Creative angles", "Campaign messaging"],
   },
   {
-    icon: TrendingUp,
-    stat: "Every Business",
-    label: "Needs digital marketing from a chai stall to a startup",
-    sub: "Traditional marketing is shrinking. Digital is where every rupee of marketing budget is moving.",
+    icon: Lightbulb,
+    title: "Social Media",
+    items: ["Post ideas", "Reel hooks", "Calendar planning", "Caption improvement"],
   },
   {
-    icon: Rocket,
-    stat: "Work Anywhere",
-    label: "Remote, freelance, or in-office digital marketing is location-free",
-    sub: "Manage campaigns from Agra for a client in Mumbai or Singapore. Your laptop is your office.",
+    icon: LineChart,
+    title: "Analytics & Portfolio",
+    items: ["Report summaries", "Insight generation", "Performance explanation", "Case study formatting", "Presentation support"],
   },
 ];
 
 export function DGMWhyDigitalMarketing() {
+  const [showAll, setShowAll] = useState(false);
+
   return (
-        <section className="bg-card/20 py-20">
-          <div className="mx-auto max-w-5xl px-6">
-            <div className="mb-10 text-center">
+    <section className="bg-card/20 py-16 sm:py-20">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mb-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-3 inline-flex max-w-full items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-primary sm:px-4 sm:text-xs sm:tracking-widest"
+          >
+            Learn with AI
+          </motion.div>
+          <h2 className="font-serif text-2xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+            Learn Digital Marketing the Modern Way{" "}
+            <span className="text-primary">With AI</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-3xl text-sm text-muted-foreground sm:text-base">
+            Digital marketing is changing fast. Today, marketers use AI to research faster, write better drafts, plan campaigns, understand data, and create sharper reports.
+          </p>
+          <p className="mx-auto mt-3 max-w-3xl text-sm text-muted-foreground sm:text-base">
+            SkillYards&apos; Digital Marketing OJT includes practical AI usage across key marketing tasks, so students do not just learn old-school digital marketing, they learn how modern marketers actually work.
+          </p>
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {aiUses.map((useCase, i) => {
+            const Icon = useCase.icon;
+            return (
               <motion.div
-                initial={{ opacity: 0, y: 10 }}
+                key={useCase.title}
+                initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="mb-3 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary"
+                transition={{ delay: i * 0.06 }}
+                className={`${!showAll && i >= 4 ? "hidden sm:block" : "block"} rounded-3xl border border-border bg-card p-4 shadow-sm sm:p-5`}
               >
-                The Opportunity
+                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10 sm:h-11 sm:w-11">
+                  <Icon size={18} className="text-primary sm:h-5 sm:w-5" />
+                </div>
+                <h3 className="mb-3 font-serif text-lg font-extrabold text-foreground sm:text-xl">{useCase.title}</h3>
+                <ul className="space-y-2">
+                  {useCase.items.map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
-              <h2 className="font-serif text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-                Why Digital Marketing is the <br />
-                <span className="text-primary">Smartest Career Move Right Now</span>
-              </h2>
-              <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
-                Whether you want a job, want to freelance, or want to grow your own business digital marketing is the one skill that works for all three.
-              </p>
-            </div>
+            );
+          })}
+        </div>
 
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {reasons.map((r, i) => {
-                const Icon = r.icon;
-                return (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 14 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.08 }}
-                    className={`rounded-2xl border border-border bg-card p-5 shadow-sm transition-all hover:border-primary/30 ${i === 4 ? "sm:col-span-2 lg:col-span-1" : ""}`}
-                  >
-                    <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
-                      <Icon size={18} className="text-primary" />
-                    </div>
-                    <p className="mb-0.5 text-2xl font-extrabold text-primary">{r.stat}</p>
-                    <p className="mb-2 text-sm font-bold text-foreground">{r.label}</p>
-                    <p className="text-xs leading-relaxed text-muted-foreground">{r.sub}</p>
-                  </motion.div>
-                );
-              })}
-            </div>
+        {aiUses.length > 4 && (
+          <div className="mt-5 flex justify-center sm:hidden">
+            <button
+              type="button"
+              onClick={() => setShowAll((value) => !value)}
+              className="rounded-full border border-primary/20 bg-primary/5 px-5 py-2 text-xs font-bold uppercase tracking-[0.16em] text-primary"
+            >
+              {showAll ? "Show less" : "Show more"}
+            </button>
           </div>
-        </section>
+        )}
+
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mx-auto mt-8 max-w-3xl rounded-3xl border border-primary/15 bg-primary/5 p-4 text-center sm:p-5"
+        >
+          <p className="text-sm font-semibold text-foreground">
+            AI is taught as a marketing assistant, not as a replacement for fundamentals, strategy, creativity, or human judgement.
+          </p>
+        </motion.div>
+      </div>
+    </section>
   );
 }

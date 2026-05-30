@@ -1,112 +1,111 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Hammer, GitBranch, Users, DollarSign, CheckCircle, X } from "lucide-react";
+import { Bot, Bug, ClipboardList, FileText, Sparkles, TestTube2 } from "lucide-react";
 
 const points = [
   {
-    icon: Hammer,
-    title: "From Month 4, you work on real projects",
-    desc: "The first 3 months are structured learning. From Month 4 you join SkillYards' internal development team working on live products and client briefs, not made-up exercises.",
+    icon: Bot,
+    title: "Code Explanation",
+    desc: "Understand unfamiliar code, syntax, and concepts faster while still learning how the logic works.",
   },
   {
-    icon: GitBranch,
-    title: "Every commit goes to your GitHub",
-    desc: "Your code, your repo, from Day 1. By the time you finish, your GitHub shows 6 months of consistent commits the first thing every hiring manager checks.",
+    icon: Bug,
+    title: "Debugging Support",
+    desc: "Use AI to identify errors, read stack traces, test fixes, and understand why issues happen.",
   },
   {
-    icon: Users,
-    title: "Real code reviews from senior developers",
-    desc: "Your code is reviewed by working developers not just ticked as 'submitted'. You learn why your approach was wrong, not just that it was.",
+    icon: ClipboardList,
+    title: "Project Planning",
+    desc: "Break features into smaller development tasks before you start building full-stack applications.",
   },
   {
-    icon: DollarSign,
-    title: "No stipend but something better",
-    desc: "The OJT phase is unpaid, but students build portfolio projects that go live on real domains. That live URL in your resume is worth more than a ₹2,000/month stipend.",
+    icon: FileText,
+    title: "Documentation",
+    desc: "Write README files, comments, and project notes that make your code easier to present and maintain.",
   },
-];
-
-const notJustAssignments = [
-  { text: "You push code that real users see", yes: true },
-  { text: "You work in a team with deadlines", yes: true },
-  { text: "You get PR feedback like a professional developer", yes: true },
-  { text: "Projects are deployed and maintained after you leave", yes: true },
-  { text: "You do a quiz and get a certificate", yes: false },
-  { text: "Assignments are graded by a teacher and forgotten", yes: false },
+  {
+    icon: TestTube2,
+    title: "Test-Case Thinking",
+    desc: "Generate edge cases and testing ideas to improve how you think about bugs and stability.",
+  },
+  {
+    icon: Sparkles,
+    title: "Productivity",
+    desc: "Improve your workflow while still writing, reviewing, and understanding your own code.",
+  },
 ];
 
 export function FSDOJTExplained() {
+  const [showAll, setShowAll] = useState(false);
+
   return (
-        <section className="bg-background py-20">
-          <div className="mx-auto max-w-5xl px-6">
-            <div className="mb-12 text-center">
+    <section className="bg-background py-20">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mb-12 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-3 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary"
+          >
+            AI-Integrated Learning
+          </motion.div>
+          <h2 className="font-serif text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+            Learn Full-Stack Development the Modern Way,{" "}
+            <span className="italic text-primary">With AI</span>
+          </h2>
+          <p className="mx-auto mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+            Modern developers use AI to understand errors faster, debug smarter, write documentation, plan features, and improve productivity. At SkillYards, AI is taught as a coding assistant, not as a replacement for fundamentals, logic, or hands-on coding.
+          </p>
+        </div>
+
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {points.map((point, i) => {
+            const Icon = point.icon;
+            return (
               <motion.div
-                initial={{ opacity: 0, y: 10 }}
+                key={point.title}
+                initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="mb-3 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary"
+                transition={{ delay: i * 0.08 }}
+                className={`${!showAll && i >= 4 ? "hidden sm:flex lg:flex" : "flex"} flex-col gap-4 rounded-2xl border border-border bg-card p-5 shadow-sm`}
               >
-                On-Job Training
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10">
+                  <Icon size={18} className="text-primary" />
+                </div>
+                <div>
+                  <h3 className="mb-2 font-serif text-lg font-extrabold text-foreground">{point.title}</h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{point.desc}</p>
+                </div>
               </motion.div>
-              <h2 className="font-serif text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-                &ldquo;Project-Based Learning&rdquo; is what everyone says{" "}<br/>
-                <span className="text-primary">Here&apos;s what we actually mean</span>
-              </h2>
-              <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
-                Most institutes dress up assignments as &ldquo;projects&rdquo;. On-Job Training at SkillYards means something specific.
-              </p>
-            </div>
+            );
+          })}
+        </div>
 
-            <div className="grid gap-5 sm:grid-cols-2 mb-12">
-              {points.map((p, i) => {
-                const Icon = p.icon;
-                return (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 14 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
-                    className="flex gap-4 rounded-2xl border border-border bg-card p-5 shadow-sm"
-                  >
-                    <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10">
-                      <Icon size={18} className="text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="mb-1 font-bold text-foreground">{p.title}</h3>
-                      <p className="text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-
-            {/* Not just assignments */}
-            <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="rounded-3xl border border-border bg-card p-6 shadow-sm"
+        {points.length > 4 && (
+          <div className="mt-5 flex justify-center sm:hidden">
+            <button
+              type="button"
+              onClick={() => setShowAll((value) => !value)}
+              className="rounded-full border border-primary/20 bg-primary/5 px-5 py-2 text-xs font-bold uppercase tracking-[0.16em] text-primary"
             >
-              <h3 className="mb-5 font-serif text-xl font-extrabold text-foreground">
-                What your Monday in Month 5 looks like:
-              </h3>
-              <div className="grid gap-2 sm:grid-cols-2">
-                {notJustAssignments.map((item, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    {item.yes ? (
-                      <CheckCircle size={16} className="shrink-0 text-green-500" />
-                    ) : (
-                      <X size={16} className="shrink-0 text-red-400" />
-                    )}
-                    <span className={`text-sm ${item.yes ? "text-foreground font-medium" : "text-muted-foreground line-through"}`}>
-                      {item.text}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
+              {showAll ? "Show less" : "Show more"}
+            </button>
           </div>
-        </section>
+        )}
+
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mx-auto mt-8 max-w-3xl rounded-2xl border border-primary/10 bg-primary/5 px-5 py-4 text-center text-sm leading-relaxed text-muted-foreground"
+        >
+          AI is taught as a coding assistant, not as a replacement for fundamentals, logic, or hands-on coding.
+        </motion.p>
+      </div>
+    </section>
   );
 }

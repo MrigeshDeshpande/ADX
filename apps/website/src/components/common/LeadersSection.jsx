@@ -26,7 +26,7 @@ export default function LeadersSection() {
                         Meet Our Leadership Team
                     </h2>
                     <p className="mt-4 text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
-                        Meet the team leading SkillYards - building an IT training institute in Agra that actually gets students placed.
+                        Meet the people helping shape SkillYards into an AI-integrated, career-building institute focused on practical learning, mentorship, and student growth.
                     </p>
                 </m.div>
             </div>

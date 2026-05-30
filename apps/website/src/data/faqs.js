@@ -2,6 +2,45 @@
 
 export const faqCategories = {
 
+    about: {
+        label: "About SkillYards",
+        description: "Questions about SkillYards, our learning model, OJD and OJT pathways, and career-focused training in Agra.",
+        faqs: [
+            {
+                question: "What is SkillYards?",
+                answer: "SkillYards is an AI-integrated career-building institute in Agra focused on practical learning, mentorship, industry-focused training, and structured programs for students after 12th and graduates.",
+            },
+            {
+                question: "What makes SkillYards different from a generic training institute?",
+                answer: "SkillYards focuses on practical learning, mentor guidance, portfolio-building, modern workflows, and career-focused preparation instead of theory-only classroom teaching.",
+            },
+            {
+                question: "What is the difference between OJD and OJT at SkillYards?",
+                answer: "OJD, or On-Job Degree, is for students after 12th who want a university-recognized degree pathway along with practical skill development. OJT, or On-Job Training, is for college students, graduates, and early-career learners who want focused practical training and portfolio-building in a shorter format.",
+            },
+            {
+                question: "Is AI included in SkillYards programs?",
+                answer: "Yes. SkillYards integrates practical AI-assisted workflows into learning so students understand how modern developers and marketers improve productivity, research, debugging, planning, reporting, and documentation.",
+            },
+            {
+                question: "Are SkillYards programs offline or online?",
+                answer: "SkillYards programs are conducted through offline classroom-based learning at the Agra campus so students can learn with mentor support, structure, and practical interaction.",
+            },
+            {
+                question: "Who can join SkillYards?",
+                answer: "SkillYards is designed for students after 12th, college students, graduates, and early-career learners who want more practical skills, better career clarity, and stronger real-world preparation.",
+            },
+            {
+                question: "Does SkillYards provide placement assistance?",
+                answer: "Yes. SkillYards provides placement assistance that may include resume building, portfolio review, GitHub or profile support, LinkedIn support, mock interviews, interview preparation, career counselling, and relevant opportunity referrals where available.",
+            },
+            {
+                question: "Where is SkillYards located?",
+                answer: "SkillYards is located at A-3, behind Manoj Dhaba, Bhagwan Talkies Crossing, Indra Puri, New Agra Colony, Agra, Uttar Pradesh 282005.",
+            },
+        ],
+    },
+
     homepage: {
         label: "About SkillYards",
         description: "General questions about SkillYards, our training model, and what we offer.",
@@ -67,11 +106,11 @@ export const faqCategories = {
             },
             {
                 question: "Is placement actually guaranteed?",
-                answer: "We have a strong track record of placements - which means we actively work to place every eligible student. We don't guarantee a specific salary, but we do guarantee dedicated placement support: resume building, mock interviews, referrals, and direct connections with 180+ hiring partners.",
+                answer: "No. Placement is not guaranteed. We provide placement assistance such as resume building, mock interviews, portfolio guidance, interview preparation, and relevant opportunity referrals where available.",
             },
             {
                 question: "What are the fee and EMI options?",
-                answer: "Skill courses start from ₹15,000 (Digital Marketing) and ₹25,000 (Full-Stack Dev). Degree program fees are shared during your counselling session. EMI and instalment options are available across all programs - contact us to know the exact payment plan.",
+                answer: "Fee and EMI options vary by program. For Digital Marketing OJT, the full fee is ₹35,000 and installment options are available starting from ₹5.5k/month. Contact us for the latest plan for any program.",
             },
             {
                 question: "What payment modes are accepted?",
@@ -92,49 +131,76 @@ export const faqCategories = {
         ],
     },
 
+    ojt: {
+        label: "On-Job Training",
+        description: "Everything about SkillYards' AI-integrated On-Job Training programs in Agra.",
+        faqs: [
+            {
+                question: "What is an On-Job Training (OJT) program?",
+                answer: "OJT programs at SkillYards focus on practical, project-based learning designed to help students build job-ready skills through mentor guidance, practical assignments, and portfolio work.",
+            },
+            {
+                question: "Which OJT programs are available at SkillYards?",
+                answer: "SkillYards currently offers Full-Stack Web Development OJT and Digital Marketing OJT.",
+            },
+            {
+                question: "Are these OJT programs offline or online?",
+                answer: "Both OJT programs are conducted through offline classroom training at the SkillYards Agra campus.",
+            },
+            {
+                question: "Is AI included in these OJT programs?",
+                answer: "Yes. Both programs include practical AI-assisted workflows alongside core learning fundamentals.",
+            },
+            {
+                question: "Who can join these OJT programs?",
+                answer: "These programs are best suited for college students, graduates, and early-career learners. Serious 12th-pass students, working professionals, and career switchers can also join.",
+            },
+            {
+                question: "What kind of practical work do students do?",
+                answer: "Students work on mentor-guided projects, practical exercises, portfolio work, GitHub/workflow practice, reporting exercises, and AI-assisted productivity tasks.",
+            },
+            {
+                question: "Does SkillYards provide placement assistance?",
+                answer: "Yes. Placement assistance includes resume building, portfolio review, GitHub/profile support, LinkedIn support, mock interviews, interview preparation, and career counselling.",
+            },
+        ],
+    },
+
     fullstack: {
         label: "Full-Stack Dev",
         description: "Everything about the Full-Stack Development program.",
         faqs: [
             {
-                question: "Do I need prior coding experience to join?",
-                answer: "No. The course starts from absolute scratch - HTML, CSS, and basic JavaScript in Month 1. The only requirement is basic computer comfort (using a browser, typing). If you can use WhatsApp and Google, you can start this course.",
+                question: "Is this Full-Stack Web Development Course in Agra offline or online?",
+                answer: "This is an offline classroom-based full-stack web development course at SkillYards, Agra.",
             },
             {
-                question: "Is a laptop mandatory? What are the minimum specs?",
-                answer: "Yes, a laptop is required - this is a hands-on practical course. Minimum: Intel Core i5 / Ryzen 5, 8GB RAM, 256GB SSD, Windows 10 or macOS. A smartphone alone won't work. If you don't have a laptop that meets these specs, talk to us before enrolling.",
+                question: "What is the duration of the course?",
+                answer: "The Full-Stack Web Development OJT program duration is 6 months.",
             },
             {
-                question: "What if I miss a class?",
-                answer: "Every session is recorded and shared with enrolled students within 24 hours. We also hold weekly doubt-clearing sessions. That said - missing classes regularly will hurt you. The projects have deadlines. The code reviews expect your code.",
+                question: "Is AI included in this full-stack course?",
+                answer: "Yes. Students learn to use AI for code explanation, debugging support, project planning, documentation, README writing, understanding errors, productivity, and test-case thinking while still writing and understanding their own code.",
             },
             {
-                question: "How is this different from just learning on YouTube or Udemy?",
-                answer: "YouTube gives you videos. We give you a mentor who reviews your code, peers who challenge you, real projects with real deadlines, and placement support that includes actual referrals to companies. Most people who start a programming tutorial online alone don't finish it. Our completion rate is significantly higher because of the mentorship and peer environment.",
+                question: "Do I need prior coding experience?",
+                answer: "No. The course starts from the basics, including HTML, CSS, JavaScript, Git/GitHub, and gradually moves into React, Node.js, Express, MongoDB, APIs, deployment, and full-stack projects.",
             },
             {
-                question: "What does your placement support actually mean?",
-                answer: "It means 100% active effort - resume building, mock interviews, referrals to our 180+ hiring partners, and direct introductions where possible. It does not mean we guarantee a specific salary or that a company must hire you. We will work hard to get you placed - but you have to show up hireable.",
+                question: "Who can join this course?",
+                answer: "The course is best suited for college students, graduates, and early-career learners. Serious 12th-pass students, working professionals, and career switchers can also join.",
             },
             {
-                question: "Can I join if I'm currently working a day job?",
-                answer: "Yes. We offer weekend batches and evening batches for working professionals. Check current availability during your free demo session. Be honest with yourself though - this course requires 4–6 hours of daily work. A full-time job + this course is doable but demanding.",
+                question: "Will I build real projects?",
+                answer: "Students work on mentor-guided practical projects, full-stack application builds, GitHub-based code practice, code reviews, deployment exercises, and portfolio-ready project work. Selected students may also get exposure to live/internal projects where available.",
             },
             {
-                question: "What language is the course taught in?",
-                answer: "Primarily Hinglish (Hindi + English) - which is the most effective way to explain complex technical concepts to students in Agra. Technical terms, documentation, and code are in English. No prior English fluency required.",
+                question: "What does placement assistance include?",
+                answer: "Placement assistance includes resume building, GitHub/profile review, portfolio review, mock interviews, LinkedIn support, interview preparation, career counselling, and relevant opportunity referrals where available.",
             },
             {
-                question: "How many students are in each batch?",
-                answer: "Maximum 20 students per batch. This is intentional - smaller batches mean more mentor attention, better code review quality, and a tighter peer learning environment. We don't scale beyond 20 per batch.",
-            },
-            {
-                question: "What happens after I complete the course?",
-                answer: "You stay in the SkillYards alumni network - which means access to future job referrals, continued doubt support for 3 months post-completion, and invites to alumni events. Many graduates come back as mentors once they're 2–3 years into their careers.",
-            },
-            {
-                question: "What's the refund and cancellation policy?",
-                answer: "Full refund if you cancel before attending the first class. 50% refund within the first 2 weeks. No refund after 2 weeks. The free demo class exists precisely so you can make this decision before paying - we strongly recommend attending before enrolling.",
+                question: "What is the fee?",
+                answer: "The full program fee is ₹50,000. Installment options are available, starting from ₹5k/month.",
             },
         ],
     },
@@ -145,11 +211,11 @@ export const faqCategories = {
         faqs: [
             {
                 question: "Do I need any prior marketing or tech knowledge?",
-                answer: "None at all. The course starts from the very beginning - what digital marketing is, why it matters, and how each channel works. If you can use Instagram and search on Google, you have everything you need to start.",
+                answer: "No prior marketing or tech background is required. The course starts from fundamentals and is designed for beginners.",
             },
             {
                 question: "Do I need to know coding?",
-                answer: "No. Digital marketing is creative and analytical - not technical. You'll learn to use tools, run campaigns, and read data. The most technical thing you'll do is set up a WordPress site, which requires no coding.",
+                answer: "No. Coding is not required. You will learn marketing tools, SEO, ads, content, analytics, reporting, and practical AI workflows.",
             },
             {
                 question: "Is a laptop mandatory? What specs do I need?",
@@ -161,7 +227,7 @@ export const faqCategories = {
             },
             {
                 question: "Will I get hands-on practice running campaigns during the course?",
-                answer: "You learn campaign execution through mentor-guided practical work - using guided practice setups, sample datasets, and structured exercises designed to reflect real workflows. The focus is hands-on learning and portfolio-ready case work, without making unverifiable claims about live client accounts.",
+                answer: "Students work on mentor-guided practical projects, SEO audits, ad campaign planning, reporting exercises, and portfolio-ready case work. Selected students may also get exposure to live business campaigns where available.",
             },
             {
                 question: "What certifications will I earn?",
@@ -169,7 +235,7 @@ export const faqCategories = {
             },
             {
                 question: "Is placement guaranteed? What does that actually mean?",
-                answer: "We provide dedicated placement support - resume building, mock interviews, and interview preparation. We do not guarantee placements or specific salary outcomes.",
+                answer: "Placement assistance includes resume building, portfolio review, mock interviews, LinkedIn/profile support, interview preparation, counselling, and relevant opportunity referrals where available. It is not a job guarantee.",
             },
             {
                 question: "Can I freelance after this course? Will SkillYards help me get work?",
@@ -177,7 +243,7 @@ export const faqCategories = {
             },
             {
                 question: "Are there evening or weekend batches for working professionals?",
-                answer: "Yes. We offer weekday morning, weekday evening, and weekend batches. Working professionals commonly join evening or weekend batches. Discuss options during your free demo session.",
+                answer: "Batch schedules may vary. Contact SkillYards to know the current weekday or weekend availability for the upcoming batch.",
             },
             {
                 question: "How is this different from doing a free Google Digital Garage course?",
