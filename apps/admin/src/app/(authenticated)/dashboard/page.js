@@ -1,27 +1,50 @@
 import { Users, CreditCard, Activity } from "lucide-react";
 import { StatCard } from "@/components/dashboard/StatCard";
 import { RecentTransactionsTable } from "@/components/dashboard/RecentTransactionsTable";
+import { LatestStudentsTable } from "@/components/dashboard/LatestStudentsTable";
 
 export const dynamic = "force-dynamic";
 
 import { API } from "@/lib/api";
 import { getAuthHeaders } from "@/lib/auth";
 
-async function getDashboardData() {
+async function getDashboardData(enrolledIn, startDate, endDate, limit = 10, offset = 0) {
   const headers = await getAuthHeaders();
-  const [statsRes, outstandingRes] = await Promise.all([
+  
+  let latestUrl = `${API}/api/students?limit=${limit}&offset=${offset}&enrolledIn=${enrolledIn}`;
+  if (enrolledIn === "custom" && startDate) {
+    latestUrl += `&startDate=${startDate}`;
+    if (endDate) {
+      latestUrl += `&endDate=${endDate}`;
+    }
+  }
+
+  const [statsRes, outstandingRes, latestRes] = await Promise.all([
     fetch(`${API}/api/students/stats`, { headers, next: { revalidate: 600, tags: ['students'] } }),
-    fetch(`${API}/api/students?limit=5`, { headers, next: { revalidate: 600, tags: ['students'] } })
+    fetch(`${API}/api/students?limit=5`, { headers, next: { revalidate: 600, tags: ['students'] } }),
+    fetch(latestUrl, { headers, next: { revalidate: 600, tags: ['students'] } })
   ]);
   
   const stats = statsRes.ok ? await statsRes.json() : { totalStudents: 0, totalCollected: 0, totalPending: 0 };
   const outstanding = outstandingRes.ok ? await outstandingRes.json() : [];
+  const latestStudents = latestRes.ok ? await latestRes.json() : [];
 
-  return { stats, outstanding };
+  return { stats, outstanding, latestStudents };
 }
 
-export default async function DashboardPage() {
-  const { stats: dashStats, outstanding } = await getDashboardData();
+export default async function DashboardPage({ searchParams }) {
+  const params = await searchParams;
+  const enrolledIn = params.enrolledIn || "current";
+  const startDate = params.startDate || "";
+  const endDate = params.endDate || "";
+  const page = parseInt(params.latestPage || "1");
+  const limit = 5;
+  const offset = (page - 1) * limit;
+  
+  const { stats: dashStats, outstanding, latestStudents } = await getDashboardData(enrolledIn, startDate, endDate, limit + 1, offset);
+
+  const hasNextPage = latestStudents.length > limit;
+  const slicedStudents = latestStudents.slice(0, limit);
 
   const stats = [
     { title: "Total Students", value: dashStats.totalStudents, icon: Users },
@@ -42,7 +65,17 @@ export default async function DashboardPage() {
         ))}
       </div>
 
-      <RecentTransactionsTable students={outstanding} />
+      <div className="space-y-6 sm:space-y-8">
+        <RecentTransactionsTable students={outstanding} />
+        <LatestStudentsTable 
+          students={slicedStudents} 
+          enrolledIn={enrolledIn} 
+          initialStartDate={startDate}
+          initialEndDate={endDate}
+          currentPage={page}
+          hasNextPage={hasNextPage}
+        />
+      </div>
     </div>
   );
 }

@@ -1,8 +1,28 @@
-import { eq } from "drizzle-orm";
-import { students,payments } from "@repo/db";
-import { sql } from "drizzle-orm";
+import { eq, and, gte, lte, desc, sql } from "drizzle-orm";
+import { students, payments } from "@repo/db";
 
-export  async function getStudentById(db, studentId) {
+// Helper to calculate calendar month boundaries or custom ranges
+function getMonthRange(type, customStart, customEnd) {
+  const now = new Date();
+  if (type === "current") {
+    const startDate = new Date(now.getFullYear(), now.getMonth(), 1);
+    const endDate = new Date(now.getFullYear(), now.getMonth() + 1, 0, 23, 59, 59, 999);
+    return { startDate, endDate };
+  } else if (type === "past") {
+    const startDate = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+    const endDate = new Date(now.getFullYear(), now.getMonth(), 0, 23, 59, 59, 999);
+    return { startDate, endDate };
+  } else if (type === "custom" && customStart) {
+    const startDate = new Date(customStart);
+    startDate.setHours(0, 0, 0, 0);
+    const endDate = customEnd ? new Date(customEnd) : new Date();
+    endDate.setHours(23, 59, 59, 999);
+    return { startDate, endDate };
+  }
+  return null;
+}
+
+export async function getStudentById(db, studentId) {
   const result = await db
     .select()
     .from(students)
@@ -10,10 +30,10 @@ export  async function getStudentById(db, studentId) {
     .limit(1);
 
   return result[0] || null;
-};
+}
 
-export async function getStudentsWithPayments(db, limit = 100, offset = 0) {
-  return db
+export async function getStudentsWithPayments(db, limit = 100, offset = 0, filters = {}) {
+  let query = db
     .select({
       id: students.id,
       name: students.name,
@@ -21,11 +41,29 @@ export async function getStudentsWithPayments(db, limit = 100, offset = 0) {
       phone: students.phone,
       courseName: students.courseName,
       finalFee: students.finalFee,
+      createdAt: students.createdAt,
       totalPaid: sql`COALESCE(SUM(${payments.amount}), 0)`,
     })
     .from(students)
-    .leftJoin(payments, sql`${payments.studentId} = ${students.id}`)
+    .leftJoin(payments, sql`${payments.studentId} = ${students.id}`);
+
+  const conditions = [];
+
+  if (filters.enrolledIn) {
+    const range = getMonthRange(filters.enrolledIn, filters.startDate, filters.endDate);
+    if (range) {
+      conditions.push(gte(students.createdAt, range.startDate));
+      conditions.push(lte(students.createdAt, range.endDate));
+    }
+  }
+
+  if (conditions.length > 0) {
+    query = query.where(and(...conditions));
+  }
+
+  return query
     .groupBy(students.id)
+    .orderBy(desc(students.createdAt))
     .limit(limit)
     .offset(offset);
 }

@@ -33,8 +33,8 @@ export async function getStudentDetail(db, studentId) {
     return result;
 }
 
-export async function getStudentList(db, limit = 100, offset = 0) {
-  const rows = await studentRepo.getStudentsWithPayments(db, limit, offset);
+export async function getStudentList(db, limit = 100, offset = 0, filters = {}) {
+  const rows = await studentRepo.getStudentsWithPayments(db, limit, offset, filters);
 
   return rows.map((row) => {
     const totalPaid = Number(row.totalPaid);
