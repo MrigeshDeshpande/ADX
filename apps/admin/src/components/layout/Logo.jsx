@@ -19,7 +19,7 @@ export function Logo({ className = "h-14 w-auto" }) {
   return (
     <Image
       src={src}
-      alt="Skillyards"
+      alt="AdhyayanX"
       width={160}
       height={32}
       className={className}

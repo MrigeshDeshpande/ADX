@@ -1,7 +1,12 @@
 import { jwtVerify } from "jose";
 import { randomUUID } from "node:crypto";
 
-const secretKey = process.env.JWT_SECRET || "skillyards_secret_key_change_me_in_prod";
+const rawKey = process.env.JWT_SECRET;
+if (!rawKey) {
+  console.error("FATAL: JWT_SECRET environment variable is not set. Authentication will fail.");
+  throw new Error("CRITICAL_CONFIG_MISSING: JWT_SECRET must be set in environment variables.");
+}
+const secretKey = rawKey;
 const encodedKey = new TextEncoder().encode(secretKey);
 
 // ── RATE LIMITER (Systemic Resilience - Sliding Window) ──

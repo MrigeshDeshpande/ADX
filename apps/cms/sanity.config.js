@@ -6,7 +6,7 @@ import {codeInput} from '@sanity/code-input'
 
 export default defineConfig({
   name: 'default',
-  title: 'skillyards-cms',
+  title: 'AdhyayanX CMS',
 
   projectId: '2it7abok',
   dataset: 'production',

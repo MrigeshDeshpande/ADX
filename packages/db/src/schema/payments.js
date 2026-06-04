@@ -25,7 +25,7 @@ export const payments = pgTable(
     receiptRequestedAt: timestamp("receipt_requested_at"), // tracking for stale jobs
     receiptJobId: text("receipt_job_id"), // ownership ID to prevent callback races
 
-    receiptNumber: text("receipt_number"), // SY-2026-0001 format
+    receiptNumber: text("receipt_number"), // ADX-YYYY-NNNN format
 
     createdAt: timestamp("created_at").defaultNow().notNull(),
   },

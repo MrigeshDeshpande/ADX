@@ -23,7 +23,7 @@ const activeJobs = new Map();
 
 // SECURE CALLBACK HELPER
 async function notifyAPI(paymentId, jobId, result) {
-  const CALLBACK_URL = `${process.env.API_URL || "https://api.skillyards.in"}/api/internal/receipt/complete`;
+  const CALLBACK_URL = `${process.env.API_URL || "https://api.adhyayanx.in"}/api/internal/receipt/complete`;
   
   for (let i = 0; i < 3; i++) {
     try {

@@ -1,5 +1,5 @@
 /**
- * SKILLYARDS AUTHORIZATION POLICY ENGINE
+ * ADX AUTHORIZATION POLICY ENGINE
  * 
  * Centralized logic for resource access control.
  * Rules:

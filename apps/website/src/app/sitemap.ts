@@ -4,7 +4,7 @@ import { join } from 'path';
 import { sanityClient } from '@/lib/sanity/client';
 import { TEAM_PROFILES } from '@/data/teamProfiles';
 
-const BASE_URL = 'https://www.skillyards.in';
+const BASE_URL = 'https://www.adhyayanx.in';
 
 // Paths to exclude from sitemap (private, utility, dynamic placeholders)
 const EXCLUDED_PATHS = new Set([

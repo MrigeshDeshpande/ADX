@@ -42,7 +42,7 @@ export async function generateMetadata({ params }) {
             title: 'Job Not Found',
             description: 'The job you are looking for does not exist or has been closed.',
             path: '/careers',
-            keywords: ['SkillYards careers', 'jobs at SkillYards'],
+            keywords: ['AdhyayanX careers', 'jobs at AdhyayanX'],
             ogImage: '/images/opengraph/careers-og.jpg',
         });
     }
@@ -51,23 +51,23 @@ export async function generateMetadata({ params }) {
         job.description
             ?.replace(/<[^>]+>/g, '')
             .slice(0, 160) ||
-        `Apply for ${job.title} at SkillYards and grow your career with us.`;
+        `Apply for ${job.title} at AdhyayanX and grow your career with us.`;
 
     return buildSEO({
-        title: `${job.title} | Careers at SkillYards`,
+        title: `${job.title} | Careers at AdhyayanX`,
         description,
         path: `/careers/${job.slug}`,
         keywords: [
             job.title,
             job.department,
             job.location,
-            'SkillYards jobs',
-            'careers at SkillYards',
+            'AdhyayanX jobs',
+            'careers at AdhyayanX',
             'IT jobs India',
         ].filter(Boolean),
 
         // Separate OG images if you want
-        ogImage: '/images/opengraph/skillyards-careers-og.webp',
+        ogImage: '/images/opengraph/careers-og.webp',
     });
 }
 

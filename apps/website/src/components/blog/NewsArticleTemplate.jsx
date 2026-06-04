@@ -45,7 +45,7 @@ function Masthead({ post, pageNum }) {
   return (
     <div className="border-b-[4px] border-double border-foreground/80 pb-3 mb-8">
       <div className="flex justify-between items-center text-[9px] font-mono tracking-widest text-foreground/50 uppercase pb-1.5 select-none">
-        <span>SKILLYARDS NEWSROOM</span>
+        <span>ADHYAYANX NEWSROOM</span>
         <span>ESTD. 2026</span>
       </div>
       <div className="border-t border-foreground/35 mb-2" />

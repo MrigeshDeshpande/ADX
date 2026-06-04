@@ -10,12 +10,12 @@ import { getWebPageSchema } from "@/lib/seo/schema/webPageSchema";
 export const metadata = buildSEO({
     title: "Terms of Service",
     description:
-        "Read SkillYards' Terms of Service to understand the rules, responsibilities, and conditions for using our website, courses, and training programs.",
+        "Read AdhyayanX's Terms of Service to understand the rules, responsibilities, and conditions for using our website, courses, and training programs.",
     path: "/terms-of-service",
     keywords: [
-        "SkillYards Terms of Service",
-        "SkillYards Terms and Conditions",
-        "User agreement SkillYards",
+        "AdhyayanX Terms of Service",
+        "AdhyayanX Terms and Conditions",
+        "User agreement AdhyayanX",
         "Learning terms",
         "EdTech terms India",
         "Course usage policy",
@@ -32,7 +32,7 @@ const sections = [
         content: (
             <div className="space-y-3">
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                    By accessing or using SkillYards, you confirm that you have read, understood, and agreed to these Terms of Service, along with our Privacy Policy and Refund & Cancellation Policy.
+                    By accessing or using AdhyayanX, you confirm that you have read, understood, and agreed to these Terms of Service, along with our Privacy Policy and Refund & Cancellation Policy.
                 </p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                     If you do not agree with any part of these terms, you should not use our website or services.
@@ -47,7 +47,7 @@ const sections = [
         title: "Eligibility",
         content: (
             <p className="text-sm text-muted-foreground leading-relaxed">
-                You must be at least 18 years old to create an account or enroll in paid programs on SkillYards. If you are under 18, you may use our services only with the involvement and consent of a parent or legal guardian.
+                You must be at least 18 years old to create an account or enroll in paid programs on AdhyayanX. If you are under 18, you may use our services only with the involvement and consent of a parent or legal guardian.
             </p>
         ),
     },
@@ -62,7 +62,7 @@ const sections = [
                     When creating an account, you agree to provide accurate, current, and complete information. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.
                 </p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                    SkillYards reserves the right to suspend or terminate accounts found to be using false information or engaging in unauthorized activity.
+                    AdhyayanX reserves the right to suspend or terminate accounts found to be using false information or engaging in unauthorized activity.
                 </p>
             </div>
         ),
@@ -75,7 +75,7 @@ const sections = [
         content: (
             <>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                    Upon successful payment, SkillYards grants you a limited, non-transferable, and non-exclusive license to access the enrolled course or program for personal learning purposes only.
+                    Upon successful payment, AdhyayanX grants you a limited, non-transferable, and non-exclusive license to access the enrolled course or program for personal learning purposes only.
                 </p>
                 <ul className="mt-4 space-y-2">
                     {[
@@ -100,7 +100,7 @@ const sections = [
         content: (
             <div className="space-y-3">
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                    All fees displayed on SkillYards are in Indian Rupees (INR), unless otherwise stated. Payments must be made in full at the time of enrollment.
+                    All fees displayed on AdhyayanX are in Indian Rupees (INR), unless otherwise stated. Payments must be made in full at the time of enrollment.
                 </p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                     Refunds, cancellations, and fee adjustments are governed by our{" "}
@@ -117,10 +117,10 @@ const sections = [
         content: (
             <div className="space-y-3">
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                    All content on SkillYards — including videos, text, graphics, logos, designs, course materials, and software — is the intellectual property of SkillYards or its content partners.
+                    All content on AdhyayanX — including videos, text, graphics, logos, designs, course materials, and software — is the intellectual property of AdhyayanX or its content partners.
                 </p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                    You may not copy, reproduce, distribute, modify, or commercially exploit any content without prior written permission from SkillYards.
+                    You may not copy, reproduce, distribute, modify, or commercially exploit any content without prior written permission from AdhyayanX.
                 </p>
             </div>
         ),
@@ -133,7 +133,7 @@ const sections = [
         content: (
             <>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                    You agree not to use SkillYards for any unlawful, harmful, or disruptive activities, including but not limited to:
+                    You agree not to use AdhyayanX for any unlawful, harmful, or disruptive activities, including but not limited to:
                 </p>
                 <ul className="mt-4 space-y-2">
                     {[
@@ -158,7 +158,7 @@ const sections = [
         title: "Suspension & Termination",
         content: (
             <p className="text-sm text-muted-foreground leading-relaxed">
-                SkillYards reserves the right to suspend or terminate your access to the institute or website at its sole discretion, without prior notice, if you violate these terms or engage in activities that may harm SkillYards or its community.
+                AdhyayanX reserves the right to suspend or terminate your access to the institute or website at its sole discretion, without prior notice, if you violate these terms or engage in activities that may harm AdhyayanX or its community.
             </p>
         ),
     },
@@ -169,7 +169,7 @@ const sections = [
         title: "Disclaimer of Warranties",
         content: (
             <p className="text-sm text-muted-foreground leading-relaxed">
-                SkillYards provides its services on an "as is" and "as available" basis. We do not guarantee uninterrupted access, error-free content, or specific learning or career outcomes.
+                AdhyayanX provides its services on an "as is" and "as available" basis. We do not guarantee uninterrupted access, error-free content, or specific learning or career outcomes.
             </p>
         ),
     },
@@ -180,7 +180,7 @@ const sections = [
         title: "Limitation of Liability",
         content: (
             <p className="text-sm text-muted-foreground leading-relaxed">
-                To the maximum extent permitted by law, SkillYards shall not be liable for any indirect, incidental, or consequential damages arising from your use of the website or services.
+                To the maximum extent permitted by law, AdhyayanX shall not be liable for any indirect, incidental, or consequential damages arising from your use of the website or services.
             </p>
         ),
     },
@@ -202,7 +202,7 @@ const sections = [
         title: "Changes to These Terms",
         content: (
             <p className="text-sm text-muted-foreground leading-relaxed">
-                SkillYards may update these Terms of Service from time to time. Continued use of the website after changes are posted constitutes acceptance of the revised terms.
+                AdhyayanX may update these Terms of Service from time to time. Continued use of the website after changes are posted constitutes acceptance of the revised terms.
             </p>
         ),
     },
@@ -217,17 +217,17 @@ const sections = [
                     If you have any questions regarding these Terms of Service, please contact us:
                 </p>
                 <div className="rounded-2xl border border-border bg-background p-4 space-y-2">
-                    <p className="font-bold text-sm text-foreground">SkillYards</p>
+                    <p className="font-bold text-sm text-foreground">AdhyayanX</p>
                     <p className="text-sm text-muted-foreground">
                         Email:{" "}
-                        <a href="mailto:support@skillyards.in" className="text-primary hover:underline font-medium">
-                            support@skillyards.in
+                        <a href="mailto:support@adhyayanx.in" className="text-primary hover:underline font-medium">
+                            support@adhyayanx.in
                         </a>
                     </p>
                     <p className="text-sm text-muted-foreground">
                         Website:{" "}
-                        <a href="https://www.skillyards.in" className="text-primary hover:underline font-medium">
-                            www.skillyards.in
+                        <a href="https://www.adhyayanx.in" className="text-primary hover:underline font-medium">
+                            www.adhyayanx.in
                         </a>
                     </p>
                 </div>
@@ -246,7 +246,7 @@ export default function TermsOfServicePage() {
     const webPageSchema = getWebPageSchema({
         url: "/legal/terms-of-service",
         name: "Terms of Service",
-        description: "Read SkillYards' Terms of Service to understand the rules, responsibilities, and conditions for using our website, courses, and training programs."
+        description: "Read AdhyayanX's Terms of Service to understand the rules, responsibilities, and conditions for using our website, courses, and training programs."
     });
 
     return (
@@ -315,7 +315,7 @@ export default function TermsOfServicePage() {
                             {/* Footer note */}
                             <div className="rounded-2xl border border-primary/20 bg-primary/5 p-6 text-center">
                                 <p className="text-sm text-muted-foreground">
-                                    By using SkillYards, you agree to these terms.{" "}
+                                    By using AdhyayanX, you agree to these terms.{" "}
                                     <Link href="/legal/privacy-policy" className="text-primary font-semibold hover:underline">
                                         View Privacy Policy →
                                     </Link>

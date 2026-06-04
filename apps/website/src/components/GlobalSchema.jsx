@@ -2,24 +2,24 @@ export const globalSchema = {
     "@context": "https://schema.org",
     "@type": ["WebSite", "EducationalOrganization", "LocalBusiness"],
 
-    "@id": "https://www.skillyards.in/#organization",
+    "@id": "https://www.adhyayanx.in/#organization",
 
-    "name": "SkillYards – IT Training Institute in Agra",
-    "url": "https://www.skillyards.in",
+    "name": "AdhyayanX – IT Training Institute in Agra",
+    "url": "https://www.adhyayanx.in",
 
     "description":
-        "SkillYards is an IT training institute in Agra offering project-based BCA, BBA, full-stack development, digital marketing, and career-focused training programs.",
+        "AdhyayanX is an IT training institute in Agra offering project-based BCA, BBA, full-stack development, digital marketing, and career-focused training programs.",
 
     "image": {
         "@type": "ImageObject",
-        "url": "https://www.skillyards.in/images/opengraph/home-og.jpg",
+        "url": "https://www.adhyayanx.in/images/opengraph/home-og.jpg",
         "width": 1200,
         "height": 630
     },
 
     "logo": {
         "@type": "ImageObject",
-        "url": "https://www.skillyards.in/images/logo-square.png",
+        "url": "https://www.adhyayanx.in/images/logo-square.png",
         "width": 512,
         "height": 512
     },
@@ -42,10 +42,10 @@ export const globalSchema = {
     },
 
     "sameAs": [
-        "https://www.facebook.com/skillyardss",
-        "https://www.linkedin.com/company/skillyards",
-        "https://www.instagram.com/skillyards_eduhub",
-        "https://www.twitter.com/skillyardss",
-        "https://www.youtube.com/@Skillyardss"
+        "https://www.facebook.com/adhyayanx",
+        "https://www.linkedin.com/company/adhyayanx",
+        "https://www.instagram.com/adhyayanx",
+        "https://www.twitter.com/adhyayanx",
+        "https://www.youtube.com/@AdhyayanX"
     ]
 };

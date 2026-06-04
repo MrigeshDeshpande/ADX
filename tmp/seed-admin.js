@@ -17,7 +17,7 @@ const pool = new Pool({ connectionString: databaseUrl });
 
 async function seedAdmin() {
   const name = "Admin User";
-  const email = "admin@skillyards.com";
+  const email = "admin@adhyayanx.com";
   const plainPassword = "adminpassword123";
   const role = "ADMIN";
 

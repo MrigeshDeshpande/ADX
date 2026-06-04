@@ -568,14 +568,14 @@ export function generateReceiptHTML(receiptData) {
             <!-- Header -->
             <div class="header-grid">
               <div class="brand-col">
-                <img src="${logoBase64}" alt="Skillyards Versatility Pvt. Ltd.">
+                <img src="${logoBase64}" alt="AdhyayanX">
                 <div class="corp-details">
-                  <strong>Skillyards Versatility Pvt. Ltd.</strong><br>
+                  <strong>AdhyayanX</strong><br>
                   A-3, New Agra Behind Manoj Dhaba<br>
                   Bhagwan Talkies Crossing, Indra Puri<br>
                   Agra, Uttar Pradesh - 282005<br>
                   GSTIN: 09ABMCS4605B1ZF<br>
-                  support@skillyards.in &nbsp;|&nbsp; +91 70601 00561
+                  support@adhyayanx.in &nbsp;|&nbsp; +91 70601 00561
                 </div>
               </div>
               <div class="meta-col">
@@ -654,7 +654,7 @@ export function generateReceiptHTML(receiptData) {
                 <div class="signature-box">
                   <div class="sig-line"></div>
                   <p class="sig-name">Chief Executive Officer</p>
-                  <p class="sig-title">Skillyards Versatility Pvt. Ltd.</p>
+                  <p class="sig-title">AdhyayanX</p>
                 </div>
               </div>
             </div>

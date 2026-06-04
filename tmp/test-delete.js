@@ -10,7 +10,7 @@ async function testDelete() {
             return;
         }
 
-        const target = allUsers.find(u => u.email !== "admin@skillyards.com");
+        const target = allUsers.find(u => u.email !== "admin@adhyayanx.com");
         if (!target) {
             console.log("No non-admin user found.");
             return;

@@ -46,7 +46,7 @@ const nextConfig = {
                         "frame-src https://utteranc.es https://www.google.com https://www.gstatic.com https://www.youtube.com https://www.googletagmanager.com https://disqus.com https://*.disqus.com; " +
 
                         // API calls 
-                        "connect-src 'self' https://api.github.com https://www.google.com https://www.gstatic.com https://skillyards-backend.vercel.app https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://*.disqus.com https://*.disquscdn.com; " +
+                        "connect-src 'self' https://api.github.com https://www.google.com https://www.gstatic.com https://adhyayanx-backend.vercel.app https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://*.disqus.com https://*.disquscdn.com; " +
 
                         // Images
                         "img-src 'self' data: blob: https://images.unsplash.com https://cdn.sanity.io https://cdn.simpleicons.org https://img.youtube.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://www.google.com https://www.google.co.in https://*.disquscdn.com https://referrer.disqus.com; " +
@@ -79,12 +79,12 @@ const nextConfig = {
             },
             {
                 protocol: "https",
-                hostname: "admin.skillyards.in",
+                hostname: "admin.adhyayanx.in",
                 pathname: "/storage/**",
             },
             {
                 protocol: "https",
-                hostname: "admin.skillyards.in",
+                hostname: "admin.adhyayanx.in",
                 pathname: "/images/**",
             },
             {
@@ -97,11 +97,19 @@ const nextConfig = {
 
     async redirects() {
         return [
-            // Host canonicalization (keep existing)
+            // Host canonicalization — legacy Skillyards domain (keep during transition)
             {
                 source: "/:path*",
                 has: [{ type: "host", value: "skillyards.in" }],
                 destination: "https://www.skillyards.in/:path*",
+                permanent: true,
+            },
+
+            // Host canonicalization — AdhyayanX domain
+            {
+                source: "/:path*",
+                has: [{ type: "host", value: "adhyayanx.in" }],
+                destination: "https://www.adhyayanx.in/:path*",
                 permanent: true,
             },
 

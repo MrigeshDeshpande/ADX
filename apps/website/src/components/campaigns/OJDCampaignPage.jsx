@@ -19,7 +19,7 @@ const HERO_TIMER_DURATION = 10 * 60;
 // ─── Data ────────────────────────────────────────────────────────────────────
 
 const WHATSAPP_HREF =
-  `https://wa.me/${process.env.NEXT_PUBLIC_PHONE?.replace(/\D/g, "") || "917060100561"}?text=${encodeURIComponent("Hi, I'm interested in the BCA/BBA On-Job Degree at SkillYards. I'd like a free career counseling session.")}`;
+  `https://wa.me/${process.env.NEXT_PUBLIC_PHONE?.replace(/\D/g, "") || "917060100561"}?text=${encodeURIComponent("Hi, I'm interested in the BCA/BBA On-Job Degree at AdhyayanX. I'd like a free career counseling session.")}`;
 
 const programs = {
   bca: {
@@ -190,7 +190,7 @@ function Hero({ active, setActive }) {
           <Link href="/" className="inline-flex items-center">
             <Image
               src="/images/logo-dark.svg"
-              alt="SkillYards Logo"
+              alt="AdhyayanX Logo"
               width={170}
               height={42}
               className="h-auto w-[170px] object-contain lg:w-[240px]"
@@ -715,7 +715,7 @@ function WhySkillyards() {
           <Link href="/" className="inline-flex items-center">
             <Image
               src="/images/logo-light.svg"
-              alt="SkillYards Logo"
+              alt="AdhyayanX Logo"
               width={170}
               height={42}
               className="object-contain"

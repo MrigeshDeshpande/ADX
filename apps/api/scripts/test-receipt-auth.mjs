@@ -1,6 +1,6 @@
 import { SignJWT } from "jose";
 
-const SECRET = "skillyards_secret_key_change_me_in_prod";
+const SECRET = process.env.JWT_SECRET || "adhyayanx_dev_secret_change_in_prod";
 const encodedKey = new TextEncoder().encode(SECRET);
 const API_URL = "http://localhost:3000/api/payments";
 const VALID_PAYMENT_ID = "d78305b0-88e5-4dc0-bc90-4fe7a854a1fe";

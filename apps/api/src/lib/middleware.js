@@ -3,7 +3,7 @@ import { canAccessReceipt } from "./permissions.js"; // This will be generalized
 import { corsHeaders } from "../utils/cors";
 
 /**
- * SKILLYARDS STRUCTURAL ENFORCEMENT WRAPPER
+ * ADX STRUCTURAL ENFORCEMENT WRAPPER
  * 
  * Enforces:
  * 1. Authentication (via getRequestContext)

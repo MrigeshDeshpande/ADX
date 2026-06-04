@@ -9,7 +9,7 @@ async function getHandler(req, { ctx }) {
   const payload = success(
     {
       status: "ok",
-      service: "skillyards-api",
+      service: "adx-api",
       version: "1.0.0",
       uptime: process.uptime(),
       timestamp: new Date().toISOString()

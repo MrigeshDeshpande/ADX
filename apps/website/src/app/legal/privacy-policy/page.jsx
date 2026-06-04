@@ -10,11 +10,11 @@ import { getWebPageSchema } from "@/lib/seo/schema/webPageSchema";
 export const metadata = buildSEO({
     title: "Privacy Policy",
     description:
-        "Read SkillYards' Privacy Policy to understand how we collect, use, protect, and manage your personal information when you use our website and services.",
+        "Read AdhyayanX's Privacy Policy to understand how we collect, use, protect, and manage your personal information when you use our website and services.",
     path: "/privacy-policy",
     keywords: [
-        "SkillYards Privacy Policy",
-        "Privacy Policy SkillYards",
+        "AdhyayanX Privacy Policy",
+        "Privacy Policy AdhyayanX",
         "Data protection policy",
         "User data privacy India",
         "EdTech privacy policy",
@@ -38,7 +38,7 @@ const sections = [
                     {[
                         { label: "Personal Information", desc: "Name, email address, phone number, educational background, and other details you provide during registration, enrollment, or communication." },
                         { label: "Usage Data", desc: "Pages visited, time spent on our website, interactions with content, and technical data such as browser type and device information." },
-                        { label: "Payment Information", desc: "Payment-related details are processed securely by trusted third-party payment gateways. SkillYards does not store your card or banking information." },
+                        { label: "Payment Information", desc: "Payment-related details are processed securely by trusted third-party payment gateways. AdhyayanX does not store your card or banking information." },
                     ].map((item) => (
                         <li key={item.label} className="flex gap-3">
                             <span className="mt-1 shrink-0 w-1.5 h-1.5 rounded-full bg-primary" />
@@ -87,7 +87,7 @@ const sections = [
         content: (
             <div className="space-y-3">
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                    SkillYards uses cookies and similar technologies to enhance your browsing experience. Cookies help us understand how users interact with our website, remember preferences, and improve performance.
+                    AdhyayanX uses cookies and similar technologies to enhance your browsing experience. Cookies help us understand how users interact with our website, remember preferences, and improve performance.
                 </p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                     You can manage or disable cookies through your browser settings. However, disabling cookies may affect certain features of the website.
@@ -109,7 +109,7 @@ const sections = [
                     {[
                         "With trusted service providers who assist us in operating our website",
                         "When required by law, regulation, or legal process",
-                        "To protect the rights, safety, and integrity of SkillYards and its users",
+                        "To protect the rights, safety, and integrity of AdhyayanX and its users",
                     ].map((item) => (
                         <li key={item} className="flex gap-3">
                             <span className="mt-1 shrink-0 w-1.5 h-1.5 rounded-full bg-primary" />
@@ -154,7 +154,7 @@ const sections = [
         title: "Third-Party Links",
         content: (
             <p className="text-sm text-muted-foreground leading-relaxed">
-                Our website may contain links to third-party websites or services. SkillYards is not responsible for the privacy practices or content of these external websites. We encourage you to review their privacy policies separately.
+                Our website may contain links to third-party websites or services.                AdhyayanX is not responsible for the privacy practices or content of these external websites. We encourage you to review their privacy policies separately.
             </p>
         ),
     },
@@ -180,17 +180,17 @@ const sections = [
                     If you have any questions or concerns about this Privacy Policy or how your data is handled, please reach out to us:
                 </p>
                 <div className="mt-4 rounded-2xl border border-border bg-background p-4 space-y-2">
-                    <p className="font-bold text-sm text-foreground">SkillYards</p>
+                    <p className="font-bold text-sm text-foreground">AdhyayanX</p>
                     <p className="text-sm text-muted-foreground">
                         Email:{" "}
-                        <a href="mailto:support@skillyards.in" className="text-primary hover:underline font-medium">
-                            support@skillyards.in
+                        <a href="mailto:support@adhyayanx.in" className="text-primary hover:underline font-medium">
+                            support@adhyayanx.in
                         </a>
                     </p>
                     <p className="text-sm text-muted-foreground">
                         Website:{" "}
-                        <a href="https://www.skillyards.in" className="text-primary hover:underline font-medium">
-                            www.skillyards.in
+                        <a href="https://www.adhyayanx.in" className="text-primary hover:underline font-medium">
+                            www.adhyayanx.in
                         </a>
                     </p>
                 </div>
@@ -209,7 +209,7 @@ export default function PrivacyPolicyPage() {
     const webPageSchema = getWebPageSchema({
         url: "/legal/privacy-policy",
         name: "Privacy Policy",
-        description: "Read SkillYards' Privacy Policy to understand how we collect, use, protect, and manage your personal information when you use our website and services."
+        description: "Read AdhyayanX's Privacy Policy to understand how we collect, use, protect, and manage your personal information when you use our website and services."
     });
 
     return (
@@ -217,7 +217,7 @@ export default function PrivacyPolicyPage() {
             <JsonLd data={webPageSchema} id="privacy-policy-schema" />
             <PageHero
                 title="Privacy Policy"
-                description="This Privacy Policy explains how SkillYards collects, uses, protects, and shares your personal information when you use our website, services, and digital offerings."
+                description="This Privacy Policy explains how AdhyayanX collects, uses, protects, and shares your personal information when you use our website, services, and digital offerings."
             />
 
             <div className="bg-background">
@@ -278,7 +278,7 @@ export default function PrivacyPolicyPage() {
                             {/* Footer note */}
                             <div className="rounded-2xl border border-primary/20 bg-primary/5 p-6 text-center">
                                 <p className="text-sm text-muted-foreground">
-                                    By using SkillYards, you agree to the terms of this Privacy Policy.{" "}
+                                    By using AdhyayanX, you agree to the terms of this Privacy Policy.{" "}
                                     <Link href="/legal/terms-of-service" className="text-primary font-semibold hover:underline">
                                         View Terms of Service →
                                     </Link>
