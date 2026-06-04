@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Skillyards Admin",
-  description: "Skillyards ERP + CRM",
+  title: "AdhyayanX Admin",
+  description: "ADX ERP",
 };
 
 export default function RootLayout({ children }) {

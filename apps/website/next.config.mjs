@@ -97,11 +97,19 @@ const nextConfig = {
 
     async redirects() {
         return [
-            // Host canonicalization (keep existing)
+            // Host canonicalization — legacy Skillyards domain (keep during transition)
             {
                 source: "/:path*",
                 has: [{ type: "host", value: "skillyards.in" }],
                 destination: "https://www.skillyards.in/:path*",
+                permanent: true,
+            },
+
+            // Host canonicalization — AdhyayanX domain
+            {
+                source: "/:path*",
+                has: [{ type: "host", value: "adhyayanx.in" }],
+                destination: "https://www.adhyayanx.in/:path*",
                 permanent: true,
             },
 

@@ -3,7 +3,7 @@ import { payments, installments, paymentAllocations, plans } from "@repo/db";
 
 export async function getNextReceiptNumber(db) {
   const currentYear = new Date().getFullYear();
-  const startsWith = `SY-${currentYear}-`;
+  const startsWith = `ADX-${currentYear}-`;
 
   const result = await db
     .select({

@@ -49,7 +49,7 @@ export const TEAM_PROFILES = {
       },
       {
         title: "Managing Director",
-        organization: "Skillyards Versatility Pvt. Ltd.",
+        organization: "AdhyayanX",
         period: "Feb 2024 - Present",
         location: "Agra, India",
         points: [
@@ -83,13 +83,13 @@ export const TEAM_PROFILES = {
     image: "/images/team/rahul-singh.webp",
     bio: "Rahul Singh leads the operational strategy, execution, and scalability of SkillYards, driving growth across Education Process Outsourcing, global university partnerships, and platform-led service delivery.",
     headline:
-      "Chief Operating Officer @ Skillyards Versatility Pvt. Ltd. | B.Tech, MTech",
+      "Chief Operating Officer @ AdhyayanX | B.Tech, MTech",
     intro:
       "He owns operations, growth enablement, and P&L performance, with a focus on building a scalable, process-driven, enterprise-ready EdTech and EPO organization positioned for long-term growth.",
     badge: "Leadership",
     location: "Agra, India",
     experienceLabel: "Operations, growth, and commercial leadership",
-    company: "Skillyards Versatility Pvt. Ltd.",
+    company: "AdhyayanX",
     linkedin: "https://www.linkedin.com/in/rahul-singh-a90ab630/",
     instagram: "https://www.instagram.com/rahul_rs0310?igsh=bmpqejlqZXdsbHN5&utm_source=qr",
     twitter: "https://x.com/rsrsrahul444?s=11",
@@ -115,7 +115,7 @@ export const TEAM_PROFILES = {
     experience: [
       {
         title: "Chief Operating Officer",
-        organization: "Skillyards Versatility Pvt. Ltd.",
+        organization: "AdhyayanX",
         period: "Aug 2025 - Present",
         location: "Agra, India",
         points: [

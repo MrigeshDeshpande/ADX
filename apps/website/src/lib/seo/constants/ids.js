@@ -1,4 +1,4 @@
-export const BASE_URL = "https://www.skillyards.in";
+export const BASE_URL = "https://www.adhyayanx.in";
 
 export const ORGANIZATION_ID = `${BASE_URL}/#organization`;
 export const WEBSITE_ID = `${BASE_URL}/#website`;

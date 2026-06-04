@@ -15,6 +15,6 @@ export default function robots() {
                 ],
             },
         ],
-        sitemap: "https://www.skillyards.in/sitemap.xml",
+        sitemap: "https://www.adhyayanx.in/sitemap.xml",
     };
 }

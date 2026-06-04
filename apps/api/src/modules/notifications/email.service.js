@@ -13,7 +13,7 @@ export async function sendAdminEnquiryNotification(enquiry) {
     from: process.env.EMAIL_FROM,
     to: [process.env.ADMIN_EMAIL],
     reply_to: enquiry.email,
-    subject: "New enquiry from Skillyards website",
+    subject: "New enquiry from AdhyayanX website",
     html: adminEnquiryTemplate(enquiry)
   });
 }
@@ -35,9 +35,9 @@ export async function sendUserConfirmation(enquiry) {
  */
 export async function sendTestEmail() {
   return resend.emails.send({
-    from: "Skillyards <admin@skillyards.in>",
-    to: ["staff@skillyards.in"],
-    subject: "Skillyards Email Test",
+    from: "AdhyayanX <admin@adhyayanx.in>",
+    to: ["staff@adhyayanx.in"],
+    subject: "AdhyayanX Email Test",
     html: `
       <h2>Email system working</h2>
       <p>This confirms your production email setup is working.</p>
@@ -50,8 +50,8 @@ export async function sendTestEmail() {
  * Send receipt email with PDF attachment
  */
 export async function sendReceiptEmail({ to, studentName, receiptNumber, pdfBuffer }) {
-  const from = process.env.EMAIL_FROM || "Skillyards <admin@skillyards.in>";
-  const subject = `Payment Receipt: ${receiptNumber || "Skillyards"}`;
+  const from = process.env.EMAIL_FROM || "AdhyayanX <admin@adhyayanx.in>";
+  const subject = `Payment Receipt: ${receiptNumber || "AdhyayanX"}`;
   const attachments = [
     {
       filename: `receipt-${receiptNumber || "payment"}.pdf`,

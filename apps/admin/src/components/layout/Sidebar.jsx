@@ -28,7 +28,7 @@ function SidebarContent({ variant }) {
       <div className="flex items-center justify-between h-16 px-4 border-b border-sidebar-border shrink-0">
         {collapsed ? (
           <>
-            <Image src="/logo/logo-square.png" alt="Skillyards" width={36} height={36} />
+            <Image src="/logo/logo-square.png" alt="AdhyayanX" width={36} height={36} />
             <button
               onClick={toggle}
               className="p-1.5 rounded-lg text-sidebar-foreground/60 hover:text-sidebar-foreground hover:bg-sidebar-accent transition-colors cursor-pointer"

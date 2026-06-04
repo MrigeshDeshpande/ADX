@@ -35,7 +35,7 @@ async function backfill() {
     }
 
     yearlyCounts[year]++;
-    const receiptNumber = `SY-${year}-${String(yearlyCounts[year]).padStart(4, "0")}`;
+    const receiptNumber = `ADX-${year}-${String(yearlyCounts[year]).padStart(4, "0")}`;
 
     console.log(`Updating Payment ${p.id} -> ${receiptNumber}`);
     

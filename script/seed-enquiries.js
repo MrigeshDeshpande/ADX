@@ -1,5 +1,5 @@
 import "dotenv/config";
-import { db, enquiries } from "@skillyards/db";
+import { db, enquiries } from "@repo/db";
 
 async function seed() {
   await db.insert(enquiries).values([

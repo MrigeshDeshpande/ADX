@@ -3,47 +3,47 @@
 export const faqCategories = {
 
     about: {
-        label: "About SkillYards",
-        description: "Questions about SkillYards, our learning model, OJD and OJT pathways, and career-focused training in Agra.",
+        label: "About AdhyayanX",
+        description: "Questions about AdhyayanX, our learning model, OJD and OJT pathways, and career-focused training in Agra.",
         faqs: [
             {
-                question: "What is SkillYards?",
-                answer: "SkillYards is an AI-integrated career-building institute in Agra focused on practical learning, mentorship, industry-focused training, and structured programs for students after 12th and graduates.",
+                question: "What is AdhyayanX?",
+                answer: "AdhyayanX is an AI-integrated career-building institute in Agra focused on practical learning, mentorship, industry-focused training, and structured programs for students after 12th and graduates.",
             },
             {
-                question: "What makes SkillYards different from a generic training institute?",
-                answer: "SkillYards focuses on practical learning, mentor guidance, portfolio-building, modern workflows, and career-focused preparation instead of theory-only classroom teaching.",
+                question: "What makes AdhyayanX different from a generic training institute?",
+                answer: "AdhyayanX focuses on practical learning, mentor guidance, portfolio-building, modern workflows, and career-focused preparation instead of theory-only classroom teaching.",
             },
             {
-                question: "What is the difference between OJD and OJT at SkillYards?",
+                question: "What is the difference between OJD and OJT at AdhyayanX?",
                 answer: "OJD, or On-Job Degree, is for students after 12th who want a university-recognized degree pathway along with practical skill development. OJT, or On-Job Training, is for college students, graduates, and early-career learners who want focused practical training and portfolio-building in a shorter format.",
             },
             {
-                question: "Is AI included in SkillYards programs?",
-                answer: "Yes. SkillYards integrates practical AI-assisted workflows into learning so students understand how modern developers and marketers improve productivity, research, debugging, planning, reporting, and documentation.",
+                question: "Is AI included in AdhyayanX programs?",
+                answer: "Yes. AdhyayanX integrates practical AI-assisted workflows into learning so students understand how modern developers and marketers improve productivity, research, debugging, planning, reporting, and documentation.",
             },
             {
-                question: "Are SkillYards programs offline or online?",
-                answer: "SkillYards programs are conducted through offline classroom-based learning at the Agra campus so students can learn with mentor support, structure, and practical interaction.",
+                question: "Are AdhyayanX programs offline or online?",
+                answer: "AdhyayanX programs are conducted through offline classroom-based learning at the Agra campus so students can learn with mentor support, structure, and practical interaction.",
             },
             {
-                question: "Who can join SkillYards?",
-                answer: "SkillYards is designed for students after 12th, college students, graduates, and early-career learners who want more practical skills, better career clarity, and stronger real-world preparation.",
+                question: "Who can join AdhyayanX?",
+                answer: "AdhyayanX is designed for students after 12th, college students, graduates, and early-career learners who want more practical skills, better career clarity, and stronger real-world preparation.",
             },
             {
-                question: "Does SkillYards provide placement assistance?",
-                answer: "Yes. SkillYards provides placement assistance that may include resume building, portfolio review, GitHub or profile support, LinkedIn support, mock interviews, interview preparation, career counselling, and relevant opportunity referrals where available.",
+                question: "Does AdhyayanX provide placement assistance?",
+                answer: "Yes. AdhyayanX provides placement assistance that may include resume building, portfolio review, GitHub or profile support, LinkedIn support, mock interviews, interview preparation, career counselling, and relevant opportunity referrals where available.",
             },
             {
-                question: "Where is SkillYards located?",
-                answer: "SkillYards is located at A-3, behind Manoj Dhaba, Bhagwan Talkies Crossing, Indra Puri, New Agra Colony, Agra, Uttar Pradesh 282005.",
+                question: "Where is AdhyayanX located?",
+                answer: "AdhyayanX is located at A-3, behind Manoj Dhaba, Bhagwan Talkies Crossing, Indra Puri, New Agra Colony, Agra, Uttar Pradesh 282005.",
             },
         ],
     },
 
     homepage: {
-        label: "About SkillYards",
-        description: "General questions about SkillYards, our training model, and what we offer.",
+        label: "About AdhyayanX",
+        description: "General questions about AdhyayanX, our training model, and what we offer.",
         faqs: [
             {
                 question: "What is On Job Training (OJT)?",
@@ -74,11 +74,11 @@ export const faqCategories = {
                 answer: "We offer completely offline training at our Agra campus. Our institute provides direct mentorship, code reviews, and laboratory access.",
             },
             {
-                question: "Who is eligible to join SkillYards?",
+                question: "Who is eligible to join AdhyayanX?",
                 answer: "Students who have completed or are pursuing their 12th, BCA, B.Tech, MCA, or any degree with a passion for IT are eligible to join our various programs.",
             },
             {
-                question: "Where is SkillYards located?",
+                question: "Where is AdhyayanX located?",
                 answer: "Our main centre is located at A-3, behind Manoj Dhaba, Bhagwan Talkies crossing, Indra Puri, New Agra Colony, Agra, Uttar Pradesh – 282005, India.",
             },
         ],
@@ -86,10 +86,10 @@ export const faqCategories = {
 
     general: {
         label: "General",
-        description: "About SkillYards, admissions, fees, and placement.",
+        description: "About AdhyayanX, admissions, fees, and placement.",
         faqs: [
             {
-                question: "What are the eligibility criteria for joining SkillYards?",
+                question: "What are the eligibility criteria for joining AdhyayanX?",
                 answer: "For skill courses (Full-Stack Dev & Digital Marketing), there is no strict eligibility - anyone with basic computer literacy can join. For degree programs (BCA & BBA), you need to have passed 12th grade with at least 50% marks.",
             },
             {
@@ -133,19 +133,19 @@ export const faqCategories = {
 
     ojt: {
         label: "On-Job Training",
-        description: "Everything about SkillYards' AI-integrated On-Job Training programs in Agra.",
+        description: "Everything about AdhyayanX' AI-integrated On-Job Training programs in Agra.",
         faqs: [
             {
                 question: "What is an On-Job Training (OJT) program?",
-                answer: "OJT programs at SkillYards focus on practical, project-based learning designed to help students build job-ready skills through mentor guidance, practical assignments, and portfolio work.",
+                answer: "OJT programs at AdhyayanX focus on practical, project-based learning designed to help students build job-ready skills through mentor guidance, practical assignments, and portfolio work.",
             },
             {
-                question: "Which OJT programs are available at SkillYards?",
-                answer: "SkillYards currently offers Full-Stack Web Development OJT and Digital Marketing OJT.",
+                question: "Which OJT programs are available at AdhyayanX?",
+                answer: "AdhyayanX currently offers Full-Stack Web Development OJT and Digital Marketing OJT.",
             },
             {
                 question: "Are these OJT programs offline or online?",
-                answer: "Both OJT programs are conducted through offline classroom training at the SkillYards Agra campus.",
+                answer: "Both OJT programs are conducted through offline classroom training at the AdhyayanX Agra campus.",
             },
             {
                 question: "Is AI included in these OJT programs?",
@@ -160,7 +160,7 @@ export const faqCategories = {
                 answer: "Students work on mentor-guided projects, practical exercises, portfolio work, GitHub/workflow practice, reporting exercises, and AI-assisted productivity tasks.",
             },
             {
-                question: "Does SkillYards provide placement assistance?",
+                question: "Does AdhyayanX provide placement assistance?",
                 answer: "Yes. Placement assistance includes resume building, portfolio review, GitHub/profile support, LinkedIn support, mock interviews, interview preparation, and career counselling.",
             },
         ],
@@ -172,7 +172,7 @@ export const faqCategories = {
         faqs: [
             {
                 question: "Is this Full-Stack Web Development Course in Agra offline or online?",
-                answer: "This is an offline classroom-based full-stack web development course at SkillYards, Agra.",
+                answer: "This is an offline classroom-based full-stack web development course at AdhyayanX, Agra.",
             },
             {
                 question: "What is the duration of the course?",
@@ -238,16 +238,16 @@ export const faqCategories = {
                 answer: "Placement assistance includes resume building, portfolio review, mock interviews, LinkedIn/profile support, interview preparation, counselling, and relevant opportunity referrals where available. It is not a job guarantee.",
             },
             {
-                question: "Can I freelance after this course? Will SkillYards help me get work?",
+                question: "Can I freelance after this course? Will AdhyayanX help me get work?",
                 answer: "Some students choose freelancing as a career path. We can cover practical basics like pricing, proposals, and professional communication as part of career preparation. We do not provide paid work; the focus is on building skills and a portfolio that helps you pursue opportunities independently.",
             },
             {
                 question: "Are there evening or weekend batches for working professionals?",
-                answer: "Batch schedules may vary. Contact SkillYards to know the current weekday or weekend availability for the upcoming batch.",
+                answer: "Batch schedules may vary. Contact AdhyayanX to know the current weekday or weekend availability for the upcoming batch.",
             },
             {
                 question: "How is this different from doing a free Google Digital Garage course?",
-                answer: "Free resources teach concepts. At SkillYards, training is mentor-led and practical - you learn by executing structured assignments, building a portfolio, and getting feedback on your work.",
+                answer: "Free resources teach concepts. At AdhyayanX, training is mentor-led and practical - you learn by executing structured assignments, building a portfolio, and getting feedback on your work.",
             },
             {
                 question: "Can small business owners join to grow their own business?",
@@ -270,7 +270,7 @@ export const faqCategories = {
             },
             {
                 question: "Are BCA and BBA degrees university-recognised?",
-                answer: "Yes. Both programs are affiliated with a recognised university. You receive a standard bachelor's degree (BCA or BBA) along with SkillYards' practical training and career support.",
+                answer: "Yes. Both programs are affiliated with a recognised university. You receive a standard bachelor's degree (BCA or BBA) along with AdhyayanX' practical training and career support.",
             },
             {
                 question: "Do BCA and BBA programs offer placement support?",
@@ -286,7 +286,7 @@ export const faqCategories = {
             },
             {
                 question: "What is the OJT (On-Job Training) component in degree programs?",
-                answer: "OJT is SkillYards' signature component where you work on mentor-guided practical projects alongside your academic coursework. This helps you build hands-on skills beyond the university syllabus.",
+                answer: "OJT is AdhyayanX' signature component where you work on mentor-guided practical projects alongside your academic coursework. This helps you build hands-on skills beyond the university syllabus.",
             },
         ],
     },
@@ -336,18 +336,18 @@ export const faqCategories = {
             },
             {
                 question: "Is the certificate valid / recognised?",
-                answer: "The certificate is issued by SkillYards and is suitable for sharing on LinkedIn, your portfolio, or your CV. It demonstrates that you have completed a verified skill assessment.",
+                answer: "The certificate is issued by AdhyayanX and is suitable for sharing on LinkedIn, your portfolio, or your CV. It demonstrates that you have completed a verified skill assessment.",
             },
             {
                 question: "What happens if I score below 60%?",
-                answer: "You still receive a certificate - labelled 'Beginner' - along with a personalised recommendation for which SkillYards program would help you reach the next level. There is no fail.",
+                answer: "You still receive a certificate - labelled 'Beginner' - along with a personalised recommendation for which AdhyayanX program would help you reach the next level. There is no fail.",
             },
             {
                 question: "Can I retake the test?",
                 answer: "Yes, you can retake the test after 7 days. We encourage you to revisit the topics you found challenging and come back for a better score.",
             },
             {
-                question: "Will SkillYards contact me after the test?",
+                question: "Will AdhyayanX contact me after the test?",
                 answer: "Our counselling team may reach out with a program recommendation based on your score - but only once, and only to help. You can opt out at any time.",
             },
         ],

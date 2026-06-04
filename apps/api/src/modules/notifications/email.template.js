@@ -1,4 +1,4 @@
-const LOGO_URL = "https://raw.githubusercontent.com/skillyards/.github/be315000f3f0e8efe5b2f92eb5cf2e00fdf22579/skillyards-dark.svg#gh-dark-mode-only";
+const LOGO_URL = "https://raw.githubusercontent.com/adhyayanx/.github/main/adhyayanx-dark.svg#gh-dark-mode-only";
 
 export function adminEnquiryTemplate(enquiry) {
   const year = new Date().getFullYear();
@@ -10,7 +10,7 @@ export function adminEnquiryTemplate(enquiry) {
     <div style="max-width:560px;margin:auto;background:#ffffff;border-radius:16px;overflow:hidden;border:1px solid #e2e8f0;">
 
       <div style="background:#0f172a;padding:24px;text-align:center;">
-        <img src="${LOGO_URL}" style="max-width:180px; height:auto; display:block; margin:auto;" alt="Skillyards" />
+        <img src="${LOGO_URL}" style="max-width:180px; height:auto; display:block; margin:auto;" alt="AdhyayanX" />
       </div>
 
       <div style="padding:24px 28px 0;">
@@ -41,7 +41,7 @@ export function adminEnquiryTemplate(enquiry) {
       </div>
 
       <div style="border-top:1px solid #e2e8f0;padding:16px 28px;background:#f8fafc;">
-        <p style="text-align:center;font-size:11px;color:#94a3b8;margin:0;">Automated alert from Skillyards · © ${year} · Ref: ${uniqueId}</p>
+        <p style="text-align:center;font-size:11px;color:#94a3b8;margin:0;">Automated alert from AdhyayanX · © ${year} · Ref: ${uniqueId}</p>
       </div>
     </div>
   </div>
@@ -61,7 +61,7 @@ export function receiptEmailTemplate({ studentName, receiptNumber, isAdmin = fal
   <div style="background:#f1f5f9;padding:2rem;font-family:Arial,sans-serif;">
     <div style="max-width:560px;margin:auto;background:#ffffff;border-radius:16px;overflow:hidden;border:1px solid #e2e8f0;">
       <div style="background:#0f172a;padding:24px;text-align:center;">
-        <img src="${LOGO_URL}" style="max-width:180px; height:auto; display:block; margin:auto;" alt="Skillyards" />
+        <img src="${LOGO_URL}" style="max-width:180px; height:auto; display:block; margin:auto;" alt="AdhyayanX" />
       </div>
 
       <div style="padding:28px 28px 24px;">
@@ -74,14 +74,14 @@ export function receiptEmailTemplate({ studentName, receiptNumber, isAdmin = fal
         ${!isAdmin ? `
         <div style="background:#f8fafc;border-radius:10px;padding:16px 18px;border-left:3px solid #635ee7;margin-bottom:28px;">
           <p style="font-size:13px;color:#1e293b;line-height:1.6;margin:0;">
-            If you have any questions regarding this receipt, please contact us at <a href="mailto:support@skillyards.in" style="color:#635ee7;text-decoration:none;">support@skillyards.in</a>.
+            If you have any questions regarding this receipt, please contact us at <a href="mailto:support@adhyayanx.in" style="color:#635ee7;text-decoration:none;">support@adhyayanx.in</a>.
           </p>
         </div>
         ` : ""}
       </div>
 
       <div style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:24px 28px;text-align:center;">
-        <p style="font-size:11px;color:#94a3b8;margin:0;">© ${year} Skillyards. All rights reserved.</p>
+        <p style="font-size:11px;color:#94a3b8;margin:0;">© ${year} AdhyayanX. All rights reserved.</p>
       </div>
     </div>
   </div>
@@ -97,7 +97,7 @@ export function userConfirmationTemplate(enquiry) {
     <div style="max-width:560px;margin:auto;background:#ffffff;border-radius:16px;overflow:hidden;border:1px solid #e2e8f0;">
 
       <div style="background:#0f172a;padding:24px;text-align:center;">
-        <img src="${LOGO_URL}" style="max-width:180px; height:auto; display:block; margin:auto;" alt="Skillyards" />
+        <img src="${LOGO_URL}" style="max-width:180px; height:auto; display:block; margin:auto;" alt="AdhyayanX" />
       </div>
 
       <div style="padding:28px 28px 0;">
@@ -127,17 +127,17 @@ export function userConfirmationTemplate(enquiry) {
       <div style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:24px 28px;text-align:center;">
         <p style="font-size:12px;color:#94a3b8;margin:0 0 16px;">Stay connected with us</p>
         <div style="margin-bottom:20px;">
-            <a href="https://linkedin.com/company/skillyards" style="display:inline-block;margin:0 5px;text-decoration:none;">
+            <a href="https://linkedin.com/company/adhyayanx" style="display:inline-block;margin:0 5px;text-decoration:none;">
                 <img src="https://cdn-icons-png.flaticon.com/32/145/145807.png" width="24" height="24" alt="LinkedIn">
             </a>
-            <a href="https://instagram.com/skillyards_eduhub" style="display:inline-block;margin:0 5px;text-decoration:none;">
+            <a href="https://instagram.com/adhyayanx_eduhub" style="display:inline-block;margin:0 5px;text-decoration:none;">
                 <img src="https://cdn-icons-png.flaticon.com/32/174/174855.png" width="24" height="24" alt="Instagram">
             </a>
-            <a href="https://facebook.com/skillyardss" style="display:inline-block;margin:0 5px;text-decoration:none;">
+            <a href="https://facebook.com/adhyayanx" style="display:inline-block;margin:0 5px;text-decoration:none;">
                 <img src="https://cdn-icons-png.flaticon.com/32/5968/5968764.png" width="24" height="24" alt="Facebook">
             </a>
         </div>
-        <p style="font-size:11px;color:#94a3b8;margin:0;">© ${year} Skillyards. All rights reserved. · Ref: ${uniqueId}</p>
+        <p style="font-size:11px;color:#94a3b8;margin:0;">© ${year} AdhyayanX. All rights reserved. · Ref: ${uniqueId}</p>
       </div>
     </div>
   </div>

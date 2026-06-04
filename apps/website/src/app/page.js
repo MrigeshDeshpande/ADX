@@ -41,9 +41,9 @@ const homeKeywords = [
 ];
 
 export const metadata = buildSEO({
-  title: "SkillYards | IT Training With Degree & Placement in Agra",
+  title: "AdhyayanX | Education Operations Platform",
   description:
-    "Get BCA, BBA, full-stack & digital marketing training with DBRAU degree and 100% placement support. Book your free career counselling today!",
+    "Modern education operations platform for coaching institutes, training centers, and educational organizations.",
   path: "/",
   keywords: homeKeywords,
   ogImage: "/images/opengraph/home-og.jpg",
@@ -56,9 +56,9 @@ export default async function Home() {
   const faqSchema = getFAQSchema(homepageFaqs, absoluteUrl("/"));
   const webPageSchema = getWebPageSchema({
     url: "/",
-    name: "SkillYards – IT Training Institute in Agra",
+    name: "AdhyayanX – Education Operations Platform",
     description:
-      "Get BCA, BBA, full-stack & digital marketing training with DBRAU degree and 100% placement support. Book your free career counselling today!",
+      "Modern education operations platform for coaching institutes, training centers, and educational organizations.",
     keywords: homeKeywords,
   });
 

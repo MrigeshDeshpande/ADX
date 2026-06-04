@@ -157,7 +157,7 @@ export function UserManagementClient({ initialUsers }) {
                 <input 
                   name="email"
                   type="email" 
-                  placeholder="john@skillyards.com" 
+                  placeholder="john@adhyayanx.com" 
                   className="input pl-10" 
                   required 
                 />

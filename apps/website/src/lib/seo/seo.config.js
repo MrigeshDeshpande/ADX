@@ -1,13 +1,8 @@
 export const SEO_CONFIG = {
-  siteName: "SkillYards",
-
-  baseUrl: "https://www.skillyards.in",
-
-  titleTemplate: "%s | SkillYards",
-
+  siteName: "AdhyayanX",
+  baseUrl: "https://www.adhyayanx.in",
+  titleTemplate: "%s | AdhyayanX",
   defaultDescription:
-    "SkillYards helps students build real-world skills with industry-focused programs.",
-
+    "AdhyayanX helps students build real-world skills with industry-focused programs.",
   defaultOGImage: "/images/opengraph/default.jpg",
-
 };

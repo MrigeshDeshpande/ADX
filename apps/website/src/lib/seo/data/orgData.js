@@ -2,10 +2,10 @@ import { BASE_URL } from "../constants/ids.js";
 import { PRESS_MENTIONS } from "./press.js";
 
 export const orgData = {
-  name: "SkillYards",
+  name: "AdhyayanX",
   url: BASE_URL,
   description:
-    "SkillYards is an AI-integrated career-building institute in Agra offering practical learning, mentorship, OJD and OJT pathways, Full-Stack Web Development, Digital Marketing, and career-focused training with portfolio building and placement assistance.",
+    "AdhyayanX is a modern education operations platform for coaching institutes, training centers, and educational organizations.",
 
   foundingDate: "2023",
 
@@ -51,7 +51,7 @@ export const orgData = {
   },
 
   location: {
-    name: "SkillYards",
+    name: "AdhyayanX",
     address: {
       streetAddress: "A-3, behind Manoj Dhaba, Bhagwan Talkies Crossing, Indra Puri, New Agra Colony, Agra, Uttar Pradesh",
       addressLocality: "Agra",
@@ -69,11 +69,11 @@ export const orgData = {
   },
 
   socials: [
-    "https://www.facebook.com/skillyardss",
-    "https://www.linkedin.com/company/skillyards",
-    "https://www.instagram.com/skillyards_eduhub",
-    "https://www.twitter.com/skillyardss",
-    "https://www.youtube.com/@Skillyardss",
+    "https://www.facebook.com/adhyayanx",
+    "https://www.linkedin.com/company/adhyayanx",
+    "https://www.instagram.com/adhyayanx_eduhub",
+    "https://www.twitter.com/adhyayanx",
+    "https://www.youtube.com/@Adhyayanx",
   ],
 
   press: PRESS_MENTIONS,
