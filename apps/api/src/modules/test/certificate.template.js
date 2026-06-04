@@ -1,7 +1,7 @@
-const LOGO_URL = "https://www.skillyards.in/images/logo-dark.png";
+const LOGO_URL = "https://www.adhyayanx.in/images/logo-dark.png";
 
 /**
- * Generates a premium HTML certificate for the SkillYards Skill Test.
+ * Generates a premium HTML certificate for the ADX Skill Test.
  *
  * @param {Object} data
  * @param {string} data.name        – Student name
@@ -43,7 +43,7 @@ export function certificateTemplate({
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=842, initial-scale=1.0" />
-  <title>SkillYards Certificate – ${name}</title>
+  <title>AdhyayanX Certificate – ${name}</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
   <style>
     /* ── Print / PDF page control ── */
@@ -312,7 +312,7 @@ export function certificateTemplate({
   <!-- Main content -->
   <div class="content">
     <div class="logo-bar">
-      <img src="${LOGO_URL}" alt="SkillYards" />
+      <img src="${LOGO_URL}" alt="AdhyayanX" />
     </div>
     <p class="subtitle">LEARN.GROW.ACHIEVE</p>
 
@@ -324,7 +324,7 @@ export function certificateTemplate({
 
     <p class="description">
       For successfully completing the <strong>10-Minute Skill Assessment</strong>
-      and demonstrating proficiency in the following technologies at SkillYards.
+      and demonstrating proficiency in the following technologies at AdhyayanX.
     </p>
 
     <div class="topics-row">${topicBadges}</div>
@@ -353,7 +353,7 @@ export function certificateTemplate({
         <div class="footer-label">Date of Completion</div>
       </div>
       <div class="footer-col">
-        <div class="footer-value">SkillYards Versatilitty</div>
+        <div class="footer-value">AdhyayanX</div>
         <div class="footer-line"></div>
         <div class="footer-label">Issued By</div>
       </div>
@@ -378,7 +378,7 @@ export function certificateEmailTemplate({ name, percentage, score, total }) {
 
       <div style="background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);padding:32px 24px;text-align:center;">
         <h1 style="color:#ffffff;font-size:22px;margin:0 0 6px;font-weight:700;">🏆 Congratulations, ${name}!</h1>
-        <p style="color:#94a3b8;font-size:13px;margin:0;">You've earned your SkillYards Certificate</p>
+        <p style="color:#94a3b8;font-size:13px;margin:0;">You've earned your AdhyayanX Certificate</p>
       </div>
 
       <div style="padding:28px;">
@@ -388,7 +388,7 @@ export function certificateEmailTemplate({ name, percentage, score, total }) {
         </div>
 
         <p style="font-size:14px;color:#334155;line-height:1.7;margin:0 0 20px;">
-          Your official <strong>SkillYards Certificate of Achievement</strong> is attached to this email as a PDF.
+          Your official <strong>AdhyayanX Certificate of Achievement</strong> is attached to this email as a PDF.
           You can download, print, or share it on your professional profiles.
         </p>
 
@@ -401,24 +401,24 @@ export function certificateEmailTemplate({ name, percentage, score, total }) {
           </ul>
         </div>
 
-        <a href="https://skillyards.in/programs" style="display:block;text-align:center;padding:14px 0;background:#635ee7;color:#ffffff;font-size:14px;font-weight:600;border-radius:10px;text-decoration:none;">
+        <a href="https://adhyayanx.in/programs" style="display:block;text-align:center;padding:14px 0;background:#635ee7;color:#ffffff;font-size:14px;font-weight:600;border-radius:10px;text-decoration:none;">
           Explore Programs →
         </a>
       </div>
 
       <div style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:20px 28px;text-align:center;">
         <div style="margin-bottom:16px;">
-          <a href="https://linkedin.com/company/skillyards" style="display:inline-block;margin:0 5px;text-decoration:none;">
+          <a href="https://linkedin.com/company/adhyayanx" style="display:inline-block;margin:0 5px;text-decoration:none;">
             <img src="https://cdn-icons-png.flaticon.com/32/145/145807.png" width="24" height="24" alt="LinkedIn">
           </a>
-          <a href="https://instagram.com/skillyards_eduhub" style="display:inline-block;margin:0 5px;text-decoration:none;">
+          <a href="https://instagram.com/adhyayanx" style="display:inline-block;margin:0 5px;text-decoration:none;">
             <img src="https://cdn-icons-png.flaticon.com/32/174/174855.png" width="24" height="24" alt="Instagram">
           </a>
-          <a href="https://facebook.com/skillyardss" style="display:inline-block;margin:0 5px;text-decoration:none;">
+          <a href="https://facebook.com/adhyayanx" style="display:inline-block;margin:0 5px;text-decoration:none;">
             <img src="https://cdn-icons-png.flaticon.com/32/5968/5968764.png" width="24" height="24" alt="Facebook">
           </a>
         </div>
-        <p style="font-size:11px;color:#94a3b8;margin:0;">© ${year} SkillYards Academy. All rights reserved.</p>
+        <p style="font-size:11px;color:#94a3b8;margin:0;">© ${year} AdhyayanX. All rights reserved.</p>
       </div>
     </div>
   </div>

@@ -3,7 +3,7 @@ import Link from "next/link";
 export const revalidate = 86400;
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { buildSEO } from "@/lib/seo/buildSEO";
-const BASE_URL = "https://www.skillyards.in";
+const BASE_URL = "https://www.adhyayanx.in";
 
 const STATIC_SITEMAP_ROUTES = [
     { path: "/", label: "Home", section: "Company", priority: 1.0 },
@@ -39,15 +39,15 @@ const LEADERS = [
 ];
 
 export const metadata = buildSEO({
-  title: "HTML Sitemap | SkillYards",
+  title: "HTML Sitemap | AdhyayanX",
   description:
-    "Browse the complete HTML sitemap of SkillYards with quick access to all important pages.",
+    "Browse the complete HTML sitemap of AdhyayanX with quick access to all important pages.",
   path: "/sitemap",
   keywords: [
-    "SkillYards sitemap",
-    "HTML sitemap SkillYards",
-    "website structure SkillYards",
-    "all pages SkillYards",
+    "AdhyayanX sitemap",
+    "HTML sitemap AdhyayanX",
+    "website structure AdhyayanX",
+    "all pages AdhyayanX",
   ],
   ogImage: "/images/opengraph/sitemap-og.jpg",
 });
@@ -145,7 +145,7 @@ function SitemapSchema() {
         __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ItemList",
-          name: "SkillYards HTML Sitemap",
+          name: "AdhyayanX HTML Sitemap",
           itemListElement: items,
         }),
       }}

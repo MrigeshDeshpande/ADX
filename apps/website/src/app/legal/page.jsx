@@ -8,40 +8,37 @@ import { ArrowRight, FileText, Shield, Wallet, Mail, Clock3 } from "lucide-react
 export const revalidate = 86400;
 
 export const metadata = buildSEO({
-    title: "Legal Information | SkillYards",
+    title: "Legal Information | AdhyayanX",
     description:
-        "Access SkillYards legal information including terms of service, privacy policy, refund policy, and other important guidelines for our website and training programs.",
+        "Access AdhyayanX legal information including terms of service, privacy policy, refund policy, and other important guidelines for our website and training programs.",
     path: "/legal",
     keywords: [
-        "SkillYards legal",
-        "SkillYards policies",
-        "SkillYards terms and conditions",
-        "SkillYards privacy policy",
+        "AdhyayanX legal",
+        "AdhyayanX policies",
+        "AdhyayanX terms and conditions",
+        "AdhyayanX privacy policy",
         "IT training institute in Agra policies",
-        "SkillYards user policies",
+        "AdhyayanX user policies",
     ],
     ogImage: "/images/opengraph/home-og.jpg",
 });
 
 const legalPages = [
     {
-        title: "Privacy Policy",
-        description:
-            "Understand how SkillYards collects, uses, stores, and protects your personal information across our website and services.",
+        title: "Privacy Policy",            description:
+                "Understand how AdhyayanX collects, uses, stores, and protects your personal information across our website and services.",
         href: "/legal/privacy-policy",
         icon: Shield,
     },
     {
-        title: "Terms of Service",
-        description:
-            "Review the terms, responsibilities, and usage conditions that apply when you access SkillYards programs and website features.",
+        title: "Terms of Service",            description:
+                "Review the terms, responsibilities, and usage conditions that apply when you access AdhyayanX programs and website features.",
         href: "/legal/terms-of-service",
         icon: FileText,
     },
     {
-        title: "Refund Policy",
-        description:
-            "Check the rules for cancellations, refund eligibility, processing timelines, and support for course-related payment issues.",
+        title: "Refund Policy",            description:
+                "Check the rules for cancellations, refund eligibility, processing timelines, and support for course-related payment issues.",
         href: "/legal/refund-policy",
         icon: Wallet,
     },
@@ -52,7 +49,7 @@ export default function LegalPage() {
         url: "/legal",
         name: "Legal Information",
         description:
-            "Access SkillYards legal information including terms of service, privacy policy, refund policy, and other important guidelines for our website and training programs.",
+            "Access AdhyayanX legal information including terms of service, privacy policy, refund policy, and other important guidelines for our website and training programs.",
     });
 
     return (
@@ -60,7 +57,7 @@ export default function LegalPage() {
             <JsonLd data={webPageSchema} id="legal-page-schema" />
             <PageHero
                 title="Legal Information"
-                description="Find the official policies that govern how SkillYards operates, how your data is handled, and how payments, access, and refunds are managed."
+                description="Find the official policies that govern how AdhyayanX operates, how your data is handled, and how payments, access, and refunds are managed."
             />
 
             <div className="bg-background">
@@ -74,7 +71,7 @@ export default function LegalPage() {
                                 Clear access to the documents that matter before enrollment and while using our website.
                             </h2>
                             <p className="mt-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
-                                This section brings together the core SkillYards policy pages so learners, parents,
+                                This section brings together the core AdhyayanX policy pages so learners, parents,
                                 and partners can quickly review our terms, privacy practices, and refund conditions.
                             </p>
                         </div>
@@ -93,11 +90,11 @@ export default function LegalPage() {
                                     </p>
                                 </div>
                                 <a
-                                    href="mailto:support@skillyards.in"
+                                    href="mailto:support@adhyayanx.in"
                                     className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
                                 >
                                     <Mail size={16} />
-                                    support@skillyards.in
+                                    support@adhyayanx.in
                                 </a>
                             </div>
                         </div>

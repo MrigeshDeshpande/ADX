@@ -38,7 +38,7 @@ async function testInternalBypass() {
       method: "POST",
       headers: { 
         "Content-Type": "application/json",
-        "x-internal-key": "skillyards-secret-123" 
+        "x-internal-key": "adhyayanx-dev-key-123" 
       },
       body: JSON.stringify({
         paymentId: "d78305b0-88e5-4dc0-bc90-4fe7a854a1fe", // Valid UUID

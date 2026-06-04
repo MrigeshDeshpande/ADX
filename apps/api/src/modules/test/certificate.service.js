@@ -69,9 +69,9 @@ export async function generateAndSendCertificate(data) {
 
     // Send email with PDF attachment
     const result = await resend.emails.send({
-      from: process.env.EMAIL_FROM || "SkillYards <certificates@skillyards.in>",
+      from: process.env.EMAIL_FROM || "AdhyayanX <certificates@adhyayanx.in>",
       to: [data.email],
-      subject: `Your SkillYards Certificate — ${percentage}% Score`,
+      subject: `Your AdhyayanX Certificate — ${percentage}% Score`,
       html: certificateEmailTemplate({
         name: data.name,
         percentage,
@@ -80,7 +80,7 @@ export async function generateAndSendCertificate(data) {
       }),
       attachments: [
         {
-          filename: `SkillYards-Certificate-${data.name.replace(/\s+/g, "-")}.pdf`,
+          filename: `AdhyayanX-Certificate-${data.name.replace(/\s+/g, "-")}.pdf`,
           content: pdfBuffer.toString("base64"),
         },
       ],

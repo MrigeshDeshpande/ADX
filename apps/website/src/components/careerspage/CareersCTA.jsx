@@ -15,7 +15,7 @@ export default function CareersCTA() {
                 <p className="mx-auto mt-6 max-w-3xl text-lg text-neutral-300">
                     Whether you’re an experienced professional, a mentor at heart,
                     or someone hungry to grow — if you care about learning, impact,
-                    and honest work, you’ll feel at home at SkillYards.
+                    and honest work, you’ll feel at home at AdhyayanX.
                 </p>
 
                 <p className="mx-auto mt-4 max-w-2xl text-sm text-neutral-400">
@@ -34,7 +34,7 @@ export default function CareersCTA() {
                     </Link>
 
                     <a
-                        href="mailto:careers@skillyards.in"
+                        href="mailto:careers@adhyayanx.in"
                         className="inline-flex items-center gap-2 rounded-xl border border-white/30 px-7 py-3 text-sm font-semibold text-white transition hover:border-white"
                     >
                         <Mail className="h-4 w-4" />

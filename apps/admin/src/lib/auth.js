@@ -1,7 +1,10 @@
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
 
-const secretKey = process.env.JWT_SECRET || "skillyards_secret_key_change_me_in_prod";
+const secretKey = process.env.JWT_SECRET;
+if (!secretKey) {
+  throw new Error("JWT_SECRET environment variable is required but not set");
+}
 const encodedKey = new TextEncoder().encode(secretKey);
 
 export async function encrypt(payload) {
@@ -54,7 +57,7 @@ export async function updateSession() {
     expires: parsed.expires,
     sameSite: "lax",
     path: "/",
-    domain: process.env.NODE_ENV === "production" ? ".skillyards.in" : undefined,
+    domain: process.env.NODE_ENV === "production" ? ".adhyayanx.in" : undefined,
   });
 }
 

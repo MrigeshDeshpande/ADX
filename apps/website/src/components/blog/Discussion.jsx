@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { MessageSquare } from "lucide-react";
 
-const DISQUS_SHORTNAME = "skillyards-versatilitty";
+const DISQUS_SHORTNAME = "adhyayanx";
 
 /**
  * Reusable Disqus Discussion component for Next.js App Router.
@@ -23,7 +23,7 @@ export default function Discussion({ slug, title }) {
   useEffect(() => {
     if (!slug) return;
 
-    const pageUrl = `https://www.skillyards.in/blog/${slug}`;
+    const pageUrl = `https://www.adhyayanx.in/blog/${slug}`;
     const pageIdentifier = slug;
 
     // Set the global shortname — Disqus reads this

@@ -10,15 +10,15 @@ import { getWebPageSchema } from "@/lib/seo/schema/webPageSchema";
 export const metadata = buildSEO({
     title: "Refund Policy",
     description:
-        "Review SkillYards' Refund Policy to understand eligibility, timelines, and conditions for refunds on courses, subscriptions, and training programs.",
+        "Review AdhyayanX's Refund Policy to understand eligibility, timelines, and conditions for refunds on courses, subscriptions, and training programs.",
     path: "/refund-policy",
     keywords: [
-        "SkillYards Refund Policy",
-        "Refund Policy SkillYards",
+        "AdhyayanX Refund Policy",
+        "Refund Policy AdhyayanX",
         "Course refund terms",
         "Training refunds",
         "EdTech refund policy India",
-        "SkillYards cancellations",
+        "AdhyayanX cancellations",
     ],
     ogImage: "/images/opengraph/refund-policy-og.jpg",
 });
@@ -31,7 +31,7 @@ const sections = [
         title: "General Policy",
         content: (
             <p className="text-sm text-muted-foreground leading-relaxed">
-                SkillYards offers digital education programs, training services, and learning resources. By enrolling in any course or program, you acknowledge and agree to the terms outlined in this Refund & Cancellation Policy.
+                AdhyayanX offers digital education programs, training services, and learning resources. By enrolling in any course or program, you acknowledge and agree to the terms outlined in this Refund & Cancellation Policy.
             </p>
         ),
     },
@@ -65,7 +65,7 @@ const sections = [
                     {[
                         "Duplicate payment made for the same course or program",
                         "Technical issues on our website that prevent access to the purchased content and cannot be resolved by our support team",
-                        "Cancellation of a program or batch by SkillYards",
+                        "Cancellation of a program or batch by AdhyayanX",
                     ].map((item) => (
                         <li key={item} className="flex gap-3">
                             <span className="mt-1 shrink-0 w-1.5 h-1.5 rounded-full bg-emerald-500" />
@@ -95,7 +95,7 @@ const sections = [
                         "Partial completion of a course or program",
                         "Failure to attend live sessions or use course materials",
                         "Delays caused by personal, academic, or professional reasons",
-                        "Violation of SkillYards' Terms of Service or Code of Conduct",
+                        "Violation of AdhyayanX's Terms of Service or Code of Conduct",
                     ].map((item) => (
                         <li key={item} className="flex gap-3">
                             <span className="mt-1 shrink-0 w-1.5 h-1.5 rounded-full bg-rose-500" />
@@ -114,7 +114,7 @@ const sections = [
         content: (
             <>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                    SkillYards reserves the right to cancel or reschedule any course, batch, or training program due to unforeseen circumstances. In such cases, learners may be offered:
+                    AdhyayanX reserves the right to cancel or reschedule any course, batch, or training program due to unforeseen circumstances. In such cases, learners may be offered:
                 </p>
                 <ul className="mt-4 space-y-2">
                     {[
@@ -142,7 +142,7 @@ const sections = [
                     <span className="font-semibold text-foreground">7 to 10 business days</span>.
                 </p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                    SkillYards is not responsible for delays caused by banks or third-party payment providers.
+                    AdhyayanX is not responsible for delays caused by banks or third-party payment providers.
                 </p>
             </div>
         ),
@@ -180,7 +180,7 @@ const sections = [
         title: "Policy Updates",
         content: (
             <p className="text-sm text-muted-foreground leading-relaxed">
-                SkillYards reserves the right to update or modify this Refund & Cancellation Policy at any time. Changes will be effective immediately upon posting on this page.
+                AdhyayanX reserves the right to update or modify this Refund & Cancellation Policy at any time. Changes will be effective immediately upon posting on this page.
             </p>
         ),
     },
@@ -195,17 +195,17 @@ const sections = [
                     For any questions regarding refunds, cancellations, or this policy, please contact us:
                 </p>
                 <div className="rounded-2xl border border-border bg-background p-4 space-y-2">
-                    <p className="font-bold text-sm text-foreground">SkillYards</p>
+                    <p className="font-bold text-sm text-foreground">AdhyayanX</p>
                     <p className="text-sm text-muted-foreground">
                         Email:{" "}
-                        <a href="mailto:support@skillyards.in" className="text-primary hover:underline font-medium">
-                            support@skillyards.in
+                        <a href="mailto:support@adhyayanx.in" className="text-primary hover:underline font-medium">
+                            support@adhyayanx.in
                         </a>
                     </p>
                     <p className="text-sm text-muted-foreground">
                         Website:{" "}
-                        <a href="https://www.skillyards.in" className="text-primary hover:underline font-medium">
-                            www.skillyards.in
+                        <a href="https://www.adhyayanx.in" className="text-primary hover:underline font-medium">
+                            www.adhyayanx.in
                         </a>
                     </p>
                 </div>
@@ -224,7 +224,7 @@ export default function RefundPolicyPage() {
     const webPageSchema = getWebPageSchema({
         url: "/legal/refund-policy",
         name: "Refund Policy",
-        description: "Review SkillYards' Refund Policy to understand eligibility, timelines, and conditions for refunds on courses, subscriptions, and training programs."
+        description: "Review AdhyayanX's Refund Policy to understand eligibility, timelines, and conditions for refunds on courses, subscriptions, and training programs."
     });
 
     return (

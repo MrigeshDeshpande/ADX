@@ -18,7 +18,7 @@ const FinalCTA = dynamic(() => import("@/components/onJobDegreePage/FinalCTA"));
 export const revalidate = 86400;
 
 export const metadata = buildSEO({
-  title: "BCA & BBA Degree Programs in Agra with Practical Training | SkillYards",
+  title: "BCA & BBA Degree Programs in Agra with Practical Training | AdhyayanX",
   description:
     "Earn a recognised BCA or BBA degree in Agra while learning MERN stack development or Digital Marketing hands-on. 3 hrs practical + 2 hrs theory daily. Batch starts August. 35 seats.",
   path: "/programs/on-job-degree",
@@ -38,13 +38,13 @@ const courseSchema = {
   "@graph": [
     {
       "@type": "Course",
-      "@id": "https://www.skillyards.in/programs/on-job-degree#bca",
+      "@id": "https://www.adhyayanx.in/programs/on-job-degree#bca",
       "name": "BCA with Full-Stack Development",
-      "description": "A 3-year university-affiliated Bachelor of Computer Applications degree with 3 hours of daily hands-on MERN stack development training at SkillYards, Agra.",
+      "description": "A 3-year university-affiliated Bachelor of Computer Applications degree with 3 hours of daily hands-on MERN stack development training at AdhyayanX, Agra.",
       "provider": {
         "@type": "Organization",
-        "name": "SkillYards",
-        "url": "https://www.skillyards.in",
+        "name": "AdhyayanX",
+        "url": "https://www.adhyayanx.in",
       },
       "educationalCredentialAwarded": "Bachelor of Computer Applications (BCA)",
       "timeRequired": "P3Y",
@@ -54,7 +54,7 @@ const courseSchema = {
         "startDate": "2026-08-01",
         "location": {
           "@type": "Place",
-          "name": "SkillYards, Agra",
+          "name": "AdhyayanX, Agra",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Agra",
@@ -75,13 +75,13 @@ const courseSchema = {
     },
     {
       "@type": "Course",
-      "@id": "https://www.skillyards.in/programs/on-job-degree#bba",
+      "@id": "https://www.adhyayanx.in/programs/on-job-degree#bba",
       "name": "BBA with Digital Marketing",
-      "description": "A 3-year university-affiliated Bachelor of Business Administration degree with 3 hours of daily hands-on Digital Marketing training at SkillYards, Agra.",
+      "description": "A 3-year university-affiliated Bachelor of Business Administration degree with 3 hours of daily hands-on Digital Marketing training at AdhyayanX, Agra.",
       "provider": {
         "@type": "Organization",
-        "name": "SkillYards",
-        "url": "https://www.skillyards.in",
+        "name": "AdhyayanX",
+        "url": "https://www.adhyayanx.in",
       },
       "educationalCredentialAwarded": "Bachelor of Business Administration (BBA)",
       "timeRequired": "P3Y",
@@ -91,7 +91,7 @@ const courseSchema = {
         "startDate": "2026-08-01",
         "location": {
           "@type": "Place",
-          "name": "SkillYards, Agra",
+          "name": "AdhyayanX, Agra",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Agra",
