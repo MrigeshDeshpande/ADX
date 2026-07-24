@@ -35,7 +35,6 @@ To build a modern, technology-driven ecosystem that simplifies educational opera
 - Cloud-based document storage
 - Receipt delivery via email
 
-
 ### Assessment System
 - Online assessments
 - Timed tests
