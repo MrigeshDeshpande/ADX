@@ -78,7 +78,6 @@ apps/
 packages/
 ├── db              # Shared database schema and client
 ```
-
 ---
 
 ## Applications
