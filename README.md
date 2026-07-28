@@ -10,6 +10,7 @@ The platform combines a public-facing website, administrative ERP, centralized A
 
 ## Vision
 
+
 To build a modern, technology-driven ecosystem that simplifies educational operations while enabling institutions to focus on delivering exceptional learning experiences.
 
 ---
