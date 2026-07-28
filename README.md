@@ -64,6 +64,7 @@ To build a modern, technology-driven ecosystem that simplifies educational opera
 
 ---
 
+
 ## Architecture
 
 ADX follows a modular monorepo architecture.
